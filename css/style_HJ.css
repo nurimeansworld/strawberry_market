@@ -1,4 +1,6 @@
-.L-button{
+@charset "utf-8";
+
+.large-next-btn{
   width: 322px;
   height: 44px;
   color: #fff;
@@ -6,17 +8,13 @@
   font-size:  14px;
   border: none;
   border-radius: 44px;
+  cursor: pointer;
 }
-.L-Disabled-button{
-  width: 322px;
-  height: 44px;
-  color: #fff;
+.large-next-btn.disabled {
   background: #FCBBC4;
-  font-size: 14px;
-  border: none;
-  border-radius: 44px;
-}
-.M-button {
+} 
+
+.medium-follow-btn {
   width: 120px;
   height: 34px;
   color: #fff;
@@ -24,18 +22,12 @@
   font-size: 14px;
   border: none;
   border-radius: 30px;
+  cursor: pointer;
 }
-.M-Disabled-button {
-  width: 120px;
-  height: 34px;
-  color: #fff;
+.medium-follow-btn.disabled {
   background: #FCBBC4;
-  font-size: 14px;
-  border: none;
-  border-radius: 30px;
 }
-
-.M-Active-button {
+.medium-unfollow-btn {
   width: 120px;
   height: 34px;
   color: #767676;
@@ -43,29 +35,9 @@
   border: 1px solid #DBDBDB;
   font-size: 14px;
   border-radius: 30px;
+  cursor: pointer;
 }
-
-.Ms-button {
-  width: 90px;
-  height: 32px;
-  color: #fff;
-  background: #E26E7E;
-  font-size: 14px;
-  border: none;
-  border-radius: 32px;
-}
-
-.Ms-Disabled-button {
-  width: 90px;
-  height: 32px;
-  color: #fff;
-  background: #FCBBC4;
-  font-size: 14px;
-  border: none;
-  border-radius: 32px;
-}
-
-.S-button {
+.small-follow-button {
   width: 56px;
   height: 28px;
   color: #fff;
@@ -73,9 +45,24 @@
   font-size: 12px;
   border: none;
   border-radius: 30px;
+  cursor: pointer;
 }
 
-.S-Activ-button {
+.save-btn {
+  width: 90px;
+  height: 32px;
+  color: #fff;
+  background: #E26E7E;
+  font-size: 14px;
+  border: none;
+  border-radius: 32px;
+  cursor: pointer;
+}
+.save-btn.disabled{
+  background: #FCBBC4;
+}
+
+.cancel-button {
   width: 56px;
   height: 28px;
   color: #767676;
@@ -83,11 +70,10 @@
   border: 1px solid #DBDBDB;
   font-size: 12px;
   border-radius: 30px;
+  cursor: pointer;
 }
-* {
-  box-sizing:border-box;
-  }
-.user-follow {
+
+.user-follow-bar {
   color: #000;
   display: flex;
   width: 358px;
@@ -96,28 +82,21 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   flex-direction: column;
+  /* background-color: #FCBBC4; */
 }
-.user-search {
+.user-search-bar {
   color: #000;
   display: flex;
   width: 358px;
   height: 50px;
   align-items: center;
+  /* background-color: #FCBBC4; */
 }
-.S-button {
-  width: 56px;
-  height: 28px;
-  color: #fff;
-  background: #E26E7E;
-  font-size: 12px;
-  border: none;
-}       
-.image-item {
+.user-image {
   width: 50px;
   height: 50px;
-  border-radius: 50px;
 }
-.my-email {
+.user-email {
   font-size: 12px;
   color: #767676;
 }
@@ -126,6 +105,6 @@
   line-height: 22px;
 }
 .user-search-info {
-  margin-left: 19px;
+  margin-left: 14px;
   line-height: 22px;
 }
