@@ -1,0 +1,199 @@
+@charset "UTF-8";
+
+.sr-only {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+}
+
+html {
+  /* rem쓰는지 px쓰는지 */
+  /* font-size: 10px; */
+}
+
+/* text-Activ-input (3.1.2 로그인) 시작 */
+.login-email-tit {
+  color: #767676;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.login-email-input {
+  border: none;
+  padding-bottom: 9px;
+}
+
+.login-email-input:focus, 
+.login-email-input:active {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #F26E22;
+}
+/* text-Activ-input (3.1.2 로그인) 끝 */
+
+/* icon-product-modal (3.1.6 사용자 프로필 페이지) 시작 */
+.up-modal {
+  width: 100%;
+  background-color: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  position: absolute;
+  bottom: 0;
+  background-image: url(../assets/indicator.png);
+  background-repeat: no-repeat;
+  background-position: 50% 15px;
+  background-size: 50px 4px;
+  display: none;
+}
+
+.modal-product-list {
+  line-height: 46px;
+  padding: 36px 0 5px 26px;
+  font-size: 14px;
+  cursor: pointer;
+}
+/* icon-product-modal (3.1.6 사용자 프로필 페이지) 끝 */
+
+/* comment (3.1.10 게시글 댓글 페이지) 시작 */
+.comment {
+  width: calc(100% - 6px);
+  margin: 0 auto;
+}
+
+.comment form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment .comment-input {
+  border: none;
+  outline: none;
+  background-image: url(../assets/small-profile-img.png);
+  background-repeat: no-repeat;
+  background-size: 36px;
+  padding: 20px 0 20px 50px;
+  background-position: 0 10px;
+  flex-grow: 1;
+}
+
+.comment .comment-input::placeholder {
+  color: #C4C4C4;
+  font-size: 14px;
+}
+
+.comment .commenet-btn {
+  border: none;
+  background: none;
+  color: #C4C4C4;
+  font-size: 14px;
+  cursor: pointer;
+}
+/* comment (3.1.10 게시글 댓글 페이지) 끝 */
+
+/* tab-menu (3.1.14 하단 탭 메뉴) 시작 */
+.tab-menu {
+  width: calc(100% - 6px);
+  margin: 0 auto;
+}
+
+.tab-menu-list {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: flex-end;
+  text-align: center;
+}
+
+.tab-menu-list li {
+  width: 84px;
+  position: relative;
+  padding-bottom: 9px;
+}
+
+.tab-menu-list li::before {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 13px;
+  left: 30px;
+  background-size: contain;
+}
+
+.tab-menu-list .tab-menu-list-item-1::before {
+  background-image: url(../assets/icon/icon-home.png);
+}
+.tab-menu-list .tab-menu-list-item-2::before {
+  background-image: url(../assets/icon/icon-message-circle.png);
+}
+.tab-menu-list .tab-menu-list-item-3::before {
+  background-image: url(../assets/icon/icon-edit.png);
+}
+.tab-menu-list .tab-menu-list-item-4::before {
+  background-image: url(../assets/icon/icon-user.png);
+}
+
+.tab-menu-list li a {
+  margin-top: 40px;
+  display: inline-block;
+  color: #767676;
+  font-size: 10px;
+}
+/* tab-menu (3.1.14 하단 탭 메뉴) 끝 */
+
+/* delete-alert (3.1.16 모달 버튼) 시작 */
+.modal-background {
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.modal {
+  background-color: #fff;
+  width: 252px;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  display: none;
+}
+
+.modal .modal-tit {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 61px;
+  border-bottom: 0.5px solid #DBDBDB;
+}
+
+.modal .modal-btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-btns button {
+  border: none;
+  background-color: inherit;
+  width: 50%;
+  line-height: 46px;
+}
+
+.modal-btns .modal-cancel-btn {
+  border-right: 0.5px solid #DBDBDB;
+}
+
+.modal-btns .modal-delete-btn {
+  color: #F26E22;
+}
+/* delete-alert (3.1.16 모달 버튼) 끝 */
+
+
