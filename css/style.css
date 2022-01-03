@@ -1,22 +1,3 @@
-@charset "UTF-8";
-
-/* font */
-@font-face {
-  font-family: Spoqa Han Sans Neo;
-  src: url("../font/SpoqaHanSansNeo-Regular.woff") format("woff");
-  font-weight: 400;
-}
-@font-face {
-  font-family: Spoqa Han Sans Neo;
-  src: url("../font/SpoqaHanSansNeo-Medium.woff") format("woff");
-  font-weight: 500;
-}
-@font-face {
-  font-family: Spoqa Han Sans Neo;
-  src: url("../font/SpoqaHanSansNeo-Bold.woff") format("woff");
-  font-weight: 700;
-}
-
 /* style */
 :root {
   --enabled-color: #E26E7E;
