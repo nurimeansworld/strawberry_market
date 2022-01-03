@@ -1,0 +1,57 @@
+.wrap{
+  width: 390px;
+}
+
+.nav{
+  /* background-color: #ddd; */
+  
+  padding: 8px 12px;
+  height: 48px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav .btn-back{
+  /* margin: 13px 16px; */
+  margin: 5px 4px;
+  width: 22px;
+  background: transparent;
+  cursor: pointer;
+}
+.nav .btn-menu{
+  margin-left: auto;
+  width: 24px;
+  background: transparent;
+  cursor: pointer;
+}
+.nav .inp-search{
+  margin-right: 4px;
+  padding: 7px 16px;
+  width: 80%;
+  min-width: 316px;
+  background: #F2F2F2;
+  border-radius: 32px;
+}
+.nav .inp-search::placeholder{
+  color: #C4C4C4;
+}
+.nav .link-search{
+  /* margin: 13px 16px; */
+  margin: 4px;
+  width: 24px;
+}
+
+.nav-main p{
+  /* margin: 13px 16px; */
+  margin: 5px 4px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+}
+.nav-chat p{
+  margin: 7px 0 0 6px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+}

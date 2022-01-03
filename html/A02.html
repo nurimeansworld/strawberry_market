@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A02 - 컴포넌트(누리)</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/style_nuri.css">
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="modal"></div>
+    <p>top-basic-nav</p>
+    <div class="nav nav-basic">
+      <button type="button" class="btn-back"><img src="../image/icon-arrow-left.png" alt="뒤로가기"></button>
+      <button type="button" class="btn-menu"><img src="../image/icon-more-vertical.png" alt="메뉴 열기"></button>
+    </div>
+
+    <p>top-search-nav</p>
+    <div class="nav nav-search">
+      <button type="button" class="btn-back"><img src="../image/icon-arrow-left.png" alt="뒤로가기"></button>
+      <input type="text" placeholder="계정 검색" class="inp-search">
+    </div>
+
+    <p>top-main-nav</p>
+    <div class="nav nav-main">
+      <p>감귤마켓 피드</p>
+      <!-- CHECK:: 실제 검색 페이지로 수정 -->
+      <a href="/search" class="link-search">
+        <img src="../image/icon-search.png" alt="검색 페이지로 이동">
+      </a>
+    </div>
+
+    <p>top-uplaod-nav</p>
+    <div class="nav nav-upload">
+      <button type="button" class="btn-back"><img src="../image/icon-arrow-left.png" alt="뒤로가기"></button>
+      <!-- CHECK:: btn 모듈화 btn-save 가져다 쓰기 -->
+      <button class="btn-save">저장</button>
+    </div>
+
+    <p>top-chat-nav</p>
+    <div class="nav nav-chat">
+      <button type="button" class="btn-back"><img src="../image/icon-arrow-left.png" alt="뒤로가기"></button>
+      <p class="sl-ellipsis">애월읍 위니브 감귤농장</p>
+      <button type="button" class="btn-menu"><img src="../image/icon-more-vertical.png" alt="메뉴 열기"></button>
+    </div>
+  </div>
+  <script src="../js/script.js"></script>
+  <script src="../js/script_nuri.js"></script>
+</body>
+
+</html>
