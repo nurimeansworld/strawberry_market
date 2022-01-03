@@ -1,0 +1,131 @@
+.L-button{
+  width: 322px;
+  height: 44px;
+  color: #fff;
+  background: #E26E7E;
+  font-size:  14px;
+  border: none;
+  border-radius: 44px;
+}
+.L-Disabled-button{
+  width: 322px;
+  height: 44px;
+  color: #fff;
+  background: #FCBBC4;
+  font-size: 14px;
+  border: none;
+  border-radius: 44px;
+}
+.M-button {
+  width: 120px;
+  height: 34px;
+  color: #fff;
+  background: #E26E7E;
+  font-size: 14px;
+  border: none;
+  border-radius: 30px;
+}
+.M-Disabled-button {
+  width: 120px;
+  height: 34px;
+  color: #fff;
+  background: #FCBBC4;
+  font-size: 14px;
+  border: none;
+  border-radius: 30px;
+}
+
+.M-Active-button {
+  width: 120px;
+  height: 34px;
+  color: #767676;
+  background: #fff;
+  border: 1px solid #DBDBDB;
+  font-size: 14px;
+  border-radius: 30px;
+}
+
+.Ms-button {
+  width: 90px;
+  height: 32px;
+  color: #fff;
+  background: #E26E7E;
+  font-size: 14px;
+  border: none;
+  border-radius: 32px;
+}
+
+.Ms-Disabled-button {
+  width: 90px;
+  height: 32px;
+  color: #fff;
+  background: #FCBBC4;
+  font-size: 14px;
+  border: none;
+  border-radius: 32px;
+}
+
+.S-button {
+  width: 56px;
+  height: 28px;
+  color: #fff;
+  background: #E26E7E;
+  font-size: 12px;
+  border: none;
+  border-radius: 30px;
+}
+
+.S-Activ-button {
+  width: 56px;
+  height: 28px;
+  color: #767676;
+  background: #fff;
+  border: 1px solid #DBDBDB;
+  font-size: 12px;
+  border-radius: 30px;
+}
+* {
+  box-sizing:border-box;
+  }
+.user-follow {
+  color: #000;
+  display: flex;
+  width: 358px;
+  height: 50px;
+  align-content: space-between;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.user-search {
+  color: #000;
+  display: flex;
+  width: 358px;
+  height: 50px;
+  align-items: center;
+}
+.S-button {
+  width: 56px;
+  height: 28px;
+  color: #fff;
+  background: #E26E7E;
+  font-size: 12px;
+  border: none;
+}       
+.image-item {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+.my-email {
+  font-size: 12px;
+  color: #767676;
+}
+.user-follow-info {
+  margin-left: -68px;
+  line-height: 22px;
+}
+.user-search-info {
+  margin-left: 19px;
+  line-height: 22px;
+}
