@@ -2,79 +2,79 @@
 <html lang="ko">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>component</title>
-    <link rel="stylesheet" href="../css/default.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>component</title>
+  <link rel="stylesheet" href="../css/default.css">
 </head>
 
 <body>
-<!-- 클래스명 겹칠까봐 부모를 명시하다보니 길어짐 -->
+  <!-- 클래스명 겹칠까봐 부모를 명시하다보니 길어짐 -->
 
-    <!-- text-Activ-input (3.1.2 로그인) -->
-    <!-- label로 수정 -->
-    <label for="login-email" class="login-email-tit">이메일</label>
-    <input type="email" class="login-email-input" id="login-email">
+  <!-- text-Activ-input (3.1.2 로그인) -->
+  <!-- label로 수정 -->
+  <label for="login-email" class="login-email-tit">이메일</label>
+  <input type="email" class="login-email-input" id="login-email">
 
-    <!-- icon-product-modal (3.1.6 사용자 프로필 페이지) -->
-    <section class="up-modal">
-      <h2 class="sr-only">판매 중인 상품의 정보를 변경하는 창입니다.</h2>
-      <ul class="modal-product-list">
-        <li class="modal-product-item">
-          <button class="product-delete-btn">삭제</button>
-        </li>
-        <li class="modal-product-item">
-          <button class="product-edit-btn">수정</button>
-        </li>
-        <li class="modal-product-item">
-          <a href="javascript:void(0)" class="product-view-link">웹사이트에서 상품 보기</a>
-        </li>
-      </ul>
-    </section>
+  <!-- icon-product-modal (3.1.6 사용자 프로필 페이지) -->
+  <section class="up-modal">
+    <h2 class="sr-only">판매 중인 상품의 정보를 변경하는 창입니다.</h2>
+    <ul class="modal-product-list">
+      <li class="modal-product-item">
+        <button class="product-delete-btn">삭제</button>
+      </li>
+      <li class="modal-product-item">
+        <button class="product-edit-btn">수정</button>
+      </li>
+      <li class="modal-product-item">
+        <a href="javascript:void(0)" class="product-view-link">웹사이트에서 상품 보기</a>
+      </li>
+    </ul>
+  </section>
 
-    <!-- comment (3.1.10 게시글 댓글 페이지) -->
-    <section class="comment">
-      <h2 class="sr-only">게시글에 댓글을 작성하는 페이지입니다.</h2>
-      <form action="">
-        <!-- 프로필 사진 img태그로 수정 -->
-        <img src="../assets/small-profile-img.png" alt="프로필 사진" class="profile-img">
-        <!-- label에다가 sr-only-->
-        <label for="" class="sr-only">댓글 입력창입니다.</label>
-        <input type="text" placeholder="댓글 입력하기..." class="comment-input">
-        <button type="submit" class="commenet-btn" disabled>게시</button>
-      </form>
-    </section>
+  <!-- comment (3.1.10 게시글 댓글 페이지) -->
+  <section class="comment">
+    <h2 class="sr-only">게시글에 댓글을 작성하는 페이지입니다.</h2>
+    <form action="">
+      <!-- 프로필 사진 img태그로 수정 -->
+      <img src="../assets/small-profile-img.png" alt="프로필 사진" class="profile-img">
+      <!-- label에다가 sr-only-->
+      <label for="" class="sr-only">댓글 입력창입니다.</label>
+      <input type="text" placeholder="댓글 입력하기..." class="comment-input">
+      <button type="submit" class="commenet-btn" disabled>게시</button>
+    </form>
+  </section>
 
-    <!-- tab-menu (3.1.14 하단 탭 메뉴)-->
-    <nav class="tab-menu">
-      <ul class="tab-menu-list">
-        <li class="tab-menu-list-item-1">
-          <a href="javascript:void(0)">홈</a>
-        </li>
-        <li class="tab-menu-list-item-2">
-          <a href="javascript:void(0)">채팅</a>
-        </li>
-        <li class="tab-menu-list-item-3">
-          <a href="javascript:void(0)">게시물 작성</a>
-        </li>
-        <li class="tab-menu-list-item-4">
-          <a href="javascript:void(0)">프로필</a>
-        </li>
-      </ul>
-    </nav>
+  <!-- tab-menu (3.1.14 하단 탭 메뉴)-->
+  <nav class="tab-menu">
+    <ul class="tab-menu-list">
+      <li class="tab-menu-list-item-1">
+        <a href="javascript:void(0)">홈</a>
+      </li>
+      <li class="tab-menu-list-item-2">
+        <a href="javascript:void(0)">채팅</a>
+      </li>
+      <li class="tab-menu-list-item-3">
+        <a href="javascript:void(0)">게시물 작성</a>
+      </li>
+      <li class="tab-menu-list-item-4">
+        <a href="javascript:void(0)">프로필</a>
+      </li>
+    </ul>
+  </nav>
 
-    <!-- delete-alert (3.1.16 모달 버튼)-->
-    <section class="modal-background">
-      <h2 class="sr-only">판매 중인 상품의 정보를 변경합니다.</h2>
-      <div class="modal">
-        <p class="modal-tit">상품을 삭제할까요?</p>
-        <div class="modal-btns">
-          <button class="modal-cancel-btn">취소</button>
-          <button class="modal-delete-btn">삭제</button>
-        </div>
+  <!-- delete-alert (3.1.16 모달 버튼)-->
+  <section class="modal-background">
+    <h2 class="sr-only">판매 중인 상품의 정보를 변경합니다.</h2>
+    <div class="modal">
+      <p class="modal-tit">상품을 삭제할까요?</p>
+      <div class="modal-btns">
+        <button class="modal-cancel-btn">취소</button>
+        <button class="modal-delete-btn">삭제</button>
       </div>
-    </section>
+    </div>
+  </section>
 </body>
 
 </html>

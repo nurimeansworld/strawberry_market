@@ -1,20 +1,25 @@
 @charset "UTF-8";
 
 /* text-Activ-input (3.1.2 로그인) 시작 */
-.login-email-tit {
-  color: #767676;
+.login-email-tit,
+.login-pw-tit {
+  color: var(--cancel-color-text);
   font-size: 12px;
   margin-bottom: 10px;
   display: block;
 }
 
+.login-pw-input,
 .login-email-input {
   border: none;
-  padding-bottom: 9px;
+  border-bottom: 1px solid var(--cancel-color-border);
+  padding-bottom: 8px;
+  width: 100%;
 }
-
 .login-email-input:focus, 
-.login-email-input:active {
+.login-email-input:active,
+.login-pw-input:focus, 
+.login-pw-input:active {
   outline: none;
   border: none;
   border-bottom: 1px solid #F26E22;
@@ -136,7 +141,7 @@
 .tab-menu-list li a {
   margin-top: 40px;
   display: inline-block;
-  color: #767676;
+  color: var(--cancel-color-text);
   font-size: 10px;
 }
 /* tab-menu (3.1.14 하단 탭 메뉴) 끝 */
@@ -169,7 +174,7 @@
   font-size: 16px;
   font-weight: bold;
   line-height: 61px;
-  border-bottom: 0.5px solid #DBDBDB;
+  border-bottom: 0.5px solid var(--cancel-color-border);
 }
 
 .modal .modal-btns {
@@ -185,7 +190,7 @@
 }
 
 .modal-btns .modal-cancel-btn {
-  border-right: 0.5px solid #DBDBDB;
+  border-right: 0.5px solid var(--cancel-color-border);
 }
 
 .modal-btns .modal-delete-btn {

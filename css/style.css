@@ -18,11 +18,49 @@ body {
   margin: 0;
   padding: 0;
   font-family: Spoqa Han Sans Neo;
-  background-color: #DBDBDB;
+  background-color: var(--cancel-color-border);
 }
 
+/* body */
 .container{
   margin: 0 auto;
-  max-width: 360px;
+  max-width: calc(100% - 32px);
   background-color: #fff;
 }
+.container-join{
+  margin: 0 auto;
+  max-width: calc(100% - 68px);
+  background-color: #fff;
+}
+.center{
+  text-align: center;
+}
+
+/* 공동 작업 - 로그인 페이지 */
+.page-tit{
+  padding-top: 30px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 30px;
+  margin-bottom: 30px;
+}
+.login-form{
+  display: block;
+  margin-bottom: 20px;
+} 
+
+.login-message-error{
+  display: block;
+  font-size: 12px;
+  color: #EB5757;
+  margin-top: 6px;
+}
+.login-form .large-next-btn {}
+.join-link{
+  display: block;
+  color: var(--cancel-color-text);
+  font-size: 12px;
+  margin-top: 20px;
+}
+
