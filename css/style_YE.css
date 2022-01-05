@@ -1,0 +1,103 @@
+@charset "utf-8";
+/* base */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500&display=swap');
+
+body{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.nav{
+  /* background-color: #ddd; */
+  padding: 8px 12px;
+  height: 48px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #767676;
+}
+
+.nav-main p{
+  /* margin: 13px 16px; */
+  margin: 5px 4px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+/* article 시작! */
+.home-post-user {
+    padding: 10px 15px;
+    position: relative;
+}
+
+.home-post-user .user-profile {
+  float: left;
+  width: 36px;
+  height: 36px;
+  margin-right: 11px;
+}
+
+.home-post-user .user-name {
+  font-weight: 500;
+}
+
+.home-post-user .user-id {
+  color: #767676;
+  font-size: 12px;
+  padding-top: 5px;
+}
+
+.home-post-user .btn-menu {
+  /* margin-left: auto; */
+  position: absolute;
+  top: 10px;
+  left: 350px;
+  width: 24px;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* post 내용 시작! */
+.home-post-content {
+  /* 304*426 */
+  width: 304px;
+  height: 330px;
+  margin: 10px 0 0 60px;
+}
+
+.home-post-content .user-cont {
+  margin-bottom: 15px;
+  font-size: 14px;
+  font-weight: 400px;
+  line-height: 1.3;
+}
+
+/* post 좋아요, 댓글  */
+.home-post-comment {
+  display: flex;
+  font-size: small;
+  color: #767676;
+  margin-left: 60px;
+}
+
+/* 버튼묶음 */
+
+.home-post-comment .item-count {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.home-post-comment .item-count .btn {
+  border: 0;
+  outline: 0;
+  background: none;
+  margin-right: 7px;
+}
+
+.date {
+  margin: 15px 0 10px 60px;
+  font-size: small;
+  color: #767676;
+}
+

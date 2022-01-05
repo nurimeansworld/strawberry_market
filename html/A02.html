@@ -6,9 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>A02 - 컴포넌트(누리)</title>
-  <link rel="stylesheet" href="../css/reset.css">
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/style_nuri.css">
+  <link rel="stylesheet" href="../css/default.css">
 </head>
 
 <body>
@@ -23,7 +21,8 @@
     <p>top-search-nav</p>
     <div class="nav nav-search">
       <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
-      <input type="text" placeholder="계정 검색" class="inp-search">
+      <label for="inpSearch" class="sr-only">계정 검색</label>
+      <input type="text" placeholder="계정 검색" class="inp-search" id="inpSearch">
     </div>
 
     <p>top-main-nav</p>
@@ -39,7 +38,7 @@
     <div class="nav nav-upload">
       <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
       <!-- CHECK:: btn 모듈화 btn-save 가져다 쓰기 -->
-      <button class="btn-save">저장</button>
+      <button type="button" class="Ms-button">저장</button>
     </div>
 
     <p>top-chat-nav</p>
