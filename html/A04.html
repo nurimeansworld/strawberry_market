@@ -6,25 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>component</title>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/style_jiah.css">
+    <link rel="stylesheet" href="../css/default.css">
 </head>
 
 <body>
 <!-- 클래스명 겹칠까봐 부모를 명시하다보니 길어짐 -->
-<!-- 섹션 아래 헤딩태그는 위에서부터 어디까지 썼을지 몰라서 지금 작성하기에 애매함. 일단 다 h2로 지정 -->
 
     <!-- text-Activ-input (3.1.2 로그인) -->
-    <p class="login-email-tit">이메일</p>
-    <input type="email" class="login-email-input">
+    <!-- label로 수정 -->
+    <label for="login-email" class="login-email-tit">이메일</label>
+    <input type="email" class="login-email-input" id="login-email">
 
     <!-- icon-product-modal (3.1.6 사용자 프로필 페이지) -->
     <section class="up-modal">
       <h2 class="sr-only">판매 중인 상품의 정보를 변경하는 창입니다.</h2>
       <ul class="modal-product-list">
-        <li class="modal-product-list-item-1">삭제</li>
-        <li class="modal-product-list-item-2">수정</li>
-        <li class="modal-product-list-item-3">웹사이트에서 상품 보기</li>
+        <li class="modal-product-item">
+          <button class="product-delete-btn">삭제</button>
+        </li>
+        <li class="modal-product-item">
+          <button class="product-edit-btn">수정</button>
+        </li>
+        <li class="modal-product-item">
+          <a href="javascript:void(0)" class="product-view-link">웹사이트에서 상품 보기</a>
+        </li>
       </ul>
     </section>
 
@@ -32,13 +37,16 @@
     <section class="comment">
       <h2 class="sr-only">게시글에 댓글을 작성하는 페이지입니다.</h2>
       <form action="">
+        <!-- 프로필 사진 img태그로 수정 -->
+        <img src="../assets/small-profile-img.png" alt="프로필 사진" class="profile-img">
+        <!-- label에다가 sr-only-->
+        <label for="" class="sr-only">댓글 입력창입니다.</label>
         <input type="text" placeholder="댓글 입력하기..." class="comment-input">
         <button type="submit" class="commenet-btn" disabled>게시</button>
       </form>
     </section>
 
     <!-- tab-menu (3.1.14 하단 탭 메뉴)-->
-    <!-- footer, section 중에 고민함 -->
     <nav class="tab-menu">
       <ul class="tab-menu-list">
         <li class="tab-menu-list-item-1">
