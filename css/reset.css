@@ -178,3 +178,6 @@ a {
   color: black;
   cursor: pointer;
 }
+button:hover {
+  cursor: pointer;
+}

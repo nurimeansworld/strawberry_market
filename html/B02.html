@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 작성 페이지 - 딸기마켓</title>
+    <link rel="stylesheet" href="../css/default.css">
+</head>
+
+<body>
+  <!-- A02 컴포넌트 -->
+  <div class="nav nav-upload">
+    <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
+    <!-- CHECK:: btn 모듈화 btn-save 가져다 쓰기 -->
+    <button type="button" class="save-button">업로드</button>
+  </div>
+  <section class="upload container">
+    <h2 class="sr-only">게시글을 작성해주세요.</h2>
+    <!-- A04 컴포넌트 수정 후 적용-->
+    <form action="" method="post">
+      <img src="../assets/small-profile-img.png" alt="프로필 사진" class="profile-img">
+      <label for="" class="sr-only">게시글 입력창입니다.</label>
+      <input type="text" placeholder="게시글 입력하기..." class="post-input">
+    </form>
+    <button class="img-upload-btn"><img src="../assets/upload-file.png" alt="이미지 업로드 버튼입니다"></button>
+  </section>
+</body>
+
+</html>

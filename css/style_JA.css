@@ -148,7 +148,7 @@
 
 /* delete-alert (3.1.16 모달 버튼) 시작 */
 .modal-background {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(11,19,30,.37);
   position: fixed;
   top: 0;
   left: 0;
