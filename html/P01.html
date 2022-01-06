@@ -10,18 +10,203 @@
 </head>
 
 <body>
-
-  <header></header>
-
+  <div class="nav-skip">
+    <a href="#gnb">메뉴 바로가기</a>
+    <a href="#content">본문 바로가기</a>
+  </div>
+  <!-- CHECK:: header로 넣을지, 안에 콘텐츠로 넣을지 -->
+  <header class="nav nav-basic container">
+    <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
+    <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
+  </header>
   <main>
     <section class="container">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae debitis velit harum alias quis quos, assumenda
-      sequi, deleniti praesentium, totam illum ex iure. Eum odit in assumenda placeat commodi sint.
+      <h1 class="sr-only">사용자 프로필</h1>
+
+      <!-- 1. 프로필 -->
+      <section id="content" class="profile-sec">
+        <h2 class="sr-only">프로필 영역</h2>
+        <div>
+          <img src="../assets/basic-profile-img-2.png" alt="사용자 프로필 이미지입니다." class="profile-img">
+          <dl class="profile-follow">
+            <dt>followers</dt>
+            <dd>2950</dd>
+            <dt>followings</dt>
+            <dd>128</dd>
+          </dl>
+        </div>
+
+        <h3 class="profile-name">애월읍 위니브 감귤농장</h3>
+        <span class="profile-account">@ weniv_Mandarin</span>
+        <p class="profile-desc">애월읍 감귤 전국 배송, 귤따기 체험, 감귤 농장</p>
+        <div class="profile-btn-wrap">
+          <button class="message-btn">메시지</button>
+          <button class="follow-btn">팔로우</button>
+          <button class="share-btn">공유</button>
+        </div>
+      </section>
+      <!-- // 1. 프로필 -->
+
+      <!-- 2. 판매 중인 상품 -->
+      <section class="product-sec">
+        <h2 class="sec-title">판매 중인 상품</h2>
+        <ul class="product-list">
+          <li class="product-item">
+            <img src="../assets/product-img-example.png" alt="" class="item-img">
+            <h3 class="item-tit">애월읍 노지 감귤</h3>
+            <p class="item-price">35,000원</p>
+          </li>
+          <li class="product-item">
+            <img src="../assets/product-img-example.png" alt="" class="item-img">
+            <h3 class="item-tit">애월읍 노지 감귤</h3>
+            <p class="item-price">35,000원</p>
+          </li>
+          <li class="product-item">
+            <img src="../assets/product-img-example.png" alt="" class="item-img">
+            <h3 class="item-tit">애월읍 노지 감귤</h3>
+            <p class="item-price">35,000원</p>
+          </li>
+        </ul>
+      </section>
+      <!-- // 2. 판매 중인 상품 -->
+
+      <!-- 3. 게시글 -->
+      <section class="post-sec">
+        <h2 class="sr-only">사용자 게시글</h2>
+        <ul class="post-btn-list">
+          <li><button class="post-btn-list">리스트로 보기</button></li>
+          <li><button class="post-btn-gallery">갤러리로 보기</button></li>
+        </ul>
+
+        <!-- 리스트로 보기 -->
+        <section id="viewList" class="postlist-sec">
+          <h3 class="sr-only">리스트 게시글</h3>
+          <ul class="postlist-list">
+
+            <li class="postlist-item home-post">
+              <!-- CHECK:: article class를 li로 옮긴 것을 수정해야할지 -->
+              <!-- CHECK:: section -> div로 바꿨는데 우선 고민. 또 수정해야할지도 고민 -->
+              <!-- <article class="home-post"> -->
+              <div class="home-post-user">
+                <img class="user-profile" src="../assets/small-profile-img.png" alt="회원 프로필">
+                <h4 class="user-name">애월읍 위니브 감귤농장</h4>
+                <p class="user-id">@ weniv_Mandarin</p>
+                <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png"
+                    alt="메뉴 열기"></button>
+              </div>
+              <!-- 게시글 내용 부분 -->
+              <div class="home-post-content">
+                <p class="user-cont">옷을 인생을 그러므로 없으면 것은 이상은 것은 우리의 위하여, 뿐이다. 이상의 청춘의 뼈 따뜻한 그들의 그와 약동하다. 대고, 못할 넣는 풍부하게
+                  뛰노는 인생의 힘있다.</p>
+                <img class="user-photo" src="../assets/post-img-example.png" alt="회원 사진">
+              </div>
+              <!-- 게시글 좋아요,메세지 버튼 -->
+              <div class="home-post-comment">
+                <div class="item-count">
+                  <button type="button" class="btn btn-heart">
+                    <img class="heart-button" src="../assets/icon/heart.png" alt="하트버튼">
+                  </button>
+                  <p class="heart-count">58</p>
+                </div>
+                <div class="item-count">
+                  <button type="button" class="btn btn-message">
+                    <img class="message-button" src="../assets/icon/message-circle.png" alt="메세지 버튼">
+                  </button>
+                  <p class="message-count">12</p>
+                </div>
+              </div>
+              <!-- 게시글 날짜 -->
+              <p class="date">2020년 10월 21일</p>
+              <!-- </article> -->
+            </li>
+
+            <li class="postlist-item home-post">
+              <!-- <article class="home-post"> -->
+              <section class="home-post-user">
+                <img class="user-profile" src="../assets/small-profile-img.png" alt="회원 프로필">
+                <h4 class="user-name">애월읍 위니브 감귤농장</h4>
+                <p class="user-id">@ weniv_Mandarin</p>
+                <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png"
+                    alt="메뉴 열기"></button>
+              </section>
+              <!-- 게시글 내용 부분 -->
+              <section class="home-post-content">
+                <p class="user-cont">옷을 인생을 그러므로 없으면 것은 이상은 것은 우리의 위하여, 뿐이다. 이상의 청춘의 뼈 따뜻한 그들의 그와 약동하다. 대고, 못할 넣는 풍부하게
+                  뛰노는 인생의 힘있다.</p>
+                <img class="user-photo" src="../assets/post-img-example.png" alt="회원 사진">
+              </section>
+              <!-- 게시글 좋아요,메세지 버튼 -->
+              <section class="home-post-comment">
+                <div class="item-count">
+                  <button type="button" class="btn btn-heart">
+                    <img class="heart-button" src="../assets/icon/heart.png" alt="하트버튼">
+                  </button>
+                  <p class="heart-count">58</p>
+                </div>
+                <div class="item-count">
+                  <button type="button" class="btn btn-message">
+                    <img class="message-button" src="../assets/icon/message-circle.png" alt="메세지 버튼">
+                  </button>
+                  <p class="message-count">12</p>
+                </div>
+              </section>
+              <!-- 게시글 날짜 -->
+              <p class="date">2020년 10월 21일</p>
+              <!-- </article> -->
+            </li>
+
+          </ul>
+        </section>
+        <!-- // 리스트로 보기 -->
+        <!-- 갤러리로 보기 -->
+        <section id="viewGallery" class="postgallery-sec">
+          <h3 class="sr-only">갤러리 게시글</h3>
+          <ul class="postgallery-list">
+            <li class="postgallery-item">
+              <img src="../assets/chat-exapmle.png" alt="">
+            </li>
+            <li class="postgallery-item">
+              <img src="../assets/chat-exapmle.png" alt="">
+            </li>
+            <li class="postgallery-item">
+              <img src="../assets/chat-exapmle.png" alt="">
+            </li>
+            <li class="postgallery-item">
+              <img src="../assets/chat-exapmle.png" alt="">
+            </li>
+            <li class="postgallery-item">
+              <img src="../assets/chat-exapmle.png" alt="">
+            </li>
+          </ul>
+        </section>
+        <!-- // 갤러리로 보기 -->
+
+      </section>
+      <!-- // 3. 게시글 -->
+
+      <!-- 4. 탭 메뉴 -->
+      <nav id="gnb" class="tab-menu">
+        <ul class="tab-menu-list">
+          <li class="tab-menu-list-item-1">
+            <a href="javascript:void(0)">홈</a>
+          </li>
+          <li class="tab-menu-list-item-2">
+            <a href="javascript:void(0)">채팅</a>
+          </li>
+          <li class="tab-menu-list-item-3">
+            <a href="javascript:void(0)">게시물 작성</a>
+          </li>
+          <li class="tab-menu-list-item-4">
+            <a href="javascript:void(0)">프로필</a>
+          </li>
+        </ul>
+      </nav>
+      <!-- // 4. 탭 메뉴 -->
+
     </section>
   </main>
 
-  <footer></footer>
-
+  <!-- <footer>menus</footer> -->
   <script src="../js/script.js"></script>
   <script src="../js/script_nuri.js"></script>
 </body>
