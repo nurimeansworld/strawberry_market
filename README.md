@@ -1,6 +1,6 @@
 # strawberry_market
 
-🦁 멋사 프론트엔드스쿨 1기 팀 프로젝트 감귤마켓 [🔗URL](https://nurimeansworld.github.io/strawberry_market/)
+🦁 멋사 프론트엔드스쿨 1기 팀 프로젝트 딸기마켓 [🔗URL](https://nurimeansworld.github.io/strawberry_market/)
 
 - [퍼블리싱 리스트](https://nurimeansworld.github.io/strawberry_market/html/index.html)
 
