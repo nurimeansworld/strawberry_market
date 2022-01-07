@@ -96,3 +96,25 @@
   color: #767676;
 }
 
+.profile-product {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 140px;
+}
+
+.profile-product .user-product-photo {
+  border-radius: 8px;
+  margin-bottom: 5px;
+
+}
+.profile-product .product-name {
+  margin-bottom: 5px;
+}
+.profile-product .product-price {
+  color: #F26E22;
+  font-weight: 500;
+}
+
+
+
