@@ -14,7 +14,6 @@
     <a href="#gnb">메뉴 바로가기</a>
     <a href="#content">본문 바로가기</a>
   </div>
-  <!-- CHECK:: header로 넣을지, 안에 콘텐츠로 넣을지 -->
   <header class="nav nav-basic container">
     <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
     <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
@@ -84,9 +83,7 @@
           <ul class="postlist-list">
 
             <li class="postlist-item home-post">
-              <!-- CHECK:: article class를 li로 옮긴 것을 수정해야할지 -->
               <!-- CHECK:: section -> div로 바꿨는데 우선 고민. 또 수정해야할지도 고민 -->
-              <!-- <article class="home-post"> -->
               <div class="home-post-user">
                 <img class="user-profile" src="../assets/small-profile-img.png" alt="회원 프로필">
                 <h4 class="user-name">애월읍 위니브 감귤농장</h4>
@@ -117,26 +114,25 @@
               </div>
               <!-- 게시글 날짜 -->
               <p class="date">2020년 10월 21일</p>
-              <!-- </article> -->
             </li>
 
             <li class="postlist-item home-post">
-              <!-- <article class="home-post"> -->
-              <section class="home-post-user">
+              <!-- CHECK:: section -> div로 바꿨는데 우선 고민. 또 수정해야할지도 고민 -->
+              <div class="home-post-user">
                 <img class="user-profile" src="../assets/small-profile-img.png" alt="회원 프로필">
                 <h4 class="user-name">애월읍 위니브 감귤농장</h4>
                 <p class="user-id">@ weniv_Mandarin</p>
                 <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png"
                     alt="메뉴 열기"></button>
-              </section>
+              </div>
               <!-- 게시글 내용 부분 -->
-              <section class="home-post-content">
+              <div class="home-post-content">
                 <p class="user-cont">옷을 인생을 그러므로 없으면 것은 이상은 것은 우리의 위하여, 뿐이다. 이상의 청춘의 뼈 따뜻한 그들의 그와 약동하다. 대고, 못할 넣는 풍부하게
                   뛰노는 인생의 힘있다.</p>
                 <img class="user-photo" src="../assets/post-img-example.png" alt="회원 사진">
-              </section>
+              </div>
               <!-- 게시글 좋아요,메세지 버튼 -->
-              <section class="home-post-comment">
+              <div class="home-post-comment">
                 <div class="item-count">
                   <button type="button" class="btn btn-heart">
                     <img class="heart-button" src="../assets/icon/heart.png" alt="하트버튼">
@@ -149,10 +145,9 @@
                   </button>
                   <p class="message-count">12</p>
                 </div>
-              </section>
+              </div>
               <!-- 게시글 날짜 -->
               <p class="date">2020년 10월 21일</p>
-              <!-- </article> -->
             </li>
 
           </ul>
@@ -206,7 +201,6 @@
     </section>
   </main>
 
-  <!-- <footer>menus</footer> -->
   <script src="../js/script.js"></script>
   <script src="../js/script_nuri.js"></script>
 </body>
