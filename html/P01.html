@@ -25,23 +25,31 @@
       <!-- 1. 프로필 -->
       <section id="content" class="profile-sec">
         <h2 class="sr-only">프로필 영역</h2>
-        <div>
+        <div class="profile-wrap">
           <img src="../assets/basic-profile-img-2.png" alt="사용자 프로필 이미지입니다." class="profile-img">
+          <!-- CHECK:: 시맨틱 생각하면 dl>dt,dd 로 짜고 싶은데 그렇게 하면 스타일을 어떻게 할지 고민.
+          검색해보니 dl 하위에 div 단위로 사용해도 괜찮다는 내용이 있어서 우선 그렇게 작업
+        링크 : https://hashcode.co.kr/questions/5358/dldescription-list%EC%9A%94%EC%86%8C%EC%9D%98-%EC%9A%A9%EB%B2%95%EC%9D%B4-%ED%97%B7%EA%B0%88%EB%A6%BD%EB%8B%88%EB%8B%A4 -->
           <dl class="profile-follow">
-            <dt>followers</dt>
-            <dd>2950</dd>
-            <dt>followings</dt>
-            <dd>128</dd>
+            <div class="center profile-followers">
+              <dd>2950</dd>
+              <dt>followers</dt>
+            </div>
+            <div class="center profile-followings">
+              <dd>128</dd>
+              <dt>followings</dt>
+            </div>
           </dl>
         </div>
-
-        <h3 class="profile-name">애월읍 위니브 감귤농장</h3>
-        <span class="profile-account">@ weniv_Mandarin</span>
-        <p class="profile-desc">애월읍 감귤 전국 배송, 귤따기 체험, 감귤 농장</p>
-        <div class="profile-btn-wrap">
-          <button class="message-btn">메시지</button>
-          <button class="follow-btn">팔로우</button>
-          <button class="share-btn">공유</button>
+        <div class="center">
+          <h3 class="profile-name">애월읍 위니브 감귤농장</h3>
+          <span class="profile-account">@ weniv_Mandarin</span>
+          <p class="profile-desc">애월읍 감귤 전국 배송, 귤따기 체험, 감귤 농장</p>
+          <div class="profile-btn-wrap">
+            <button class="profile-btn message-btn"><img src="../assets/icon/message-circle.png" alt="메시지 보내기"></button>
+            <button type="button" class="medium-follow-btn">팔로우</button>
+            <button class="profile-btn share-btn"><img src="../assets/icon/icon-share.png" alt="공유하기"></button>
+          </div>
         </div>
       </section>
       <!-- // 1. 프로필 -->

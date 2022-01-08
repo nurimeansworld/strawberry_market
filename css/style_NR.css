@@ -55,3 +55,82 @@
   font-size: 14px;
   line-height: 18px;
 }
+
+/* 누리 작업 - P01 사용자 프로필 */
+.profile-sec{
+  padding: 30px 0 26px;
+  border: 0.5px solid var(--cancel-color-border);
+}
+.profile-wrap{
+  /* margin: 30px 0 16px; */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile-img{
+  margin: 0 auto;
+  width: 110px;
+}
+.profile-follow{
+  /* width: 100%; */
+  min-width: 77%;
+  position: absolute;
+  top: 35px;
+}
+.profile-follow dd{
+  font-size: 18px;
+  line-height: 23px;
+  font-weight: bold;
+}
+.profile-follow dt{
+  font-size: 10px;
+  line-height: 12px;
+  color: var(--cancel-color-text);
+}
+.profile-followers{
+  float: left;
+}
+.profile-followings{
+  float: right;
+}
+.profile-followings dd{
+  color: var(--cancel-color-text)
+}
+
+.profile-name{
+  /* CHECK:: 보통 margin-top을 주는데 account가 span 태그라 display와 margin 2개를 추가해야해서 여기에 bottom으로 줌 */
+  margin: 16px 0 6px;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: bold;
+}
+.profile-account{
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--cancel-color-text);
+}
+.profile-desc{
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--cancel-color-text);
+}
+.profile-btn-wrap{
+  margin: 24px auto;
+  width: 208px;
+  display: flex;
+  align-items: center;
+}
+.profile-btn{
+  margin: 0 auto;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--cancel-color-border);
+  border-radius: 30px;
+  background-color: #fff;
+}
+.profile-btn img{
+  margin: 0 auto;
+  width: 20px;
+}

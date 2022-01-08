@@ -130,7 +130,6 @@ img {
 .nav-skip a {
     position: absolute;
     top: -200px;
-    width: 200px;
     line-height: 30px;
     border: 1px solid #fff;
     color: #fff;
