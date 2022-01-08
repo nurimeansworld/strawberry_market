@@ -113,6 +113,7 @@
   width: 84px;
   position: relative;
   padding-bottom: 9px;
+  cursor: pointer;
 }
 
 .tab-menu-list li::before {
@@ -125,17 +126,27 @@
   background-size: contain;
 }
 
-.tab-menu-list .tab-menu-list-item-1::before {
+.tab-menu-list .tab-menu-home::before {
   background-image: url(../assets/icon/icon-home.png);
 }
-.tab-menu-list .tab-menu-list-item-2::before {
+.tab-menu-list .tab-menu-chat::before {
   background-image: url(../assets/icon/icon-message-circle.png);
 }
-.tab-menu-list .tab-menu-list-item-3::before {
+.tab-menu-list .tab-menu-post::before {
   background-image: url(../assets/icon/icon-edit.png);
 }
-.tab-menu-list .tab-menu-list-item-4::before {
+.tab-menu-list .tab-menu-profile::before {
   background-image: url(../assets/icon/icon-user.png);
+}
+
+.tab-menu-home.on::before {
+  background-image: url(../assets/icon/icon-home-fill.png);
+}
+.tab-menu-chat.on::before {
+  background-image: url(../assets/icon/icon-message-circle-fill.png);
+}
+.tab-menu-profile.on::before {
+  background-image: url(../assets/icon/icon-user-fill.png);
 }
 
 .tab-menu-list li a {
@@ -157,7 +168,7 @@
   display: none;
 }
 
-.modal {
+.alert-modal {
   background-color: #fff;
   width: 252px;
   border-radius: 10px;
@@ -169,7 +180,7 @@
   display: none;
 }
 
-.modal .modal-tit {
+.alert-modal .alert-tit {
   text-align: center;
   font-size: 16px;
   font-weight: bold;
@@ -177,23 +188,23 @@
   border-bottom: 0.5px solid var(--cancel-color-border);
 }
 
-.modal .modal-btns {
+.alert-modal .alert-btns {
   display: flex;
   justify-content: space-between;
 }
 
-.modal-btns button {
+.alert-btns button {
   border: none;
   background-color: inherit;
   width: 50%;
   line-height: 46px;
 }
 
-.modal-btns .modal-cancel-btn {
+.alert-btns .alert-cancel-btn {
   border-right: 0.5px solid var(--cancel-color-border);
 }
 
-.modal-btns .modal-delete-btn {
+.alert-btns .alert-delete-btn {
   color: #F26E22;
 }
 /* delete-alert (3.1.16 모달 버튼) 끝 */
