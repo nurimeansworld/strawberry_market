@@ -6,10 +6,40 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>프로필 설정 - 딸기마켓</title>
+  <link rel="stylesheet" href="../css/default.css">
 </head>
 
 <body>
+  <section class="container-join">
+    <h1 class="page-tit">프로필 설정</h1>
+    <p>나중에 언제든지 변경할 수 있습니다.</p>
 
+    <!-- CHECK:: 참고 링크 https://codepen.io/jacoahmad/pen/mmYRqe -->
+    <div class="">
+      <!-- <button type="button"></button> -->
+      <!-- MEMO:: input의 가상요소로 넣어서 버튼 이미지를 넣거나 button으로 하거나 상황봐서 -->
+      <input class="" type="file" accept="image/*" />
+    </div>
+
+    <form class="login-form">
+      <!-- CHECK:: 위의 image 링크를 value로 넣어주기 -->
+      <!-- <input type="hidden" value=""> -->
+
+      <label for="login-email" class="login-email-tit">사용자 이름</label>
+      <input type="email" class="login-email-input" id="login-email" required placeholder="2~10자 이내여야 합니다.">
+
+      <label for="login-pw" class="login-pw-tit">계정 ID</label>
+      <input type="password" class="login-pw-input" id="login-pw" required placeholder="영문, 숫자, 특수문자(.),(_)만 사용 가능합니다.">
+      <strong class="login-message-error">*비밀번호는 6자 이상이어야 합니다.</strong>
+
+      <!-- CHECK:: 소개는 최대 50자 -->
+      <label for="login-pw" class="login-pw-tit">소개</label>
+      <input type="password" class="login-pw-input" id="login-pw" required placeholder="자신과 판매할 상품에 대해 소개해 주세요!">
+      <strong class="login-message-error">*비밀번호는 6자 이상이어야 합니다.</strong>
+
+      <button class="large-next-btn center disabled">감귤마켓 시작하기</button>
+    </form>
+  </section>
 </body>
 
 </html>

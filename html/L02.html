@@ -10,19 +10,18 @@
 </head>
 
 <body>
-  <section class="container">
+  <section class="container-join">
     <h1 class="page-tit">이메일로 회원가입</h1>
     <form class="login-form">
       <label for="login-email" class="login-email-tit">이메일</label>
-      <input type="email" class="login-email-input" id="login-email" required>
+      <input type="email" class="login-email-input" id="login-email" required placeholder="이메일 주소를 입력해 주세요.">
+      <strong class="email-login login-message-error">*이미 가입된 이메일 주소입니다.</strong>
 
       <label for="login-pw" class="login-pw-tit">비밀번호</label>
-      <input type="password" class="login-pw-input" id="login-pw" required>
-
-      <strong class="login-message-error">*이메일 또는 비밀번호가 일치하지 않습니다.</strong>
-      <button class="large-next-btn">로그인</button>
+      <input type="password" class="login-pw-input" id="login-pw" required placeholder="비밀번호를 작성해 주세요.">
+      <strong class="login-message-error">*비밀번호는 6자 이상이어야 합니다.</strong>
+      <button class="large-next-btn center disabled">다음</button>
     </form>
-    <a href="javascript:void(0)" class="join-link">이메일로 회원가입</a>
   </section>
 </body>
 

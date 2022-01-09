@@ -24,16 +24,16 @@ body {
 /* body */
 .container{
   margin: 0 auto;
-  /* max-width: calc(100% - 32px); */
-  max-width: 360px;
-  /* background-color: #fff; */
-  background-color: #f2f2f2;
+  max-width: calc(100% - 32px);
+  /* max-width: 360px; */
+  background-color: #fff;
+  /* background-color: #f2f2f2; */
 }
 .container-join{
   margin: 0 auto;
   max-width: calc(100% - 68px);
-  /* background-color: #fff; */
-  background-color: #f2f2f2;
+  background-color: #fff;
+  /* background-color: #f2f2f2; */
 }
 .center{
   text-align: center;
@@ -54,19 +54,120 @@ body {
 .login-form{
   display: block;
   margin-bottom: 20px;
-} 
-
+}
+.login-email-input::placeholder,
+.login-pw-input::placeholder{
+  font-size: 14px;
+  color: var(--cancel-color-border);
+}
 .login-message-error{
   display: block;
   font-size: 12px;
   color: #EB5757;
   margin-top: 6px;
+  display: none;
 }
-.login-form .large-next-btn {}
+.login-form .large-next-btn {
+  display: block;
+  margin: 30px auto 20px;
+}
 .join-link{
   display: block;
   color: var(--cancel-color-text);
   font-size: 12px;
   margin-top: 20px;
+}
+
+/* splash */
+
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.logo-img {
+  width: 150px;
+}
+
+.logo-tit {
+  color: var(--enabled-color);
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* 3.1.2 로그인 - 로그인 메인 */
+.sns-login-sec{
+  height: 100vh;
+  position: relative;
+  background: url('../assets/symbol-logo-W-strawberry.png') no-repeat 42px 16px var(--enabled-color);
+}
+
+.sns-login-cont{
+  position: absolute;
+  bottom: 0;
+  height: 320px;
+  width: 100%;
+  background: #FFF;
+  border-radius: 20px 20px 0 0;
+  text-align: center;
+
+/* 
+  padding:15px 0 16px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #767676;
+  text-decoration: none;
+  text-align: center;
+  border: 1px solid #767676;
+  box-sizing: border-box;
+  border-radius: 5px;
+  text-indent: -38px; */
+
+}
+.sns-email-link,
+.sns-join-link{
+  color: var(--cancel-color-text);
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+.sns-list {
+  width: 322px;
+  margin: 50px auto 20px;
+}
+
+.sns-item {
+  font-size: 14px;
+  padding: 13px 0;
+  border: 1px solid #F2C94C;
+  box-sizing: border-box;
+  border-radius: 44px;
+  margin-bottom: 10px;
+}
+
+.sns-item a {
+  color: #767676;
+}
+
+
+.sns-list .icon-kakao .link-sns-login::after {
+  display: block;
+  content: "";
+  background-image: url(../assets/message-circle.png);
+  width: 24px;
+  height: 24px;
+}
+
+.sns-list icon-google link-sns-login {
+  background-image: url(../assets/google.png);
+}
+
+.sns-list icon-facebook link-sns-login {
+  background-image: url(../assets/facebook.png);
 }
 

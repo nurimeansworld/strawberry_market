@@ -118,8 +118,8 @@
 /* 3.1.4 감귤마켓 피드 Home 시작 */
 
 .home-main-init {
-  border: 1px solid var(--cancel-color-text);
-  padding: 170px 0;
+  max-width: 100%;
+  height: 85vh;
   background-color: #fff;
   display: flex;
   align-items: center;
@@ -156,4 +156,23 @@
   font-family: Spoqa Han Sans Neo;
   font-weight: 200;
   color: #fff;
+}
+
+/* 하단 탭 메뉴 */
+.home-main-footer {
+  border-top: 1px solid #767676;
+}
+
+.home-main-footer .tab-menu-list .on a {
+  color : #F26E22
+}
+.home-main-footer .tab-menu-list .on a::before {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 13px;
+  left: 30px;
+  background-size: contain;
+  background: url(../assets/icon/icon-home-fill.png) ;
 }
