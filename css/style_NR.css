@@ -9,6 +9,7 @@
   height: 48px;
   display: flex;
   justify-content: space-between;
+  border-bottom: 0.5px solid var(--cancel-color-border);
 }
 
 .nav .btn-back{
@@ -59,7 +60,7 @@
 /* 누리 작업 - P01 사용자 프로필 */
 .profile-sec{
   padding: 30px 0 26px;
-  border: 0.5px solid var(--cancel-color-border);
+  border-bottom: 0.5px solid var(--cancel-color-border);
 }
 .profile-wrap{
   /* margin: 30px 0 16px; */
@@ -127,7 +128,7 @@
   margin: 0 10px;
   width: 34px;
   height: 34px;
-  border: 1px solid var(--cancel-color-border);
+  border-bottom: 1px solid var(--cancel-color-border);
   border-radius: 30px;
   background-color: #fff;
 }
@@ -139,7 +140,7 @@
 .product-sec{
   margin-top: 6px;
   padding: 20px 0 20px 15px;
-  border: 0.5px solid var(--cancel-color-border);
+  border-bottom: 0.5px solid var(--cancel-color-border);
 }
 .sec-title{
   font-weight: bold;
@@ -158,7 +159,7 @@
   width: 140px;
 }
 .item-img{
-  border: 0.5px solid var(--cancel-color-border);
+  border-bottom: 0.5px solid var(--cancel-color-border);
   border-radius: 8px;
 }
 .item-tit{
@@ -176,7 +177,7 @@
 
 .post-sec{
   margin-top: 6px;
-  border: 0.5px solid var(--cancel-color-border); 
+  border-bottom: 0.5px solid var(--cancel-color-border); 
 }
 .post-btn-tab{
   padding: 9px 16px;
@@ -231,4 +232,20 @@
 /* 누리 작업 - P02 마이 프로필 */
 .medium-unfollow-btn.profile-edit-btn{
   margin: 0 12px; 
+}
+
+/* 누리 작업 - P04 마이 프로필 수정 */
+.profile-edit-wrap{
+  margin: 30px auto;
+  width: 110px;
+  height: 110px;
+  position: relative;
+  background: url(../assets/basic-profile-img-2.png) no-repeat center;
+}
+.profile-btn-upload{
+  width: 36px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: initial;
 }
