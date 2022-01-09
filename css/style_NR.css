@@ -118,12 +118,13 @@
 }
 .profile-btn-wrap{
   margin: 24px auto;
-  width: 208px;
+  /* width: 208px; */
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .profile-btn{
-  margin: 0 auto;
+  margin: 0 10px;
   width: 34px;
   height: 34px;
   border: 1px solid var(--cancel-color-border);
@@ -225,4 +226,9 @@
   position: absolute;
   right: 0;
   background: url(../assets/icon/iccon-img-layers.png) no-repeat center;
+}
+
+/* 누리 작업 - P02 마이 프로필 */
+.medium-unfollow-btn.profile-edit-btn{
+  margin: 0 12px; 
 }
