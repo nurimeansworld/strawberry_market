@@ -92,17 +92,31 @@
       <!-- 3. 게시글 -->
       <section class="post-sec bg-white">
         <h2 class="sr-only">사용자 게시글</h2>
-        <ul class="post-btn-list">
-          <li class="post-btn-item"><button id="viewList-btn">리스트로 보기</button></li>
-          <li class="post-btn-item"><button id="viewGallery-btn">갤러리로 보기</button></li>
-        </ul>
+        <!-- <ul class="post-btn-list">
+          <li class="post-btn-item list"><button id="viewList-btn">리스트로 보기</button></li>
+          <li class="post-btn-item album"><button id="viewAlbum-btn">앨범으로 보기</button></li>
+        </ul> -->
+
+        <article class="post-btn-tab">
+          <div class="post-btn-wrap">
+            <!-- CHECK:: img와 button의 background 고민... 무엇이 더 시맨틱한가.. -->
+            <button id="viewList-btn" class="post-btn-list on">
+              <!-- 리스트로 보기 -->
+              <img src="../assets/icon/icon-post-list-on.png" alt="리스트로 보기 버튼입니다.">
+            </button>
+            <button id="viewAlbum-btn" class="post-btn-album">
+              <!-- 앨범으로 보기 -->
+              <img src="../assets/icon/icon-post-album-off.png" alt="앨범으로 보기 버튼입니다.">
+            </button>
+          </div>
+        </article>
 
         <!-- 리스트로 보기 -->
-        <section id="viewList" class="postlist-sec">
+        <section id="viewList" class="post-list-sec">
           <h3 class="sr-only">리스트 게시글</h3>
-          <ul class="postlist-list">
-
-            <li class="postlist-item home-post">
+          <ul class="post-list-list">
+            <!-- CHECK:: 컴포넌트 수정되면 확인 후 반영 -->
+            <li class="post-list-item home-post">
               <!-- CHECK:: section -> div로 바꿨는데 우선 고민. 또 수정해야할지도 고민 -->
               <div class="home-post-user">
                 <img class="user-profile" src="../assets/small-profile-img.png" alt="회원 프로필">
@@ -136,7 +150,7 @@
               <p class="date">2020년 10월 21일</p>
             </li>
 
-            <li class="postlist-item home-post">
+            <li class="post-list-item home-post">
               <!-- CHECK:: section -> div로 바꿨는데 우선 고민. 또 수정해야할지도 고민 -->
               <div class="home-post-user">
                 <img class="user-profile" src="../assets/small-profile-img.png" alt="회원 프로필">
@@ -173,28 +187,41 @@
           </ul>
         </section>
         <!-- // 리스트로 보기 -->
-        <!-- 갤러리로 보기 -->
-        <section id="viewGallery" class="postgallery-sec bg-white">
-          <h3 class="sr-only">갤러리 게시글</h3>
-          <ul class="postgallery-list">
-            <li class="postgallery-item">
-              <img src="../assets/chat-exapmle.png" alt="">
+        <!-- 앨범으로 보기 -->
+        <section id="viewAlbum" class="post-album-sec bg-white">
+          <h3 class="sr-only">앨범으 게시글</h3>
+          <ul class="post-album-list">
+            <!-- CHECK:: img가 여러개인 사진은 표시가 되는데 이걸 가상요소로 넣어도 괜찮을지 고민 -->
+            <li class="post-album-item">
+              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
             </li>
-            <li class="postgallery-item">
-              <img src="../assets/chat-exapmle.png" alt="">
+            <li class="post-album-item multi">
+              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
             </li>
-            <li class="postgallery-item">
-              <img src="../assets/chat-exapmle.png" alt="">
+            <li class="post-album-item">
+              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
             </li>
-            <li class="postgallery-item">
-              <img src="../assets/chat-exapmle.png" alt="">
+            <li class="post-album-item">
+              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
             </li>
-            <li class="postgallery-item">
-              <img src="../assets/chat-exapmle.png" alt="">
+            <li class="post-album-item multi">
+              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
+            </li>
+            <li class="post-album-item multi">
+              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
+            </li>
+            <li class="post-album-item">
+              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
+            </li>
+            <li class="post-album-item">
+              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
+            </li>
+            <li class="post-album-item">
+              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
             </li>
           </ul>
         </section>
-        <!-- // 갤러리로 보기 -->
+        <!-- // 앨범으로 보기 -->
 
       </section>
       <!-- // 3. 게시글 -->

@@ -177,10 +177,52 @@
   margin-top: 6px;
   border: 0.5px solid var(--cancel-color-border); 
 }
-.post-btn-list{
-
+.post-btn-tab{
+  padding: 9px 16px;
+  overflow: auto;
   border-bottom: 0.5px solid var(--cancel-color-border); 
 }
-.post-btn-item{
+.post-btn-wrap{
+  float: right;
+}
+.post-btn-wrap button{
+  margin-left: 16px;
+  width: 26px;
+  background-color: #fff;  
+}
+/* .post-btn-list{
+  background-image: url(../assets/icon/icon-post-list-off.png);
+}
+.post-btn-list.on{
+  background-image: url(../assets/icon/icon-post-list-on.png);
+}
+.post-btn-album{
+  background-image: url(../assets/icon/icon-post-album-off.png);
+}
+.post-btn-album.on{
+  background-image: url(../assets/icon/icon-post-album-on.png);
+} */
 
+.post-album-sec{
+  margin: 16px;
+  display: none;
+}
+.post-album-list{
+  /* display: flex;
+  flex-wrap: wrap; */
+  display: grid;
+  grid-template-columns: repeat(3, minmax(114px, auto));
+  gap: 8px;
+}
+.post-album-item.multi{
+  position:relative;
+}
+.post-album-item.multi::before{
+  margin: 6px;
+  content: '';
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 0;
+  background: url(../assets/icon/iccon-img-layers.png) no-repeat center;
 }
