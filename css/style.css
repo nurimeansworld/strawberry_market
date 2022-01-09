@@ -24,16 +24,22 @@ body {
 /* body */
 .container{
   margin: 0 auto;
-  max-width: calc(100% - 32px);
-  background-color: #fff;
+  /* max-width: calc(100% - 32px); */
+  max-width: 360px;
+  /* background-color: #fff; */
+  background-color: #f2f2f2;
 }
 .container-join{
   margin: 0 auto;
   max-width: calc(100% - 68px);
-  background-color: #fff;
+  /* background-color: #fff; */
+  background-color: #f2f2f2;
 }
 .center{
   text-align: center;
+}
+.bg-white{
+  background-color: #fff;
 }
 
 /* 공동 작업 - 로그인 페이지 */
