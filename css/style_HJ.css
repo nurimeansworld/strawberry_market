@@ -10,7 +10,7 @@
   border-radius: 44px;
   cursor: pointer;
 }
-.large-next-btn.disabled {
+.large-next-btn:disabled {
   background: #FCBBC4;
 } 
 
@@ -24,7 +24,7 @@
   border-radius: 30px;
   cursor: pointer;
 }
-.medium-follow-btn.disabled {
+.medium-follow-btn:disabled {
   background: #FCBBC4;
 }
 .medium-unfollow-btn {
@@ -58,7 +58,7 @@
   border-radius: 32px;
   cursor: pointer;
 }
-.save-btn.disabled{
+.save-btn:disabled{
   background: #FCBBC4;
 }
 
