@@ -19,22 +19,22 @@
     </a>
   </div>
 
-  <!-- 게시글 article 시작!-->
-  <article class="home-post">
-    <section class="home-post-user">
+  <!-- 게시글 헤더 시작!-->
+  <!-- section-> li로 변경 -->
+  <li class="home-post">
+    <div class="home-post-user">
       <img class="user-profile" src="../assets/small-profile-img.png" alt="회원 프로필">
       <h4 class="user-name">애월읍 위니브 감귤농장</h4>
       <p class="user-id">@ weniv_Mandarin</p>
       <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
-    </section>
+    </div>
   <!-- 게시글 내용 부분 -->
-    <section class="home-post-content">
-      <p class="user-cont">옷을 인생을 그러므로 없으면 것은 이상은 것은 우리의 위하여, 뿐이다. 이상의 청춘의 뼈 따뜻한 그들의 그와 약동하다. 대고, 못할 넣는 풍부하게
-        뛰노는 인생의 힘있다.</p>
+    <div class="home-post-content">
+      <p class="user-cont">옷을 인생을 그러므로 없으면 것은 이상은 것은 우리의 위하여, 뿐이다. 이상의 청춘의 뼈 따뜻한 그들의 그와 약동하다. 대고, 못할 넣는 풍부하게 뛰노는 인생의 힘있다.</p>
       <img class="user-photo" src="../assets/post-img-example.png" alt="회원 사진">
-    </section>
+    </div>
   <!-- 게시글 좋아요,메세지 버튼 -->
-    <section class="home-post-comment">
+    <div class="home-post-comment">
       <div class="item-count">
         <button type="button" class="btn btn-heart">
           <img class="heart-button" src="../assets/icon/heart.png" alt="하트버튼">
@@ -47,10 +47,17 @@
         </button>
         <p class="message-count">12</p>
       </div>
-    </section>
+    </div>
   <!-- 게시글 날짜 -->
     <p class="date">2020년 10월 21일</p>
-  </article>
+  </li>
+<br><br>
+  <!--프로필에 들어갈 상품-->
+  <li class="profile-product">
+    <img class="user-product-photo" src="../assets/product-img-example.png" alt="회원 상품">
+    <p class="product-name">애월읍 노지 감귤</p>
+    <p class="product-price">35,000원</p>
+  </li>
 </body>
 
 </html>

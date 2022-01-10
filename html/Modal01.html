@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.1.16 Modal (희정)</title>
+  <link rel="stylesheet" href="../css/default.css">
+  <style>
+      #modal.modal-overlay {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px
+        }
+        #modal .modal-window {
+            background: #fff;
+            box-shadow: 0 5px 5px 5px rgb(198, 198, 198);
+            border-radius: 10px;
+            min-height: 138px;
+            width: 390px;
+            position: relative;
+            top: -100px;
+            padding: 10px;
+        }
+        #modal .title {
+            padding-left: 10px;
+            display: inline;
+            /* text-shadow: 1px 1px 2px gray; */
+            color: white;
+            
+        }
+        #modal .title h2 {
+            display: inline;
+        }
+
+        /* #modal .close-area {
+            display: inline;
+            margin: 0 auto;
+            padding-right: 10px;
+            cursor: pointer;
+            color: white;
+        } */
+        
+        #modal .content {
+            margin-top: 20px;
+            padding: 0px 10px;
+            /* text-shadow: 1px 1px 2px gray; */
+            color: white;
+            font-size: 14px;
+        }
+
+        img {
+          text-align: center;
+          display: block;
+          margin: 0 auto;
+          width: auto;
+        }
+
+        .delete {
+          margin-bottom: 30px;
+          margin-top: 30px;
+          font-size: 14px;
+        }
+  </style>
+</head>
+
+<body>
+  <header class="nav nav-basic">
+    <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
+    <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
+  </header>
+
+  
+  <!-- home-main 피드화면  -->
+  <main class="home-main-init">
+    <div class="home-init-message">
+      <img src="../assets/symbol-logo-gray.png" class="symbol-logo-gray" alt="감귤 심볼 이미지">
+    </div>
+  </main>
+
+  <div id="container">
+</div>
+<div id="modal" class="modal-overlay">
+    <div class="modal-window">
+        <div class="close-area">
+          <img src="../assets/rectangle 70.png" alt="모달 바">
+          
+        </div>
+        <div class="content">
+            <p class="delete">삭제</p>
+            <p>수정</p>
+          
+            
+        </div>
+    </div>
+</div>
+
+  </body>
+  
+  </html>

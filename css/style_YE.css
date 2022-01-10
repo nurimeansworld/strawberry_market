@@ -1,13 +1,11 @@
 @charset "utf-8";
 /* base */
-
 .nav{
   /* background-color: #ddd; */
   padding: 8px 12px;
   height: 48px;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #767676;
 }
 
 .nav-main p{
@@ -96,3 +94,85 @@
   color: #767676;
 }
 
+/* 프로필 상품 이미지 */
+.profile-product {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 140px;
+}
+
+.profile-product .user-product-photo {
+  border-radius: 8px;
+  margin-bottom: 5px;
+
+}
+.profile-product .product-name {
+  margin-bottom: 5px;
+}
+.profile-product .product-price {
+  color: #F26E22;
+  font-weight: 500;
+}
+
+/* 3.1.4 감귤마켓 피드 Home 시작 */
+
+.home-main-init {
+  max-width: 100%;
+  height: 85vh;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.home-main-init .home-init-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-main-init .symbol-logo-gray {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.home-main-init .home-init-text {
+  color: var(--cancel-color-text);
+  margin: 30px 0;
+}
+
+.home-main-init .home-init-button {
+  width: 120px;
+  height: 44px;
+  background-color: var(--enabled-color);
+  border-radius: 30px;
+}
+
+.home-main-init .home-init-button a {
+  font-family: Spoqa Han Sans Neo;
+  font-weight: 200;
+  color: #fff;
+}
+
+/* 하단 탭 메뉴 */
+.home-main-footer {
+  border-top: 1px solid #767676;
+}
+
+.home-main-footer .tab-menu-list .on a {
+  color : #F26E22
+}
+.home-main-footer .tab-menu-list .on a::before {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 13px;
+  left: 30px;
+  background-size: contain;
+  background: url(../assets/icon/icon-home-fill.png) ;
+}
