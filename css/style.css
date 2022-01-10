@@ -25,7 +25,6 @@ body {
 .container{
   margin: 0 auto;
   max-width: calc(100% - 32px);
-  /* max-width: 360px; */
   background-color: #fff;
   /* background-color: #f2f2f2; */
 }
@@ -52,8 +51,9 @@ body {
   margin-bottom: 30px;
 }
 .login-form{
+  margin: 0 34px 20px;
   display: block;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 .login-email-input::placeholder,
 .login-pw-input::placeholder{
@@ -103,7 +103,7 @@ body {
 .sns-login-sec{
   height: 100vh;
   position: relative;
-  background: url('../assets/symbol-logo-W-strawberry.png') no-repeat 42px 16px var(--enabled-color);
+  background: url('../assets/symbol-logo-W-strawberry.png') no-repeat top 45px right -164px var(--enabled-color) fixed;
 }
 
 .sns-login-cont{
@@ -114,20 +114,6 @@ body {
   background: #FFF;
   border-radius: 20px 20px 0 0;
   text-align: center;
-
-/* 
-  padding:15px 0 16px;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
-  color: #767676;
-  text-decoration: none;
-  text-align: center;
-  border: 1px solid #767676;
-  box-sizing: border-box;
-  border-radius: 5px;
-  text-indent: -38px; */
-
 }
 .sns-email-link,
 .sns-join-link{
@@ -142,6 +128,7 @@ body {
 }
 
 .sns-item {
+  position: relative;
   font-size: 14px;
   padding: 13px 0;
   border: 1px solid #F2C94C;
@@ -149,26 +136,42 @@ body {
   border-radius: 44px;
   margin-bottom: 10px;
 }
+.sns-item.google{
+  border: 1px solid var(--cancel-color-text);
+}
+.sns-item.facebook{
+  border: 1px solid #2D9CDB;
+}
 
 .sns-item a {
   color: #767676;
 }
-
-
-.sns-list .icon-kakao .link-sns-login::after {
-  display: block;
-  content: "";
-  background-image: url(../assets/message-circle.png);
+.sns-item a::before {
+  content: '';
+  position: absolute;
   width: 24px;
   height: 24px;
+  top: 8px;
+  left: 16px;
+  display: block;
+  background-image: url(../assets/icon/message-kakao.png);
+  background-size: 24px;
+}
+.sns-item.google a::before {
+  background-image: url(../assets/icon/message-google.png);
+}
+.sns-item.facebook a::before {
+  background-image: url(../assets/icon/message-facebook.png);
 }
 
-.sns-list icon-google link-sns-login {
-  background-image: url(../assets/google.png);
+.sns-link ~ a{
+  margin-left: 24px;
 }
-
-.sns-list icon-facebook link-sns-login {
-  background-image: url(../assets/facebook.png);
+.sns-link ~ a::before{
+  content: '|';
+  position: absolute;
+  display: inline-block;
+  margin: 4px 0px 0px -16px;
 }
 
 /* 3.1.3 회원가입 - 이메일로 회원가입 */
@@ -179,3 +182,4 @@ body {
   font-size: 24px;
   line-height: 30px;
 }
+
