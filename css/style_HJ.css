@@ -48,7 +48,8 @@
   cursor: pointer;
 }
 
-.save-btn {
+.save-btn,
+.upload-btn {
   width: 90px;
   height: 32px;
   color: #fff;
