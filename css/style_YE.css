@@ -6,6 +6,8 @@
   height: 48px;
   display: flex;
   justify-content: space-between;
+  /* @영은님:: 제가 저번에 밑줄 없어도 된다 말씀드렸는데 배경이 없어지게 되면 필요할 것 같아서 제가 다시 임의로 추가하였습니다..!! 헤헤 */
+  border-bottom: 0.5px solid var(--cancel-color-border);
 }
 
 .nav-main p{

@@ -10,17 +10,121 @@
 </head>
 
 <body>
-
-  <header></header>
-
+  <div class="nav-skip">
+    <a href="#gnb">메뉴 바로가기</a>
+    <a href="#content">본문 바로가기</a>
+  </div>
+  <header class="nav nav-follow container">
+    <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
+    <p>Followers</p>
+  </header>
   <main>
     <section class="container">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae debitis velit harum alias quis quos, assumenda
-      sequi, deleniti praesentium, totam illum ex iure. Eum odit in assumenda placeat commodi sint.
+      <h1 class="sr-only">팔로워</h1>
+
+      <!-- 1. 리스트 -->
+      <section id="content" class="follow-sec">
+        <h2 class="sr-only">팔로워 리스트</h2>
+        <ul class="follow-list">
+          <li class="follow-item">
+            <!-- CHECK:: 여기 계정을 클릭하면 계정으로 이동해야 할 것 같아 a태그로 감싸야 할 것 같습니다! @희정님 -->
+            <a href="javascript:void(0);" class="user-follow-bar">
+              <img src="../assets/basic-profile-img-2.png" alt="사용자 이미지" class="user-image">
+              <div class="user-follow-info">
+                <span>애월읍 한라봉 최고 맛집</span>
+                <div class="user-email">정성을 다해 농사짓는 한라봉</div>
+              </div>
+            </a>
+            <button type="button" class="small-follow-button">팔로우</button>
+          </li>
+          <li class="follow-item">
+            <a href="javascript:void(0);" class="user-follow-bar">
+              <img src="../assets/basic-profile-img-2.png" alt="사용자 이미지" class="user-image">
+              <div class="user-follow-info">
+                <span>감귤의 품격 - 애월읍</span>
+                <div class="user-email">제주 노지귤, 하우스 한라봉 판매합니다.</div>
+              </div>
+            </a>
+            <button type="button" class="small-follow-button">팔로우</button>
+          </li>
+          <li class="follow-item">
+            <a href="javascript:void(0);" class="user-follow-bar">
+              <img src="../assets/basic-profile-img-2.png" alt="사용자 이미지" class="user-image">
+              <div class="user-follow-info">
+                <span>한라봉의 신</span>
+                <!-- TODO:: 줄넘김 확인 -->
+                <div class="user-email sl-ellipsis">
+                  <p>30년 노하우로 정성스럽게 농사지은 노지 30년 노하우로 정성스럽게 농사지은 노지 30년 노하우로 정성스럽게 농사지은 노지</p>
+                </div>
+              </div>
+            </a>
+            <button type="button" class="cancel-button">취소</button>
+          </li>
+          <li class="follow-item">
+            <a href="javascript:void(0);" class="user-follow-bar">
+              <img src="../assets/basic-profile-img-2.png" alt="사용자 이미지" class="user-image">
+              <div class="user-follow-info">
+                <span>나 감귤 좋아하네</span>
+                <div class="user-email">감귤농장 컬렉터 i love mandarin</div>
+              </div>
+            </a>
+            <button type="button" class="cancel-button">취소</button>
+          </li>
+          <li class="follow-item">
+            <a href="javascript:void(0);" class="user-follow-bar">
+              <img src="../assets/basic-profile-img-2.png" alt="사용자 이미지" class="user-image">
+              <div class="user-follow-info">
+                <span>애월읍 위니브 감귤농장</span>
+                <div class="user-email">@ weniv_Mandarin</div>
+              </div>
+            </a>
+            <button type="button" class="small-follow-button">팔로우</button>
+          </li>
+          <li class="follow-item">
+            <a href="javascript:void(0);" class="user-follow-bar">
+              <img src="../assets/basic-profile-img-2.png" alt="사용자 이미지" class="user-image">
+              <div class="user-follow-info">
+                <span>애월읍 한라봉 최고 맛집</span>
+                <!-- <div class="user-email">@ weniv_Mandarin</div> -->
+              </div>
+            </a>
+            <button type="button" class="cancel-button">취소</button>
+          </li>
+          <li class="follow-item">
+            <a href="javascript:void(0);" class="user-follow-bar">
+              <img src="../assets/basic-profile-img-2.png" alt="사용자 이미지" class="user-image">
+              <div class="user-follow-info">
+                <span>제주 키위, 한라봉 판매</span>
+                <div class="user-email">키위, 한라봉</div>
+              </div>
+            </a>
+            <button type="button" class="small-follow-button">팔로우</button>
+          </li>
+
+        </ul>
+      </section>
+      <!-- // 1. 리스트 -->
+      <!-- 2. 탭 메뉴 -->
+      <nav class="tab-menu bg-white" id="gnb">
+        <ul class="tab-menu-list">
+          <li class="tab-menu-home">
+            <a href="javascript:void(0)">홈</a>
+          </li>
+          <li class="tab-menu-chat">
+            <a href="javascript:void(0)">채팅</a>
+          </li>
+          <li class="tab-menu-post">
+            <a href="javascript:void(0)">게시물 작성</a>
+          </li>
+          <li class="tab-menu-profile on">
+            <a href="javascript:void(0)">프로필</a>
+          </li>
+        </ul>
+      </nav>
+      <!-- // 2. 탭 메뉴 -->
+
     </section>
   </main>
-
-  <footer></footer>
 
   <script src="../js/script.js"></script>
   <script src="../js/script_nuri.js"></script>

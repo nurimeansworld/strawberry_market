@@ -19,19 +19,14 @@
     <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
   </header>
   <main>
-    <!-- CHECK:: background가 #fff가 아니라 #f2f2f2로 주고 부분부분마다 #fff를 주어야 할 것 같아서 .bg-white를 하나 생성함 -->
-    <!-- CHECK:: 이런 식으로 class를 쓰는 것도 바람직한 방법 일까? -->
     <section class="container">
       <h1 class="sr-only">사용자 프로필</h1>
 
       <!-- 1. 프로필 -->
-      <section id="content" class="profile-sec bg-white ">
+      <section id="content" class="profile-sec bg-white">
         <h2 class="sr-only">프로필 영역</h2>
         <div class="profile-wrap">
           <img src="../assets/basic-profile-img-2.png" alt="사용자 프로필 이미지입니다." class="profile-img">
-          <!-- CHECK:: 시맨틱 생각하면 dl>dt,dd 로 짜고 싶은데 그렇게 하면 스타일을 어떻게 할지 고민.
-          검색해보니 dl 하위에 div 단위로 사용해도 괜찮다는 내용이 있어서 우선 그렇게 작업
-        링크 : https://hashcode.co.kr/questions/5358/dldescription-list%EC%9A%94%EC%86%8C%EC%9D%98-%EC%9A%A9%EB%B2%95%EC%9D%B4-%ED%97%B7%EA%B0%88%EB%A6%BD%EB%8B%88%EB%8B%A4 -->
           <dl class="profile-follow">
             <div class="center profile-followers">
               <dd>2950</dd>
@@ -115,7 +110,7 @@
         <section id="viewList" class="post-list-sec">
           <h3 class="sr-only">리스트 게시글</h3>
           <ul class="post-list-list">
-            <!-- CHECK:: 컴포넌트 수정되면 확인 후 반영 -->
+            <!-- TODO:: 컴포넌트 수정되면 확인 후 반영 -->
             <li class="post-list-item home-post">
               <!-- CHECK:: section -> div로 바꿨는데 우선 고민. 또 수정해야할지도 고민 -->
               <div class="home-post-user">
@@ -227,8 +222,8 @@
       <!-- // 3. 게시글 -->
 
       <!-- 4. 탭 메뉴 -->
-      <nav class="tab-menu bg-white">
-        <ul class="tab-menu-list">
+      <nav class="tab-menu bg-white" id="gnb">
+        <ul class=" tab-menu-list">
           <li class="tab-menu-home on">
             <a href="javascript:void(0)">홈</a>
           </li>
