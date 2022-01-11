@@ -14,56 +14,75 @@
     <a href="#gnb">메뉴 바로가기</a>
     <a href="#content">본문 바로가기</a>
   </div>
-  <!-- CHECK:: header로 넣을지, 안에 콘텐츠로 넣을지 -->
-  <header class="nav nav-basic container">
+  <header class="nav nav-basic container bg-white">
     <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
     <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
   </header>
   <main>
+    <!-- CHECK:: background가 #fff가 아니라 #f2f2f2로 주고 부분부분마다 #fff를 주어야 할 것 같아서 .bg-white를 하나 생성함 -->
+    <!-- CHECK:: 이런 식으로 class를 쓰는 것도 바람직한 방법 일까? -->
     <section class="container">
       <h1 class="sr-only">사용자 프로필</h1>
 
       <!-- 1. 프로필 -->
-      <section id="content" class="profile-sec">
+      <section id="content" class="profile-sec bg-white ">
         <h2 class="sr-only">프로필 영역</h2>
-        <div>
+        <div class="profile-wrap">
           <img src="../assets/basic-profile-img-2.png" alt="사용자 프로필 이미지입니다." class="profile-img">
+          <!-- CHECK:: 시맨틱 생각하면 dl>dt,dd 로 짜고 싶은데 그렇게 하면 스타일을 어떻게 할지 고민.
+          검색해보니 dl 하위에 div 단위로 사용해도 괜찮다는 내용이 있어서 우선 그렇게 작업
+        링크 : https://hashcode.co.kr/questions/5358/dldescription-list%EC%9A%94%EC%86%8C%EC%9D%98-%EC%9A%A9%EB%B2%95%EC%9D%B4-%ED%97%B7%EA%B0%88%EB%A6%BD%EB%8B%88%EB%8B%A4 -->
           <dl class="profile-follow">
-            <dt>followers</dt>
-            <dd>2950</dd>
-            <dt>followings</dt>
-            <dd>128</dd>
+            <div class="center profile-followers">
+              <dd>2950</dd>
+              <dt>followers</dt>
+            </div>
+            <div class="center profile-followings">
+              <dd>128</dd>
+              <dt>followings</dt>
+            </div>
           </dl>
         </div>
-
-        <h3 class="profile-name">애월읍 위니브 감귤농장</h3>
-        <span class="profile-account">@ weniv_Mandarin</span>
-        <p class="profile-desc">애월읍 감귤 전국 배송, 귤따기 체험, 감귤 농장</p>
-        <div class="profile-btn-wrap">
-          <button class="message-btn">메시지</button>
-          <button class="follow-btn">팔로우</button>
-          <button class="share-btn">공유</button>
+        <div class="center">
+          <h3 class="profile-name">애월읍 위니브 감귤농장</h3>
+          <span class="profile-account">@ weniv_Mandarin</span>
+          <p class="profile-desc">애월읍 감귤 전국 배송, 귤따기 체험, 감귤 농장</p>
+          <div class="profile-btn-wrap">
+            <button class="profile-btn message-btn"><img src="../assets/icon/message-circle.png" alt="메시지 보내기"></button>
+            <button type="button" class="medium-follow-btn">팔로우</button>
+            <button class="profile-btn share-btn"><img src="../assets/icon/icon-share.png" alt="공유하기"></button>
+          </div>
         </div>
       </section>
       <!-- // 1. 프로필 -->
 
       <!-- 2. 판매 중인 상품 -->
-      <section class="product-sec">
+      <section class="product-sec bg-white">
         <h2 class="sec-title">판매 중인 상품</h2>
         <ul class="product-list">
           <li class="product-item">
             <img src="../assets/product-img-example.png" alt="" class="item-img">
-            <h3 class="item-tit">애월읍 노지 감귤</h3>
+            <h3 class="item-tit sl-ellipsis">애월읍 노지 감귤</h3>
             <p class="item-price">35,000원</p>
           </li>
           <li class="product-item">
             <img src="../assets/product-img-example.png" alt="" class="item-img">
-            <h3 class="item-tit">애월읍 노지 감귤</h3>
+            <h3 class="item-tit sl-ellipsis">애월읍 한라봉 10kg 애월읍 한라봉 10kg 애월읍 한라봉 10kg 애월읍 한라봉 10kg</h3>
             <p class="item-price">35,000원</p>
           </li>
           <li class="product-item">
             <img src="../assets/product-img-example.png" alt="" class="item-img">
-            <h3 class="item-tit">애월읍 노지 감귤</h3>
+            <h3 class="item-tit sl-ellipsis">감귤 파치</h3>
+            <p class="item-price">35,000원</p>
+          </li>
+          <li class="product-item">
+            <img src="../assets/product-img-example.png" alt="" class="item-img">
+            <h3 class="item-tit sl-ellipsis">애월읍 노지 감귤</h3>
+            <p class="item-price">35,000원</p>
+          </li>
+          <li class="product-item">
+            <img src="../assets/product-img-example.png" alt="" class="item-img">
+            <h3 class="item-tit sl-ellipsis">애월읍 노지 감귤</h3>
             <p class="item-price">35,000원</p>
           </li>
         </ul>
@@ -71,22 +90,34 @@
       <!-- // 2. 판매 중인 상품 -->
 
       <!-- 3. 게시글 -->
-      <section class="post-sec">
+      <section class="post-sec bg-white">
         <h2 class="sr-only">사용자 게시글</h2>
-        <ul class="post-btn-list">
-          <li><button class="post-btn-list">리스트로 보기</button></li>
-          <li><button class="post-btn-gallery">갤러리로 보기</button></li>
-        </ul>
+        <!-- <ul class="post-btn-list">
+          <li class="post-btn-item list"><button id="viewList-btn">리스트로 보기</button></li>
+          <li class="post-btn-item album"><button id="viewAlbum-btn">앨범으로 보기</button></li>
+        </ul> -->
+
+        <article class="post-btn-tab">
+          <div class="post-btn-wrap">
+            <!-- CHECK:: img와 button의 background 고민... 무엇이 더 시맨틱한가.. -->
+            <button id="viewList-btn" class="post-btn-list on">
+              <!-- 리스트로 보기 -->
+              <img src="../assets/icon/icon-post-list-on.png" alt="리스트로 보기 버튼입니다.">
+            </button>
+            <button id="viewAlbum-btn" class="post-btn-album">
+              <!-- 앨범으로 보기 -->
+              <img src="../assets/icon/icon-post-album-off.png" alt="앨범으로 보기 버튼입니다.">
+            </button>
+          </div>
+        </article>
 
         <!-- 리스트로 보기 -->
-        <section id="viewList" class="postlist-sec">
+        <section id="viewList" class="post-list-sec">
           <h3 class="sr-only">리스트 게시글</h3>
-          <ul class="postlist-list">
-
-            <li class="postlist-item home-post">
-              <!-- CHECK:: article class를 li로 옮긴 것을 수정해야할지 -->
+          <ul class="post-list-list">
+            <!-- CHECK:: 컴포넌트 수정되면 확인 후 반영 -->
+            <li class="post-list-item home-post">
               <!-- CHECK:: section -> div로 바꿨는데 우선 고민. 또 수정해야할지도 고민 -->
-              <!-- <article class="home-post"> -->
               <div class="home-post-user">
                 <img class="user-profile" src="../assets/small-profile-img.png" alt="회원 프로필">
                 <h4 class="user-name">애월읍 위니브 감귤농장</h4>
@@ -117,26 +148,25 @@
               </div>
               <!-- 게시글 날짜 -->
               <p class="date">2020년 10월 21일</p>
-              <!-- </article> -->
             </li>
 
-            <li class="postlist-item home-post">
-              <!-- <article class="home-post"> -->
-              <section class="home-post-user">
+            <li class="post-list-item home-post">
+              <!-- CHECK:: section -> div로 바꿨는데 우선 고민. 또 수정해야할지도 고민 -->
+              <div class="home-post-user">
                 <img class="user-profile" src="../assets/small-profile-img.png" alt="회원 프로필">
                 <h4 class="user-name">애월읍 위니브 감귤농장</h4>
                 <p class="user-id">@ weniv_Mandarin</p>
                 <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png"
                     alt="메뉴 열기"></button>
-              </section>
+              </div>
               <!-- 게시글 내용 부분 -->
-              <section class="home-post-content">
+              <div class="home-post-content">
                 <p class="user-cont">옷을 인생을 그러므로 없으면 것은 이상은 것은 우리의 위하여, 뿐이다. 이상의 청춘의 뼈 따뜻한 그들의 그와 약동하다. 대고, 못할 넣는 풍부하게
                   뛰노는 인생의 힘있다.</p>
                 <img class="user-photo" src="../assets/post-img-example.png" alt="회원 사진">
-              </section>
+              </div>
               <!-- 게시글 좋아요,메세지 버튼 -->
-              <section class="home-post-comment">
+              <div class="home-post-comment">
                 <div class="item-count">
                   <button type="button" class="btn btn-heart">
                     <img class="heart-button" src="../assets/icon/heart.png" alt="하트버튼">
@@ -149,54 +179,66 @@
                   </button>
                   <p class="message-count">12</p>
                 </div>
-              </section>
+              </div>
               <!-- 게시글 날짜 -->
               <p class="date">2020년 10월 21일</p>
-              <!-- </article> -->
             </li>
 
           </ul>
         </section>
         <!-- // 리스트로 보기 -->
-        <!-- 갤러리로 보기 -->
-        <section id="viewGallery" class="postgallery-sec">
-          <h3 class="sr-only">갤러리 게시글</h3>
-          <ul class="postgallery-list">
-            <li class="postgallery-item">
-              <img src="../assets/chat-exapmle.png" alt="">
+        <!-- 앨범으로 보기 -->
+        <section id="viewAlbum" class="post-album-sec bg-white">
+          <h3 class="sr-only">앨범으 게시글</h3>
+          <ul class="post-album-list">
+            <!-- CHECK:: img가 여러개인 사진은 표시가 되는데 이걸 가상요소로 넣어도 괜찮을지 고민 -->
+            <li class="post-album-item">
+              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
             </li>
-            <li class="postgallery-item">
-              <img src="../assets/chat-exapmle.png" alt="">
+            <li class="post-album-item multi">
+              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
             </li>
-            <li class="postgallery-item">
-              <img src="../assets/chat-exapmle.png" alt="">
+            <li class="post-album-item">
+              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
             </li>
-            <li class="postgallery-item">
-              <img src="../assets/chat-exapmle.png" alt="">
+            <li class="post-album-item">
+              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
             </li>
-            <li class="postgallery-item">
-              <img src="../assets/chat-exapmle.png" alt="">
+            <li class="post-album-item multi">
+              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
+            </li>
+            <li class="post-album-item multi">
+              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
+            </li>
+            <li class="post-album-item">
+              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
+            </li>
+            <li class="post-album-item">
+              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
+            </li>
+            <li class="post-album-item">
+              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
             </li>
           </ul>
         </section>
-        <!-- // 갤러리로 보기 -->
+        <!-- // 앨범으로 보기 -->
 
       </section>
       <!-- // 3. 게시글 -->
 
       <!-- 4. 탭 메뉴 -->
-      <nav id="gnb" class="tab-menu">
+      <nav class="tab-menu bg-white">
         <ul class="tab-menu-list">
-          <li class="tab-menu-list-item-1">
+          <li class="tab-menu-home on">
             <a href="javascript:void(0)">홈</a>
           </li>
-          <li class="tab-menu-list-item-2">
+          <li class="tab-menu-chat">
             <a href="javascript:void(0)">채팅</a>
           </li>
-          <li class="tab-menu-list-item-3">
+          <li class="tab-menu-post">
             <a href="javascript:void(0)">게시물 작성</a>
           </li>
-          <li class="tab-menu-list-item-4">
+          <li class="tab-menu-profile">
             <a href="javascript:void(0)">프로필</a>
           </li>
         </ul>
@@ -206,7 +248,6 @@
     </section>
   </main>
 
-  <!-- <footer>menus</footer> -->
   <script src="../js/script.js"></script>
   <script src="../js/script_nuri.js"></script>
 </body>

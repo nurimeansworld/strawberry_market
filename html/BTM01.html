@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.1.14 Bottom Tab Menu(희정)</title>
+  <link rel="stylesheet" href="../css/default.css">
+</head>
+
+<!--배경은 홈 페이지로 영은님 H01에서 카피  -->
+<body>
+  <body>
+    <div class="nav nav-main">
+      <p>감귤마켓 피드</p>
+      <!-- CHECK:: 실제 검색 페이지로 수정 -->
+      <a href="/search" class="link-search">
+        <img src="../assets/icon/icon-search.png" alt="검색 페이지로 이동">
+      </a>
+    </div>
+    
+    <!-- home-main 피드화면  -->
+    <main class="home-main-init">
+      <div class="home-init-message">
+        <img src="../assets/symbol-logo-gray.png" class="symbol-logo-gray" alt="감귤 심볼 이미지" 
+        >
+        <p class="home-init-text">유저를 검색해 팔로우 해보세요!</p>
+        <!-- CHECK:: 실제 검색 페이지로 수정 -->
+        <button type="button" class="home-init-button"><a href="/search">검색하기</a></button>
+      </div>
+    </main>
+
+    <!-- 하단 탭 메뉴 활성화  -->
+    <nav class="tab-menu">
+      <ul class="tab-menu-list">
+        <li class="tab-menu-home">
+          <a href="javascript:void(0)">홈</a>
+        </li>
+        <li class="tab-menu-chat">
+          <a href="javascript:void(0)">채팅</a>
+        </li>
+        <li class="tab-menu-post">
+          <a href="javascript:void(0)">게시물 작성</a>
+        </li>
+        <li class="tab-menu-profile">
+          <a href="javascript:void(0)">프로필</a>
+        </li>
+      </ul>
+    </nav>
+
+    <script src="../js/A04.js"></script>
+    </body>
+</body>
+
+</html>
