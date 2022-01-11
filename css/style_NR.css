@@ -2,16 +2,21 @@
   width: 390px;
 }
 
-.nav{
-  /* background-color: #ddd; */
-  
+/* .nav{
   padding: 8px 12px;
   height: 48px;
   display: flex;
   justify-content: space-between;
   border-bottom: 0.5px solid var(--cancel-color-border);
-}
+} */
+/* // container 속성 가져옴
+margin: 0 auto;
+max-width: calc(100% - 32px);
+background-color: #fff; */
 
+.nav.nav-follow{
+  justify-content: flex-start;
+}
 .nav .btn-back{
   /* margin: 13px 16px; */
   margin: 5px 4px;
@@ -45,13 +50,18 @@
 .nav-main p{
   /* margin: 13px 16px; */
   margin: 5px 4px;
-  font-style: normal;
   font-weight: 500;
   font-size: 18px;
   line-height: 22px;
 }
 .nav-chat p{
   margin: 7px 0 0 6px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+}
+.nav-follow p{
+  margin: 7px 0 0 4px;
   font-weight: 500;
   font-size: 14px;
   line-height: 18px;
@@ -234,6 +244,30 @@
   margin: 0 12px; 
 }
 
+/* 누리 작업 - P03 팔로우, 팔로워 */
+.follow-list{
+  margin: 24px 16px 0 16px;
+}
+.follow-item{
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.follow-item .user-follow-bar{
+  width: auto;
+  position:relative;
+  align-content: baseline;
+}
+.user-follow-bar .user-follow-info{
+  margin-left: 12px;
+}
+.user-follow-item .small-follow-button,
+.user-follow-item .cancel-button{
+  position: absolute;
+  right: 0;
+}
+
 /* 누리 작업 - P04 마이 프로필 수정 */
 .profile-edit-wrap{
   margin: 30px auto;
@@ -243,6 +277,32 @@
   background: url(../assets/basic-profile-img-2.png) no-repeat center;
 }
 .profile-btn-upload{
+  width: 36px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: initial;
+}
+
+/* 누리 작업 - P05 상품 등록 */
+.prod-form{
+  margin-top: 30px;
+}
+.prod-img-tit{
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--cancel-color-text);
+}
+.prod-img-wrap{
+  margin: 18px 0 30px 0;
+  height: 204px;
+  position: relative;
+  background-color: #f2f2f2;
+  border: 0.5px solid var(--cancel-color-border);
+  border-radius: 10px;
+}
+.prod-btn-img{
+  margin: 12px;
   width: 36px;
   position: absolute;
   bottom: 0;
