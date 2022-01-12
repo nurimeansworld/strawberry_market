@@ -58,11 +58,12 @@
 
 /* comment (3.1.10 게시글 댓글 페이지) 시작 */
 .comment {
-  width: calc(100% - 6px);
-  margin: 0 auto;
+  border-top: 1px solid #DBDBDB;
 }
 
 .comment form {
+  width: calc(100% - 6px);
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
 }
@@ -94,11 +95,15 @@
 
 /* tab-menu (3.1.14 하단 탭 메뉴) 시작 */
 .tab-menu {
-  width: calc(100% - 6px);
-  margin: 0 auto;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #DBDBDB;
 }
 
 .tab-menu-list {
+  width: calc(100% - 6px);
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   gap: 14px;
@@ -209,9 +214,13 @@
   color: #F26E22;
 }
 
+/* U01.html */
+section.comments {
+
+}
 
 /* U02.html */
-.upload {
+section.upload {
   padding-top: 20px;
 }
 
