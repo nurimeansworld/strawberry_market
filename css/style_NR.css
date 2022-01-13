@@ -79,8 +79,7 @@ background-color: #fff; */
   flex-direction: column;
   align-items: center;
 }
-/* TODO:: 지아님 설정 속성들과 충돌되지 않게 수정 작업 필요 */
-.profile-img{
+.profile-wrap .profile-img{
   margin: 0 auto;
   width: 110px;
 }
@@ -193,6 +192,7 @@ background-color: #fff; */
 .post-btn-tab{
   padding: 9px 16px;
   overflow: auto;
+  border-top: 0.5px solid var(--cancel-color-border); 
   border-bottom: 0.5px solid var(--cancel-color-border); 
 }
 .post-btn-wrap{
@@ -201,20 +201,21 @@ background-color: #fff; */
 .post-btn-wrap button{
   margin-left: 16px;
   width: 26px;
+  height: 26px;
   background-color: #fff;  
 }
-/* .post-btn-list{
-  background-image: url(../assets/icon/icon-post-list-off.png);
+.post-btn-list{
+  background: url(../assets/icon/icon-post-list-off.png) no-repeat;
 }
 .post-btn-list.on{
-  background-image: url(../assets/icon/icon-post-list-on.png);
+  background: url(../assets/icon/icon-post-list-on.png) no-repeat;
 }
 .post-btn-album{
-  background-image: url(../assets/icon/icon-post-album-off.png);
+  background: url(../assets/icon/icon-post-album-off.png) no-repeat;
 }
 .post-btn-album.on{
-  background-image: url(../assets/icon/icon-post-album-on.png);
-} */
+  background: url(../assets/icon/icon-post-album-on.png) no-repeat;
+}
 
 .post-album-sec{
   margin: 16px;

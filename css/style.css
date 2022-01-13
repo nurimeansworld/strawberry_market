@@ -24,15 +24,16 @@ body {
 /* body */
 .container{
   margin: 0 auto;
+  position: relative;
   max-width: calc(100% - 32px);
+  /* max-width: 390px; */
   background-color: #fff;
-  /* background-color: #f2f2f2; */
 }
 .container-join{
   margin: 0 auto;
   max-width: calc(100% - 68px);
+  /* max-width: 390px; */
   background-color: #fff;
-  /* background-color: #f2f2f2; */
 }
 .center{
   text-align: center;
@@ -50,7 +51,8 @@ body {
   line-height: 30px;
   margin-bottom: 30px;
 }
-.login-form{
+.login-form,
+.prodc-form{
   margin: 0 34px 20px;
   display: block;
   /* margin-bottom: 20px; */
