@@ -14,6 +14,7 @@
 - [220103 회의록](https://github.com/nurimeansworld/strawberry_market/wiki/220103-회의록)
 - [211228 회의록](https://github.com/nurimeansworld/strawberry_market/wiki/211228-회의록)
 - [220107 회의록](https://github.com/nurimeansworld/strawberry_market/wiki/220107-회의록)
+- [220112 회의록](https://github.com/nurimeansworld/strawberry_market/wiki/220112-회의록)
 
 ## 컨벤션
 ### 1) 코딩 컨벤션

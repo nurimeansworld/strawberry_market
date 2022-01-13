@@ -79,6 +79,7 @@ background-color: #fff; */
   flex-direction: column;
   align-items: center;
 }
+/* TODO:: 지아님 설정 속성들과 충돌되지 않게 수정 작업 필요 */
 .profile-img{
   margin: 0 auto;
   width: 110px;
