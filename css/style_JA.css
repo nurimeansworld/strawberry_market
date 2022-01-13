@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+/* 컴포넌트 */
+
 /* text-Activ-input (3.1.2 로그인) 시작 */
 .login-email-tit,
 .login-pw-tit {
@@ -24,7 +26,6 @@
   border: none;
   border-bottom: 1px solid #F26E22;
 }
-/* text-Activ-input (3.1.2 로그인) 끝 */
 
 /* icon-product-modal (3.1.6 사용자 프로필 페이지) 시작 */
 .up-modal {
@@ -55,16 +56,14 @@
   font-size: inherit;
 }
 
-
-/* icon-product-modal (3.1.6 사용자 프로필 페이지) 끝 */
-
 /* comment (3.1.10 게시글 댓글 페이지) 시작 */
 .comment {
-  width: calc(100% - 6px);
-  margin: 0 auto;
+  border-top: 1px solid #DBDBDB;
 }
 
 .comment form {
+  width: calc(100% - 6px);
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
 }
@@ -93,15 +92,18 @@
   font-size: 14px;
   cursor: pointer;
 }
-/* comment (3.1.10 게시글 댓글 페이지) 끝 */
 
 /* tab-menu (3.1.14 하단 탭 메뉴) 시작 */
 .tab-menu {
-  width: calc(100% - 6px);
-  margin: 0 auto;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #DBDBDB;
 }
 
 .tab-menu-list {
+  width: calc(100% - 6px);
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   gap: 14px;
@@ -148,6 +150,11 @@
 .tab-menu-profile.on::before {
   background-image: url(../assets/icon/icon-user-fill.png);
 }
+.tab-menu-home.on a,
+.tab-menu-chat.on a,
+.tab-menu-profile.on a  {
+  color: var(--enabled-color);
+}
 
 .tab-menu-list li a {
   margin-top: 40px;
@@ -155,7 +162,6 @@
   color: var(--cancel-color-text);
   font-size: 10px;
 }
-/* tab-menu (3.1.14 하단 탭 메뉴) 끝 */
 
 /* delete-alert (3.1.16 모달 버튼) 시작 */
 .modal-background {
@@ -207,6 +213,46 @@
 .alert-btns .alert-delete-btn {
   color: #F26E22;
 }
-/* delete-alert (3.1.16 모달 버튼) 끝 */
 
+/* U01.html */
+section.comments {
+
+}
+
+/* U02.html */
+section.upload {
+  padding-top: 20px;
+}
+
+.upload .upload-form {
+  display: flex;
+  align-items: flex-start;
+}
+
+.upload-form .profile-img {
+  width: 34px;
+  object-fit: contain;
+  margin: 0;
+}
+
+.upload-form .upload-txt {
+  padding: 10px;
+  outline: none;
+  resize: none;
+}
+
+.upload-img {
+  font-size: 0;
+  background: url(../assets/upload-file.png) no-repeat;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  cursor: pointer;
+}
+
+.upload-form .upload-input {
+  display: none;
+}
 
