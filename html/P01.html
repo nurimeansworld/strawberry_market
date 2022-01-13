@@ -90,6 +90,7 @@
       <!-- // 2. 판매 중인 상품 -->
 
       <!-- 3. 게시글 -->
+      <!-- TODO:: bg-white 제거 -->
       <section class="post-sec bg-white">
         <h2 class="sr-only">사용자 게시글</h2>
         <!-- <ul class="post-btn-list">
@@ -111,7 +112,7 @@
         </article>
 
         <!-- 리스트로 보기 -->
-        <section id="viewList" class="post-list-sec">
+        <section id="viewList" class="post-list-sec on">
           <h3 class="sr-only">리스트 게시글</h3>
           <ul class="post-list-list">
             <!-- TODO:: 컴포넌트 수정되면 확인 후 반영 -->
@@ -140,7 +141,7 @@
                 </div>
                 <div class="item-count">
                   <button type="button" class="btn btn-message">
-                    <img class="message-button" src="../assets/icon/message-circle.png" alt="메세지 버튼">
+                    <img class="message-button" src="../assets/icon/icon-message-circle.png" alt="메세지 버튼">
                   </button>
                   <p class="message-count">12</p>
                 </div>
@@ -174,7 +175,7 @@
                 </div>
                 <div class="item-count">
                   <button type="button" class="btn btn-message">
-                    <img class="message-button" src="../assets/icon/message-circle.png" alt="메세지 버튼">
+                    <img class="message-button" src="../assets/icon/icon-message-circle.png" alt="메세지 버튼">
                   </button>
                   <p class="message-count">12</p>
                 </div>
@@ -188,7 +189,7 @@
         <!-- // 리스트로 보기 -->
         <!-- 앨범으로 보기 -->
         <section id="viewAlbum" class="post-album-sec bg-white">
-          <h3 class="sr-only">앨범으 게시글</h3>
+          <h3 class="sr-only">앨범 게시글</h3>
           <ul class="post-album-list">
             <li class="post-album-item">
               <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
@@ -242,6 +243,20 @@
         </ul>
       </nav>
       <!-- // 4. 탭 메뉴 -->
+
+      <section class="modal-background">
+        <h2 class="sr-only">프로필 설정 메뉴입니다.</h2>
+        <div class="up-modal">
+          <ul class="modal-product-list">
+            <li class="modal-product-item">
+              <button class="product-delete-btn">설정 및 개인정보</button>
+            </li>
+            <li class="modal-product-item">
+              <button class="product-edit-btn">로그아웃</button>
+            </li>
+          </ul>
+        </div>
+      </section>
 
     </section>
   </main>
