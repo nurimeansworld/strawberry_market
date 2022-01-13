@@ -138,14 +138,33 @@ background-color: #fff; */
   margin: 0 10px;
   width: 34px;
   height: 34px;
-  border-bottom: 1px solid var(--cancel-color-border);
+  border: 1px solid var(--cancel-color-border);
   border-radius: 30px;
   background-color: #fff;
 }
-.profile-btn img{
-  margin: 0 auto;
-  width: 20px;
+/* .profile-btn img{
+  
+} */
+.message-btn{
+  /* margin: 0 auto; */
+  /* width: 20px;
+  height: 20px; */
+  background: url(../assets/icon/icon-message-circle.png) no-repeat;
+  background-size: 20px;
+    background-position: center;
 }
+.share-btn{
+  /* margin: 0 auto; */
+  /* width: 20px; */
+  /* height: 20px; */
+  background: url(../assets/icon/icon-share.png) no-repeat;
+  background-size: 20px;
+    background-position: center;
+}
+
+
+
+
 
 .product-sec{
   margin-top: 6px;
