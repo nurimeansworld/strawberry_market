@@ -19,7 +19,7 @@
   line-height: 22px;
 }
 
-/* article 시작! */
+/* 게시글 li 시작! */
 .home-post-user {
     padding: 10px 15px;
     position: relative;
@@ -46,7 +46,7 @@
   /* margin-left: auto; */
   position: absolute;
   top: 10px;
-  left: 350px;
+  left: 356px;
   width: 24px;
   background: transparent;
   cursor: pointer;
@@ -54,10 +54,10 @@
 
 /* post 내용 시작! */
 .home-post-content {
-  /* 304*426 */
-  width: 304px;
-  height: 330px;
-  margin: 10px 0 0 60px;
+  /* 390*426 */
+  width: 390px;
+  height: 100%;
+  padding: 16px 16px 16px 54px;
 }
 
 .home-post-content .user-cont {
@@ -94,6 +94,7 @@
   margin: 15px 0 10px 60px;
   font-size: small;
   color: #767676;
+  padding-bottom: 24px;
 }
 
 /* 프로필 상품 이미지 */
