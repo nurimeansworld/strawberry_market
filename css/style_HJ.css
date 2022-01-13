@@ -59,7 +59,8 @@
   border-radius: 32px;
   cursor: pointer;
 }
-.save-btn:disabled{
+.save-btn:disabled,
+.upload-btn:disabled {
   background: #FCBBC4;
 }
 
