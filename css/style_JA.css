@@ -95,7 +95,7 @@
 
 /* tab-menu (3.1.14 하단 탭 메뉴) 시작 */
 .tab-menu {
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
   width: 100%;
   border-top: 1px solid #DBDBDB;

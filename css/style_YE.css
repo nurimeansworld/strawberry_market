@@ -179,3 +179,52 @@
   background-size: contain;
   background: url(../assets/icon/icon-home-fill.png) ;
 }
+
+/* --------------------------------------- */
+/* 3.1.12 채팅 목록 (chat List) */
+.main-chat-list {
+  padding-bottom: 480px;
+}
+.chat-list {
+  display: flex;
+  align-items: center;
+  padding: 20px 0 16px 16px;
+  position: relative;
+}
+
+.chat-list .chat-user-profile {
+  width: 42px;
+  height: 42px;
+  margin-right: 11px;
+}
+
+.chat-user-profile .on {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  top: 10px;
+  left: 10px;
+  background: url(../assets/Ellipse6.png) no-repeat;
+}
+
+.chat-list-text .user-id {
+  font-size: medium;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.chat-list-text .user-chat {
+  color: #767676;
+  font-size: 12px;
+  font-weight: 500px;
+  padding-top: 10px;
+}
+
+.chat-date {
+  color: #dbdbdb;
+  font-size: 10px;
+  position: absolute;
+  left: 320px;
+  top: 50px;
+}
