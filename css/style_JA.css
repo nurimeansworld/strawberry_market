@@ -214,12 +214,12 @@
   color: #F26E22;
 }
 
-/* U01.html */
+/* U01.html 시작 */
 section.comments {
 
 }
 
-/* U02.html */
+/* U02.html 시작 */
 section.upload {
   padding-top: 20px;
 }
@@ -241,7 +241,7 @@ section.upload {
   resize: none;
 }
 
-.upload-img {
+.upload-form .upload-img {
   font-size: 0;
   background: url(../assets/upload-file.png) no-repeat;
   width: 50px;
@@ -256,3 +256,35 @@ section.upload {
   display: none;
 }
 
+.upload .img-container {
+  width: 304px;
+  height: 228px;
+  margin: 16px auto 0;
+  display: flex;
+  overflow-x: scroll;
+  flex-wrap: nowrap;
+  gap: 8px;
+}
+
+.img-container .img-item {
+  width: 100%;
+  height: 100%;
+  flex: 0 0 auto;
+  align-items: center;
+  border: 0.5px solid #DBDBDB;
+  box-sizing: border-box;
+  border-radius: 10px;
+  position: relative;
+}
+
+.img-item .close-btn {
+  width: 25px;
+  height: 25px;
+  border: none;
+  background-color: none;
+  position: absolute;
+  top: 11.5px;
+  right: 11.5px;
+  background: url(../assets/icon/close.png) no-repeat;
+  background-size: contain;
+}
