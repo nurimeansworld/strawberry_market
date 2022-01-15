@@ -52,7 +52,8 @@ body {
   margin-bottom: 30px;
 }
 .login-form,
-.prodc-form{
+.prod-form,
+.profile-edit-form{
   margin: 0 34px 20px;
   display: block;
   /* margin-bottom: 20px; */
