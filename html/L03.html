@@ -16,32 +16,102 @@
 
     <!-- CHECK:: 참고 링크 https://codepen.io/jacoahmad/pen/mmYRqe -->
     <div class="profile-edit-wrap">
-      <!-- TODO:: input의 가상요소로 넣어서 버튼 이미지를 넣거나 button으로 하거나 상황봐서 -->
-      <!-- <img src="../assets/basic-profile-img-2.png" alt="사용자 프로필 이미지입니다." class="profile-img"> -->
       <button type="button" class="profile-btn-upload"><img src="../assets/upload-file.png"
           alt="프로필 이미지 업로드 버튼입니다."></button>
-      <input class="sr-only" type="file" accept="image/*" />
     </div>
 
-    <form class="login-form">
-      <!-- TODO:: 위의 image 링크를 value로 넣어주기 -->
-      <!-- <input type="hidden" value=""> -->
+    <form class="join-form login-form">
+      <!-- CHECK:: 버튼 클릭하면 아래 input을 클릭하게 설정 -->
+      <input class="sr-only" id="join-img" type="file" accept="image/*" />
+      <label for="join-email" class="join-email-tit login-email-tit">사용자 이름</label>
+      <input type="email" class="join-email-input login-email-input" id="join-email" required
+        placeholder="2~10자 이내여야 합니다.">
 
-      <label for="login-email" class="login-email-tit">사용자 이름</label>
-      <input type="email" class="login-email-input" id="login-email" required placeholder="2~10자 이내여야 합니다.">
-
-      <label for="login-pw" class="login-pw-tit">계정 ID</label>
-      <input type="password" class="login-pw-input" id="login-pw" required placeholder="영문, 숫자, 특수문자(.),(_)만 사용 가능합니다.">
-      <strong class="login-message-error">*비밀번호는 6자 이상이어야 합니다.</strong>
+      <label for="join-pw" class="join-pw-tit login-pw-tit">계정 ID</label>
+      <input type="password" class="join-pw-input login-pw-input" id="join-pw" required
+        placeholder="영문, 숫자, 특수문자(.),(_)만 사용 가능합니다.">
+      <strong class="join-message-error login-message-error pw">*비밀번호는 6자 이상이어야 합니다.</strong>
 
       <!-- TODO:: 소개는 최대 50자 -->
-      <label for="login-pw" class="login-pw-tit">소개</label>
-      <input type="password" class="login-pw-input" id="login-pw" required placeholder="자신과 판매할 상품에 대해 소개해 주세요!">
-      <strong class="login-message-error">*비밀번호는 6자 이상이어야 합니다.</strong>
+      <label for="join-intro" class="edit-intro-tit login-email-tit">소개</label>
+      <input type="text" maxlength="50" class="edit-intro-input login-email-input" id="join-intro" required
+        placeholder="자신과 판매할 상품에 대해 소개해 주세요!">
+      <strong class="join-message-error login-message-error intro">*자신과 판매할 상품에 대해 소개해 주세요!.</strong>
 
       <button class="large-next-btn center disabled">감귤마켓 시작하기</button>
     </form>
   </section>
+
+
+  <script>
+    // const saveBtn = document.querySelector('.save-btn');
+    // const imgUploadBtn = document.querySelector('.profile-btn-upload');
+    // const editForm = document.querySelector('.profile-edit-form');
+    // const editImg = document.querySelector('#editImg');
+    // const editName = document.querySelector('.edit-name-input');
+    // const editId = document.querySelector('.edit-id-input');
+    // const editIntro = document.querySelector('.edit-intro-input');
+
+    // // 버튼 클릭시 이미지 input 버튼 클릭
+    // imgUploadBtn.addEventListener('click', function (e) {
+    //   editImg.click();
+    // });
+
+    // // 이미지 배경 설정 background image url render function
+    // let readURL = function (input) {
+    //   if (input.files && input.files[0]) {
+    //     var reader = new FileReader();
+
+    //     reader.onload = function (e) {
+    //       document.querySelector('.profile-edit-wrap').style.background = `url(${e.target.result}) center center / cover`;
+    //     }
+    //     reader.readAsDataURL(input.files[0]);
+    //   }
+    // }
+    // editImg.addEventListener('change', function (e) {
+    //   readURL(this);
+    // });
+
+    // // 모든 input 입력되면 저장 버튼 활성화
+    // editForm.addEventListener('input', function (e) {
+    //   if ((editImg.value !== '') && (editName.value !== '') && (editId.value !== '') && (editIntro.value !== '')) {
+    //     saveBtn.disabled = false;
+    //   } else {
+    //     saveBtn.disabled = true;
+    //   }
+    // });
+
+    // // 사용자 이름 유효성 검사
+    // editName.addEventListener('input', function (e) {
+    //   const messageError = document.querySelector('.edit-message-error.name');
+    //   if (e.target.value.length == 11 || e.target.value.length < 2) {
+    //     messageError.style.display = 'block';
+    //   } else {
+    //     messageError.style.display = 'none';
+    //   }
+    // });
+
+    // // 계정 ID 유효성 검사
+    // editId.addEventListener('input', function (e) {
+    //   const messageError = document.querySelector('.edit-message-error.id');
+    //   const regExp = new RegExp('^[a-z0-9._]*$');
+    //   if (!regExp.test(e.target.value)) {
+    //     messageError.style.display = 'block';
+    //   } else {
+    //     messageError.style.display = 'none';
+    //   }
+    // });
+
+    // // 소개 길이 유효성 검사
+    // editIntro.addEventListener('input', function (e) {
+    //   const messageError = document.querySelector('.edit-message-error.intro');
+    //   if (e.target.value.length == 50) {
+    //     messageError.style.display = 'block';
+    //   } else {
+    //     messageError.style.display = 'none';
+    //   }
+    // });
+  </script>
 </body>
 
 </html>
