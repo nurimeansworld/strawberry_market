@@ -15,12 +15,15 @@
     <a href="#content">본문 바로가기</a>
   </div>
   <header class="nav nav-upload container">
+    <!-- TODO:: 뒤로가기 연결 -->
     <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
+    <!-- TODO:: 저장 버튼 기본 disabled하고 유효성 검사하면 able -->
     <button type="button" class="save-btn disabled">저장</button>
   </header>
   <main>
     <section class="container-join">
       <h1 class="sr-only">마이 프로필 수정</h1>
+      <!-- TODO:: api 확인 -->
 
       <!-- CHECK:: 참고 링크 https://codepen.io/jacoahmad/pen/mmYRqe -->
       <div class="profile-edit-wrap">
@@ -32,6 +35,7 @@
       </div>
 
       <form class="login-form">
+        <!-- TODO:: input 값들 유효성 검사 메시지 출력 script -->
         <!-- TODO:: 위의 image 링크를 value로 넣어주기 -->
         <!-- <input type="hidden" value=""> -->
 
@@ -43,7 +47,7 @@
           placeholder="영문, 숫자, 특수문자(.),(_)만 사용 가능합니다.">
         <strong class="login-message-error">*비밀번호는 6자 이상이어야 합니다.</strong>
 
-        <!-- CHECK:: 소개는 최대 50자 -->
+        <!-- TODO:: 소개는 최대 50자 입력 가능하게 막기 -->
         <label for="login-pw" class="login-pw-tit">소개</label>
         <input type="password" class="login-pw-input" id="login-pw" required placeholder="자신과 판매할 상품에 대해 소개해 주세요!">
         <strong class="login-message-error">*비밀번호는 6자 이상이어야 합니다.</strong>

@@ -14,16 +14,18 @@
     <a href="#gnb">메뉴 바로가기</a>
     <a href="#content">본문 바로가기</a>
   </div>
-  <header class="nav nav-basic container bg-white">
+  <header class="nav nav-basic container">
+    <!-- TODO:: 뒤로가기, 모달 열기 연결 -->
     <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
     <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
   </header>
   <main>
+    <!-- TODO:: api 연동 -->
     <section class="container">
       <h1 class="sr-only">사용자 프로필</h1>
 
       <!-- 1. 프로필 -->
-      <section id="content" class="profile-sec bg-white">
+      <section id="content" class="profile-sec">
         <h2 class="sr-only">프로필 영역</h2>
         <div class="profile-wrap">
           <img src="../assets/basic-profile-img-2.png" alt="사용자 프로필 이미지입니다." class="profile-img">
@@ -57,9 +59,10 @@
       <!-- // 1. 프로필 -->
 
       <!-- 2. 판매 중인 상품 -->
-      <section class="product-sec bg-white">
+      <section class="product-sec">
         <h2 class="sec-title">판매 중인 상품</h2>
         <ul class="product-list">
+          <!-- TODO:: 내 상품인 경우 삭제,수정,웹사이트에서상품보기, 남 상품인 경우 바로 링크로 이동 -->
           <li class="product-item">
             <img src="../assets/product-img-example.png" alt="" class="item-img">
             <h3 class="item-tit sl-ellipsis">애월읍 노지 감귤</h3>
@@ -90,22 +93,14 @@
       <!-- // 2. 판매 중인 상품 -->
 
       <!-- 3. 게시글 -->
-      <!-- TODO:: bg-white 제거 -->
-      <section class="post-sec bg-white">
+      <section class="post-sec">
         <h2 class="sr-only">사용자 게시글</h2>
-        <!-- <ul class="post-btn-list">
-          <li class="post-btn-item list"><button id="viewList-btn">리스트로 보기</button></li>
-          <li class="post-btn-item album"><button id="viewAlbum-btn">앨범으로 보기</button></li>
-        </ul> -->
-
         <article class="post-btn-tab">
           <div class="post-btn-wrap">
             <button id="viewList-btn" class="post-btn-list on">
-              <!-- 리스트로 보기 -->
               <i class="sr-only">리스트로 보기</i>
             </button>
             <button id="viewAlbum-btn" class="post-btn-album">
-              <!-- 앨범으로 보기 -->
               <i class="sr-only">앨범으로 보기</i>
             </button>
           </div>
@@ -188,7 +183,7 @@
         </section>
         <!-- // 리스트로 보기 -->
         <!-- 앨범으로 보기 -->
-        <section id="viewAlbum" class="post-album-sec bg-white">
+        <section id="viewAlbum" class="post-album-sec">
           <h3 class="sr-only">앨범 게시글</h3>
           <ul class="post-album-list">
             <li class="post-album-item">
@@ -226,7 +221,8 @@
       <!-- // 3. 게시글 -->
 
       <!-- 4. 탭 메뉴 -->
-      <nav class="tab-menu bg-white" id="gnb">
+      <!-- TODO:: a태그 class on 이동 확인 -->
+      <nav class="tab-menu" id="gnb">
         <ul class=" tab-menu-list">
           <li class="tab-menu-home on">
             <a href="javascript:void(0)">홈</a>
