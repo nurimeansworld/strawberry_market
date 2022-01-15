@@ -50,6 +50,60 @@
 
   <script src="../js/script.js"></script>
   <script src="../js/script_NR.js"></script>
+  <script>
+    saveBtn = document.querySelector('.save-btn');
+    imgUploadBtn = document.querySelector('.profile-btn-upload');
+    editForm = document.querySelector('.profile-edit-form');
+    editImg = document.querySelector('#editImg');
+    editName = document.querySelector('.edit-name-input');
+    editId = document.querySelector('.edit-id-input');
+    editIntro = document.querySelector('.edit-intro-input');
+
+    // 버튼 클릭시 이미지 input 버튼 클릭
+    imgUploadBtn.addEventListener('click', function (e) {
+      editImg.click();
+    });
+
+    // 모든 input 입력되면 저장 버튼 활성화
+    editForm.addEventListener('input', function (e) {
+      if ((editImg.value !== '') && (editName.value !== '') && (editId.value !== '') && (editIntro.value !== '')) {
+        saveBtn.disabled = false;
+      } else {
+        saveBtn.disabled = true;
+      }
+    });
+
+    // 사용자 이름 유효성 검사
+    editName.addEventListener('input', function (e) {
+      const messageError = document.querySelector('.edit-message-error.name');
+      if (e.target.value.length == 11 || e.target.value.length < 2) {
+        messageError.style.display = 'block';
+      } else {
+        messageError.style.display = 'none';
+      }
+    });
+
+    // 계정 ID 유효성 검사
+    editId.addEventListener('input', function (e) {
+      const messageError = document.querySelector('.edit-message-error.id');
+      const regExp = new RegExp('^[a-z0-9._]*$');
+      if (!regExp.test(e.target.value)) {
+        messageError.style.display = 'block';
+      } else {
+        messageError.style.display = 'none';
+      }
+    });
+
+    // 소개 길이 유효성 검사
+    editIntro.addEventListener('input', function (e) {
+      const messageError = document.querySelector('.edit-message-error.intro');
+      if (e.target.value.length == 50) {
+        messageError.style.display = 'block';
+      } else {
+        messageError.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 
 </html>
