@@ -15,7 +15,6 @@
     <a href="#content">본문 바로가기</a>
   </div>
   <header class="nav nav-follow container">
-    <!-- TODO:: 뒤로가기 연결 -->
     <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
     <p>Followers</p>
   </header>
@@ -23,7 +22,7 @@
     <section class="container">
       <h1 class="sr-only">팔로워</h1>
       <!-- TODO:: api 확인 -->
-      <!-- TODO::팔로워/팔로잉 페이지로 구분 -->
+      <!-- TODO:: 팔로워/팔로잉 페이지로 구분 -->
 
       <!-- 1. 리스트 -->
       <section id="content" class="follow-sec">
@@ -130,6 +129,26 @@
 
   <script src="../js/script.js"></script>
   <script src="../js/script_NR.js"></script>
+  <script>
+    // follow 상태 변경
+    const followList = document.querySelector('.follow-list');
+    followList.addEventListener('click', function (e) {
+      if (e.target.nodeName === "BUTTON") {
+        btn = e.target;
+
+        if (btn.classList.contains('cancel-button')) {
+          // console.log(btn.className);
+          btn.classList.remove('cancel-button');
+          btn.classList.add('small-follow-button');
+          btn.textContent = '팔로우';
+        } else {
+          btn.classList.remove('small-follow-button');
+          btn.classList.add('cancel-button');
+          btn.textContent = '취소';
+        }
+      }
+    });
+  </script>
 </body>
 
 </html>
