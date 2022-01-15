@@ -49,8 +49,8 @@ followBtn.addEventListener('click', changeFollow);
 // 리스트로 보기, 엘범으로 보기
 function toggleOn(){
   // TODO:: 버튼이 2개일 경우만 아니라 다양한 경우에도 사용 가능하게 리팩토링하기
-  const viewListSec = document.getElementById('viewList');
-  const viewAlbumSec = document.getElementById('viewAlbum');
+  const viewListSec = document.querySelector('#viewList');
+  const viewAlbumSec = document.querySelector('#viewAlbum');
   
   this.classList.add('on');
 
@@ -64,17 +64,13 @@ function toggleOn(){
     viewListSec.classList.add('on');
   }
 }
-const viewListBtn = document.getElementById('viewList-btn');
-const viewAlbumBtn = document.getElementById('viewAlbum-btn');
+
+const viewListBtn = document.querySelector('#viewList-btn');
+const viewAlbumBtn = document.querySelector('#viewAlbum-btn');
 viewListBtn.addEventListener('click', toggleOn);
 viewAlbumBtn.addEventListener('click', toggleOn);
 
+// P02 마이 프로필
 
-// // P03 팔로워
-// // follow 상태 변경
-// const followListBtn = document.querySelector('.follow-item');
-// console.log(followListBtn);
-// console.log('yesy');
-// followListBtn.addEventListener('click', changeFollowList);
 
-// alert('test');
+// P03 팔로워
