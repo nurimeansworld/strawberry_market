@@ -82,6 +82,7 @@ background-color: #fff; */
 .profile-wrap .profile-img{
   margin: 0 auto;
   width: 110px;
+  border-radius:55px;
 }
 .profile-follow{
   /* width: 100%; */
@@ -284,6 +285,9 @@ background-color: #fff; */
   position:relative;
   align-content: baseline;
 }
+.user-follow-bar .user-image{
+  border-radius: 25px;
+}
 .user-follow-bar .user-follow-info{
   margin-left: 12px;
 }
@@ -299,6 +303,7 @@ background-color: #fff; */
   width: 110px;
   height: 110px;
   position: relative;
+  border-radius:55px;
   background: url(../assets/basic-profile-img-2.png) no-repeat center;
 }
 .profile-btn-upload{
