@@ -192,7 +192,7 @@
   position: relative;
 }
 
-.chat-list .chat-user-profile {
+.chat-user-profile {
   width: 42px;
   height: 42px;
   margin-right: 11px;
@@ -227,4 +227,16 @@
   position: absolute;
   left: 320px;
   top: 50px;
+}
+
+/* 3.1.13 채팅방 (chat room) */
+.chat-cont-sender {
+  display: flex;
+  align-items: center;
+}
+
+.chat-cont-me {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
 }
