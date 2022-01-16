@@ -82,6 +82,7 @@ background-color: #fff; */
 .profile-wrap .profile-img{
   margin: 0 auto;
   width: 110px;
+  border-radius:55px;
 }
 .profile-follow{
   /* width: 100%; */
@@ -284,6 +285,9 @@ background-color: #fff; */
   position:relative;
   align-content: baseline;
 }
+.user-follow-bar .user-image{
+  border-radius: 25px;
+}
 .user-follow-bar .user-follow-info{
   margin-left: 12px;
 }
@@ -299,6 +303,7 @@ background-color: #fff; */
   width: 110px;
   height: 110px;
   position: relative;
+  border-radius:55px;
   background: url(../assets/basic-profile-img-2.png) no-repeat center;
 }
 .profile-btn-upload{
@@ -333,4 +338,61 @@ background-color: #fff; */
   bottom: 0;
   right: 0;
   background: initial;
+}
+
+/* 누리 작업 - P04 마이 프로필 수정, P05 상품 등록 form */
+.edit-name-tit,
+.edit-id-tit,
+.edit-intro-tit,
+.prod-name-tit,
+.prod-price-tit,
+.prod-link-tit{
+  color: var(--cancel-color-text);
+  font-size: 12px;
+  margin: 16px 0 10px 0;
+  display: block;
+}
+.edit-name-input,
+.edit-id-input,
+.edit-intro-input,
+.prod-name-input,
+.prod-price-input,
+.prod-link-input{
+  border: none;
+  border-bottom: 1px solid var(--cancel-color-border);
+  padding-bottom: 8px;
+  width: 100%;
+}
+.edit-name-input:focus, 
+.edit-name-input:active,
+.edit-id-input:focus, 
+.edit-id-input:active,
+.edit-intro-input:focus, 
+.edit-intro-input:active,
+.prod-name-input:focus,
+.prod-name-input:active,
+.prod-price-input:focus,
+.prod-price-input:active,
+.prod-link-input:focus,
+.prod-link-input:active{
+  outline: none;
+  border: none;
+  border-bottom: 1px solid var(--enabled-color);
+}
+.edit-name-input::placeholder,
+.edit-id-input::placeholder,
+.edit-intro-input::placeholder,
+.prod-name-input::placeholder,
+.prod-price-input::placeholder,
+.prod-link-input::placeholder{
+  font-size: 14px;
+  color: var(--cancel-color-border);
+}
+.edit-message-error,
+.prod-message-error{
+  display: block;
+  font-size: 12px;
+  color: #EB5757;
+  margin-top: 6px;
+  display: none;
 }

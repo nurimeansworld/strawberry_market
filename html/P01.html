@@ -14,27 +14,29 @@
     <a href="#gnb">메뉴 바로가기</a>
     <a href="#content">본문 바로가기</a>
   </div>
-  <header class="nav nav-basic container bg-white">
+  <header class="nav nav-basic container">
+    <!-- CHECK:: 모달 닫고 각 메뉴로 연결 -->
     <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
     <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
   </header>
   <main>
+    <!-- TODO:: api 연동 -->
     <section class="container">
       <h1 class="sr-only">사용자 프로필</h1>
 
       <!-- 1. 프로필 -->
-      <section id="content" class="profile-sec bg-white">
+      <section id="content" class="profile-sec">
         <h2 class="sr-only">프로필 영역</h2>
         <div class="profile-wrap">
           <img src="../assets/basic-profile-img-2.png" alt="사용자 프로필 이미지입니다." class="profile-img">
           <dl class="profile-follow">
-            <!-- TODO:: a 태그로 이동 -->
+            <!-- CHECK:: api 값에 따라 한 페이지에서 팔로워/팔로잉 출력할지 별도의 페이지로 할지 -->
             <div class="center profile-followers">
-              <dd>2950</dd>
+              <dd><a href="./P03.html">2950</a></dd>
               <dt>followers</dt>
             </div>
             <div class="center profile-followings">
-              <dd>128</dd>
+              <dd><a href="./P03.html">128</a></dd>
               <dt>followings</dt>
             </div>
           </dl>
@@ -57,65 +59,68 @@
       <!-- // 1. 프로필 -->
 
       <!-- 2. 판매 중인 상품 -->
-      <section class="product-sec bg-white">
+      <section class="product-sec">
         <h2 class="sec-title">판매 중인 상품</h2>
         <ul class="product-list">
           <li class="product-item">
-            <img src="../assets/product-img-example.png" alt="" class="item-img">
-            <h3 class="item-tit sl-ellipsis">애월읍 노지 감귤</h3>
-            <p class="item-price">35,000원</p>
+            <a href="{상품 외부 링크}" target="blank">
+              <img src="../assets/product-img-example.png" alt="" class="item-img">
+              <h3 class="item-tit sl-ellipsis">애월읍 노지 감귤</h3>
+              <p class="item-price">35,000원</p>
+            </a>
           </li>
           <li class="product-item">
-            <img src="../assets/product-img-example.png" alt="" class="item-img">
-            <h3 class="item-tit sl-ellipsis">애월읍 한라봉 10kg 애월읍 한라봉 10kg 애월읍 한라봉 10kg 애월읍 한라봉 10kg</h3>
-            <p class="item-price">35,000원</p>
+            <a href="{상품 외부 링크}" target="blank">
+              <img src="../assets/product-img-example.png" alt="" class="item-img">
+              <h3 class="item-tit sl-ellipsis">애월읍 한라봉 10kg 애월읍 한라봉 10kg 애월읍 한라봉 10kg 애월읍 한라봉 10kg</h3>
+              <p class="item-price">35,000원</p>
+            </a>
           </li>
           <li class="product-item">
-            <img src="../assets/product-img-example.png" alt="" class="item-img">
-            <h3 class="item-tit sl-ellipsis">감귤 파치</h3>
-            <p class="item-price">35,000원</p>
+            <a href="{상품 외부 링크}" target="blank">
+              <img src="../assets/product-img-example.png" alt="" class="item-img">
+              <h3 class="item-tit sl-ellipsis">감귤 파치</h3>
+              <p class="item-price">35,000원</p>
+            </a>
           </li>
           <li class="product-item">
-            <img src="../assets/product-img-example.png" alt="" class="item-img">
-            <h3 class="item-tit sl-ellipsis">애월읍 노지 감귤</h3>
-            <p class="item-price">35,000원</p>
+            <a href="{상품 외부 링크}" target="blank">
+              <img src="../assets/product-img-example.png" alt="" class="item-img">
+              <h3 class="item-tit sl-ellipsis">애월읍 노지 감귤</h3>
+              <p class="item-price">35,000원</p>
+            </a>
           </li>
           <li class="product-item">
-            <img src="../assets/product-img-example.png" alt="" class="item-img">
-            <h3 class="item-tit sl-ellipsis">애월읍 노지 감귤</h3>
-            <p class="item-price">35,000원</p>
+            <a href="{상품 외부 링크}" target="blank">
+              <img src="../assets/product-img-example.png" alt="" class="item-img">
+              <h3 class="item-tit sl-ellipsis">애월읍 노지 감귤</h3>
+              <p class="item-price">35,000원</p>
+            </a>
           </li>
         </ul>
       </section>
       <!-- // 2. 판매 중인 상품 -->
 
       <!-- 3. 게시글 -->
-      <!-- TODO:: bg-white 제거 -->
-      <section class="post-sec bg-white">
+      <section class="post-sec">
         <h2 class="sr-only">사용자 게시글</h2>
-        <!-- <ul class="post-btn-list">
-          <li class="post-btn-item list"><button id="viewList-btn">리스트로 보기</button></li>
-          <li class="post-btn-item album"><button id="viewAlbum-btn">앨범으로 보기</button></li>
-        </ul> -->
-
         <article class="post-btn-tab">
           <div class="post-btn-wrap">
             <button id="viewList-btn" class="post-btn-list on">
-              <!-- 리스트로 보기 -->
               <i class="sr-only">리스트로 보기</i>
             </button>
             <button id="viewAlbum-btn" class="post-btn-album">
-              <!-- 앨범으로 보기 -->
               <i class="sr-only">앨범으로 보기</i>
             </button>
           </div>
         </article>
 
         <!-- 리스트로 보기 -->
+        <!-- CHECK:: 댓글 버튼 누르면 게시글 상세페이지로 이동 -->
+        <!-- TODO:: 컴포넌트 수정되면 확인 후 반영 -->
         <section id="viewList" class="post-list-sec on">
           <h3 class="sr-only">리스트 게시글</h3>
           <ul class="post-list-list">
-            <!-- TODO:: 컴포넌트 수정되면 확인 후 반영 -->
             <li class="post-list-item home-post">
               <!-- CHECK:: section -> div로 바꿨는데 우선 고민. 또 수정해야할지도 고민 -->
               <div class="home-post-user">
@@ -183,40 +188,39 @@
               <!-- 게시글 날짜 -->
               <p class="date">2020년 10월 21일</p>
             </li>
-
           </ul>
         </section>
         <!-- // 리스트로 보기 -->
         <!-- 앨범으로 보기 -->
-        <section id="viewAlbum" class="post-album-sec bg-white">
+        <section id="viewAlbum" class="post-album-sec">
           <h3 class="sr-only">앨범 게시글</h3>
           <ul class="post-album-list">
             <li class="post-album-item">
-              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
+              <a href="{해당 게시글 링크}"> <img src="../assets/chat-exapmle.png" alt=""></a>
             </li>
             <li class="post-album-item multi">
-              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
+              <a href="{해당 게시글 링크}"> <img src="../assets/chat-exapmle.png" alt=""></a>
             </li>
             <li class="post-album-item">
-              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
+              <a href="{해당 게시글 링크}"> <img src="../assets/chat-exapmle.png" alt=""></a>
             </li>
             <li class="post-album-item">
-              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
+              <a href="{해당 게시글 링크}"> <img src="../assets/chat-exapmle.png" alt=""></a>
             </li>
             <li class="post-album-item multi">
-              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
+              <a href="{해당 게시글 링크}"> <img src="../assets/chat-exapmle.png" alt=""></a>
             </li>
             <li class="post-album-item multi">
-              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
+              <a href="{해당 게시글 링크}"> <img src="../assets/chat-exapmle.png" alt=""></a>
             </li>
             <li class="post-album-item">
-              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
+              <a href="{해당 게시글 링크}"> <img src="../assets/chat-exapmle.png" alt=""></a>
             </li>
             <li class="post-album-item">
-              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
+              <a href="{해당 게시글 링크}"> <img src="../assets/chat-exapmle.png" alt=""></a>
             </li>
             <li class="post-album-item">
-              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
+              <a href="{해당 게시글 링크}"> <img src="../assets/chat-exapmle.png" alt=""></a>
             </li>
           </ul>
         </section>
@@ -226,19 +230,20 @@
       <!-- // 3. 게시글 -->
 
       <!-- 4. 탭 메뉴 -->
-      <nav class="tab-menu bg-white" id="gnb">
+      <!-- CHECK:: a태그 클릭 범위 확인 요청-->
+      <nav class="tab-menu" id="gnb">
         <ul class=" tab-menu-list">
           <li class="tab-menu-home on">
-            <a href="javascript:void(0)">홈</a>
+            <a href="./H01.html">홈</a>
           </li>
           <li class="tab-menu-chat">
-            <a href="javascript:void(0)">채팅</a>
+            <a href="./C01.html">채팅</a>
           </li>
           <li class="tab-menu-post">
-            <a href="javascript:void(0)">게시물 작성</a>
+            <a href="./U02.html">게시물 작성</a>
           </li>
           <li class="tab-menu-profile">
-            <a href="javascript:void(0)">프로필</a>
+            <a href="./P02.html">프로필</a>
           </li>
         </ul>
       </nav>

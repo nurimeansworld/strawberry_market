@@ -16,43 +16,109 @@
   </div>
   <header class="nav nav-upload container">
     <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
-    <button type="button" class="save-btn disabled">저장</button>
+    <button type="button" class="save-btn" disabled>저장</button>
   </header>
   <main>
-    <section class="container-join">
+    <section class="container">
       <h1 class="sr-only">마이 프로필 수정</h1>
-
-      <!-- CHECK:: 참고 링크 https://codepen.io/jacoahmad/pen/mmYRqe -->
+      <!-- TODO:: api 확인 -->
       <div class="profile-edit-wrap">
-        <!-- MEMO:: input의 가상요소로 넣어서 버튼 이미지를 넣거나 button으로 하거나 상황봐서 -->
-        <!-- <img src="../assets/basic-profile-img-2.png" alt="사용자 프로필 이미지입니다." class="profile-img"> -->
         <button type="button" class="profile-btn-upload"><img src="../assets/upload-file.png"
             alt="프로필 이미지 업로드 버튼입니다."></button>
-        <input class="sr-only" type="file" accept="image/*" />
       </div>
 
-      <form class="login-form">
-        <!-- TODO:: 위의 image 링크를 value로 넣어주기 -->
-        <!-- <input type="hidden" value=""> -->
+      <form class="profile-edit-form">
+        <!-- <input type="hidden" id="editImg" value=""> -->
+        <input class="sr-only" id="editImg" type="file" accept="image/*" />
 
-        <label for="login-email" class="login-email-tit">사용자 이름</label>
-        <input type="email" class="login-email-input" id="login-email" required placeholder="2~10자 이내여야 합니다.">
+        <label for="editName" class="edit-name-tit">사용자 이름</label>
+        <input type="text" minlength="2" maxlength="10" class="edit-name-input" id="editName" required
+          placeholder="2~10자 이내여야 합니다.">
+        <strong class="edit-message-error name">*2~10자 이내여야 합니다.</strong>
 
-        <label for="login-pw" class="login-pw-tit">계정 ID</label>
-        <input type="password" class="login-pw-input" id="login-pw" required
-          placeholder="영문, 숫자, 특수문자(.),(_)만 사용 가능합니다.">
-        <strong class="login-message-error">*비밀번호는 6자 이상이어야 합니다.</strong>
+        <label for="editId" class="edit-id-tit">계정 ID</label>
+        <input type="text" class="edit-id-input" id="editId" required placeholder="영문, 숫자, 특수문자(.),(_)만 사용 가능합니다.">
+        <strong class="edit-message-error id">*영문, 숫자, 특수문자(.),(_)만 사용 가능합니다..</strong>
 
-        <!-- CHECK:: 소개는 최대 50자 -->
-        <label for="login-pw" class="login-pw-tit">소개</label>
-        <input type="password" class="login-pw-input" id="login-pw" required placeholder="자신과 판매할 상품에 대해 소개해 주세요!">
-        <strong class="login-message-error">*비밀번호는 6자 이상이어야 합니다.</strong>
+        <label for="editIntro" class="edit-intro-tit">소개</label>
+        <input type="text" maxlength="50" class="edit-intro-input" id="editIntro" required
+          placeholder="자신과 판매할 상품에 대해 소개해 주세요!">
+        <strong class="edit-message-error intro">*최대 50자 입력 가능합니다.</strong>
       </form>
     </section>
   </main>
 
   <script src="../js/script.js"></script>
   <script src="../js/script_NR.js"></script>
+  <script>
+    saveBtn = document.querySelector('.save-btn');
+    imgUploadBtn = document.querySelector('.profile-btn-upload');
+    editForm = document.querySelector('.profile-edit-form');
+    editImg = document.querySelector('#editImg');
+    editName = document.querySelector('.edit-name-input');
+    editId = document.querySelector('.edit-id-input');
+    editIntro = document.querySelector('.edit-intro-input');
+
+    // 버튼 클릭시 이미지 input 버튼 클릭
+    imgUploadBtn.addEventListener('click', function (e) {
+      editImg.click();
+    });
+
+    // 이미지 배경 설정 background image url render function
+    let readURL = function (input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          document.querySelector('.profile-edit-wrap').style.background = `url(${e.target.result}) center center / cover`;
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+    editImg.addEventListener('change', function (e) {
+      readURL(this);
+    });
+
+    // 모든 input 입력되면 저장 버튼 활성화
+    editForm.addEventListener('input', function (e) {
+      if ((editImg.value !== '') && (editName.value !== '') && (editId.value !== '') && (editIntro.value !== '')) {
+        saveBtn.disabled = false;
+      } else {
+        saveBtn.disabled = true;
+      }
+    });
+
+    // 사용자 이름 유효성 검사
+    editName.addEventListener('input', function (e) {
+      const messageError = document.querySelector('.edit-message-error.name');
+      if (e.target.value.length == 11 || e.target.value.length < 2) {
+        messageError.style.display = 'block';
+      } else {
+        messageError.style.display = 'none';
+      }
+    });
+
+    // 계정 ID 유효성 검사
+    editId.addEventListener('input', function (e) {
+      const messageError = document.querySelector('.edit-message-error.id');
+      const regExp = new RegExp('^[a-z0-9._]*$');
+      if (!regExp.test(e.target.value)) {
+        messageError.style.display = 'block';
+      } else {
+        messageError.style.display = 'none';
+      }
+    });
+
+    // 소개 길이 유효성 검사
+    editIntro.addEventListener('input', function (e) {
+      const messageError = document.querySelector('.edit-message-error.intro');
+      if (e.target.value.length == 50) {
+        messageError.style.display = 'block';
+      } else {
+        messageError.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 
 </html>

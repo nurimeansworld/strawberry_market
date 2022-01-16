@@ -14,39 +14,39 @@
     <a href="#gnb">메뉴 바로가기</a>
     <a href="#content">본문 바로가기</a>
   </div>
-  <header class="nav nav-basic container bg-white">
+  <header class="nav nav-basic container">
+    <!-- CHECK:: 모달 닫고 각 메뉴로 연결 -->
     <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
     <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
   </header>
   <main>
+    <!-- TODO:: api 완료 -->
     <section class="container">
       <h1 class="sr-only">마이 프로필</h1>
 
       <!-- 1. 프로필 -->
-      <section id="content" class="profile-sec bg-white">
+      <section id="content" class="profile-sec">
         <h2 class="sr-only">프로필 영역</h2>
         <div class="profile-wrap">
           <img src="../assets/basic-profile-img-2.png" alt="사용자 프로필 이미지입니다." class="profile-img">
-          <!-- CHECK:: 시맨틱 생각하면 dl>dt,dd 로 짜고 싶은데 그렇게 하면 스타일을 어떻게 할지 고민.
-          검색해보니 dl 하위에 div 단위로 사용해도 괜찮다는 내용이 있어서 우선 그렇게 작업
-        링크 : https://hashcode.co.kr/questions/5358/dldescription-list%EC%9A%94%EC%86%8C%EC%9D%98-%EC%9A%A9%EB%B2%95%EC%9D%B4-%ED%97%B7%EA%B0%88%EB%A6%BD%EB%8B%88%EB%8B%A4 -->
           <dl class="profile-follow">
             <div class="center profile-followers">
-              <dd>2950</dd>
+              <dd><a href="./P03.html">{0}</a></dd>
               <dt>followers</dt>
             </div>
             <div class="center profile-followings">
-              <dd>128</dd>
+              <dd><a href="./P03.html">{0}</a></dd>
               <dt>followings</dt>
             </div>
           </dl>
         </div>
         <div class="center">
-          <h3 class="profile-name">애월읍 위니브 감귤농장</h3>
-          <span class="profile-account">@ weniv_Mandarin</span>
-          <p class="profile-desc">애월읍 감귤 전국 배송, 귤따기 체험, 감귤 농장</p>
+          <h3 class="profile-name">{profile-name}</h3>
+          <span class="profile-account">@ {profile-account}</span>
+          <p class="profile-desc">{profile-desc}</p>
           <div class="profile-btn-wrap">
-            <button type="button" class="medium-unfollow-btn profile-edit-btn">프로필 수정</button>
+            <button type="button" class="medium-unfollow-btn profile-edit-btn">프로필
+              수정</button>
             <button type="button" class="medium-unfollow-btn profile-product-btn">상품 등록</button>
           </div>
         </div>
@@ -54,77 +54,51 @@
       <!-- // 1. 프로필 -->
 
       <!-- 2. 판매 중인 상품 -->
-      <section class="product-sec bg-white">
+      <section class="product-sec">
         <h2 class="sec-title">판매 중인 상품</h2>
         <ul class="product-list">
+          <!-- TODO:: 각 모달 연결 script -->
           <li class="product-item">
             <img src="../assets/product-img-example.png" alt="" class="item-img">
-            <h3 class="item-tit sl-ellipsis">애월읍 노지 감귤</h3>
-            <p class="item-price">35,000원</p>
-          </li>
-          <li class="product-item">
-            <img src="../assets/product-img-example.png" alt="" class="item-img">
-            <h3 class="item-tit sl-ellipsis">애월읍 한라봉 10kg 애월읍 한라봉 10kg 애월읍 한라봉 10kg 애월읍 한라봉 10kg</h3>
-            <p class="item-price">35,000원</p>
-          </li>
-          <li class="product-item">
-            <img src="../assets/product-img-example.png" alt="" class="item-img">
-            <h3 class="item-tit sl-ellipsis">감귤 파치</h3>
-            <p class="item-price">35,000원</p>
-          </li>
-          <li class="product-item">
-            <img src="../assets/product-img-example.png" alt="" class="item-img">
-            <h3 class="item-tit sl-ellipsis">애월읍 노지 감귤</h3>
-            <p class="item-price">35,000원</p>
-          </li>
-          <li class="product-item">
-            <img src="../assets/product-img-example.png" alt="" class="item-img">
-            <h3 class="item-tit sl-ellipsis">애월읍 노지 감귤</h3>
-            <p class="item-price">35,000원</p>
+            <h3 class="item-tit sl-ellipsis">{item-tit}</h3>
+            <p class="item-price">{item-price}</p>
           </li>
         </ul>
       </section>
       <!-- // 2. 판매 중인 상품 -->
 
       <!-- 3. 게시글 -->
-      <section class="post-sec bg-white">
+      <section class="post-sec">
         <h2 class="sr-only">사용자 게시글</h2>
-        <!-- <ul class="post-btn-list">
-          <li class="post-btn-item list"><button id="viewList-btn">리스트로 보기</button></li>
-          <li class="post-btn-item album"><button id="viewAlbum-btn">앨범으로 보기</button></li>
-        </ul> -->
-
         <article class="post-btn-tab">
           <div class="post-btn-wrap">
             <button id="viewList-btn" class="post-btn-list on">
-              <!-- 리스트로 보기 -->
               <i class="sr-only">리스트로 보기</i>
             </button>
             <button id="viewAlbum-btn" class="post-btn-album">
-              <!-- 앨범으로 보기 -->
               <i class="sr-only">앨범으로 보기</i>
             </button>
           </div>
         </article>
 
         <!-- 리스트로 보기 -->
-        <section id="viewList" class="post-list-sec">
+        <!-- CHECK:: 댓글 버튼 누르면 게시글 상세페이지로 이동 -->
+        <!-- TODO:: 컴포넌트 수정되면 확인 후 반영 -->
+        <section id="viewList" class="post-list-sec on">
           <h3 class="sr-only">리스트 게시글</h3>
           <ul class="post-list-list">
-            <!-- CHECK:: 컴포넌트 수정되면 확인 후 반영 -->
             <li class="post-list-item home-post">
               <!-- CHECK:: section -> div로 바꿨는데 우선 고민. 또 수정해야할지도 고민 -->
               <div class="home-post-user">
                 <img class="user-profile" src="../assets/small-profile-img.png" alt="회원 프로필">
-                <h4 class="user-name">애월읍 위니브 감귤농장</h4>
-                <p class="user-id">@ weniv_Mandarin</p>
+                <h4 class="user-name">{user-name}</h4>
+                <p class="user-id">@ {user-id}</p>
                 <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png"
                     alt="메뉴 열기"></button>
               </div>
               <!-- 게시글 내용 부분 -->
               <div class="home-post-content">
-                <p class="user-cont">옷을 인생을 그러므로 없으면 것은 이상은 것은 우리의 위하여, 뿐이다. 이상의 청춘의 뼈 따뜻한 그들의 그와 약동하다. 대고, 못할 넣는 풍부하게
-                  뛰노는 인생의 힘있다.</p>
+                <p class="user-cont"></p>
                 <img class="user-photo" src="../assets/post-img-example.png" alt="회원 사진">
               </div>
               <!-- 게시글 좋아요,메세지 버튼 -->
@@ -133,86 +107,33 @@
                   <button type="button" class="btn btn-heart">
                     <img class="heart-button" src="../assets/icon/heart.png" alt="하트버튼">
                   </button>
-                  <p class="heart-count">58</p>
+                  <p class="heart-count">{58}</p>
                 </div>
                 <div class="item-count">
                   <button type="button" class="btn btn-message">
-                    <img class="message-button" src="../assets/icon/message-circle.png" alt="메세지 버튼">
+                    <img class="message-button" src="../assets/icon/icon-message-circle.png" alt="메세지 버튼">
                   </button>
-                  <p class="message-count">12</p>
+                  <p class="message-count">{12}</p>
                 </div>
               </div>
               <!-- 게시글 날짜 -->
-              <p class="date">2020년 10월 21일</p>
+              <p class="date">{YYYY년 MM월 DD일}</p>
             </li>
-
-            <li class="post-list-item home-post">
-              <!-- CHECK:: section -> div로 바꿨는데 우선 고민. 또 수정해야할지도 고민 -->
-              <div class="home-post-user">
-                <img class="user-profile" src="../assets/small-profile-img.png" alt="회원 프로필">
-                <h4 class="user-name">애월읍 위니브 감귤농장</h4>
-                <p class="user-id">@ weniv_Mandarin</p>
-                <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png"
-                    alt="메뉴 열기"></button>
-              </div>
-              <!-- 게시글 내용 부분 -->
-              <div class="home-post-content">
-                <p class="user-cont">옷을 인생을 그러므로 없으면 것은 이상은 것은 우리의 위하여, 뿐이다. 이상의 청춘의 뼈 따뜻한 그들의 그와 약동하다. 대고, 못할 넣는 풍부하게
-                  뛰노는 인생의 힘있다.</p>
-                <img class="user-photo" src="../assets/post-img-example.png" alt="회원 사진">
-              </div>
-              <!-- 게시글 좋아요,메세지 버튼 -->
-              <div class="home-post-comment">
-                <div class="item-count">
-                  <button type="button" class="btn btn-heart">
-                    <img class="heart-button" src="../assets/icon/heart.png" alt="하트버튼">
-                  </button>
-                  <p class="heart-count">58</p>
-                </div>
-                <div class="item-count">
-                  <button type="button" class="btn btn-message">
-                    <img class="message-button" src="../assets/icon/message-circle.png" alt="메세지 버튼">
-                  </button>
-                  <p class="message-count">12</p>
-                </div>
-              </div>
-              <!-- 게시글 날짜 -->
-              <p class="date">2020년 10월 21일</p>
-            </li>
-
           </ul>
         </section>
         <!-- // 리스트로 보기 -->
         <!-- 앨범으로 보기 -->
-        <section id="viewAlbum" class="post-album-sec bg-white">
-          <h3 class="sr-only">앨범으 게시글</h3>
+        <section id="viewAlbum" class="post-album-sec">
+          <h3 class="sr-only">앨범 게시글</h3>
           <ul class="post-album-list">
             <li class="post-album-item">
-              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
+              <a href="{해당 게시글 링크}"> <img src="../assets/chat-exapmle.png" alt=""></a>
             </li>
             <li class="post-album-item multi">
-              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
+              <a href="{해당 게시글 링크}"> <img src="../assets/chat-exapmle.png" alt=""></a>
             </li>
             <li class="post-album-item">
-              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
-            </li>
-            <li class="post-album-item">
-              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
-            </li>
-            <li class="post-album-item multi">
-              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
-            </li>
-            <li class="post-album-item multi">
-              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
-            </li>
-            <li class="post-album-item">
-              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
-            </li>
-            <li class="post-album-item">
-              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
-            </li>
-            <li class="post-album-item">
-              <a href="javascript:void(0);"> <img src="../assets/chat-exapmle.png" alt=""></a>
+              <a href="{해당 게시글 링크}"> <img src="../assets/chat-exapmle.png" alt=""></a>
             </li>
           </ul>
         </section>
@@ -222,29 +143,113 @@
       <!-- // 3. 게시글 -->
 
       <!-- 4. 탭 메뉴 -->
-      <nav class="tab-menu bg-white" id="gnb">
-        <ul class="tab-menu-list">
+      <nav class="tab-menu" id="gnb">
+        <ul class=" tab-menu-list">
           <li class="tab-menu-home">
-            <a href="javascript:void(0)">홈</a>
+            <a href="./H01.html">홈</a>
           </li>
           <li class="tab-menu-chat">
-            <a href="javascript:void(0)">채팅</a>
+            <a href="./C01.html">채팅</a>
           </li>
           <li class="tab-menu-post">
-            <a href="javascript:void(0)">게시물 작성</a>
+            <a href="./U02.html">게시물 작성</a>
           </li>
           <li class="tab-menu-profile on">
-            <a href="javascript:void(0)">프로필</a>
+            <a href="./P02.html">프로필</a>
           </li>
         </ul>
       </nav>
       <!-- // 4. 탭 메뉴 -->
+
+      <section class="modal-background">
+        <h2 class="sr-only">프로필 설정 메뉴입니다.</h2>
+        <div class="up-modal">
+          <ul class="modal-product-list">
+            <li class="modal-product-item">
+              <button class="product-delete-btn">설정 및 개인정보</button>
+            </li>
+            <li class="modal-product-item">
+              <button class="product-edit-btn">로그아웃</button>
+            </li>
+          </ul>
+        </div>
+      </section>
 
     </section>
   </main>
 
   <script src="../js/script.js"></script>
   <script src="../js/script_NR.js"></script>
+  <script>
+    // TODO:: 아래 기능 script_NR.js 파일로 통합
+    const viewListBtn02 = document.querySelector('#viewList-btn');
+    const viewAlbumBtn02 = document.querySelector('#viewAlbum-btn');
+    viewListBtn02.addEventListener('click', toggleOn);
+    viewAlbumBtn02.addEventListener('click', toggleOn);
+
+    // P02 마이 프로필
+    const profileEditBtn = document.querySelector('.profile-edit-btn');
+    const profileProdBtn = document.querySelector('.profile-product-btn');
+    profileEditBtn.addEventListener('click', (e) => {
+      console.log('test');
+      e.preventDefault();
+      location.href = './P04.html';
+    });
+    profileProdBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      location.href = './P05.html';
+    });
+  </script>
+  <script>
+    // 2. 얻어온 정보 뿌려주기
+    function setUserProfile(userProfile) {
+      // console.log('user', user);
+      const user_id = userProfile._id;
+      const user_accountname = userProfile.accountname;
+      const user_username = userProfile.username;
+      const user_intro = userProfile.intro;
+      const user_image = userProfile.image;
+      const user_following = userProfile.following;
+      const user_follower = userProfile.follower;
+      const user_followerCount = userProfile.followerCount;
+      const user_followingCount = userProfile.followingCount;
+
+      document.querySelector('.profile-followers dd a').textContent = user_followerCount;
+      document.querySelector('.profile-followings dd a').textContent = user_followingCount;
+      document.querySelector('.profile-img').src = user_image;
+      document.querySelector('.profile-name').textContent = user_username;
+      document.querySelector('.profile-account').textContent = `@${user_accountname}`;
+      document.querySelector('.profile-desc').textContent = user_intro;
+    }
+
+    // 1. api - 프로필 정보 얻어오기
+    async function getUserProfile() {
+      const url = 'http://146.56.183.55:5050';
+      const accountName = 'sadlooply';
+      // !중!요!
+      const token = localStorage.getItem('Token');
+      const init = {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-type': 'application/json'
+        },
+        // body: JSON.stringify(loginData)
+      }
+      try {
+        const res = await fetch(`${url}/profile/${accountName}`, init);
+        const resJson = await res.json();
+        const userProfile = resJson.profile;
+
+        setUserProfile(userProfile);
+      } catch (err) {
+        console.log('err', err);
+      }
+    }
+
+    getUserProfile();
+  </script>
+
 </body>
 
 </html>
