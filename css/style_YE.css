@@ -198,7 +198,7 @@
   margin-right: 11px;
 }
 
-.chat-user-profile .on {
+.chat-user-profile.on::before{
   content: '';
   position: absolute;
   width: 12px;
