@@ -1,31 +1,31 @@
-// @@@@@@@@@@@@@@@@@@@@@@ L01.html @@@@@@@@@@@@@@@@@@@@@@ //
 
+// @@@@@@@@@@@@@@@@@@@@@@ L01.html @@@@@@@@@@@@@@@@@@@@@@ //
+const loginForm = document.querySelector('.login-form');
 const loginEmailInput = document.querySelector('.login-email-input');
 const loginPwInput = document.querySelector('.login-pw-input');
-const largeNextBtn = document.querySelector('.large-next-btn');
-const LoginError = document.querySelector('.login-message-error');
+const largeLoginBtn = document.querySelector('.large-login-btn');
+const LoginError = document.querySelector('.form-message-error');
+
+console.log('loginForm',loginForm);
+console.log('loginEmailInput',loginEmailInput);
+console.log('loginPwInput',loginPwInput);
+console.log('largeLoginBtn',largeLoginBtn);
+console.log('LoginError',LoginError);
+
 
 // 로그인 버튼 활성화 함수
 function checkBtn() {
-  if(loginEmailInput.value === '' && loginPwInput.value === '') {
-    largeNextBtn.disabled = true;
-  } else if (loginEmailInput.value === '' || loginPwInput.value === '') {
-    largeNextBtn.disabled = true;
+  if(loginEmailInput.value !== '' && loginPwInput.value !== '') {
+    largeLoginBtn.disabled = false;
   } else {
-    largeNextBtn.disabled = false;
-    largeNextBtn.classList.remove('disabled');
+    largeLoginBtn.disabled = true;
   }
 }
+
 // 아이디 입력시
 loginEmailInput.addEventListener("input", checkBtn);
-
 // 비밀번호 입력시 
 loginPwInput.addEventListener("input", checkBtn);
-
-function getInput(){
-  console.log(loginEmailInput.value);
-  console.log(loginPwInput.value);
-}
 
 // 사용자 로그인 api 연동 함수
 // ----- 이 함수에 대한 설명 -----
@@ -70,7 +70,7 @@ async function login(e) {
     // console.log('err', err);
   } 
 }
-largeNextBtn.addEventListener('click', login);
+largeLoginBtn.addEventListener('click', login);
 
 
 // 누리가 작성한 찌끄래기 낙서...
@@ -83,3 +83,61 @@ largeNextBtn.addEventListener('click', login);
 
 
 // 정규식 관련 참고 블로그 링크 : https://rateye.tistory.com/468
+
+
+// @@@@@@@@@@@@@@@@@@@@@@ L02.html @@@@@@@@@@@@@@@@@@@@@@ //
+// 모든 input 입력되면 저장 버튼 활성화
+const joinForm = document.querySelector('.join-form');
+const joinEmail = document.querySelector('.join-email-input');
+const joinPw = document.querySelector('.join-pw-input');
+const nextBtn = document.querySelector('.large-next-btn');
+const errorMessage = document.querySelector('.form-message-error');
+
+// joinForm.addEventListener('input', function (e) {
+//   e.preventDefault();
+
+//   if ((joinEmail.value !== '') && (joinPw.value !== '')) {
+//     nextBtn.disabled = false;
+//   } else {
+//     nextBtn.disabled = true;
+//     nextBtn.classList.add = 'disabled';
+//   }
+// });
+
+
+// 이메일 중복체크하는 함수 
+async function checkEmailValid(email) {
+    const res = await fetch(localStorage.getItem("url")+'/user/emailvalid',{
+      method:"POST",
+      header: {
+            "Content-Type": "application/json",
+          },
+      body:JSON.stringify({
+        "user":{
+              "email":email
+      }
+    })
+  })
+
+  const json = await res.json()
+  return json.message == "사용 가능한 이메일 입니다." ? true : false
+
+  // return 이 이메일이 사용가능한지 체크를 할거에요.
+}
+
+// nextBtn.addEventListener("click", async ()=>{
+//   const email = joinEmail.value
+//   const pw = joinPw.value
+  
+//   //비밀번호 입력이 6자 이상이여야 함
+//   if(pw.length>5){
+//     const emailValid = await checkEmailValid(email)  
+//     if (emailValid) {
+//       errorMessage.style.display = "none"
+//       nextBtn.disabled = false;
+//     }else{
+//       alert("중복된 이메일입니다.")
+//     }
+//   }else{alert("비밀번호를 다시 입력하세요.")}
+
+// });

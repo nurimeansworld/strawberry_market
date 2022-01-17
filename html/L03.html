@@ -20,8 +20,9 @@
           alt="프로필 이미지 업로드 버튼입니다."></button>
     </div>
 
-    <form class="join-form login-form">
+    <form class="profile-form">
       <!-- CHECK:: 버튼 클릭하면 아래 input을 클릭하게 설정 -->
+      <!-- CHECK:: join -> profile로 변경 후 css 추가 -->
       <input class="sr-only" id="join-img" type="file" accept="image/*" />
       <label for="join-email" class="join-email-tit login-email-tit">사용자 이름</label>
       <input type="email" class="join-email-input login-email-input" id="join-email" required
@@ -30,19 +31,19 @@
       <label for="join-pw" class="join-pw-tit login-pw-tit">계정 ID</label>
       <input type="password" class="join-pw-input login-pw-input" id="join-pw" required
         placeholder="영문, 숫자, 특수문자(.),(_)만 사용 가능합니다.">
-      <strong class="join-message-error login-message-error pw">*비밀번호는 6자 이상이어야 합니다.</strong>
+      <strong class="join-message-error form-message-error pw">*비밀번호는 6자 이상이어야 합니다.</strong>
 
       <!-- TODO:: 소개는 최대 50자 -->
       <label for="join-intro" class="edit-intro-tit login-email-tit">소개</label>
       <input type="text" maxlength="50" class="edit-intro-input login-email-input" id="join-intro" required
         placeholder="자신과 판매할 상품에 대해 소개해 주세요!">
-      <strong class="join-message-error login-message-error intro">*자신과 판매할 상품에 대해 소개해 주세요!.</strong>
+      <strong class="join-message-error form-message-error intro">*자신과 판매할 상품에 대해 소개해 주세요!.</strong>
 
-      <button class="large-next-btn center disabled">감귤마켓 시작하기</button>
+      <button class="large-start-btn" disabled>감귤마켓 시작하기</button>
     </form>
   </section>
 
-
+  <script src="../js/script.js"></script>
   <script>
     // const saveBtn = document.querySelector('.save-btn');
     // const imgUploadBtn = document.querySelector('.profile-btn-upload');

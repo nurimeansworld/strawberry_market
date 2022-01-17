@@ -4,7 +4,9 @@
 
 /* text-Activ-input (3.1.2 로그인) 시작 */
 .login-email-tit,
-.login-pw-tit {
+.login-pw-tit,
+.join-email-tit,
+.join-pw-tit {
   color: var(--cancel-color-text);
   font-size: 12px;
   margin: 16px 0 10px 0;
@@ -12,7 +14,9 @@
 }
 
 .login-pw-input,
-.login-email-input {
+.login-email-input,
+.join-email-input,
+.join-pw-input {
   border: none;
   border-bottom: 1px solid var(--cancel-color-border);
   padding-bottom: 8px;
@@ -21,7 +25,11 @@
 .login-email-input:focus, 
 .login-email-input:active,
 .login-pw-input:focus, 
-.login-pw-input:active {
+.login-pw-input:active,
+.join-email-input:focus,
+.join-email-input:active,
+.join-pw-input:focus,
+.join-pw-input:active{
   outline: none;
   border: none;
   border-bottom: 1px solid #F26E22;
