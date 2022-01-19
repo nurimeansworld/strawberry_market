@@ -230,13 +230,33 @@
 }
 
 /* 3.1.13 채팅방 (chat room) */
+.chat-room {
+  padding-bottom: 550px;
+}
 .chat-cont-sender {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
+}
+.chat-cont-sender .chat-cont-text {
+  display: flex;
+  align-items: flex-end;
+}
+
+ul .chat-cont-sender :nth-child(2) {
+  border-radius: 0 5px 5px 5px;
+  border: 1px solid var(--cancel-color-text);
+  background-color: white;
+  padding: 7px;
 }
 
 .chat-cont-me {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   flex-direction: row-reverse;
+}
+
+.chat-cont-me .bg-color-red {
+  border-radius: 5px 0 5px 5px;
+  border: 1px solid var(--enabled-color);
+  background-color: var(--enabled-color);
 }
