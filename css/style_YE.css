@@ -231,15 +231,22 @@
 
 /* 3.1.13 채팅방 (chat room) */
 .chat-room {
-  padding-bottom: 550px;
+  padding-top: 250px;
+  padding-bottom: 250px;
+  background-color: #F2F2F2;
 }
+
 .chat-cont-sender {
   display: flex;
-  /* align-items: center; */
-}
-.chat-cont-sender .chat-cont-text {
-  display: flex;
   align-items: flex-end;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.chat-cont-sender .chat-time {
+  padding: 0 30px 0 5px;
+  color: var(--cancel-color-text);
+  font-size: small;
 }
 
 ul .chat-cont-sender :nth-child(2) {
@@ -253,10 +260,42 @@ ul .chat-cont-sender :nth-child(2) {
   display: flex;
   align-items: flex-end;
   flex-direction: row-reverse;
+  margin: 0 auto;
+  padding: 5px;
+  position: relative;
 }
 
+.chat-cont-me .chat-user-profile {
+  position: absolute;
+  width: 273px;
+  height: 240px;
+  top: 130px;
+  left: 320px;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+
+}
 .chat-cont-me .bg-color-red {
   border-radius: 5px 0 5px 5px;
   border: 1px solid var(--enabled-color);
   background-color: var(--enabled-color);
+  width: 108px;
+  height: 42px;
+  text-align: center;
+  line-height: 35px;
+  color: white;
+}
+
+.chat-cont-me .chat-time {
+  padding-right: 10px;
+  color: var(--cancel-color-text);
+  font-size: small;
+}
+.chat-cont-me .chat-time-picture {
+  padding-right: 10px;
+  color: var(--cancel-color-text);
+  position: absolute;
+  top: 230px;
+  left: 140px;
+  font-size: small;
 }
