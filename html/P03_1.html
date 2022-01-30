@@ -21,14 +21,12 @@
   <main>
     <section class="container">
       <h1 class="sr-only">팔로워</h1>
-      <!-- TODO:: api 완료 -->
-      <!-- TODO:: 팔로워/팔로잉 페이지로 구분 -->
 
       <!-- 1. 리스트 -->
       <section id="content" class="follow-sec">
         <h2 class="sr-only">팔로워 리스트</h2>
         <ul class="follow-list">
-          <li class="follow-item">
+          <!-- <li class="follow-item">
             <a href="javascript:void(0);" class="user-follow-bar">
               <img src="../assets/basic-profile-img-2.png" alt="사용자 이미지" class="user-image">
               <div class="user-follow-info">
@@ -37,19 +35,7 @@
               </div>
             </a>
             <button type="button" class="small-follow-button">{팔로우}</button>
-          </li>
-          <li class="follow-item">
-            <a href="javascript:void(0);" class="user-follow-bar">
-              <img src="../assets/basic-profile-img-2.png" alt="사용자 이미지" class="user-image">
-              <div class="user-follow-info">
-                <span>{감귤의 품격 - 애월읍}</span>
-                <div class="user-email">
-                  {제주 노지귤, 하우스 한라봉 판매합니다. 제주 노지귤, 하우스 한라봉 판매합니다. 제주 노지귤, 하우스 한라봉 판매합니다. 제주 노지귤}
-                </div>
-              </div>
-            </a>
-            <button type="button" class="small-follow-button">{팔로우}</button>
-          </li>
+          </li> -->
         </ul>
       </section>
       <!-- // 1. 리스트 -->
@@ -85,7 +71,6 @@
         btn = e.target;
 
         if (btn.classList.contains('cancel-button')) {
-          // console.log(btn.className);
           btn.classList.remove('cancel-button');
           btn.classList.add('small-follow-button');
           btn.textContent = '팔로우';
@@ -98,52 +83,54 @@
     });
   </script>
   <script>
-    function setFollower(userInfo) {
-      console.log('userInfo', userInfo);
+    function setFollowing(userInfo) {
       const followList = document.querySelector('.follow-list');
+      const fragment = document.createDocumentFragment();
 
-      for (const user of userInfo) {
-        console.log(user);
+      if (Object.keys(userInfo).length !== 0) {
+        for (const user of userInfo) {
+          // 유저 정보
+          const user_accountname = user.accountname;
+          const user_username = user.username;
+          const user_intro = user.intro;
+          const user_image = user.image;
+          // TODO:: 사용자 프로필 클릭시 계정 정보 받아와 설정
+          // const user_link = `/profile/${user_accountname}`;
+          const stateClass = (user.isfollow === true) ? 'cancel-button' : 'small-follow-button';
+          const stateText = (user.isfollow === true) ? '취소' : '팔로우';
 
-        // 유저 정보
-        const user_accountname = user.accountname;
-        const user_username = user.username;
-        const user_intro = user.intro;
-        const user_image = user.image;
-        //  TODO:: 실제 데이터에 맞춰서 class, text 값 다르게 받아오기
-        const stateClass = 'small-follow-button';
-        const stateText = '팔로우';
-
-
-        const fragment = document.createDocumentFragment();
-        const followItem = document.createElement('li');
-        const btn = document.createElement('button');
-
-        followItem.innerHTML = `<a href="javascript:void(0);" class="user-follow-bar">
+          // 계정 추가
+          const followItem = document.createElement('li');
+          followItem.setAttribute('class', 'follow-item');
+          followItem.innerHTML = `<a href="javascript:void(0);" class="user-follow-bar">
           <img src="${user_image}" alt="사용자 이미지" class="user-image">
             <div class="user-follow-info">
               <span>${user_username}</span>
-              <div class="user-email">
-                ${user_intro}
-              </div>
+              <div class="user-email">${user_intro}</div>
             </div>
         </a>
         <button type="button" class="${stateClass}">${stateText}</button>
         `;
-        followItem.setAttribute('class', 'follow-item');
-        followList.appendChild(followItem);
-        fragment.appendChild(followItem);
+          fragment.appendChild(followItem);
+        }
+        followList.appendChild(fragment);
+      } else {
+        // 팔로우 or 팔로워가 1명도 없을 때
+        const emptyfollowItem = document.createElement('li');
+        emptyfollowItem.setAttribute('class', 'emptyfollow-item');
+        emptyfollowItem.innerHTML = `<span>팔로워 계정이 없습니다.</span><div class="user-email">유저를 검색해 팔로우 해보세요!</div>`;
+        fragment.appendChild(emptyfollowItem);
+        followList.appendChild(fragment);
       }
-      followList.appendChild(fragment);
     }
 
-    async function getFollower() {
+    async function getFollowing() {
       // // paging limit skip
-      // GET / profile /: accountname / follower ? limit = Number & skip=Number
+      // GET / profile /: accountname / following ? limit = Number & skip=Number
 
       const url = 'http://146.56.183.55:5050';
-      const accountName = 'sadlooply';
-      // !중!요!
+      // TODO:: accountName 동적으로 받아오기
+      const accountName = 'sadloopy';
       const token = localStorage.getItem('Token');
       const init = {
         method: 'GET',
@@ -154,12 +141,12 @@
       }
       const res = await fetch(`${url}/profile/${accountName}/follower`, init);
       const resJson = await res.json();
-      // console.log(resJson);
+      // console.log('resJson', resJson);
 
-      setFollower(resJson);
+      setFollowing(resJson);
     }
 
-    getFollower();
+    getFollowing();
   </script>
 </body>
 

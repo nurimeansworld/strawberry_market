@@ -280,6 +280,18 @@ background-color: #fff; */
   justify-content: space-between;
   align-items: center;
 }
+.follow-item .user-link{
+  display: flex;
+}
+.follow-item .user-img{
+  width: 50px;
+  margin-right: 12px;
+  border-radius: 25px;
+}
+.follow-item .user-info{
+}
+.follow-item .user-desc{
+}
 .follow-item .user-follow-bar{
   width: auto;
   position:relative;
@@ -295,6 +307,11 @@ background-color: #fff; */
 .user-follow-item .cancel-button{
   position: absolute;
   right: 0;
+}
+.emptyfollow-item{
+  margin: 15px 0;
+  text-align: center;
+  line-height: 22px;
 }
 
 /* 누리 작업 - P04 마이 프로필 수정 */
