@@ -106,7 +106,7 @@ background-color: #fff; */
 .profile-followings{
   float: right;
 }
-.profile-followings dd{
+.profile-followings dd a{
   color: var(--cancel-color-text)
 }
 
@@ -163,6 +163,7 @@ background-color: #fff; */
 .product-sec{
   margin-top: 6px;
   padding: 20px 0 20px 15px;
+  border-top: 0.5px solid var(--cancel-color-border);
   border-bottom: 0.5px solid var(--cancel-color-border);
 }
 .sec-title{
@@ -182,6 +183,8 @@ background-color: #fff; */
   width: 140px;
 }
 .item-img{
+  height: 90px;
+  object-fit: cover;
   border-bottom: 0.5px solid var(--cancel-color-border);
   border-radius: 8px;
 }

@@ -55,15 +55,15 @@
 
       <!-- 2. 판매 중인 상품 -->
       <section class="product-sec">
-        <h2 class="sec-title">판매 중인 상품</h2>
+        <!-- TODO:: 각 모달 연결 script -->
+        <!-- <h2 class="sec-title">판매 중인 상품</h2>
         <ul class="product-list">
-          <!-- TODO:: 각 모달 연결 script -->
           <li class="product-item">
             <img src="../assets/product-img-example.png" alt="" class="item-img">
             <h3 class="item-tit sl-ellipsis">{item-tit}</h3>
             <p class="item-price">{item-price}</p>
           </li>
-        </ul>
+        </ul> -->
       </section>
       <!-- // 2. 판매 중인 상품 -->
 
@@ -203,29 +203,52 @@
   <script>
     // 2. 얻어온 정보 뿌려주기
     function setUserProfile(userProfile) {
-      // console.log('user', user);
-      const user_id = userProfile._id;
-      const user_accountname = userProfile.accountname;
-      const user_username = userProfile.username;
-      const user_intro = userProfile.intro;
-      const user_image = userProfile.image;
-      const user_following = userProfile.following;
-      const user_follower = userProfile.follower;
-      const user_followerCount = userProfile.followerCount;
-      const user_followingCount = userProfile.followingCount;
+      const user_image = (userProfile.image) ? userProfile.image : '../assets/basic-profile-img-2.png';
 
-      document.querySelector('.profile-followers dd a').textContent = user_followerCount;
-      document.querySelector('.profile-followings dd a').textContent = user_followingCount;
+      document.querySelector('.profile-followers dd a').textContent = userProfile.followerCount;
+      document.querySelector('.profile-followings dd a').textContent = userProfile.followingCount;
       document.querySelector('.profile-img').src = user_image;
-      document.querySelector('.profile-name').textContent = user_username;
-      document.querySelector('.profile-account').textContent = `@${user_accountname}`;
-      document.querySelector('.profile-desc').textContent = user_intro;
+      document.querySelector('.profile-name').textContent = userProfile.username;
+      document.querySelector('.profile-account').textContent = `@${userProfile.accountname}`;
+      document.querySelector('.profile-desc').textContent = userProfile.intro;
+    }
+
+    function setUserProduct(userProduct) {
+      const productSec = document.querySelector('.product-sec');
+
+      if (userProduct.data !== 0) {
+        // 상품 O
+        const fragment = document.createDocumentFragment();
+        const productTit = document.createElement('h2');
+        productTit.setAttribute('class', 'sec-title');
+        productTit.textContent = '판매 중인 상품';
+
+        const productList = document.createElement('ul');
+        productList.setAttribute('class', 'product-list');
+
+        for (const product of userProduct.product) {
+          const productItem = document.createElement('li');
+          productItem.setAttribute('class', 'product-item');
+          productItem.innerHTML = `<img src="${product.itemImage}" alt="상품 이미지입니다." class="item-img">
+            <h3 class="item-tit sl-ellipsis">${product.itemName}</h3>
+            <p class="item-price">${product.price}</p>`;
+          fragment.appendChild(productItem);
+          productList.appendChild(fragment);
+        }
+
+        productSec.appendChild(productTit);
+        productSec.appendChild(productList);
+      } else {
+        // 상품 X
+        productSec.remove();
+      }
     }
 
     // 1. api - 프로필 정보 얻어오기
     async function getUserProfile() {
       const url = 'http://146.56.183.55:5050';
-      const accountName = 'sadlooply';
+      // TODO:: accountName 동적으로 받아오기
+      const accountName = 'sadloopy';
       // !중!요!
       const token = localStorage.getItem('Token');
       const init = {
@@ -237,13 +260,21 @@
         // body: JSON.stringify(loginData)
       }
       try {
-        const res = await fetch(`${url}/profile/${accountName}`, init);
-        const resJson = await res.json();
-        const userProfile = resJson.profile;
+        // userProfile
+        const resUserProfile = await fetch(`${url}/profile/${accountName}`, init);
+        const resUserProfileJson = await resUserProfile.json();
+        const userProfile = resUserProfileJson.profile;
 
         setUserProfile(userProfile);
+
+        // userProduct
+        const resUserProduct = await fetch(`${url}/product/${accountName}`, init);
+        const resUserProductJson = await resUserProduct.json();
+        const userProduct = resUserProductJson;
+
+        setUserProduct(userProduct);
       } catch (err) {
-        console.log('err', err);
+        console.error('err', err);
       }
     }
 
