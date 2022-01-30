@@ -252,7 +252,7 @@ background-color: #fff; */
   /* display: flex;
   flex-wrap: wrap; */
   display: grid;
-  grid-template-columns: repeat(3, minmax(114px, auto));
+  grid-template-columns: repeat(3, minmax(114px, 33%));
   gap: 8px;
 }
 .post-album-item.multi{

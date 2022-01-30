@@ -31,7 +31,7 @@
           <img src="../assets/basic-profile-img-2.png" alt="사용자 프로필 이미지입니다." class="profile-img">
           <dl class="profile-follow">
             <div class="center profile-followers">
-              <dd><a href="./P03.html">{0}</a></dd>
+              <dd><a href="./P03_1.html">{0}</a></dd>
               <dt>followers</dt>
             </div>
             <div class="center profile-followings">
@@ -92,11 +92,7 @@
         <!-- 앨범으로 보기 -->
         <section id="viewAlbum" class="post-album-sec">
           <h3 class="sr-only">앨범 게시글</h3>
-          <ul class="post-album-list">
-            <li class="post-album-item">
-              <a href="{해당 게시글 링크}"> <img src="../assets/chat-exapmle.png" alt=""></a>
-            </li>
-          </ul>
+          <ul class="post-album-list"></ul>
         </section>
         <!-- // 앨범으로 보기 -->
 
@@ -190,11 +186,11 @@
         for (const product of userProduct.product) {
           const productPrice = product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
+          // TODO:: 상품 클릭시 수정 메뉴 뜨게
           const productItem = document.createElement('li');
           productItem.setAttribute('class', 'product-item');
           productItem.innerHTML = `<img src="${product.itemImage}" alt="상품 이미지입니다." class="item-img">
-            <h3 class="item-tit sl-ellipsis">${product.itemName}</h3>
-            <p class="item-price">${productPrice}</p>`;
+            <h3 class="item-tit sl-ellipsis">${product.itemName}</h3><p class="item-price">${productPrice}원</p>`;
           fragment.appendChild(productItem);
           productList.appendChild(fragment);
         }
@@ -204,6 +200,40 @@
       } else {
         // 상품 X
         productSec.remove();
+      }
+    }
+
+    function setUserImgPost(userImgPost) {
+      const fragement = document.createDocumentFragment();
+      const postAlbumList = document.querySelector('.post-album-list');
+      for (const imgPost of userImgPost) {
+        const postAlbumItem = document.createElement('li');
+        postAlbumItem.setAttribute('class', 'post-album-item');
+        postAlbumItem.innerHTML = `<a href="${imgPost.id}"><img src="${imgPost.image}" alt=""></a>`;
+        fragement.appendChild(postAlbumItem);
+      }
+      postAlbumList.appendChild(fragement);
+    }
+
+    function checkImagePost(userPost) {
+      let checkImagePost = false;
+      let userImgPost = [];
+
+      for (post of userPost) {
+        if (post.image !== '') {
+          checkImagePost = true;
+          userImgPost.push(post);
+        }
+      }
+      if (checkImagePost === true) {
+        // 이미지 게시글 O - 앨범으로 보기 게시글 추가
+        setUserImgPost(userImgPost);
+      } else {
+        // 이미지 게시글이 X - 앨범으로 보기 remove
+        const viewAlbumBtn = document.querySelector('.post-btn-album');
+        const postAlbumSec = document.querySelector('.post-album-sec');
+        viewAlbumBtn.remove();
+        postAlbumSec.remove();
       }
     }
 
@@ -219,15 +249,17 @@
       const postSec = document.querySelector('.post-sec');
 
       if (Object.keys(userPost.post).length !== 0) {
-        // 게시글 O
+        // 이미지 게시글 체크
+        checkImagePost(userPost.post);
+
         const fragment = document.createDocumentFragment();
         const postList = document.querySelector('.post-list-list');
 
         for (const post of userPost.post) {
-          // TODO:: 하트랑 댓글 활성화 여부 체크하여 추가
           const post_date = new Date(post.createdAt);
           const post_date_format = `${post_date.getFullYear()}년 ${post_date.getMonth() + 1}월 ${post_date.getDate()}일`;
           const postImage = post.image ? `<img class="user-photo" src="${post.image}" alt="게시글 사진">` : '';
+          const heartBtn = post.hearted ? `<img class="heart-button" src="../assets/icon/icon-heart-active.png" alt="하트버튼">` : `<img class="heart-button" src="../assets/icon/icon-heart.png" alt="하트버튼">`;
 
           const postItem = document.createElement('li');
           postItem.setAttribute('class', 'post-list-item home-post');
@@ -240,9 +272,7 @@
               <!-- 게시글 좋아요,메세지 버튼 -->
               <div class="home-post-comment">
                 <div class="item-count">
-                  <button type="button" class="btn btn-heart">
-                    <img class="heart-button" src="../assets/icon/heart.png" alt="하트버튼">
-                  </button>
+                  <button type="button" class="btn btn-heart">${heartBtn}</button>
                   <p class="heart-count">${post.heartCount}</p>
                 </div>
                 <div class="item-count">
@@ -276,7 +306,6 @@
           'Authorization': `Bearer ${token}`,
           'Content-type': 'application/json'
         },
-        // body: JSON.stringify(loginData)
       }
       try {
         // userProfile
