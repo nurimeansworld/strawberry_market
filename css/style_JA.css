@@ -131,7 +131,7 @@
   position: absolute;
   width: 24px;
   height: 24px;
-  top: 13px;
+  top: 18px;
   left: 30px;
   background-size: contain;
 }
@@ -165,7 +165,7 @@
 }
 
 .tab-menu-list li a {
-  margin-top: 40px;
+  margin-top: 50px;
   display: inline-block;
   color: var(--cancel-color-text);
   font-size: 10px;
