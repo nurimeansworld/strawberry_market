@@ -30,21 +30,20 @@
         <div class="profile-wrap">
           <img src="../assets/basic-profile-img-2.png" alt="사용자 프로필 이미지입니다." class="profile-img">
           <dl class="profile-follow">
-            <!-- CHECK:: api 값에 따라 한 페이지에서 팔로워/팔로잉 출력할지 별도의 페이지로 할지 -->
             <div class="center profile-followers">
-              <dd><a href="./P03.html">2950</a></dd>
+              <dd><a href="./P03_1.html?id=">{0}</a></dd>
               <dt>followers</dt>
             </div>
             <div class="center profile-followings">
-              <dd><a href="./P03.html">128</a></dd>
+              <dd><a href="./P03.html?id=">{0}</a></dd>
               <dt>followings</dt>
             </div>
           </dl>
         </div>
         <div class="center">
-          <h3 class="profile-name">애월읍 위니브 감귤농장</h3>
-          <span class="profile-account">@ weniv_Mandarin</span>
-          <p class="profile-desc">애월읍 감귤 전국 배송, 귤따기 체험, 감귤 농장</p>
+          <h3 class="profile-name">{profile-name}</h3>
+          <span class="profile-account">@ {profile-account}</span>
+          <p class="profile-desc">{profile-desc}</p>
           <div class="profile-btn-wrap">
             <button class="profile-btn message-btn">
               <i class="sr-only">메시지 보내기</i>
@@ -60,44 +59,15 @@
 
       <!-- 2. 판매 중인 상품 -->
       <section class="product-sec">
-        <h2 class="sec-title">판매 중인 상품</h2>
+        <!-- TODO:: 각 모달 연결 script -->
+        <!-- <h2 class="sec-title">판매 중인 상품</h2>
         <ul class="product-list">
           <li class="product-item">
-            <a href="{상품 외부 링크}" target="blank">
-              <img src="../assets/product-img-example.png" alt="" class="item-img">
-              <h3 class="item-tit sl-ellipsis">애월읍 노지 감귤</h3>
-              <p class="item-price">35,000원</p>
-            </a>
+            <img src="../assets/product-img-example.png" alt="" class="item-img">
+            <h3 class="item-tit sl-ellipsis">{item-tit}</h3>
+            <p class="item-price">{item-price}</p>
           </li>
-          <li class="product-item">
-            <a href="{상품 외부 링크}" target="blank">
-              <img src="../assets/product-img-example.png" alt="" class="item-img">
-              <h3 class="item-tit sl-ellipsis">애월읍 한라봉 10kg 애월읍 한라봉 10kg 애월읍 한라봉 10kg 애월읍 한라봉 10kg</h3>
-              <p class="item-price">35,000원</p>
-            </a>
-          </li>
-          <li class="product-item">
-            <a href="{상품 외부 링크}" target="blank">
-              <img src="../assets/product-img-example.png" alt="" class="item-img">
-              <h3 class="item-tit sl-ellipsis">감귤 파치</h3>
-              <p class="item-price">35,000원</p>
-            </a>
-          </li>
-          <li class="product-item">
-            <a href="{상품 외부 링크}" target="blank">
-              <img src="../assets/product-img-example.png" alt="" class="item-img">
-              <h3 class="item-tit sl-ellipsis">애월읍 노지 감귤</h3>
-              <p class="item-price">35,000원</p>
-            </a>
-          </li>
-          <li class="product-item">
-            <a href="{상품 외부 링크}" target="blank">
-              <img src="../assets/product-img-example.png" alt="" class="item-img">
-              <h3 class="item-tit sl-ellipsis">애월읍 노지 감귤</h3>
-              <p class="item-price">35,000원</p>
-            </a>
-          </li>
-        </ul>
+        </ul> -->
       </section>
       <!-- // 2. 판매 중인 상품 -->
 
@@ -120,109 +90,13 @@
         <!-- TODO:: 컴포넌트 수정되면 확인 후 반영 -->
         <section id="viewList" class="post-list-sec on">
           <h3 class="sr-only">리스트 게시글</h3>
-          <ul class="post-list-list">
-            <li class="post-list-item home-post">
-              <!-- CHECK:: section -> div로 바꿨는데 우선 고민. 또 수정해야할지도 고민 -->
-              <div class="home-post-user">
-                <img class="user-profile" src="../assets/small-profile-img.png" alt="회원 프로필">
-                <h4 class="user-name">애월읍 위니브 감귤농장</h4>
-                <p class="user-id">@ weniv_Mandarin</p>
-                <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png"
-                    alt="메뉴 열기"></button>
-              </div>
-              <!-- 게시글 내용 부분 -->
-              <div class="home-post-content">
-                <p class="user-cont">옷을 인생을 그러므로 없으면 것은 이상은 것은 우리의 위하여, 뿐이다. 이상의 청춘의 뼈 따뜻한 그들의 그와 약동하다. 대고, 못할 넣는 풍부하게
-                  뛰노는 인생의 힘있다.</p>
-                <img class="user-photo" src="../assets/post-img-example.png" alt="회원 사진">
-              </div>
-              <!-- 게시글 좋아요,메세지 버튼 -->
-              <div class="home-post-comment">
-                <div class="item-count">
-                  <button type="button" class="btn btn-heart">
-                    <img class="heart-button" src="../assets/icon/heart.png" alt="하트버튼">
-                  </button>
-                  <p class="heart-count">58</p>
-                </div>
-                <div class="item-count">
-                  <button type="button" class="btn btn-message">
-                    <img class="message-button" src="../assets/icon/icon-message-circle.png" alt="메세지 버튼">
-                  </button>
-                  <p class="message-count">12</p>
-                </div>
-              </div>
-              <!-- 게시글 날짜 -->
-              <p class="date">2020년 10월 21일</p>
-            </li>
-
-            <li class="post-list-item home-post">
-              <!-- CHECK:: section -> div로 바꿨는데 우선 고민. 또 수정해야할지도 고민 -->
-              <div class="home-post-user">
-                <img class="user-profile" src="../assets/small-profile-img.png" alt="회원 프로필">
-                <h4 class="user-name">애월읍 위니브 감귤농장</h4>
-                <p class="user-id">@ weniv_Mandarin</p>
-                <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png"
-                    alt="메뉴 열기"></button>
-              </div>
-              <!-- 게시글 내용 부분 -->
-              <div class="home-post-content">
-                <p class="user-cont">옷을 인생을 그러므로 없으면 것은 이상은 것은 우리의 위하여, 뿐이다. 이상의 청춘의 뼈 따뜻한 그들의 그와 약동하다. 대고, 못할 넣는 풍부하게
-                  뛰노는 인생의 힘있다.</p>
-                <img class="user-photo" src="../assets/post-img-example.png" alt="회원 사진">
-              </div>
-              <!-- 게시글 좋아요,메세지 버튼 -->
-              <div class="home-post-comment">
-                <div class="item-count">
-                  <button type="button" class="btn btn-heart">
-                    <img class="heart-button" src="../assets/icon/heart.png" alt="하트버튼">
-                  </button>
-                  <p class="heart-count">58</p>
-                </div>
-                <div class="item-count">
-                  <button type="button" class="btn btn-message">
-                    <img class="message-button" src="../assets/icon/icon-message-circle.png" alt="메세지 버튼">
-                  </button>
-                  <p class="message-count">12</p>
-                </div>
-              </div>
-              <!-- 게시글 날짜 -->
-              <p class="date">2020년 10월 21일</p>
-            </li>
-          </ul>
+          <ul class="post-list-list"></ul>
         </section>
         <!-- // 리스트로 보기 -->
         <!-- 앨범으로 보기 -->
         <section id="viewAlbum" class="post-album-sec">
           <h3 class="sr-only">앨범 게시글</h3>
-          <ul class="post-album-list">
-            <li class="post-album-item">
-              <a href="{해당 게시글 링크}"> <img src="../assets/chat-exapmle.png" alt=""></a>
-            </li>
-            <li class="post-album-item multi">
-              <a href="{해당 게시글 링크}"> <img src="../assets/chat-exapmle.png" alt=""></a>
-            </li>
-            <li class="post-album-item">
-              <a href="{해당 게시글 링크}"> <img src="../assets/chat-exapmle.png" alt=""></a>
-            </li>
-            <li class="post-album-item">
-              <a href="{해당 게시글 링크}"> <img src="../assets/chat-exapmle.png" alt=""></a>
-            </li>
-            <li class="post-album-item multi">
-              <a href="{해당 게시글 링크}"> <img src="../assets/chat-exapmle.png" alt=""></a>
-            </li>
-            <li class="post-album-item multi">
-              <a href="{해당 게시글 링크}"> <img src="../assets/chat-exapmle.png" alt=""></a>
-            </li>
-            <li class="post-album-item">
-              <a href="{해당 게시글 링크}"> <img src="../assets/chat-exapmle.png" alt=""></a>
-            </li>
-            <li class="post-album-item">
-              <a href="{해당 게시글 링크}"> <img src="../assets/chat-exapmle.png" alt=""></a>
-            </li>
-            <li class="post-album-item">
-              <a href="{해당 게시글 링크}"> <img src="../assets/chat-exapmle.png" alt=""></a>
-            </li>
-          </ul>
+          <ul class="post-album-list"></ul>
         </section>
         <!-- // 앨범으로 보기 -->
 
@@ -268,6 +142,182 @@
 
   <script src="../js/script.js"></script>
   <script src="../js/script_NR.js"></script>
+  <script>
+    // 2. 얻어온 정보 뿌려주기
+    function setOtherProfile(otherProfile) {
+      const other_image = (otherProfile.image) ? otherProfile.image : '../assets/basic-profile-img-2.png';
+
+      document.querySelector('.profile-followers dd a').textContent = otherProfile.followerCount;
+      document.querySelector('.profile-followings dd a').textContent = otherProfile.followingCount;
+      document.querySelector('.profile-img').src = other_image;
+      document.querySelector('.profile-name').textContent = otherProfile.username;
+      document.querySelector('.profile-account').textContent = `@${otherProfile.accountname}`;
+      document.querySelector('.profile-desc').textContent = otherProfile.intro;
+    }
+
+    function setOtherProduct(otherProduct) {
+      const productSec = document.querySelector('.product-sec');
+
+      if (otherProduct.data !== 0) {
+        // 상품 O
+        const fragment = document.createDocumentFragment();
+        const productTit = document.createElement('h2');
+        productTit.setAttribute('class', 'sec-title');
+        productTit.textContent = '판매 중인 상품';
+
+        const productList = document.createElement('ul');
+        productList.setAttribute('class', 'product-list');
+
+        for (const product of otherProduct.product) {
+          const productPrice = product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+          // TODO:: 상품 클릭시 수정 메뉴 뜨게
+          const productItem = document.createElement('li');
+          productItem.setAttribute('class', 'product-item');
+          productItem.innerHTML = `<img src="${product.itemImage}" alt="상품 이미지입니다." class="item-img">
+            <h3 class="item-tit sl-ellipsis">${product.itemName}</h3><p class="item-price">${productPrice}원</p>`;
+          fragment.appendChild(productItem);
+          productList.appendChild(fragment);
+        }
+
+        productSec.appendChild(productTit);
+        productSec.appendChild(productList);
+      } else {
+        // 상품 X
+        productSec.remove();
+      }
+    }
+
+    function setOtherImgPost(otherImgPost) {
+      const fragement = document.createDocumentFragment();
+      const postAlbumList = document.querySelector('.post-album-list');
+      for (const imgPost of otherImgPost) {
+        const postAlbumItem = document.createElement('li');
+        postAlbumItem.setAttribute('class', 'post-album-item');
+        postAlbumItem.innerHTML = `<a href="${imgPost.id}"><img src="${imgPost.image}" alt=""></a>`;
+        fragement.appendChild(postAlbumItem);
+      }
+      postAlbumList.appendChild(fragement);
+    }
+
+    function checkImagePost(otherPost) {
+      let checkImagePost = false;
+      let OtherImgPost = [];
+
+      for (post of otherPost) {
+        if (post.image !== '') {
+          checkImagePost = true;
+          OtherImgPost.push(post);
+        }
+      }
+      if (checkImagePost === true) {
+        // 이미지 게시글 O - 앨범으로 보기 게시글 추가
+        setOtherImgPost(OtherImgPost);
+      } else {
+        // 이미지 게시글이 X - 앨범으로 보기 remove
+        const viewAlbumBtn = document.querySelector('.post-btn-album');
+        const postAlbumSec = document.querySelector('.post-album-sec');
+        viewAlbumBtn.remove();
+        postAlbumSec.remove();
+      }
+    }
+
+    function setOtherPost(otherPost, otherProfile) {
+      const user_image = (otherProfile.image) ? otherProfile.image : '../assets/basic-profile-img-2.png';
+      const htmlPostUser = `<div class="home-post-user">
+        <img class="user-profile" src="${user_image}" alt="회원 프로필">
+        <h4 class="user-name">${otherProfile.username}</h4>
+        <p class="user-id">@ ${otherProfile.accountname}</p>
+        <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
+        </div>`;
+
+      const postSec = document.querySelector('.post-sec');
+
+      if (Object.keys(otherPost.post).length !== 0) {
+        // 이미지 게시글 체크
+        checkImagePost(otherPost.post);
+
+        const fragment = document.createDocumentFragment();
+        const postList = document.querySelector('.post-list-list');
+
+        for (const post of otherPost.post) {
+          const post_date = new Date(post.createdAt);
+          const post_date_format = `${post_date.getFullYear()}년 ${post_date.getMonth() + 1}월 ${post_date.getDate()}일`;
+          const postImage = post.image ? `<img class="user-photo" src="${post.image}" alt="게시글 사진">` : '';
+          const heartBtn = post.hearted ? `<img class="heart-button" src="../assets/icon/icon-heart-active.png" alt="하트버튼">` : `<img class="heart-button" src="../assets/icon/icon-heart.png" alt="하트버튼">`;
+
+          const postItem = document.createElement('li');
+          postItem.setAttribute('class', 'post-list-item home-post');
+          postItem.innerHTML = `${htmlPostUser}
+              <!-- 게시글 내용 부분 -->
+              <div class="home-post-content">
+                <p class="user-cont">${post.content}</p>
+                ${postImage}
+              </div>
+              <!-- 게시글 좋아요,메세지 버튼 -->
+              <div class="home-post-comment">
+                <div class="item-count">
+                  <button type="button" class="btn btn-heart">${heartBtn}</button>
+                  <p class="heart-count">${post.heartCount}</p>
+                </div>
+                <div class="item-count">
+                  <button type="button" class="btn btn-message">
+                    <img class="message-button" src="../assets/icon/icon-message-circle.png" alt="메세지 버튼">
+                  </button>
+                  <p class="message-count">${post.commentCount}</p>
+                </div>
+              </div>
+              <!-- 게시글 날짜 -->
+              <p class="date">${post_date_format}</p>`;
+          fragment.appendChild(postItem);
+        }
+        postList.appendChild(fragment);
+      } else {
+        // 게시글 X
+        postSec.remove();
+      }
+    }
+
+    // 1. api - 프로필 정보 얻어오기
+    async function getOtherProfile() {
+      const url = 'http://146.56.183.55:5050';
+      const accountName = location.search.split('id=')[1];
+      const token = localStorage.getItem('Token');
+      const init = {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-type': 'application/json'
+        },
+      }
+      try {
+        // otherProfile
+        const resOtherProfile = await fetch(`${url}/profile/${accountName}`, init);
+        const resOtherProfileJson = await resOtherProfile.json();
+        const otherProfile = resOtherProfileJson.profile;
+
+        setOtherProfile(otherProfile);
+
+        // otherProduct
+        const resOtherProduct = await fetch(`${url}/product/${accountName}`, init);
+        const resOtherProductJson = await resOtherProduct.json();
+        const otherProduct = resOtherProductJson;
+
+        setOtherProduct(otherProduct);
+
+        // OtherProduct
+        const resOtherPost = await fetch(`${url}/post/${accountName}/userpost`, init);
+        const resOtherPostJson = await resOtherPost.json();
+        const otherPost = resOtherPostJson;
+
+        setOtherPost(otherPost, otherProfile);
+      } catch (err) {
+        console.error('err', err);
+      }
+    }
+
+    getOtherProfile();
+  </script>
 </body>
 
 </html>
