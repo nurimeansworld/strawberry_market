@@ -139,11 +139,15 @@
           'Content-type': 'application/json'
         }
       }
-      const res = await fetch(`${url}/profile/${accountName}/follower`, init);
-      const resJson = await res.json();
-      // console.log('resJson', resJson);
+      try {
+        const res = await fetch(`${url}/profile/${accountName}/follower`, init);
+        const resJson = await res.json();
+        // console.log('resJson', resJson);
 
-      setFollowing(resJson);
+        setFollowing(resJson);
+      } catch (err) {
+        console.error('err', err);
+      }
     }
 
     getFollowing();

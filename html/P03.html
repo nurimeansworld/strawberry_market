@@ -95,7 +95,7 @@
           const user_accountname = user.accountname;
           const user_username = user.username;
           const user_intro = user.intro;
-          const user_image = user.image;
+          const user_image = (user.image) ? user.image : '../assets/basic-profile-img-2.png';
           // TODO:: 사용자 프로필 클릭시 계정 정보 받아와 설정
           // const user_link = `/profile/${user_accountname}`;
           const user_link = `./P01.html/${user_accountname}`;
@@ -142,11 +142,15 @@
           'Content-type': 'application/json'
         }
       }
-      const res = await fetch(`${url}/profile/${accountName}/following`, init);
-      const resJson = await res.json();
-      // console.log('resJson', resJson);
+      try {
+        const res = await fetch(`${url}/profile/${accountName}/following`, init);
+        const resJson = await res.json();
+        // console.log('resJson', resJson);
 
-      setFollowing(resJson);
+        setFollowing(resJson);
+      } catch (err) {
+        console.error('err', err);
+      }
     }
 
     getFollowing();
