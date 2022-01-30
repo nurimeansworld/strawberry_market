@@ -86,52 +86,13 @@
         <!-- TODO:: 컴포넌트 수정되면 확인 후 반영 -->
         <section id="viewList" class="post-list-sec on">
           <h3 class="sr-only">리스트 게시글</h3>
-          <ul class="post-list-list">
-            <li class="post-list-item home-post">
-              <!-- CHECK:: section -> div로 바꿨는데 우선 고민. 또 수정해야할지도 고민 -->
-              <div class="home-post-user">
-                <img class="user-profile" src="../assets/small-profile-img.png" alt="회원 프로필">
-                <h4 class="user-name">{user-name}</h4>
-                <p class="user-id">@ {user-id}</p>
-                <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png"
-                    alt="메뉴 열기"></button>
-              </div>
-              <!-- 게시글 내용 부분 -->
-              <div class="home-post-content">
-                <p class="user-cont"></p>
-                <img class="user-photo" src="../assets/post-img-example.png" alt="회원 사진">
-              </div>
-              <!-- 게시글 좋아요,메세지 버튼 -->
-              <div class="home-post-comment">
-                <div class="item-count">
-                  <button type="button" class="btn btn-heart">
-                    <img class="heart-button" src="../assets/icon/heart.png" alt="하트버튼">
-                  </button>
-                  <p class="heart-count">{58}</p>
-                </div>
-                <div class="item-count">
-                  <button type="button" class="btn btn-message">
-                    <img class="message-button" src="../assets/icon/icon-message-circle.png" alt="메세지 버튼">
-                  </button>
-                  <p class="message-count">{12}</p>
-                </div>
-              </div>
-              <!-- 게시글 날짜 -->
-              <p class="date">{YYYY년 MM월 DD일}</p>
-            </li>
-          </ul>
+          <ul class="post-list-list"></ul>
         </section>
         <!-- // 리스트로 보기 -->
         <!-- 앨범으로 보기 -->
         <section id="viewAlbum" class="post-album-sec">
           <h3 class="sr-only">앨범 게시글</h3>
           <ul class="post-album-list">
-            <li class="post-album-item">
-              <a href="{해당 게시글 링크}"> <img src="../assets/chat-exapmle.png" alt=""></a>
-            </li>
-            <li class="post-album-item multi">
-              <a href="{해당 게시글 링크}"> <img src="../assets/chat-exapmle.png" alt=""></a>
-            </li>
             <li class="post-album-item">
               <a href="{해당 게시글 링크}"> <img src="../assets/chat-exapmle.png" alt=""></a>
             </li>
@@ -227,11 +188,13 @@
         productList.setAttribute('class', 'product-list');
 
         for (const product of userProduct.product) {
+          const productPrice = product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
           const productItem = document.createElement('li');
           productItem.setAttribute('class', 'product-item');
           productItem.innerHTML = `<img src="${product.itemImage}" alt="상품 이미지입니다." class="item-img">
             <h3 class="item-tit sl-ellipsis">${product.itemName}</h3>
-            <p class="item-price">${product.price}</p>`;
+            <p class="item-price">${productPrice}</p>`;
           fragment.appendChild(productItem);
           productList.appendChild(fragment);
         }
@@ -241,6 +204,62 @@
       } else {
         // 상품 X
         productSec.remove();
+      }
+    }
+
+    function setUserPost(userPost, userProfile) {
+      const user_image = (userProfile.image) ? userProfile.image : '../assets/basic-profile-img-2.png';
+      const htmlPostUser = `<div class="home-post-user">
+        <img class="user-profile" src="${user_image}" alt="회원 프로필">
+        <h4 class="user-name">${userProfile.username}</h4>
+        <p class="user-id">@ ${userProfile.accountname}</p>
+        <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
+        </div>`;
+
+      const postSec = document.querySelector('.post-sec');
+
+      if (Object.keys(userPost.post).length !== 0) {
+        // 게시글 O
+        const fragment = document.createDocumentFragment();
+        const postList = document.querySelector('.post-list-list');
+
+        for (const post of userPost.post) {
+          // TODO:: 하트랑 댓글 활성화 여부 체크하여 추가
+          const post_date = new Date(post.createdAt);
+          const post_date_format = `${post_date.getFullYear()}년 ${post_date.getMonth() + 1}월 ${post_date.getDate()}일`;
+          const postImage = post.image ? `<img class="user-photo" src="${post.image}" alt="게시글 사진">` : '';
+
+          const postItem = document.createElement('li');
+          postItem.setAttribute('class', 'post-list-item home-post');
+          postItem.innerHTML = `${htmlPostUser}
+              <!-- 게시글 내용 부분 -->
+              <div class="home-post-content">
+                <p class="user-cont">${post.content}</p>
+                ${postImage}
+              </div>
+              <!-- 게시글 좋아요,메세지 버튼 -->
+              <div class="home-post-comment">
+                <div class="item-count">
+                  <button type="button" class="btn btn-heart">
+                    <img class="heart-button" src="../assets/icon/heart.png" alt="하트버튼">
+                  </button>
+                  <p class="heart-count">${post.heartCount}</p>
+                </div>
+                <div class="item-count">
+                  <button type="button" class="btn btn-message">
+                    <img class="message-button" src="../assets/icon/icon-message-circle.png" alt="메세지 버튼">
+                  </button>
+                  <p class="message-count">${post.commentCount}</p>
+                </div>
+              </div>
+              <!-- 게시글 날짜 -->
+              <p class="date">${post_date_format}</p>`;
+          fragment.appendChild(postItem);
+        }
+        postList.appendChild(fragment);
+      } else {
+        // 게시글 X
+        postSec.remove();
       }
     }
 
@@ -273,6 +292,13 @@
         const userProduct = resUserProductJson;
 
         setUserProduct(userProduct);
+
+        // userProduct
+        const resUserPost = await fetch(`${url}/post/${accountName}/userpost`, init);
+        const resUserPostJson = await resUserPost.json();
+        const userPost = resUserPostJson;
+
+        setUserPost(userPost, userProfile);
       } catch (err) {
         console.error('err', err);
       }
