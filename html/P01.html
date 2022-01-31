@@ -146,13 +146,22 @@
     // 2. 얻어온 정보 뿌려주기
     function setOtherProfile(otherProfile) {
       const other_image = (otherProfile.image) ? otherProfile.image : '../assets/basic-profile-img-2.png';
+      const followBtn = document.querySelector('.medium-follow-btn');
 
+      document.querySelector('.profile-followers dd a').setAttribute('href', `./P03_1.html?id=${otherProfile.accountname}`);
       document.querySelector('.profile-followers dd a').textContent = otherProfile.followerCount;
+      document.querySelector('.profile-followings dd a').setAttribute('href', `./P03.html?id=${otherProfile.accountname}`);
       document.querySelector('.profile-followings dd a').textContent = otherProfile.followingCount;
       document.querySelector('.profile-img').src = other_image;
       document.querySelector('.profile-name').textContent = otherProfile.username;
       document.querySelector('.profile-account').textContent = `@${otherProfile.accountname}`;
       document.querySelector('.profile-desc').textContent = otherProfile.intro;
+
+      // 팔로우 or 언팔로우
+      if (otherProfile.isfollow === true) {
+        followBtn.textContent = '언팔로우';
+        followBtn.classList.replace('medium-follow-btn', 'medium-unfollow-btn');
+      }
     }
 
     function setOtherProduct(otherProduct) {
