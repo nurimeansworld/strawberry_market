@@ -94,15 +94,14 @@
           const user_username = user.username;
           const user_intro = user.intro;
           const user_image = user.image;
-          // TODO:: 사용자 프로필 클릭시 계정 정보 받아와 설정
-          // const user_link = `/profile/${user_accountname}`;
+          const user_link = `./P01.html?id=${user_accountname}`;
           const stateClass = (user.isfollow === true) ? 'cancel-button' : 'small-follow-button';
           const stateText = (user.isfollow === true) ? '취소' : '팔로우';
 
           // 계정 추가
           const followItem = document.createElement('li');
           followItem.setAttribute('class', 'follow-item');
-          followItem.innerHTML = `<a href="javascript:void(0);" class="user-follow-bar">
+          followItem.innerHTML = `<a href="${user_link}" class="user-follow-bar">
           <img src="${user_image}" alt="사용자 이미지" class="user-image">
             <div class="user-follow-info">
               <span>${user_username}</span>
@@ -129,8 +128,7 @@
       // GET / profile /: accountname / following ? limit = Number & skip=Number
 
       const url = 'http://146.56.183.55:5050';
-      // TODO:: accountName 동적으로 받아오기
-      const accountName = 'sadloopy';
+      const accountName = checkUserOther();
       const token = localStorage.getItem('Token');
       const init = {
         method: 'GET',

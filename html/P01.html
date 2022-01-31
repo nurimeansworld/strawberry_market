@@ -290,7 +290,9 @@
     // 1. api - 프로필 정보 얻어오기
     async function getOtherProfile() {
       const url = 'http://146.56.183.55:5050';
-      const accountName = location.search.split('id=')[1];
+
+      // ?id= 값이 있는지 확인
+      const accountName = checkUserOther();
       const token = localStorage.getItem('Token');
       const init = {
         method: 'GET',

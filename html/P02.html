@@ -295,8 +295,7 @@
     // 1. api - 프로필 정보 얻어오기
     async function getUserProfile() {
       const url = 'http://146.56.183.55:5050';
-      // TODO:: accountName 동적으로 받아오기
-      const accountName = 'sadloopy';
+      const accountName = checkUserOther();
       const token = localStorage.getItem('Token');
       const init = {
         method: 'GET',

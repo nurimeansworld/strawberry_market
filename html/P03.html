@@ -84,8 +84,6 @@
   </script>
   <script>
     function setFollowing(userInfo) {
-      console.log('userInfo', userInfo);
-
       const followList = document.querySelector('.follow-list');
       const fragment = document.createDocumentFragment();
 
@@ -96,9 +94,7 @@
           const user_username = user.username;
           const user_intro = user.intro;
           const user_image = (user.image) ? user.image : '../assets/basic-profile-img-2.png';
-          // TODO:: 사용자 프로필 클릭시 계정 정보 받아와 설정
-          // const user_link = `/profile/${user_accountname}`;
-          const user_link = `./P01.html/${user_accountname}`;
+          const user_link = `./P01.html?id=${user_accountname}`;
           const stateClass = (user.isfollow === true) ? 'cancel-button' : 'small-follow-button';
           const stateText = (user.isfollow === true) ? '취소' : '팔로우';
 
@@ -132,8 +128,7 @@
       // GET / profile /: accountname / following ? limit = Number & skip=Number
 
       const url = 'http://146.56.183.55:5050';
-      // TODO:: accountName 동적으로 받아오기
-      const accountName = 'sadloopy';
+      const accountName = checkUserOther();
       const token = localStorage.getItem('Token');
       const init = {
         method: 'GET',

@@ -3,6 +3,14 @@ function goBack(){
   window.history.back();
 }
 
+// id값 체크
+function checkUserOther() {
+  const accountName = (location.search.split('id=')[1]) ? location.search.split('id=')[1] : 'sadloopy';
+  console.log('checkUserOther', accountName);
+  return accountName;
+}
+
+
 // modal menu 열기
 function openMenuModal(){
   let modalBg = document.querySelector('.modal-background');
