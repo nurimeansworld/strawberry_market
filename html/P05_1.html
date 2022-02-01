@@ -154,9 +154,7 @@
     saveBtn.addEventListener('click', reqProdData);
 
     function setProdData(resProdDataJson) {
-      // console.log(resProdDataJson.product);
       const price = resProdDataJson.product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-      // console.log(price.replace(/\B(?=(\d{3})+(?!\d))/g, ','));
 
       document.querySelector('.prod-img-wrap').style.background = `url(${resProdDataJson.product.itemImage}) center center / cover`;
       document.querySelector('#prodImgHidden').value = resProdDataJson.product.itemImage;
@@ -181,7 +179,6 @@
         const resProdData = await fetch(`${url}/product/detail/${prodId}`, init);
         const resProdDataJson = await resProdData.json();
 
-        // console.log(resProdDataJson);
         setProdData(resProdDataJson);
       } catch (err) {
         console.error(err);

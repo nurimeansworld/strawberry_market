@@ -142,8 +142,9 @@
 
         if (resProdDataJson.status != 422) {
           location.href = "./P02.html"
+          // console.log(resProdDataJson);
         } else {
-          // console.error(resProdDataJson);
+          console.error(resProdDataJson);
         }
       } catch (err) {
         console.error(err);

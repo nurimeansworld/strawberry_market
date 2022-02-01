@@ -15,7 +15,6 @@
     <a href="#content">본문 바로가기</a>
   </div>
   <header class="nav nav-basic container">
-    <!-- CHECK:: 모달 닫고 각 메뉴로 연결 -->
     <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
     <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
   </header>
@@ -52,17 +51,7 @@
       <!-- // 1. 프로필 -->
 
       <!-- 2. 판매 중인 상품 -->
-      <section class="product-sec">
-        <!-- TODO:: 각 모달 연결 script -->
-        <!-- <h2 class="sec-title">판매 중인 상품</h2>
-              <ul class="product-list">
-                <li class="product-item">
-                  <img src="../assets/product-img-example.png" alt="" class="item-img">
-                  <h3 class="item-tit sl-ellipsis">{item-tit}</h3>
-                  <p class="item-price">{item-price}</p>
-                </li>
-              </ul> -->
-      </section>
+      <section class="product-sec"></section>
       <!-- // 2. 판매 중인 상품 -->
 
       <!-- 3. 게시글 -->
@@ -80,7 +69,6 @@
         </article>
 
         <!-- 리스트로 보기 -->
-        <!-- CHECK:: 댓글 버튼 누르면 게시글 상세페이지로 이동 -->
         <!-- TODO:: 컴포넌트 수정되면 확인 후 반영 -->
         <section id="viewList" class="post-list-sec on">
           <h3 class="sr-only">리스트 게시글</h3>
@@ -136,7 +124,6 @@
   <script src="../js/script.js"></script>
   <script src="../js/script_NR.js"></script>
   <script>
-    // TODO:: 아래 기능 script_NR.js 파일로 통합
     const viewListBtn02 = document.querySelector('#viewList-btn');
     const viewAlbumBtn02 = document.querySelector('#viewAlbum-btn');
     viewListBtn02.addEventListener('click', toggleOn);
