@@ -37,7 +37,8 @@
 
         <label for="editId" class="edit-id-tit">계정 ID</label>
         <input type="text" class="edit-id-input" id="editId" required placeholder="영문, 숫자, 특수문자(.),(_)만 사용 가능합니다.">
-        <strong class="edit-message-error id">*영문, 숫자, 특수문자(.),(_)만 사용 가능합니다..</strong>
+        <strong class="edit-message-error id">*영문, 숫자, 특수문자(.),(_)만 사용 가능합니다.</strong>
+        <strong class="edit-message-error id-exist">*이미 사용중인 계정 ID입니다.</strong>
 
         <label for="editIntro" class="edit-intro-tit">소개</label>
         <input type="text" maxlength="50" class="edit-intro-input" id="editIntro" required
@@ -102,12 +103,15 @@
 
     // 계정 ID 유효성 검사
     editId.addEventListener('input', function (e) {
-      const messageError = document.querySelector('.edit-message-error.id');
+      const messageErrorId = document.querySelector('.edit-message-error.id');
+      const messageErrorIdExist = document.querySelector('.edit-message-error.id-exist');
       const regExp = new RegExp('^[a-z0-9._]*$');
+
+      messageErrorIdExist.style.display = 'none';
       if (!regExp.test(e.target.value)) {
-        messageError.style.display = 'block';
+        messageErrorId.style.display = 'block';
       } else {
-        messageError.style.display = 'none';
+        messageErrorId.style.display = 'none';
       }
     });
 
@@ -148,8 +152,13 @@
         const resEditProfile = await fetch(`${url}/user`, init);
         const resEditProfileJson = await resEditProfile.json();
 
-        // 중복 아이디 등 자체 응답에서 아래 catch문으로 넘어가 별도의 조건문 처리 생략
-        location.href = "./P02.html"
+        if (resEditProfileJson.status !== 422) {
+          location.href = "./P02.html"
+        } else {
+          // TODO:: 해당 기능 동적으로 띄우게
+          const messageError = document.querySelector('.edit-message-error.id-exist');
+          messageError.style.display = 'block';
+        }
       } catch (err) {
         console.error(err);
       }
