@@ -1,4 +1,7 @@
-// @@@@@@@@@@@@@@@@@@@@@@ [S01] 유저검색 @@@@@@@@@@@@@@@@@@@@@@ //
+// [S01] 유저검색
+// CHECK:: 검색어와 같은 단어 하이라이트 미구현
+// CHECK:: 동일 단어 2번 이상 검색 시 검색 결과 중복 출력
+
 const searchForm = document.querySelector('.search-form');
 const searchInp = document.querySelector('.inp-search');
 
@@ -18,6 +21,8 @@ async function searchUser(e) {
       }
     });
     const json = await res.json();
+    
+    // render 
     json.forEach(element => {
       const accountName = element.accountname;
       const userName = element.username;
