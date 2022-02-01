@@ -58,6 +58,7 @@ async function login(e) {
     console.log('resJson', resJson);
 
     if(resJson.status == 200){ // 로그인 성공한 경우
+      localStorage.setItem("accountname",resJson.user.accountname);
       localStorage.setItem("Token",resJson.user.token);
       location.href = "./H01.html";
     }else{ // 로그인 실패한 경우
