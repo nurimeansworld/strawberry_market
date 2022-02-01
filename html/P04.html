@@ -16,7 +16,7 @@
   </div>
   <header class="nav nav-upload container">
     <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
-    <button type="button" class="save-btn" disabled>저장</button>
+    <button type="button" class="save-btn">저장</button>
   </header>
   <main>
     <section class="container">
@@ -85,7 +85,6 @@
     editForm.addEventListener('input', function (e) {
       if ((editImgHidden.value !== '') && (editName.value !== '') && (editId.value !== '') && (editIntro.value !== '')) {
         saveBtn.disabled = false;
-        // TODO:: api로 받아와서 값을 채워도 유효성 검사 되게 확인
       } else {
         saveBtn.disabled = true;
       }
@@ -95,8 +94,10 @@
     editName.addEventListener('input', function (e) {
       const messageError = document.querySelector('.edit-message-error.name');
       if (e.target.value.length == 11 || e.target.value.length < 2) {
+        saveBtn.disabled = true;
         messageError.style.display = 'block';
       } else {
+        saveBtn.disabled = false;
         messageError.style.display = 'none';
       }
     });
@@ -109,8 +110,10 @@
 
       messageErrorIdExist.style.display = 'none';
       if (!regExp.test(e.target.value)) {
+        saveBtn.disabled = true;
         messageErrorId.style.display = 'block';
       } else {
+        saveBtn.disabled = false;
         messageErrorId.style.display = 'none';
       }
     });
@@ -119,8 +122,10 @@
     editIntro.addEventListener('input', function (e) {
       const messageError = document.querySelector('.edit-message-error.intro');
       if (e.target.value.length == 50) {
+        saveBtn.disabled = true;
         messageError.style.display = 'block';
       } else {
+        saveBtn.disabled = false;
         messageError.style.display = 'none';
       }
     });

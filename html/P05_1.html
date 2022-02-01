@@ -16,7 +16,7 @@
   </div>
   <header class="nav nav-upload container">
     <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
-    <button type="button" class="save-btn" disabled>저장</button>
+    <button type="button" class="save-btn">저장</button>
   </header>
   <main>
     <section class="container">
@@ -92,8 +92,10 @@
     prodName.addEventListener('input', function (e) {
       const messageError = document.querySelector('.prod-message-error.prodname');
       if (e.target.value.length > 15 || e.target.value.length < 2) {
+        saveBtn.disabled = true;
         messageError.style.display = 'block';
       } else {
+        saveBtn.disabled = false;
         messageError.style.display = 'none';
       }
     });
@@ -105,8 +107,10 @@
 
       // 숫자가 아닐 경우
       if (isNaN(originNum)) {
+        saveBtn.disabled = true;
         messageError.style.display = 'block';
       } else {
+        saveBtn.disabled = false;
         messageError.style.display = 'none';
         // 자동 원화단위
         e.target.value = originNum.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -142,6 +146,8 @@
         const resProdData = await fetch(`${url}/product/${prodId}`, init);
         const resProdDataJson = await resProdData.json();
 
+        // console.log('resProdDataJson', resProdDataJson.product);
+        // console.log('resProdDataJson.status', resProdDataJson.product.status);
         if (resProdDataJson.status != 422) {
           location.href = "./P02.html"
         } else {
