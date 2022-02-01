@@ -72,13 +72,24 @@
       if (Object.keys(userInfo).length !== 0) {
         for (const user of userInfo) {
           // 유저 정보
+          const loginUser = localStorage.getItem('accountname');
           const user_accountname = user.accountname;
           const user_username = user.username;
           const user_intro = user.intro;
           const user_image = user.image;
           const user_link = `./P01.html?id=${user_accountname}`;
-          const stateClass = (user.isfollow === true) ? 'cancel-button' : 'small-follow-button';
-          const stateText = (user.isfollow === true) ? '취소' : '팔로우';
+          let user_btn = '';
+
+          if (user_accountname == loginUser) {
+            // 로그인한 계정인 경우
+            user_btn = '';
+          } else {
+            if (user.isfollow === true) {
+              user_btn = '<button type="button" class="cancel-button">취소</button>';
+            } else {
+              user_btn = '<button type="button" class="small-follow-button">팔로우</button>';
+            }
+          }
 
           // 계정 추가
           const followItem = document.createElement('li');
@@ -89,9 +100,7 @@
               <span>${user_username}</span>
               <div class="user-email">${user_intro}</div>
             </div>
-        </a>
-        <button type="button" class="${stateClass}">${stateText}</button>
-        `;
+        </a>${user_btn}`;
           fragment.appendChild(followItem);
         }
         followList.appendChild(fragment);
@@ -124,6 +133,7 @@
         const resJson = await res.json();
         // console.log('resJson', resJson);
 
+        console.log(resJson);
         setFollowing(resJson);
       } catch (err) {
         console.error('err', err);
