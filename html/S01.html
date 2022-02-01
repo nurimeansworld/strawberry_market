@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>검색 - 딸기마켓</title>
+  <title>검색 - 감귤마켓</title>
   <link rel="stylesheet" href="../css/default.css">
 </head>
-
 <body>
-  <header class="nav nav-search">
+  <form method="get" class="nav nav-search search-form">
     <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
     <label for="inpSearch" class="sr-only">계정 검색</label>
-    <input type="text" placeholder="계정 검색" class="inp-search" id="inpSearch">
-  </header>
+    <input type="search" placeholder="계정 검색" class="inp-search" id="inpSearch" name="keyword">
+  </form>
+  <section class="container search-result"></section>
   <nav class="tab-menu">
     <ul class="tab-menu-list">
       <li class="tab-menu-home">
@@ -31,7 +30,6 @@
       </li>
     </ul>
   </nav>
-  <script src="../js/script_JA.js"></script>
+  <script src="../js/S01.js"></script>
 </body>
-
 </html>
