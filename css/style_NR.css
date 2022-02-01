@@ -202,7 +202,7 @@ background-color: #fff; */
 }
 
 .post-sec{
-  margin-top: 6px;
+  margin: 6px 0 60px 0;
   border-bottom: 0.5px solid var(--cancel-color-border); 
 }
 .post-btn-tab{
