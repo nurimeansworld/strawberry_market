@@ -60,13 +60,13 @@
       <section class="product-sec">
         <!-- TODO:: 각 모달 연결 script -->
         <!-- <h2 class="sec-title">판매 중인 상품</h2>
-        <ul class="product-list">
-          <li class="product-item">
-            <img src="../assets/product-img-example.png" alt="" class="item-img">
-            <h3 class="item-tit sl-ellipsis">{item-tit}</h3>
-            <p class="item-price">{item-price}</p>
-          </li>
-        </ul> -->
+              <ul class="product-list">
+                <li class="product-item">
+                  <img src="../assets/product-img-example.png" alt="" class="item-img">
+                  <h3 class="item-tit sl-ellipsis">{item-tit}</h3>
+                  <p class="item-price">{item-price}</p>
+                </li>
+              </ul> -->
       </section>
       <!-- // 2. 판매 중인 상품 -->
 
@@ -182,8 +182,8 @@
           // TODO:: 상품 클릭시 수정 메뉴 뜨게
           const productItem = document.createElement('li');
           productItem.setAttribute('class', 'product-item');
-          productItem.innerHTML = `<img src="${product.itemImage}" alt="상품 이미지입니다." class="item-img">
-            <h3 class="item-tit sl-ellipsis">${product.itemName}</h3><p class="item-price">${productPrice}원</p>`;
+          productItem.innerHTML = `<a href="${product.link}" target="blank"><img src="${product.itemImage}" alt="상품 이미지입니다." class="item-img">
+            <h3 class="item-tit sl-ellipsis">${product.itemName}</h3><p class="item-price">${productPrice}원</p></a>`;
           fragment.appendChild(productItem);
           productList.appendChild(fragment);
         }
@@ -202,7 +202,7 @@
       for (const imgPost of otherImgPost) {
         const postAlbumItem = document.createElement('li');
         postAlbumItem.setAttribute('class', 'post-album-item');
-        postAlbumItem.innerHTML = `<a href="${imgPost.id}"><img src="${imgPost.image}" alt=""></a>`;
+        postAlbumItem.innerHTML = `<a href="./U01.html?post=${imgPost.id}"><img src="${imgPost.image}" alt=""></a>`;
         fragement.appendChild(postAlbumItem);
       }
       postAlbumList.appendChild(fragement);
