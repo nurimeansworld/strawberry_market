@@ -146,16 +146,14 @@
     const profileEditBtn = document.querySelector('.profile-edit-btn');
     const profileProdBtn = document.querySelector('.profile-product-btn');
     profileEditBtn.addEventListener('click', (e) => {
-      const accountName = checkUserOther();
+      const accountName = checkAccountName();
       e.preventDefault();
-      // location.href = './P04.html';
-      location.href = `./P04.html?id=${accountName}`;
+      location.href = './P04.html';
     });
     profileProdBtn.addEventListener('click', (e) => {
-      const accountName = checkUserOther();
+      const accountName = checkAccountName();
       e.preventDefault();
-      // location.href = './P05.html';
-      location.href = `./P05.html?id=${accountName}`;
+      location.href = './P05.html';
     });
   </script>
   <script>
@@ -297,7 +295,7 @@
     // 1. api - 프로필 정보 얻어오기
     async function getUserProfile() {
       const url = 'http://146.56.183.55:5050';
-      const accountName = checkUserOther();
+      const accountName = checkAccountName();
       const token = localStorage.getItem('Token');
       const init = {
         method: 'GET',

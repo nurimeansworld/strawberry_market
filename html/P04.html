@@ -129,7 +129,7 @@
     // 3. 입력된 정보로 프로필 수정 req
     async function reqEditProfile() {
       const url = 'http://146.56.183.55:5050';
-      const accountName = checkUserOther();
+      const accountName = checkAccountName();
       const token = localStorage.getItem('Token');
       const userData = {
         'user': {
@@ -153,6 +153,7 @@
         const resEditProfileJson = await resEditProfile.json();
 
         if (resEditProfileJson.status != 422) {
+          localStorage.setItem("accountname", editId.value);
           location.href = "./P02.html"
         } else {
           // TODO:: 해당 기능 동적으로 띄우게
@@ -178,7 +179,7 @@
     // 1. 로그인한 마이 프로필 정보 받아오기
     async function getEditUserProfile() {
       const url = 'http://146.56.183.55:5050';
-      const accountName = checkUserOther();
+      const accountName = checkAccountName();
       const token = localStorage.getItem('Token');
       const init = {
         method: 'GET',

@@ -4,12 +4,16 @@ function goBack(){
 }
 
 // id값 체크
-function checkUserOther() {
-  const accountName = (location.search.split('id=')[1]) ? location.search.split('id=')[1] : 'sadloopy';
-  console.log('checkUserOther', accountName);
+function checkAccountName() {
+  const accountName = (location.search.split('id=')[1]) ? location.search.split('id=')[1] : localStorage.getItem('accountname');
   return accountName;
 }
 
+// prodid값 체크
+function checkProdId() {
+  const prodId = (location.search.split('prod=')[1]) ? location.search.split('prod=')[1] : null;
+  return prodId;
+}
 
 // modal menu 열기
 function openMenuModal(){
