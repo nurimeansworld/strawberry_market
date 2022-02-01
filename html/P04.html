@@ -142,7 +142,7 @@
       const init = {
         method: 'PUT',
         headers: {
-          'Authorization': `Bearer ${token} `,
+          'Authorization': `Bearer ${token}`,
           'Content-type': 'application/json'
         },
         body: JSON.stringify(userData),
@@ -152,7 +152,7 @@
         const resEditProfile = await fetch(`${url}/user`, init);
         const resEditProfileJson = await resEditProfile.json();
 
-        if (resEditProfileJson.status !== 422) {
+        if (resEditProfileJson.status != 422) {
           location.href = "./P02.html"
         } else {
           // TODO:: 해당 기능 동적으로 띄우게
