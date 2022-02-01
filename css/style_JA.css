@@ -65,11 +65,11 @@
 }
 
 /* comment (3.1.10 게시글 댓글 페이지) 시작 */
-.comment {
+.comment-upload {
   border-top: 1px solid #DBDBDB;
 }
 
-.comment form {
+.comment-upload form {
   width: calc(100% - 6px);
   margin: 0 auto;
   display: flex;
@@ -81,19 +81,19 @@
   object-fit: contain;
 }
 
-.comment .comment-input {
+.comment-upload .comment-input {
   border: none;
   outline: none;
   padding: 20px 0 20px 12px;
   flex-grow: 1;
 }
 
-.comment .comment-input::placeholder {
+.comment-upload .comment-input::placeholder {
   color: #C4C4C4;
   font-size: 14px;
 }
 
-.comment .commenet-btn {
+.comment-upload .commenet-btn {
   border: none;
   background: none;
   color: #C4C4C4;
@@ -103,10 +103,11 @@
 
 /* tab-menu (3.1.14 하단 탭 메뉴) 시작 */
 .tab-menu {
-  /* position: absolute; */
+  position: fixed;
   bottom: 0;
   width: 100%;
   border-top: 1px solid #DBDBDB;
+  background-color: #fff;
 }
 
 .tab-menu-list {
@@ -222,7 +223,44 @@
   color: #F26E22;
 }
 
+
 /* U01.html 시작 */
+
+.search-result {
+  padding-bottom: 60px
+}
+
+.search-result .user-list {
+  display: flex;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.user-list .profile-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 10px;
+  border: 0.5px solid #DBDBDB;
+}
+
+.user-list .name-wrap {
+  align-self: center;
+}
+
+.user-list .account-name {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.user-list .user-name {
+  font-size: 12px;
+  color: #767676;
+}
+
+
+
 section.comments {
 
 }
