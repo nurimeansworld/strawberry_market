@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.1.16 Modal (희정) 내가 작성한 게시글일 경우 : 삭제, 수정 버튼 </title>
+  <link rel="stylesheet" href="../css/default.css">
+</head>
+  <style>
+
+  .hidden-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  .hidden-menu .hidden-menu-list {
+    height: auto;
+    width: 100%;
+    padding: 36px 0 16px;
+  } 
+
+  .hidden-menu .hidden-menu-list {
+    position: absolute;
+    bottom: 0;
+    background: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transition: all .4s;
+  }
+
+  .hidden-menu .hidden-menu-list::before {
+  position: absolute;
+  content: "";
+  top: 16px;
+  left: 50%;
+  width: 50px;
+  height: 4px;
+  background: #dbdbdb;
+  border-radius: 5px;
+  transform: translateX(-50%);
+  }
+
+  .hidden-menu .hidden-menu-list li {
+    display: flex;
+    padding-left: 26px;
+  }
+
+  .hidden-menu .hidden-menu-list a, .hidden-menu .hidden-menu-list button {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 46px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    background-color: #fff;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  /* body 컨테이너 감싸서 만들면 화면비율 귯*/
+  .container{
+    margin: 0 auto;
+    max-width: calc(100% - 32px);
+    background-color: #fff;
+  }
+
+  /* 게시물을 삭제할까요? 모달창 */
+  .alert-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .alert-modal .alert-modal-wrap {
+    width: 100%;  
+    border-radius: 10px;
+  }
+
+  .alert-modal .alert-msg {
+    display: block;
+    padding: 22px 0;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+  }
+
+  .alert-modal .alert-menu-list {
+    display: flex;
+    width: 100%;
+    border-top: 0.5px solid #DBDBDB;
+  }
+
+  .alert-modal .alert-menu-list li {
+    width: 50%;
+  }
+
+  .alert-modal .alert-menu-list button {
+    width: 100%;
+    height: 46px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    background-color: white;
+    border-bottom-right-radius: 10px;
+    /* border-bottom-left-radius: 10px; */
+  }
+
+  .alert-modal .alert-menu-list .cancle-btn {
+    border-bottom-left-radius: 10px;
+  }
+
+  .alert-modal .alert-menu-list .delete-btn {
+    border-left: 0.5px solid #DBDBDB;
+    color: #E26E7E
+  }
+
+  .off {
+    display: none;
+  }
+
+  .dimm {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  </style>
+
+  <!-- 게시판 유저 메뉴 버튼   -->
+  <div class="home-post-user ">
+    <img class="user-profile" src="../assets/small-profile-img.png" alt="회원 프로필">
+    <h4 class="user-name">애월읍 위니브 감귤농장</h4>
+    <p class="user-id">@ weniv_Mandarin</p>
+    <button type="button" class="btn-menu otheruser-menu"><img src="../assets/icon/icon-more-vertical.png"
+        alt="메뉴 열기"></button>
+  </div>
+
+  <section class="modal2 hidden">
+    <div class="hidden-menu">
+    <ul class="hidden-menu-list">
+      <li>
+        <button type="button" class="delete-post">삭제</button>
+      </li>
+      <li>
+        <a href="P05.html" class="edit-post">수정</a>
+      </li>
+    </ul>
+    </div>
+  </section>
+
+      <!-- 게시글을 삭제할까요?? 모달 취소 or 삭제 버튼 -->
+  <section class="dimm off">
+    <div class="alert-modal">
+      <div class="alert-modal-wrap">
+        <strong class="alert-msg">삭제하시겠어요?</strong>       
+        <ul class="alert-menu-list">
+          <li>
+            <button type="button" class="cancle-btn">취소</button>
+          </li>
+          <li>
+            <button type="button" class="delete-btn">삭제</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+  <script>
+    // 삭제 & 수정 모달 
+      const open = () => {
+      document.querySelector(".modal2").classList.remove("hidden");
+    }
+    const close = () => {
+      document.querySelector(".modal2").classList.add("hidden");   
+    }  
+
+
+
+  document.querySelector(".hidden-menu").addEventListener("click", close); 
+  document.querySelector(".otheruser-menu").addEventListener("click", open);
+
+  //  게시글을 삭제할까요??  취소 or 삭제 버튼 
+  const btn = document.querySelector('.delete-post');
+  const pop = document.querySelector('.dimm');
+  const out = document.querySelector('.cancle-btn');
+
+      btn.addEventListener('click',viewOption);
+      out.addEventListener('click',cancleOption);
+
+      function viewOption() {
+          console.log(pop);
+          pop.style.display = 'block';
+      }
+      function cancleOption() {
+        pop.style.display = 'none';
+      }
+
+  </script>
+  </body>
+  
+  </html>  
+  
