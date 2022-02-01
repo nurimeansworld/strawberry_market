@@ -25,7 +25,8 @@
 
       <form class="prod-form">
         <label for="prodBtnImg" class="prod-img-tit">이미지 등록</label>
-        <input class="prod-img-input sr-only" id="prodBtnImg" type="file" accept="image/*" />
+        <input type="file" accept="image/*" class="prod-img-input sr-only" id="prodBtnImg" />
+        <input type="hidden" id="prodImgHidden" />
         <div class="prod-img-wrap">
           <button type="button" class="prod-btn-img"><img src="../assets/img-button.png"
               alt="상품 이미지 업로드 버튼입니다."></button>
@@ -54,6 +55,7 @@
     prodForm = document.querySelector('.prod-form');
     prodImgBtn = document.querySelector('.prod-btn-img');
     prodImg = document.querySelector('#prodBtnImg');
+    prodImgHidden = document.querySelector('#prodImgHidden');
     prodName = document.querySelector('.prod-name-input');
     prodPrice = document.querySelector('.prod-price-input');
     prodLink = document.querySelector('.prod-link-input');
@@ -70,6 +72,7 @@
 
         reader.onload = function (e) {
           document.querySelector('.prod-img-wrap').style.background = `url(${e.target.result}) center center / cover`;
+          prodImgHidden.value = e.target.result;
         }
         reader.readAsDataURL(input.files[0]);
       }
@@ -111,6 +114,43 @@
         e.target.value = originNum.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
       }
     });
+  </script>
+  <script>
+    async function reqProdData() {
+      const url = 'http://146.56.183.55:5050';
+      const token = localStorage.getItem('Token');
+      const originNum = parseInt(prodPrice.value.replace(/,/gi, ""));
+      const prodData = {
+        "product": {
+          "itemName": prodName.value,
+          "price": originNum,
+          "link": prodLink.value,
+          "itemImage": prodImgHidden.value
+        }
+      }
+      const init = {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify(prodData)
+      }
+
+      try {
+        const resProdData = await fetch(`${url}/product`, init);
+        const resProdDataJson = await resProdData.json();
+
+        if (resProdDataJson.status != 422) {
+          location.href = "./P02.html"
+        } else {
+          // console.error(resProdDataJson);
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    saveBtn.addEventListener('click', reqProdData);
   </script>
 </body>
 
