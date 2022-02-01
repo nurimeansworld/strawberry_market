@@ -314,6 +314,14 @@
       }
     }
 
+    // 사용자 프로필 or 마이 프로필 확인
+    function checkUserOther() {
+      if (!location.search.split('id=')[1]) {
+        location.href = "./P02.html";
+      }
+    }
+
+    checkUserOther();
     getOtherProfile();
   </script>
 </body>
