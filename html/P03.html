@@ -120,7 +120,7 @@
         }
       }
       try {
-        const res = await fetch(`${url}/profile/${accountName}/following`, init);
+        const res = await fetch(`${url}/profile/${accountName}/following?limit=100`, init);
         const resJson = await res.json();
         // console.log('resJson', resJson);
 
