@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>상품 등록 - 딸기마켓</title>
+  <title>상품 정보 수정 - 딸기마켓</title>
   <link rel="stylesheet" href="../css/default.css">
 </head>
 
@@ -21,7 +21,6 @@
   <main>
     <section class="container">
       <h1 class="sr-only">상품 등록</h1>
-
       <form class="prod-form">
         <label for="prodBtnImg" class="prod-img-tit">이미지 등록</label>
         <input type="file" accept="image/*" class="prod-img-input sr-only" id="prodBtnImg" />
@@ -82,7 +81,7 @@
 
     // 모든 input 입력되면 저장 버튼 활성화
     prodForm.addEventListener('input', function (e) {
-      if ((prodImg.value !== '') && (prodName.value !== '') && (prodPrice.value !== '') && (prodLink.value !== '')) {
+      if ((prodImgHidden.value !== '') && (prodName.value !== '') && (prodPrice.value !== '') && (prodLink.value !== '')) {
         saveBtn.disabled = false;
       } else {
         saveBtn.disabled = true;
@@ -119,6 +118,9 @@
       const url = 'http://146.56.183.55:5050';
       const token = localStorage.getItem('Token');
       const originNum = parseInt(prodPrice.value.replace(/,/gi, ""));
+      const prodId = checkProdId();
+      console.log('prodId', prodId);
+
       const prodData = {
         "product": {
           "itemName": prodName.value,
@@ -128,7 +130,7 @@
         }
       }
       const init = {
-        method: 'POST',
+        method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-type': 'application/json'
@@ -137,19 +139,56 @@
       }
 
       try {
-        const resProdData = await fetch(`${url}/product`, init);
+        const resProdData = await fetch(`${url}/product/${prodId}`, init);
         const resProdDataJson = await resProdData.json();
 
         if (resProdDataJson.status != 422) {
           location.href = "./P02.html"
         } else {
-          // console.error(resProdDataJson);
+          console.error(resProdDataJson);
         }
       } catch (err) {
         console.error(err);
       }
     }
     saveBtn.addEventListener('click', reqProdData);
+
+    function setProdData(resProdDataJson) {
+      // console.log(resProdDataJson.product);
+      const price = resProdDataJson.product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      // console.log(price.replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+
+      document.querySelector('.prod-img-wrap').style.background = `url(${resProdDataJson.product.itemImage}) center center / cover`;
+      document.querySelector('#prodImgHidden').value = resProdDataJson.product.itemImage;
+      document.querySelector('.prod-name-input').value = resProdDataJson.product.itemName;
+      document.querySelector('.prod-price-input').value = price;
+      document.querySelector('.prod-link-input').value = resProdDataJson.product.link;
+    }
+
+    async function getProdData() {
+      const url = 'http://146.56.183.55:5050';
+      const token = localStorage.getItem('Token');
+      const prodId = checkProdId();
+      const init = {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-type': 'application/json'
+        },
+      }
+
+      try {
+        const resProdData = await fetch(`${url}/product/detail/${prodId}`, init);
+        const resProdDataJson = await resProdData.json();
+
+        // console.log(resProdDataJson);
+        setProdData(resProdDataJson);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    getProdData();
   </script>
 </body>
 
