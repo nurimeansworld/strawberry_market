@@ -44,8 +44,7 @@
           <span class="profile-account">@ {profile-account}</span>
           <p class="profile-desc">{profile-desc}</p>
           <div class="profile-btn-wrap">
-            <button type="button" class="medium-unfollow-btn profile-edit-btn">프로필
-              수정</button>
+            <button type="button" class="medium-unfollow-btn profile-edit-btn">프로필 수정</button>
             <button type="button" class="medium-unfollow-btn profile-product-btn">상품 등록</button>
           </div>
         </div>
@@ -147,13 +146,16 @@
     const profileEditBtn = document.querySelector('.profile-edit-btn');
     const profileProdBtn = document.querySelector('.profile-product-btn');
     profileEditBtn.addEventListener('click', (e) => {
-      console.log('test');
+      const accountName = checkUserOther();
       e.preventDefault();
-      location.href = './P04.html';
+      // location.href = './P04.html';
+      location.href = `./P04.html?id=${accountName}`;
     });
     profileProdBtn.addEventListener('click', (e) => {
+      const accountName = checkUserOther();
       e.preventDefault();
-      location.href = './P05.html';
+      // location.href = './P05.html';
+      location.href = `./P05.html?id=${accountName}`;
     });
   </script>
   <script>

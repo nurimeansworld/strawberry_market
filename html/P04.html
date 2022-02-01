@@ -21,14 +21,13 @@
   <main>
     <section class="container">
       <h1 class="sr-only">마이 프로필 수정</h1>
-      <!-- TODO:: api 확인 -->
       <div class="profile-edit-wrap">
         <button type="button" class="profile-btn-upload"><img src="../assets/upload-file.png"
             alt="프로필 이미지 업로드 버튼입니다."></button>
       </div>
 
       <form class="profile-edit-form">
-        <!-- <input type="hidden" id="editImg" value=""> -->
+        <input type="hidden" id="editImgHidden" value="">
         <input class="sr-only" id="editImg" type="file" accept="image/*" />
 
         <label for="editName" class="edit-name-tit">사용자 이름</label>
@@ -54,6 +53,7 @@
     const saveBtn = document.querySelector('.save-btn');
     const imgUploadBtn = document.querySelector('.profile-btn-upload');
     const editForm = document.querySelector('.profile-edit-form');
+    const editImgHidden = document.querySelector('#editImgHidden');
     const editImg = document.querySelector('#editImg');
     const editName = document.querySelector('.edit-name-input');
     const editId = document.querySelector('.edit-id-input');
@@ -71,6 +71,7 @@
 
         reader.onload = function (e) {
           document.querySelector('.profile-edit-wrap').style.background = `url(${e.target.result}) center center / cover`;
+          editImgHidden.value = e.target.result;
         }
         reader.readAsDataURL(input.files[0]);
       }
@@ -81,8 +82,9 @@
 
     // 모든 input 입력되면 저장 버튼 활성화
     editForm.addEventListener('input', function (e) {
-      if ((editImg.value !== '') && (editName.value !== '') && (editId.value !== '') && (editIntro.value !== '')) {
+      if ((editImgHidden.value !== '') && (editName.value !== '') && (editId.value !== '') && (editIntro.value !== '')) {
         saveBtn.disabled = false;
+        // TODO:: api로 받아와서 값을 채워도 유효성 검사 되게 확인
       } else {
         saveBtn.disabled = true;
       }
@@ -118,6 +120,76 @@
         messageError.style.display = 'none';
       }
     });
+  </script>
+  <script>
+    // 3. 입력된 정보로 프로필 수정 req
+    async function reqEditProfile() {
+      const url = 'http://146.56.183.55:5050';
+      const accountName = checkUserOther();
+      const token = localStorage.getItem('Token');
+      const userData = {
+        'user': {
+          'username': editName.value,
+          'accountname': editId.value,
+          'intro': editIntro.value,
+          'image': editImgHidden.value
+        }
+      };
+      const init = {
+        method: 'PUT',
+        headers: {
+          'Authorization': `Bearer ${token} `,
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify(userData),
+      };
+
+      try {
+        const resEditProfile = await fetch(`${url}/user`, init);
+        const resEditProfileJson = await resEditProfile.json();
+
+        // 중복 아이디 등 자체 응답에서 아래 catch문으로 넘어가 별도의 조건문 처리 생략
+        location.href = "./P02.html"
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    saveBtn.addEventListener('click', reqEditProfile);
+
+    // 2. 마이 프로필 정보 뿌려주기
+    function setEditUserProfile(editUserProfile) {
+      document.querySelector('.profile-edit-wrap').style.background = `url(${editUserProfile.image}) no-repeat center / 110px`;
+
+      document.querySelector('#editImgHidden').value = editUserProfile.image;
+      document.querySelector('#editName').value = editUserProfile.username;
+      document.querySelector('#editId').value = editUserProfile.accountname;
+      document.querySelector('#editIntro').value = editUserProfile.intro;
+    }
+
+    // 1. 로그인한 마이 프로필 정보 받아오기
+    async function getEditUserProfile() {
+      const url = 'http://146.56.183.55:5050';
+      const accountName = checkUserOther();
+      const token = localStorage.getItem('Token');
+      const init = {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token} `,
+          'Content-type': 'application/json'
+        },
+      }
+      try {
+        const resEditUserProfile = await fetch(`${url}/profile/${accountName}`, init);
+        const resEditUserProfileJson = await resEditUserProfile.json();
+        const editUserProfile = resEditUserProfileJson.profile;
+
+        setEditUserProfile(editUserProfile);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    getEditUserProfile();
   </script>
 </body>
 
