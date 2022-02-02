@@ -2,13 +2,13 @@
   width: 390px;
 }
 
-/* .nav{
-  padding: 8px 12px;
-  height: 48px;
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 0.5px solid var(--cancel-color-border);
-} */
+.nav{
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+}
 /* // container 속성 가져옴
 margin: 0 auto;
 max-width: calc(100% - 32px);

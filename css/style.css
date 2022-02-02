@@ -23,13 +23,15 @@ body {
 
 /* body */
 .container{
+  padding-top: 48px;
   margin: 0 auto;
   position: relative;
+  /* min-width: 390px; */
   max-width: calc(100% - 32px);
-  /* max-width: 390px; */
   background-color: #fff;
 }
 .container-join{
+  padding-top: 48px;
   margin: 0 auto;
   max-width: calc(100% - 68px);
   /* max-width: 390px; */
@@ -65,7 +67,8 @@ body {
   font-size: 14px;
   color: var(--cancel-color-border);
 }
-.form-message-error{
+.id-error-message,
+.pw-error-message{
   display: block;
   font-size: 12px;
   color: #EB5757;
