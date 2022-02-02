@@ -115,3 +115,141 @@
   margin-left: 14px;
   line-height: 22px;
 }
+
+
+
+
+/* MD01-06.html 모달 창 공통 CSS  */
+.hidden-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.hidden-menu .hidden-menu-list {
+  height: auto;
+  width: 100%;
+  padding: 36px 0 16px;
+} 
+
+.hidden-menu .hidden-menu-list {
+  position: absolute;
+  bottom: 0;
+  background: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transition: all .4s;
+}
+
+.hidden-menu .hidden-menu-list::before {
+position: absolute;
+content: "";
+top: 16px;
+left: 50%;
+width: 50px;
+height: 4px;
+background: #dbdbdb;
+border-radius: 5px;
+transform: translateX(-50%);
+}
+
+.hidden-menu .hidden-menu-list li {
+display: flex;
+padding-left: 26px;
+}
+
+.hidden-menu .hidden-menu-list a, .hidden-menu .hidden-menu-list button {
+display: flex;
+align-items: center;
+width: 100%;
+height: 46px;
+font-weight: 400;
+font-size: 14px;
+line-height: 18px;
+background-color: #fff;
+}
+
+.hidden {                                                                   
+display: none;
+}
+
+.dimm .alert-modal {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.alert-modal .alert-modal-wrap {
+width: 100%;  
+border-radius: 10px;
+}
+
+.alert-modal .alert-msg {
+display: block;
+padding: 22px 0;
+font-weight: 500;
+font-size: 16px;
+line-height: 20px;
+text-align: center;
+}
+
+.alert-modal .alert-menu-list {
+display: flex;
+width: 100%;
+border-top: 0.5px solid #DBDBDB;
+}
+
+.alert-modal .alert-menu-list li {
+width: 50%;
+}
+
+.alert-modal .alert-menu-list button {
+width: 100%;
+height: 46px;
+font-weight: 400;
+font-size: 14px;
+line-height: 18px;
+background-color: white;
+border-bottom-right-radius: 10px;
+/* border-bottom-left-radius: 10px; */
+}
+
+.off {
+display: none;
+}
+
+.dimm {
+position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* 팝업창CSS */
+.alert-modal .alert-menu-list .cancle-btn {
+border-bottom-left-radius: 10px;
+}
+
+.alert-modal .alert-menu-list .logout-btn {
+border-left: 0.5px solid #DBDBDB;
+color: #E26E7E
+}
+
+.alert-modal .alert-menu-list .delete-btn {
+  border-left: 0.5px solid #DBDBDB;
+  color: #E26E7E
+}
+
+.alert-modal .alert-menu-list .out-btn {
+  border-left: 0.5px solid #DBDBDB;
+  color: #E26E7E
+}
+
+.alert-modal .alert-menu-list .call-btn {
+  border-left: 0.5px solid #DBDBDB;
+  color: #E26E7E
+}
