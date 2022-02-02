@@ -172,7 +172,6 @@
         for (const product of userProduct.product) {
           const productPrice = product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
-          // TODO:: 상품 클릭시 수정 메뉴 뜨게
           const productItem = document.createElement('li');
           productItem.setAttribute('class', 'product-item');
           productItem.innerHTML = `<a href="./P05_1.html?prod=${product.id}"><img src="${product.itemImage}" alt="상품 이미지입니다." class="item-img">
@@ -291,6 +290,7 @@
           'Content-type': 'application/json'
         },
       }
+
       try {
         // userProfile
         const resUserProfile = await fetch(`${url}/profile/${accountName}`, init);

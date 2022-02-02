@@ -115,9 +115,6 @@
     }
 
     async function getFollowing() {
-      // // paging limit skip
-      // GET / profile /: accountname / following ? limit = Number & skip=Number
-
       const url = 'http://146.56.183.55:5050';
       const accountName = checkAccountName();
       const token = localStorage.getItem('Token');
@@ -128,10 +125,10 @@
           'Content-type': 'application/json'
         }
       }
+
       try {
         const res = await fetch(`${url}/profile/${accountName}/following?limit=100`, init);
         const resJson = await res.json();
-        // console.log('resJson', resJson);
 
         setFollowing(resJson);
       } catch (err) {

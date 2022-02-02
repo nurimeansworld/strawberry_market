@@ -9,11 +9,6 @@
   left: 0;
   z-index: 10;
 }
-/* // container 속성 가져옴
-margin: 0 auto;
-max-width: calc(100% - 32px);
-background-color: #fff; */
-
 .nav.nav-follow{
   justify-content: flex-start;
 }
@@ -42,13 +37,11 @@ background-color: #fff; */
   color: #C4C4C4;
 }
 .nav .link-search{
-  /* margin: 13px 16px; */
   margin: 4px;
   width: 24px;
 }
 
 .nav-main p{
-  /* margin: 13px 16px; */
   margin: 5px 4px;
   font-weight: 500;
   font-size: 18px;
@@ -73,7 +66,6 @@ background-color: #fff; */
   border-bottom: 0.5px solid var(--cancel-color-border);
 }
 .profile-wrap{
-  /* margin: 30px 0 16px; */
   position: relative;
   display: flex;
   flex-direction: column;
@@ -85,7 +77,6 @@ background-color: #fff; */
   border-radius:55px;
 }
 .profile-follow{
-  /* width: 100%; */
   min-width: 77%;
   position: absolute;
   top: 35px;
@@ -111,7 +102,6 @@ background-color: #fff; */
 }
 
 .profile-name{
-  /* CHECK:: 보통 margin-top을 주는데 account가 span 태그라 display와 margin 2개를 추가해야해서 여기에 bottom으로 줌 */
   margin: 16px 0 6px;
   font-size: 16px;
   line-height: 20px;
@@ -144,17 +134,11 @@ background-color: #fff; */
   background-color: #fff;
 }
 .message-btn{
-  /* margin: 0 auto; */
-  /* width: 20px;
-  height: 20px; */
   background: url(../assets/icon/icon-message-circle.png) no-repeat;
   background-size: 20px;
     background-position: center;
 }
 .share-btn{
-  /* margin: 0 auto; */
-  /* width: 20px; */
-  /* height: 20px; */
   background: url(../assets/icon/icon-share.png) no-repeat;
   background-size: 20px;
     background-position: center;
@@ -249,8 +233,6 @@ background-color: #fff; */
 }
 
 .post-album-list{
-  /* display: flex;
-  flex-wrap: wrap; */
   display: grid;
   grid-template-columns: repeat(3, minmax(114px, 33%));
   gap: 8px;

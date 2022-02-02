@@ -146,8 +146,6 @@
         const resProdData = await fetch(`${url}/product/${prodId}`, init);
         const resProdDataJson = await resProdData.json();
 
-        // console.log('resProdDataJson', resProdDataJson.product);
-        // console.log('resProdDataJson.status', resProdDataJson.product.status);
         if (resProdDataJson.status != 422) {
           location.href = "./P02.html"
         } else {

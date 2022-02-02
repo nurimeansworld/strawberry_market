@@ -29,10 +29,6 @@ function checkPw() {
   }
 }
 
-
-
-
-
 // 이메일 중복 체크하는 함수
 async function checkEmailValid() {
   const url = 'http://146.56.183.55:5050';
@@ -52,11 +48,8 @@ async function checkEmailValid() {
   try {
     const resEmailValid = await fetch(`${url}/user/emailvalid`, init);
     const resEmailValidJson = await resEmailValid.json();    
+    // console.log('resEmailValidJson',resEmailValidJson);
 
-    console.log('resEmailValidJson',resEmailValidJson);
-
- 
-    
     const regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 
     // 이메일 주소의 형식이 유효 X -> @ 
@@ -68,8 +61,6 @@ async function checkEmailValid() {
       document.querySelector('.id-error-message').style.display = 'block';
       nextBtn.disabled = false;
     }
-
-   
 
     // match() https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String/match
     // 문자열이 정규식과 매치되는 부분을 검색합니다.
@@ -87,15 +78,9 @@ async function checkEmailValid() {
     // 가입된 email일 경우
     // 이미 가입된 이메일 주소입니다.
 
-
-   
-    
-
   } catch (err) {
     console.error(err);
-  }
-
-  
+  }  
 }
 joinEmail.addEventListener('focusout',checkEmailValid);
 

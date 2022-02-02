@@ -219,6 +219,7 @@
           'Content-type': 'application/json'
         },
       }
+
       try {
         const resEditUserProfile = await fetch(`${url}/profile/${accountName}`, init);
         const resEditUserProfileJson = await resEditUserProfile.json();
