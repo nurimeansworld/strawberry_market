@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.1.16 Modal (희정) 다른 사용자가 작성한 댓글 : 신고하기 모달 </title>
+  <link rel="stylesheet" href="../css/default.css">
+</head>
+<body>
+    <!-- 게시판 유저 메뉴 버튼   -->
+    <div class="home-post-user ">
+      <img class="user-profile" src="../assets/small-profile-img.png" alt="회원 프로필">
+      <h4 class="user-name">애월읍 위니브 감귤농장</h4>
+      <!-- <p class="user-id">@ weniv_Mandarin</p> -->
+      <button type="button" class="btn-menu other-user-comment"><img src="../assets/icon/icon-more-vertical.png"
+          alt="메뉴 열기"></button>
+    </div>
+  
+    <section class="modal7 hidden">
+      <div class="hidden-menu">
+      <ul class="hidden-menu-list">
+        <li>
+          <button type="button" class="call-post">신고하기</button>
+        </li>
+      </ul>
+      </div>
+    </section>
+  
+    <section class="dimm off">
+      <div class="alert-modal">
+        <div class="alert-modal-wrap">
+          <strong class="alert-msg">신고하시겠어요?</strong>       
+          <ul class="alert-menu-list">
+            <li>
+              <button type="button" class="cancle-btn">취소</button>
+            </li>
+            <li>
+              <button type="button" class="call-btn">신고</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  <script>
+    const open7 = () => {
+      document.querySelector(".modal7").classList.remove("hidden");
+    }
+    const close7 = () => {
+      document.querySelector(".modal7").classList.add("hidden");   
+    }  
+  
+  document.querySelector(".other-user-comment").addEventListener("click", open7);
+  document.querySelector(".hidden-menu").addEventListener("click", close7); 
+
+  const btn7 = document.querySelector('.call-post');
+  const pop7 = document.querySelector('.dimm');
+  const out7 = document.querySelector('.cancle-btn');
+  const call7 = document.querySelector('.call-btn');
+
+      btn7.addEventListener('click',viewOption);
+      out7.addEventListener('click',cancleOption);
+      call7.addEventListener('click',cancleOption);
+
+      function viewOption() {
+          console.log(pop7);
+          pop7.style.display = 'block';
+      }
+      function cancleOption() {
+        pop7.style.display = 'none';
+      }
+
+  </script>
+  </body>
+  
+  </html>  
+  
