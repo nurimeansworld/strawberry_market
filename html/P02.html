@@ -195,7 +195,7 @@
       for (const imgPost of userImgPost) {
         const postAlbumItem = document.createElement('li');
         postAlbumItem.setAttribute('class', 'post-album-item');
-        postAlbumItem.innerHTML = `<a href="./U01.html?post=${imgPost.id}"><img src="${imgPost.image}" alt=""></a>`;
+        postAlbumItem.innerHTML = `<a href="./U01.html?postId=${imgPost.id}"><img src="${imgPost.image}" alt=""></a>`;
         fragement.appendChild(postAlbumItem);
       }
       postAlbumList.appendChild(fragement);
