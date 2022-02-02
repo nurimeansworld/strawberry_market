@@ -67,6 +67,9 @@
 /* comment (3.1.10 게시글 댓글 페이지) 시작 */
 .comment-upload {
   border-top: 1px solid #DBDBDB;
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
 }
 
 .comment-upload form {
@@ -93,9 +96,9 @@
   font-size: 14px;
 }
 
-.comment-upload .commenet-btn {
+.comment-upload .comment-btn {
   border: none;
-  background: none;
+  background-color: transparent;
   color: #C4C4C4;
   font-size: 14px;
   cursor: pointer;

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,13 +7,11 @@
   <title>게시글 작성 페이지 - 딸기마켓</title>
   <link rel="stylesheet" href="../css/default.css">
 </head>
-
 <body>
   <div class="nav nav-upload">
     <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
-    <button type="button" class="upload-btn disabled" disabled>업로드</button>
+    <button type="button" class="upload-btn">업로드</button>
   </div>
-
   <section class="upload container">
     <h2 class="sr-only">게시글을 작성해주세요.</h2>
     <form action="javascript:void(0)" method="post" class="upload-form">
@@ -22,14 +19,13 @@
       <label for="txt-sync" class="sr-only">게시글 입력창입니다.</label>
       <textarea id="txt-sync" cols="40" rows="6" maxlength="140" placeholder="게시글 입력하기..." class="upload-txt"></textarea>
       <label for="file-sync" class="upload-img">이미지 업로드 버튼입니다.</label>
-      <input type="file" id="file-sync" accept=".png, .jpg, .jpeg" multiple class="upload-input">
+      <input type="file" id="file-sync" accept=".png, .jpg, .jpeg" class="upload-input">
     </form>
     <div class="img-container">
       <!-- js 기능 구현 -->
     </div>
   </section>
 
-  <script src="../js/script_JA.js"></script>
+  <script src="../js/U02.js"></script>
 </body>
-
 </html>
