@@ -81,15 +81,6 @@
       readURL(this);
     });
 
-    // 모든 input 입력되면 저장 버튼 활성화
-    editForm.addEventListener('input', function (e) {
-      if ((editImgHidden.value !== '') && (editName.value !== '') && (editId.value !== '') && (editIntro.value !== '')) {
-        saveBtn.disabled = false;
-      } else {
-        saveBtn.disabled = true;
-      }
-    });
-
     // 사용자 이름 유효성 검사
     editName.addEventListener('input', function (e) {
       const messageError = document.querySelector('.edit-message-error.name');
@@ -109,12 +100,12 @@
       const regExp = new RegExp('^[a-z0-9._]*$');
 
       messageErrorIdExist.style.display = 'none';
-      if (!regExp.test(e.target.value)) {
-        saveBtn.disabled = true;
+      if (e.target.value === '' || !regExp.test(e.target.value)) {
         messageErrorId.style.display = 'block';
+        saveBtn.disabled = true;
       } else {
-        saveBtn.disabled = false;
         messageErrorId.style.display = 'none';
+        saveBtn.disabled = false;
       }
     });
 
@@ -122,11 +113,11 @@
     editIntro.addEventListener('input', function (e) {
       const messageError = document.querySelector('.edit-message-error.intro');
       if (e.target.value.length == 50) {
-        saveBtn.disabled = true;
         messageError.style.display = 'block';
+        saveBtn.disabled = true;
       } else {
-        saveBtn.disabled = false;
         messageError.style.display = 'none';
+        saveBtn.disabled = false;
       }
     });
   </script>
@@ -148,12 +139,14 @@
       };
 
       try {
+        const accountName = localStorage.getItem('accountname');
         const resCheckAccount = await fetch(`${url}/user/accountnamevalid`, init);
         const resCheckAccountJson = await resCheckAccount.json();
 
-        if (resCheckAccountJson.message === '이미 가입된 계정ID 입니다.') {
+        if ((accountName !== editId.value) && (resCheckAccountJson.message === '이미 가입된 계정ID 입니다.')) {
           const messageError = document.querySelector('.edit-message-error.id-exist');
           messageError.style.display = 'block';
+          saveBtn.disabled = true;
         }
       } catch (err) {
         console.error(err);

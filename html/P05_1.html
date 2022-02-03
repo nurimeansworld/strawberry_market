@@ -79,24 +79,15 @@
       readURL(this);
     });
 
-    // 모든 input 입력되면 저장 버튼 활성화
-    prodForm.addEventListener('input', function (e) {
-      if ((prodImgHidden.value !== '') && (prodName.value !== '') && (prodPrice.value !== '') && (prodLink.value !== '')) {
-        saveBtn.disabled = false;
-      } else {
-        saveBtn.disabled = true;
-      }
-    });
-
     // 상품 이름 2~15자 유효성 검사
     prodName.addEventListener('input', function (e) {
       const messageError = document.querySelector('.prod-message-error.prodname');
       if (e.target.value.length > 15 || e.target.value.length < 2) {
-        saveBtn.disabled = true;
         messageError.style.display = 'block';
+        saveBtn.disabled = true;
       } else {
-        saveBtn.disabled = false;
         messageError.style.display = 'none';
+        saveBtn.disabled = false;
       }
     });
 
@@ -107,11 +98,11 @@
 
       // 숫자가 아닐 경우
       if (isNaN(originNum)) {
-        saveBtn.disabled = true;
         messageError.style.display = 'block';
+        saveBtn.disabled = true;
       } else {
-        saveBtn.disabled = false;
         messageError.style.display = 'none';
+        saveBtn.disabled = false;
         // 자동 원화단위
         e.target.value = originNum.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
       }
