@@ -1,3 +1,8 @@
+// title 수정
+function changeTitle() {
+  htmlTitle = document.title;
+  document.title = checkAccountName() + ' | ' + htmlTitle;
+}
 // 뒤로가기
 function goBack(){
   window.history.back();
