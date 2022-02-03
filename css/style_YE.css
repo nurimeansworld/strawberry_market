@@ -30,6 +30,8 @@
   width: 36px;
   height: 36px;
   margin-right: 11px;
+  border: 1px solid var(--cancel-color-border);
+  border-radius: 50px;
 }
 
 .home-post-user .user-name {
