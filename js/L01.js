@@ -4,7 +4,7 @@ const loginForm = document.querySelector('.login-form');
 const loginEmailInput = document.querySelector('.login-email-input');
 const loginPwInput = document.querySelector('.login-pw-input');
 const largeLoginBtn = document.querySelector('.large-login-btn');
-const LoginError = document.querySelector('.form-message-error');
+const LoginError = document.querySelector('.form-error-message');
 
 // 로그인 버튼 활성화 함수
 function checkBtn() {

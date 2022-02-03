@@ -390,6 +390,7 @@
   font-size: 14px;
   color: var(--cancel-color-border);
 }
+.form-error-message,
 .edit-message-error,
 .prod-message-error{
   display: block;
