@@ -29,7 +29,6 @@ const postId = new URLSearchParams(location.search).get('postId');
 
 
 // 게시글 불러오기 
-// CHECK:: 게시물 날짜 undefined로 뜬다
 async function renderPost() {
   const url = 'http://146.56.183.55:5050';
   const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZjU0ODg4OWQwOWQzNmIyMTM1YzFiMSIsImV4cCI6MTY0ODY1MTUwMCwiaWF0IjoxNjQzNDY3NTAwfQ.QieMk5pJr-_DbG4yrlla9x3BkgYqMk1-qvI-lNT1tqQ';
@@ -50,8 +49,16 @@ async function renderPost() {
     const accountName = json.post.author.accountname;
     const userName = json.post.author.username;
     const content = json.post.content;
-    const img = json.post.image;
-    const createAt = json.post.createAt;
+    if(json.post.image !== '') {
+      const img = '';
+      img = `<img class="user-photo" src="${img}" alt="회원 사진">`
+    } else {
+      img = '';
+    }
+    const createAt = json.post.createdAt.slice(0,11).replace('-','년 ').replace('-', '월 ').replace('T', '일');
+    const heartCount = json.post.heartCount;
+    const commentCount = json.post.commentCount;
+    // console.log(createAt.slice(0,11).replace('-','년 ').replace('-', '월 ').replace('T', '일'));
     document.querySelector('.post-detail').innerHTML = `
       <article class="home-post">
         <div class="home-post-user">
@@ -62,26 +69,25 @@ async function renderPost() {
         </div>
         <div class="home-post-content">
           <p class="user-cont">${content}</p>
-          <img class="user-photo" src="${img}" alt="회원 사진">
+          ${img}
         </div>
         <div class="home-post-comment">
           <div class="item-count">
             <button type="button" class="btn btn-heart">
               <img class="heart-button" src="../assets/icon/heart.png" alt="하트버튼">
             </button>
-            <p class="heart-count">58</p>
+            <p class="heart-count">${heartCount}</p>
           </div>
           <div class="item-count">
             <button type="button" class="btn btn-message">
               <img class="message-button" src="../assets/icon/icon-message-circle.png" alt="메세지 버튼">
             </button>
-            <p class="message-count">12</p>
+            <p class="message-count">${commentCount}</p>
           </div>
         </div>
         <p class="date">${createAt}</p>
       </article>
     `
-
   } catch(err) { 
     console.log(err); // MEMO: err 내용 그대로 뜬다
   }
@@ -107,16 +113,21 @@ async function renderCommentList() {
     console.log(json);
 
     // render
-    // json.comments.map(element => {
-    //   console.log(element.content);
-    // })
-    // document.querySelector('.comment-list').innerHTML += `
-    //   <li>
-    //     <img class="user-profile" src="${profileImg}" alt="회원 프로필">
-    //     <h4 class="user-name">${userName}</h4>
-    //     <textarea>${comments}</textarea>
-    //   </li>
-    // `
+    json.comments.map(element => {
+      const profileImg = element.author.image;
+      const userName = element.author.username;
+      const content = element.content;
+      document.querySelector('.comment-list').innerHTML += `
+        <li class="list-item">
+          <div class="item-wrap">
+            <img class="user-profile" src="${profileImg}" alt="회원 프로필">
+            <strong class="user-name">${userName}</strong>
+            <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
+          </div>
+          <p class="content">${content}</p>
+        </li>
+      `
+    })
   } catch(err) {
     console.log(err);
   }
@@ -167,14 +178,15 @@ async function writeComment(e) {
     const json = await res.json();
 
     // render
-    document.querySelector('.comment-list').innerHTML += `
-        <div>${json.comment.content}</div>
-        <div>${json.comment.author.username}</div>
-      `
+    document.querySelector('.comment-list').innerHTML = '';
+    renderCommentList();
+    
     console.log(json);
   } catch(err) {
     console.log(err);
   }
 };
 
+
 commentBtn.addEventListener('click', writeComment);
+commentForm.addEventListener('submit', writeComment);

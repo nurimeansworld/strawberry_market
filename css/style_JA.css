@@ -67,9 +67,10 @@
 /* comment (3.1.10 게시글 댓글 페이지) 시작 */
 .comment-upload {
   border-top: 1px solid #DBDBDB;
-  position: absolute;
+  position: fixed;
   bottom: 0;
-  width: 100vw;
+  width: 100%;
+  background-color: #fff;
 }
 
 .comment-upload form {
@@ -226,9 +227,7 @@
   color: #F26E22;
 }
 
-
-/* U01.html 시작 */
-
+/* S01.html 시작 */
 .search-result {
   padding-bottom: 60px
 }
@@ -262,15 +261,67 @@
   color: #767676;
 }
 
+/* U01.html 시작 */
 
-
-section.comments {
-
+.post-detail {
+  padding-top: 48px;
 }
+
+.post-comment {
+  border-top: 1px solid #DBDBDB;
+}
+
+.post-comment .comment-list {
+  padding-bottom: 60px;
+  /* CHECK:: 일단 거꾸로! */
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.comment-list .list-item {
+  margin: 16px 0;
+  font-size: 14px;
+}
+
+.list-item .item-wrap {
+  display: flex;
+  gap: 12px;
+}
+
+.item-wrap .user-profile {
+  width: 36px;
+  height: 36px;
+  border: 0.5px solid #DBDBDB;
+  border-radius: 50%;
+}
+
+.item-wrap .user-name {
+  flex-grow: 1;
+  margin-bottom: 16px;
+  align-self: flex-end;
+}
+
+.item-wrap .btn-menu {
+  background: transparent;
+  cursor: pointer;
+  align-self: center;
+}
+
+.list-item .content {
+  outline: none;
+  resize: none;
+  padding: 0 16px 0 48px;
+  line-height: 17px;
+}
+
 
 /* U02.html 시작 */
 section.upload {
-  padding-top: 20px;
+  padding-top: 48px;
+}
+
+section.upload.container {
+  position: static;
 }
 
 .upload .upload-form {
@@ -324,6 +375,8 @@ section.upload {
   box-sizing: border-box;
   border-radius: 10px;
   position: relative;
+  background-position: center;
+  background-size: cover;
 }
 
 .img-item .close-btn {

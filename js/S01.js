@@ -7,7 +7,7 @@ const searchInp = document.querySelector('.inp-search');
 
 async function searchUser(e) {
   e.preventDefault();
-  const searchValue = document.querySelector('.inp-search').value;
+  const searchValue = e.target.value;
   if(searchValue == '') {
     document.querySelector(".container").innerHTML = '';
   } else {
@@ -28,8 +28,8 @@ async function searchUser(e) {
       const userName = element.username;
       const image = element.image;
   
-      document.querySelector(".container").innerHTML+=`
-        <a herf='' class='user-list'>
+      document.querySelector(".container").innerHTML += `
+        <a href='' class='user-list'>
             <img src='${image}' alt='프로필 이미지' class='profile-img'/>
             <div class='name-wrap'>
               <strong class='account-name'>${accountName}</strong>
