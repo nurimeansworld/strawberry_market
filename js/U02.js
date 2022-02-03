@@ -3,76 +3,71 @@ const uploadTxt = document.querySelector('.upload-txt');
 const uploadInp = document.querySelector('.upload-input');
 const imgContainer = document.querySelector('.img-container');
 const uploadBtn = document.querySelector('.upload-btn');
+// MEMO:: readInputFile()에서 빼서 전역변수로 두고 createPost()에서 length 기준으로 삼아줌
+let selectedFiles = [];
 
-
-async function imgUpload(files, index) {
+// 이미지 업로드
+async function uploadImg(files,index) {
   const formData = new FormData();
   formData.append("image", files[index]);
-  const res = await fetch('http://146.56.183.55:5050/image/uploadfile', {
+  console.log(formData);
+  const res = await fetch(`http://146.56.183.55:5050/image/uploadfiles`, {
       method: "POST",
-      body : formData
-  })
+      body: formData
+  });
   const data = await res.json()
-  const productImgName = data["filename"];
-  return productImgName
+  console.log('data: ' ,data);
+  const productImgName = data[0].filename;
+  console.log(productImgName);
+  return productImgName;
 }
 
-//token
-// const token = localStorage.getItem("Token")
-//
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZjU0ODg4OWQwOWQzNmIyMTM1YzFiMSIsImV4cCI6MTY0ODY1MTUwMCwiaWF0IjoxNjQzNDY3NTAwfQ.QieMk5pJr-_DbG4yrlla9x3BkgYqMk1-qvI-lNT1tqQ'
-
-async function uploadPost(e) {
-  const url = "http://146.56.183.55:5050"
-
-  // 사용자가 작성한 글 
-  const content = uploadTxt.value;
-  // 사용자가 불러온 이미지를 담을 빈 배열
+// 게시글 작성 후 서버에 post
+async function createPost() {
+  const url = "http://146.56.183.55:5050";
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZjU0ODg4OWQwOWQzNmIyMTM1YzFiMSIsImV4cCI6MTY0ODY1MTUwMCwiaWF0IjoxNjQzNDY3NTAwfQ.QieMk5pJr-_DbG4yrlla9x3BkgYqMk1-qvI-lNT1tqQ';
+  const contentText = uploadTxt.value;
   const imgUrls = [];
-  // 사용자가 불러온 이미지
   const files = uploadInp.files;
-
-  console.log(token)
-  console.log(content)
-  console.log(imgUrls)
-  console.log(files)
-  
-  //사용자가 불러온 이미지 파일이 3개 이하이면
-  if(files.length <= 3) {
+  if(selectedFiles.length > 3) {
+    alert('3장까지만');
+  } else {
     for(let index = 0; index < files.length; index++) {
-      const imgUrl = await imgUpload(files, index)
-      imgUrls.push(url+imgUrl);
+      const imgUrl = await uploadImg(files, index);
+      imgUrls.push(`${url}/${imgUrl}`);
     }
-    const res = await fetch(url+'/post', {
-      method: "POST", 
+    console.log(imgUrls);
+    const res = await fetch(`${url}/post`, {
+      method: 'POST',
       headers: {
         "Authorization" : `Bearer ${token}`,
         "Content-type" : "application/json"
       },
-      body: JSON.stringify({ 
+      body:JSON.stringify({
         "post": {
-            "content": content,
-            "image": imgUrls+'' 
+          "content": contentText,
+          "image": imgUrls.join(',') //"imageurl1", "imageurl2" 형식으로 
         }
       })
     })
-    const json = await res.json()
+    const json = await res.json();
+    const post = json.post;
     console.log(json)
-  }else {
-    alert('이미지 파일은 최대 3장까지 첨부 가능합니다.')
+    console.log(post);
+    // location.href = '../html/P02.html';
   }
 }
 
-uploadBtn.addEventListener('click', uploadPost);
+uploadBtn.addEventListener('click', createPost)
+
+function removeImg() {
+
+}
 
 
-// ::: 아래 미리 만들어둔 코드 활용해서 쓰면 된다!!!
-
+// 사진 미리보기
+// CHECK:: 아래 미리 만들어둔 코드 활용해서 쓰면 된다!!!
 function readInputFile(e){
-  var selectedFiles = [];
-  
-  selectedFiles = [];
-  
   const files = e.target.files;
   const fileArr = Array.prototype.slice.call(files);
   const index = 0;
@@ -84,12 +79,12 @@ function readInputFile(e){
       reader.onload = function(e) {
         // 1. div를 생성해서 선택된 파일을 백그라운드로 넣는다 
         const imgItem = document.createElement('div');
-        imgItem.style.background = `url(${reader.result})`;
+        imgItem.style.backgroundImage = `url(${reader.result})`;
         imgItem.className = 'img-item';
 
         // 2. 생성한 div를 원래 있던 부모요소의 자식으로 지정한다
         imgContainer.appendChild(imgItem);
-        // ::: 왜 넣어야 하는지 모름
+        // CHECK:: 왜 넣어야 하는지 모름
         e.target.value = '';
 
         // 3. close 아이콘을 클릭하면 div를 제거한다
@@ -98,11 +93,12 @@ function readInputFile(e){
         imgItem.appendChild(closeBtn);
         closeBtn.addEventListener('click',function(){
           imgContainer.removeChild(imgItem);
-          // ::: imgUrls 배열에서도 빼줘야 한다
-        })
+          // CHECK:: imgUrls 배열에서도 빼줘야 한다
+        });
       };
       reader.readAsDataURL(i);
     }
+    console.log(selectedFiles);
   })
 }
 
