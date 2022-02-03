@@ -150,8 +150,6 @@ async function joinUser(e) {
 
 startBtn.addEventListener('click', joinUser);
 
-
-
 const proSection = document.querySelector('.profile-section')
 const joinSection = document.querySelector('.join-section');
 
@@ -161,8 +159,3 @@ nextBtn.addEventListener('click', (e) => {
   joinSection.style.display = 'none';
   proSection.style.display = 'block';
 });
-
-
-
-
-
