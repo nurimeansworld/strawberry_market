@@ -61,6 +61,9 @@
 }
 
 /* 누리 작업 - P01 사용자 프로필 */
+.container.profile{
+  padding-top: 48px
+}
 .profile-sec{
   padding: 30px 0 26px;
   border-bottom: 0.5px solid var(--cancel-color-border);
@@ -256,6 +259,9 @@
 }
 
 /* 누리 작업 - P03 팔로우, 팔로워 */
+.follow-sec{
+  padding-top: 48px
+}
 .follow-list{
   margin: 24px 16px 0 16px;
 }
@@ -300,6 +306,9 @@
 }
 
 /* 누리 작업 - P04 마이 프로필 수정 */
+.container.profile-edit{
+  padding-top: 48px
+}
 .profile-edit-wrap{
   margin: 30px auto;
   width: 110px;
@@ -343,6 +352,9 @@
 }
 
 /* 누리 작업 - P04 마이 프로필 수정, P05 상품 등록 form */
+.container.prod{
+  padding-top: 48px
+}
 .edit-name-tit,
 .edit-id-tit,
 .edit-intro-tit,

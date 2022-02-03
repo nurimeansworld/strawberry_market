@@ -23,15 +23,12 @@ body {
 
 /* body */
 .container{
-  padding-top: 48px;
   margin: 0 auto;
-  position: relative;
   /* min-width: 390px; */
   max-width: calc(100% - 32px);
   background-color: #fff;
 }
 .container-join{
-  padding-top: 48px;
   margin: 0 auto;
   max-width: calc(100% - 68px);
   /* max-width: 390px; */
