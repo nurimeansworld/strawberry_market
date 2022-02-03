@@ -22,7 +22,6 @@
 /* 게시글 li 시작! */
 .home-post-user {
     padding: 10px 15px;
-    position: relative;
 }
 
 .home-post-user .user-profile {
@@ -36,6 +35,7 @@
 
 .home-post-user .user-name {
   font-weight: 500;
+  font-size: 14px;
 }
 
 .home-post-user .user-id {
@@ -45,19 +45,19 @@
 }
 
 .home-post-user .btn-menu {
-  /* margin-left: auto; */
+  display: inline-block;
   position: absolute;
-  top: 10px;
-  left: 356px;
-  width: 24px;
-  background: transparent;
-  cursor: pointer;
+  top: 25px;
+  right: 10px;
+  width:18px;
+  height: 18px;
+  background: url(../assets/icon/icon-more-vertical.png) no-repeat;
+  background-size: contain;
 }
 
 /* post 내용 시작! */
 .home-post-content {
   /* 390*426 */
-  width: 390px;
   height: 100%;
   padding: 16px 16px 16px 54px;
 }
@@ -90,6 +90,13 @@
   outline: 0;
   background: none;
   margin-right: 7px;
+}
+
+.btn-heart, .btn-message {
+  width: 15px;
+  height: 15px;
+  border: none;
+  cursor: pointer;
 }
 
 .date {
