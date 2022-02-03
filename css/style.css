@@ -24,7 +24,6 @@ body {
 /* body */
 .container{
   margin: 0 auto;
-  position: relative;
   /* min-width: 390px; */
   max-width: calc(100% - 32px);
   background-color: #fff;
