@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/* 컴포넌트 */
+/* 모듈 */
 
 /* text-Activ-input (3.1.2 로그인) 시작 */
 .login-email-tit,
@@ -73,16 +73,16 @@
   background-color: #fff;
 }
 
-.comment-upload form {
+.comment-upload .comment-form {
   width: calc(100% - 6px);
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
 }
 
-.profile-img {
+.comment-form .profile-img {
   width: 34px;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .comment-upload .comment-input {
@@ -229,13 +229,13 @@
 
 /* S01.html 시작 */
 .search-result {
-  padding-bottom: 60px
+  padding: 68px 0 60px;
 }
 
 .search-result .user-list {
   display: flex;
   gap: 12px;
-  margin: 16px 0;
+  margin-bottom: 16px;
 }
 
 .user-list .profile-img {
@@ -250,13 +250,13 @@
   align-self: center;
 }
 
-.user-list .account-name {
+.user-list .user-name {
   display: block;
   font-size: 14px;
   margin-bottom: 6px;
 }
 
-.user-list .user-name {
+.user-list .account-name {
   font-size: 12px;
   color: #767676;
 }
@@ -317,7 +317,7 @@
 
 /* U02.html 시작 */
 section.upload {
-  padding-top: 48px;
+  padding-top: 68px;
 }
 
 section.upload.container {
@@ -331,7 +331,7 @@ section.upload.container {
 
 .upload-form .profile-img {
   width: 34px;
-  object-fit: contain;
+  object-fit: cover;
   margin: 0;
 }
 
