@@ -46,8 +46,8 @@ async function renderPost() {
 
     // render
     const profileImg = json.post.author.image;
-    const accountName = json.post.author.accountname;
     const userName = json.post.author.username;
+    const accountName = json.post.author.accountname;
     const content = json.post.content;
     if(json.post.image !== '') {
       const img = '';
@@ -55,9 +55,10 @@ async function renderPost() {
     } else {
       img = '';
     }
-    const createAt = json.post.createdAt.slice(0,11).replace('-','년 ').replace('-', '월 ').replace('T', '일');
     const heartCount = json.post.heartCount;
     const commentCount = json.post.commentCount;
+    const createAt = json.post.createdAt.slice(0,11).replace('-','년 ').replace('-', '월 ').replace('T', '일');
+    console.log(json.post.createdAt)
     // console.log(createAt.slice(0,11).replace('-','년 ').replace('-', '월 ').replace('T', '일'));
     document.querySelector('.post-detail').innerHTML = `
       <article class="home-post">
@@ -153,17 +154,13 @@ commentInp.addEventListener('input', checkValue);
 
 
 // 작성된 댓글을 서버에 post
-/* 
-  CHECK:: 아래와 같이 댓글을 post 하면서 화면에 render하면 여러 사람들이 동시에 댓글을 작성할 경우, 내가 등록한 댓글만 화면에 업데이트된다. 
-  댓글이 게시되면 댓글 리스트가 재렌더링 되도록 코드를 짜야 한다.
-*/
 async function writeComment(e) {
   e.preventDefault();
   const url = 'http://146.56.183.55:5050';
   const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZjU0ODg4OWQwOWQzNmIyMTM1YzFiMSIsImV4cCI6MTY0ODY1MTUwMCwiaWF0IjoxNjQzNDY3NTAwfQ.QieMk5pJr-_DbG4yrlla9x3BkgYqMk1-qvI-lNT1tqQ';
   
   try {
-    const res = await fetch(`${url}/post/${postId}/comments`, { //:id 게시글 id 
+    const res = await fetch(`${url}/post/${postId}/comments`, {
       method: 'POST',
       headers: {
         'Authorization' : `Bearer ${token}`,
@@ -171,16 +168,18 @@ async function writeComment(e) {
       },
       body: JSON.stringify({
         'comment': {
-          'content': commentInp.value // MEMO: ${} 필요없음
+          'content': commentInp.value 
         }
       })
     });
     const json = await res.json();
 
-    // render
+    // render 전에 초기화
     document.querySelector('.comment-list').innerHTML = '';
+    // render
+    renderPost();
     renderCommentList();
-    
+
     console.log(json);
   } catch(err) {
     console.log(err);

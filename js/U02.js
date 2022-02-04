@@ -1,42 +1,51 @@
-// CHECK:: 전체적으로 정리 필요! 
 const uploadTxt = document.querySelector('.upload-txt');
 const uploadInp = document.querySelector('.upload-input');
 const imgContainer = document.querySelector('.img-container');
 const uploadBtn = document.querySelector('.upload-btn');
-// MEMO:: readInputFile()에서 빼서 전역변수로 두고 createPost()에서 length 기준으로 삼아줌
-let selectedFiles = [];
+
+/* 
+  MEMO:: 
+  0. 전역 변수로 imgFiles을 빈 배열로 선언한다.
+  1. readInputFile()에서 uploadInp에 업로드한 파일을 imgFiles에 담는다. 
+  2. readInputFile()에서 업로드한 이미지의 삭제 버튼을 누르면 미리보기에서 삭제되고 imgFiles에서도 삭제된다 
+    → 몇번 째에 있는 이미지를 삭제하는 건지 구별해야 한다. 이미지의 index값 기준으로 삭제해야 한다. 
+  3. createPost()에서 imgFiles의 요소를 서버로 post할 imgUrls에 담는다.
+  4. 서버에 imgUrls을 보낸다.
+*/
+const imgFiles = [];
+
 
 // 이미지 업로드
-async function uploadImg(files,index) {
+async function uploadImg(file) {
   const formData = new FormData();
-  formData.append("image", files[index]);
-  console.log(formData);
+  formData.append("image", file);
+  // console.log('formData: ' + formData);
   const res = await fetch(`http://146.56.183.55:5050/image/uploadfiles`, {
       method: "POST",
       body: formData
   });
   const data = await res.json()
-  console.log('data: ' ,data);
+  // console.log('data: ' ,data);
   const productImgName = data[0].filename;
-  console.log(productImgName);
+  // console.log('productImgName: ' + productImgName);
   return productImgName;
 }
+
 
 // 게시글 작성 후 서버에 post
 async function createPost() {
   const url = "http://146.56.183.55:5050";
   const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZjU0ODg4OWQwOWQzNmIyMTM1YzFiMSIsImV4cCI6MTY0ODY1MTUwMCwiaWF0IjoxNjQzNDY3NTAwfQ.QieMk5pJr-_DbG4yrlla9x3BkgYqMk1-qvI-lNT1tqQ';
   const contentText = uploadTxt.value;
-  const imgUrls = [];
   const files = uploadInp.files;
-  if(selectedFiles.length > 3) {
-    alert('3장까지만');
+  if(imgFiles.length > 3) {
+    alert('이미지 파일은 최대 3장까지만 가능합니다.');
   } else {
-    for(let index = 0; index < files.length; index++) {
-      const imgUrl = await uploadImg(files, index);
-      imgUrls.push(`${url}/${imgUrl}`);
+    const imgUrls = [];
+    for (const file of imgFiles) {
+      imgUrls.push(`${url}/${await uploadImg(file)}`);
     }
-    console.log(imgUrls);
+    console.log('imgUrls', imgUrls);
     const res = await fetch(`${url}/post`, {
       method: 'POST',
       headers: {
@@ -51,9 +60,7 @@ async function createPost() {
       })
     })
     const json = await res.json();
-    const post = json.post;
-    console.log(json)
-    console.log(post);
+    console.log(json);
     // location.href = '../html/P02.html';
   }
 }
@@ -69,12 +76,13 @@ function removeImg() {
 // CHECK:: 아래 미리 만들어둔 코드 활용해서 쓰면 된다!!!
 function readInputFile(e){
   const files = e.target.files;
-  const fileArr = Array.prototype.slice.call(files);
+  const fileArr = [...files];
   const index = 0;
+  fileArr.forEach(file => imgFiles.push(file));
+  console.log(imgFiles);
   
   fileArr.forEach(function(i) {
     if(files.length <= 3){
-      selectedFiles.push(i);
       const reader = new FileReader();
       reader.onload = function(e) {
         // 1. div를 생성해서 선택된 파일을 백그라운드로 넣는다 
@@ -92,13 +100,14 @@ function readInputFile(e){
         closeBtn.className = 'close-btn';
         imgItem.appendChild(closeBtn);
         closeBtn.addEventListener('click',function(){
+          // MEMO:: imgFiles에서 삭제, 미리보기에 삭제
+          imgFiles.splice([...imgContainer.children].indexOf(imgItem), 1);
           imgContainer.removeChild(imgItem);
-          // CHECK:: imgUrls 배열에서도 빼줘야 한다
+          console.log(imgFiles);
         });
       };
       reader.readAsDataURL(i);
     }
-    console.log(selectedFiles);
   })
 }
 

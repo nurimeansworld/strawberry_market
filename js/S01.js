@@ -1,6 +1,6 @@
 // [S01] 유저검색
 // CHECK:: 검색어와 같은 단어 하이라이트 미구현
-// CHECK:: 동일 단어 2번 이상 검색 시 검색 결과 중복 출력
+// CHECK:: 앵커 태그에 /profile/:accountname 
 
 const searchForm = document.querySelector('.search-form');
 const searchInp = document.querySelector('.inp-search');
@@ -11,9 +11,9 @@ async function searchUser(e) {
   if(searchValue == '') {
     document.querySelector(".container").innerHTML = '';
   } else {
-    const url = "http://146.56.183.55:5050/user/searchuser/?keyword=";
+    const url = "http://146.56.183.55:5050";
     const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZjU0ODg4OWQwOWQzNmIyMTM1YzFiMSIsImV4cCI6MTY0ODY1MTUwMCwiaWF0IjoxNjQzNDY3NTAwfQ.QieMk5pJr-_DbG4yrlla9x3BkgYqMk1-qvI-lNT1tqQ';
-    const res = await fetch(url+searchValue, {
+    const res = await fetch(`${url}/user/searchuser/?keyword=${searchValue}`, {
       method: "GET",
       headers: {
         "Authorization" : `Bearer ${token}`,
@@ -21,19 +21,25 @@ async function searchUser(e) {
       }
     });
     const json = await res.json();
+    console.log(json);
     
+    // ① 지우는 코드
+    document.querySelector(".container").innerHTML = '';
+
+    // ② 렌더링 하는 코드
     // render 
+    // 일단 무조건 먼저 그냥 다 지우고 ①, 그 다음에 그 위에 렌더링을 함 ②
     json.forEach(element => {
       const accountName = element.accountname;
       const userName = element.username;
       const image = element.image;
   
       document.querySelector(".container").innerHTML += `
-        <a href='' class='user-list'>
+        <a href='${url}/profile/${accountName}' class='user-list'>
             <img src='${image}' alt='프로필 이미지' class='profile-img'/>
             <div class='name-wrap'>
-              <strong class='account-name'>${accountName}</strong>
               <small class='user-name'>${userName}</small>          
+              <strong class='account-name'>${accountName}</strong>
             </div
         </a>                
         `
