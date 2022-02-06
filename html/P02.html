@@ -243,7 +243,12 @@
         for (const post of userPost.post) {
           const post_date = new Date(post.createdAt);
           const post_date_format = `${post_date.getFullYear()}년 ${post_date.getMonth() + 1}월 ${post_date.getDate()}일`;
+
+          // console.log(post);
           const postImage = post.image ? `<img class="user-photo" src="${post.image}" alt="게시글 사진">` : '';
+          const post_image = post.image;
+          console.log('post', post_image.split(','));
+
           const heartBtn = post.hearted ? `<img class="heart-button" src="../assets/icon/icon-heart-active.png" alt="하트버튼">` : `<img class="heart-button" src="../assets/icon/icon-heart.png" alt="하트버튼">`;
 
           const postItem = document.createElement('li');

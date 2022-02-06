@@ -25,13 +25,16 @@ const commentForm = document.querySelector('.comment-form');
   말풍선 버튼을 클릭하면 url 쿼리문으로 이동 
   U01.html?postId=get('postId'); 
 */
+
 const postId = new URLSearchParams(location.search).get('postId'); 
+console.log('postId',postId);
+
 
 
 // 게시글 불러오기 
 async function renderPost() {
   const url = 'http://146.56.183.55:5050';
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZjU0ODg4OWQwOWQzNmIyMTM1YzFiMSIsImV4cCI6MTY0ODY1MTUwMCwiaWF0IjoxNjQzNDY3NTAwfQ.QieMk5pJr-_DbG4yrlla9x3BkgYqMk1-qvI-lNT1tqQ';
+  const token = localStorage.getItem('Token');
 
   try {
     const res = await fetch(`${url}/post/${postId}`, {
@@ -45,13 +48,13 @@ async function renderPost() {
     console.log(json);
 
     // render
+    let img = '';
     const profileImg = json.post.author.image;
     const userName = json.post.author.username;
     const accountName = json.post.author.accountname;
     const content = json.post.content;
     if(json.post.image !== '') {
-      const img = '';
-      img = `<img class="user-photo" src="${img}" alt="회원 사진">`
+      img = `<img class="user-photo" src="${img}" alt="회원 사진">`;
     } else {
       img = '';
     }
@@ -100,7 +103,7 @@ renderPost();
 // 댓글 리스트 불러오기
 async function renderCommentList() {
   const url = 'http://146.56.183.55:5050';
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZjU0ODg4OWQwOWQzNmIyMTM1YzFiMSIsImV4cCI6MTY0ODY1MTUwMCwiaWF0IjoxNjQzNDY3NTAwfQ.QieMk5pJr-_DbG4yrlla9x3BkgYqMk1-qvI-lNT1tqQ';
+  const token = localStorage.getItem('Token');
   
   try {
     const res = await fetch(`${url}/post/${postId}/comments`, {
@@ -157,7 +160,7 @@ commentInp.addEventListener('input', checkValue);
 async function writeComment(e) {
   e.preventDefault();
   const url = 'http://146.56.183.55:5050';
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZjU0ODg4OWQwOWQzNmIyMTM1YzFiMSIsImV4cCI6MTY0ODY1MTUwMCwiaWF0IjoxNjQzNDY3NTAwfQ.QieMk5pJr-_DbG4yrlla9x3BkgYqMk1-qvI-lNT1tqQ';
+  const token = localStorage.getItem('Token');
   
   try {
     const res = await fetch(`${url}/post/${postId}/comments`, {
@@ -179,7 +182,8 @@ async function writeComment(e) {
     // render
     renderPost();
     renderCommentList();
-
+    commentInp.value = '';
+    checkValue()
     console.log(json);
   } catch(err) {
     console.log(err);

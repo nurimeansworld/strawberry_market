@@ -1,6 +1,5 @@
 // [S01] 유저검색
 // CHECK:: 검색어와 같은 단어 하이라이트 미구현
-// CHECK:: 앵커 태그에 /profile/:accountname 
 
 const searchForm = document.querySelector('.search-form');
 const searchInp = document.querySelector('.inp-search');
@@ -33,9 +32,9 @@ async function searchUser(e) {
       const accountName = element.accountname;
       const userName = element.username;
       const image = element.image;
-  
+      
       document.querySelector(".container").innerHTML += `
-        <a href='${url}/profile/${accountName}' class='user-list'>
+        <a href='./P01.html?id=${accountName}' class='user-list'>
             <img src='${image}' alt='프로필 이미지' class='profile-img'/>
             <div class='name-wrap'>
               <small class='user-name'>${userName}</small>          

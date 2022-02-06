@@ -35,7 +35,7 @@ async function uploadImg(file) {
 // 게시글 작성 후 서버에 post
 async function createPost() {
   const url = "http://146.56.183.55:5050";
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZjU0ODg4OWQwOWQzNmIyMTM1YzFiMSIsImV4cCI6MTY0ODY1MTUwMCwiaWF0IjoxNjQzNDY3NTAwfQ.QieMk5pJr-_DbG4yrlla9x3BkgYqMk1-qvI-lNT1tqQ';
+  const token = localStorage.getItem('Token');
   const contentText = uploadTxt.value;
   const files = uploadInp.files;
   if(imgFiles.length > 3) {
@@ -61,7 +61,7 @@ async function createPost() {
     })
     const json = await res.json();
     console.log(json);
-    // location.href = '../html/P02.html';
+    location.href = '../html/P02.html';
   }
 }
 

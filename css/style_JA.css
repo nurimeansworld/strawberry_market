@@ -82,7 +82,7 @@
 
 .comment-form .profile-img {
   width: 34px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .comment-upload .comment-input {
