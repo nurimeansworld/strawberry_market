@@ -88,24 +88,27 @@
 .home-post-comment .item-count .btn {
   border: 0;
   outline: 0;
-  background: none;
+  /* background: none; */
   margin-right: 7px;
 }
 
 .btn-heart, .btn-message {
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   border: none;
   cursor: pointer;
+  background-color: white;
 }
 
-.btn-heart-fill {
-  display: none;
+/* center no-repeat 20px 20px; */
+.btn.btn-heart {
+  background-image: url(../assets/icon/heart.svg);
 }
 
-.btn-heart-fill.on {
-  display: block;
-  z-index: 10;
+.btn.btn-heart.on {
+  background-image: url(../assets/icon/icon-heart-active.svg);
+  /* display: block;
+  z-index: 10; */
 }
 
 
