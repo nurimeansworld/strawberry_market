@@ -169,7 +169,7 @@
 
           const productItem = document.createElement('li');
           productItem.setAttribute('class', 'product-item');
-          productItem.innerHTML = `<a href="${product.link}" target="blank"><img src="${product.itemImage}" alt="상품 이미지입니다." class="item-img">
+          productItem.innerHTML = `<a prod="${product.id}" href="${product.link}" target="blank"><img src="${product.itemImage}" alt="상품 이미지입니다." class="item-img">
             <h3 class="item-tit sl-ellipsis">${product.itemName}</h3><p class="item-price">${productPrice}원</p></a>`;
           fragment.appendChild(productItem);
           productList.appendChild(fragment);
