@@ -99,6 +99,16 @@
   cursor: pointer;
 }
 
+.btn-heart-fill {
+  display: none;
+}
+
+.btn-heart-fill.on {
+  display: block;
+  z-index: 10;
+}
+
+
 .date {
   margin: 15px 0 10px 60px;
   font-size: small;
@@ -244,14 +254,16 @@
   color: #dbdbdb;
   font-size: 10px;
   position: absolute;
-  left: 310px;
-  top: 50px;
+  bottom: 15px;
+  right: 0px;
+  /* left: 310px;
+  top: 50px; */
 }
 
 /* 3.1.13 채팅방 (chat room) */
 .chat-room {
   padding-top: 250px;
-  padding-bottom: 250px;
+  padding-bottom: 450px;
   background-color: #F2F2F2;
 }
 

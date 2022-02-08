@@ -45,16 +45,16 @@
     </ul>
   </main>
 
-  <!-- 3.1.10 게시글 댓글 페이지 (comment) -->
-  <section class="comment bg-white">
-    <h2 class="sr-only">사용자와 채팅을 주고받는 페이지입니다.</h2>
-    <form action="" method="post">
-      <img src="../assets/img-button.png" alt="이미지 첨부" class="profile-img">
-      <label for="" class="sr-only">댓글 입력창입니다.</label>
-      <input type="text" placeholder="댓글 입력하기..." class="comment-input">
-      <button type="submit" class="commenet-btn" disabled>전송</button>
-    </form>
-  </section>
+    <!-- 3.1.10 게시글 댓글 페이지 (comment) -->
+    <section class="comment-upload">
+      <h2 class="sr-only">사용자와 채팅을 주고받는 페이지입니다.</h2>
+      <form method="post" class="comment-form">
+        <img src="../assets/small-profile-img.png" alt="프로필 사진" class="profile-img">
+        <label for="inp-set" class="sr-only">댓글 입력창입니다.</label>
+        <input type="text" placeholder="댓글 입력하기..." id="inp-set" class="comment-input">
+        <button type="submit" class="commenet-btn" disabled>전송</button>
+      </form>
+    </section>
 
   <script src="../js/script_JA.js"></script>
   <script src="../js/script_NR.js"></script>

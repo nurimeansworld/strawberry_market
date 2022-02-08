@@ -11,17 +11,16 @@
 </head>
 
 <body>
-  <!-- value="asdf@asdf.com" value="asdfasdf" -->
   <!-- 이메일로 회원가입 -->
   <section class="join-section container-join">
     <h1 class="page-tit">이메일로 회원가입</h1>
     <form class="join-form">
       <label for="join-email" class="join-email-tit">이메일</label>
-      <input type="email" class="join-email-input" id="join-email"  placeholder="이메일 주소를 입력해 주세요." required>
+      <input type="email" class="join-email-input" id="join-email" value="asdf@asdf.com" placeholder="이메일 주소를 입력해 주세요." required>
       <strong class="email-join id-error-message">*이미 가입된 이메일 주소입니다.</strong>
 
       <label for="join-pw" class="join-pw-tit">비밀번호</label>
-      <input type="password" class="join-pw-input" id="join-pw" required placeholder="비밀번호를 작성해 주세요." >
+      <input type="password" class="join-pw-input" id="join-pw" required placeholder="비밀번호를 작성해 주세요." value="asdfasdf">
       <strong class="pw-error-message">*비밀번호는 6자 이상이어야 합니다.</strong>
       <strong class="form-error-message">*필수 입력사항을 입력해주세요.</strong>
       <button class="large-next-btn" disabled>다음</button>
@@ -42,19 +41,20 @@
       <input class="sr-only" id="editImg" type="file" accept="image/*" />
 
       <label for="editName" class="edit-name-tit">사용자 이름</label>
-      <input type="text" class="edit-name-input" id="editName" required
+      <input type="text" minlength="2" maxlength="10" class="edit-name-input" id="editName" required
         placeholder="2~10자 이내여야 합니다.">
-      <strong class="name-error-message"></strong>
+      <strong class="edit-message-error name">*2~10자 이내여야 합니다.</strong>
 
       <label for="editId" class="edit-id-tit">계정 ID</label>
       <input type="text" class="edit-id-input" id="editId" required placeholder="영문, 숫자, 특수문자(.),(_)만 사용 가능합니다.">
-      <strong class="account-error-message"></strong>
+      <strong class="edit-message-error id">*영문, 숫자, 특수문자(.),(_)만 사용 가능합니다.</strong>
+      <strong class="edit-message-error id-exist">*이미 사용중인 계정 ID입니다.</strong>
 
       <label for="editIntro" class="edit-intro-tit">소개</label>
       <input type="text" maxlength="50" class="edit-intro-input" id="editIntro" required
         placeholder="자신과 판매할 상품에 대해 소개해 주세요!">
-      <strong class="intro-error-message"></strong>
-      <button class="large-start-btn" disabled>감귤마켓 시작하기</button>
+      <strong class="edit-message-error intro">*최대 50자 입력 가능합니다.</strong>
+      <button class="large-start-btn">감귤마켓 시작하기</button>
     </form>
   </section>
 
