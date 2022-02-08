@@ -24,7 +24,7 @@
               <button type="button" class="delete-post">삭제</button>
             </li>
             <li>
-              <a class="edit-post">수정</a>
+              <a class="edit-post" onClick="location.href='P05_1.html'">수정</a>
             </li>
           </ul>
           </div>
@@ -82,11 +82,9 @@
     // 게시물 임시 url 
 
 
-    // http://127.0.0.1:5503/html/MD02.html?postId=61fe7e1d9d09d36b21371bb3
+    // http://127.0.0.1:5503/html/MD02.html?postId=61ffe64e9d09d36b21376ee9
     // 게시물 수정
 
-
-    //http://127.0.0.1:5503/html/MD02.html?postId=61fe7dd69d09d36b21371ba7
 
 
     const postId = new URLSearchParams(location.search).get('postId'); 
@@ -127,13 +125,13 @@
     // const postId = new URLSearchParams(location.search).get('postId'); 
     
     
-    //상품 수정 API (수정 버튼 .edit-post) 
+    상품 수정 API (수정 버튼 .edit-post) 
 
     const editAlert = document.querySelector('.edit-post');
-    // const image = document.querySelector
+    const image = document.querySelector
 
-    // 게시물 이미지 업로드  판단
-    // const image = (image.value !== '') ? image.value : '';
+    게시물 이미지 업로드  판단
+    const image = (image.value !== '') ? image.value : '';
 
     async function editPost(){
       
@@ -141,7 +139,7 @@
         const url = 'http://146.56.183.55:5050';
 
         const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmNjMjNkOWQwOWQzNmIyMTM2ZTk3MCIsImV4cCI6MTY0OTI2MDUzNiwiaWF0IjoxNjQ0MDc2NTM2fQ.dgflqthibSYSMd5p6EXqd-IdeHts0tv9fmLJjh-GOt4'
-        const image 
+        // const image 
         try {
           const res = await fetch( `${url}/post/${postId}`, {
             method: 'PUT',
@@ -152,7 +150,7 @@
             body:JSON.stringify({
               "post": {
                 "content": String,
-                "image": image  
+                "image": String  
 		            }
             })
             

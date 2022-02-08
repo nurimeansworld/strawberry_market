@@ -13,12 +13,38 @@
       <h2 class="sec-title">판매 중인 상품</h2>
       <ul class="product-list">
         <li class="product-item">
-          <!-- <a href="{상품 외부 링크}" target="blank"> -->
-            <img src="../assets/product-img-example.png" alt="" class="item-img">
-            <h3 class="item-tit sl-ellipsis">애월읍 노지 감귤</h3>
-            <p class="item-price">35,000원</p>
+          <a id="61ffe5409d09d36b21376e24">
+          <!-- <a id="61ffe5409d09d36b21376e24" href="./P05_1.html?prod=61ffe5409d09d36b21376e24"> -->
+            <img src="http://146.56.183.55:5050/1644160303600.png" alt="상품 이미지입니다." class="item-img">
+            <h3 class="item-tit sl-ellipsis">설명충팝니다</h3>
+            <p class="item-price">9,848,944원</p>
           </a>
-        </li>
+      </li>
+        <li class="product-item">
+          <a id="61ffe4fa9d09d36b21376dd9">
+          <!-- <a id="61ffe4fa9d09d36b21376dd9" href="./P05_1.html?prod=61ffe4fa9d09d36b21376dd9"> -->
+            <img src="http://146.56.183.55:5050/1644160226699.png" alt="상품 이미지입니다." class="item-img">
+            <h3 class="item-tit sl-ellipsis">삼항연산자 팝니다</h3>
+            <p class="item-price">5,461,546원</p>
+          </a>
+      </li>
+      <li class="product-item">
+        <a id="61ffe4d29d09d36b21376d96">
+          <!-- <a id="61ffe4d29d09d36b21376d96" href="./P05_1.html?prod=61ffe4d29d09d36b21376d96"> -->
+          <img src="http://146.56.183.55:5050/1644152410629.png" alt="상품 이미지입니다." class="item-img">
+          <h3 class="item-tit sl-ellipsis">몽둥이 팝니다</h3>
+          <p class="item-price">2,322,323원</p>
+        </a>
+      </li>
+      <li class="product-item">
+        <a id="61ffc6439d09d36b21376297">
+          <!-- <a id="61ffc6439d09d36b21376297" href="./P05_1.html?prod=61ffc6439d09d36b21376297"> -->
+          <img src="http://146.56.183.55:5050/1644152332998.png" alt="상품 이미지입니다." class="item-img">
+          <h3 class="item-tit sl-ellipsis">드모르간팝니다</h3>
+          <p class="item-price">10,000,000원</p>
+        </a>
+      </li>
+
       </ul>
     </section>
     
@@ -57,7 +83,17 @@
     </div>
   </section>
 
+
+
   <script>
+  // const prodList = document.querySelector('.product-list');
+  // prodList.addEventListener('click', (e) => {
+  //   console.log(e.target);
+
+  // });
+
+
+
     // 삭제 & 수정 모달 
     const open4 = () => {
       document.querySelector(".modal4").classList.remove("hidden");
@@ -67,7 +103,7 @@
     }  
 
     document.querySelector(".hidden-menu").addEventListener("click", close4); 
-    document.querySelector(".item-img").addEventListener("click", open4);
+    document.querySelector(".product-item").addEventListener("click", open4);
 
       //  삭제, 수정, 웹사이트에서 보기 모달 
     const btn4 = document.querySelector('.delete-post');
@@ -93,15 +129,55 @@
         // http://127.0.0.1:5503/html/MD04.html?productId/profile
 
 
-
+      //  http://192.168.0.6:5503/html/MD04.html?prod=61ffe5409d09d36b21376e24
   
 
-async function deletePost(){
+      // http://192.168.0.6:5503/html/P05_1.html?prod=61ffe5409d09d36b21376e24
+
+    // 디스코드 가문재녀
+// 희정님 코드
+// document.querySelector(".product-item a");
+// console.log('test',document.querySelector(".product-item a"));
+// const product = document.querySelector(".product-item a")
+
+// async function deleteItem(){
+  
+//   // 버튼을 누른다 -> 삭제 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
+//     const url = 'http://146.56.183.55:5050';
+//     const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmNjMjNkOWQwOWQzNmIyMTM2ZTk3MCIsImV4cCI6MTY0OTMzNjMwNiwiaWF0IjoxNjQ0MTUyMzA2fQ.1OxFHxHcN4BV1m_0TzK-t4h8aQ6VIbKs3Z-BM7B94yk'
+//     const productId = new URLSearchParams(location.search).get('prod');
+    
+
+//     try {
+//       const res = await fetch( `${url}/product/${productId}`, {
+//         method: 'DELETE',
+//         headers: {
+//           'Authorization' : `Bearer ${token}`,
+//           'Content-type' : 'application/json'
+//         }
+//       });
+//       const json = await res.json();
+//       console.log(json);
+        
+//   } catch(err) {
+//     console.log(err);
+//   }
+// };
+// del4.addEventListener('click', deleteItem);
+
+
+
+
+
+// 누리 코드
+async function deleteItem(){
   
   // 버튼을 누른다 -> 삭제 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
     const url = 'http://146.56.183.55:5050';
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmNjMjNkOWQwOWQzNmIyMTM2ZTk3MCIsImV4cCI6MTY0OTMzNjMwNiwiaWF0IjoxNjQ0MTUyMzA2fQ.1OxFHxHcN4BV1m_0TzK-t4h8aQ6VIbKs3Z-BM7B94yk'
-    const productId = new URLSearchParams(location.search).get('productId'); 
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmNjMjNkOWQwOWQzNmIyMTM2ZTk3MCIsImV4cCI6MTY0OTMzNjMwNiwiaWF0IjoxNjQ0MTUyMzA2fQ.1OxFHxHcN4BV1m_0TzK-t4h8aQ6VIbKs3Z-BM7B94yk';
+
+    const productId = document.querySelector(".product-item a").id;
+    console.log('test', productId);
 
     try {
       const res = await fetch( `${url}/product/${productId}`, {
@@ -113,16 +189,32 @@ async function deletePost(){
       });
       const json = await res.json();
       console.log(json);
-        
-  } catch(err) {
-    console.log(err);
-  }
-};
-del4.addEventListener('click', deletePost);
+
+      location.href="./P02.html";
+   
+    } catch(err) {
+      console.log(err);
+    }
+  };
+del4.addEventListener('click', deleteItem);
 
 
 
-async function viewPost(){
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+async function viewItem(){
   
   // 버튼을 누른다 -> 상세보기 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
     const url = 'http://146.56.183.55:5050';
@@ -144,14 +236,14 @@ async function viewPost(){
     console.log(err);
   }
 };
-view4.addEventListener('click', viewPost);
+view4.addEventListener('click', viewItem);
 
 
 
 
 const editAlert = document.querySelector('.edit-post');
 
-async function editPost(){
+async function editItem(){
   
   // 버튼을 누른다 -> 수정 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
     const url = 'http://146.56.183.55:5050';
@@ -181,7 +273,7 @@ async function editPost(){
     console.log(err);
   }
 };
-editAlert.addEventListener('click', editPost);
+editAlert.addEventListener('click', editItem);
 
     </script>
       </body>
