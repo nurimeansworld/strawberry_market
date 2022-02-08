@@ -9,15 +9,13 @@
   </head>
   <body>
       <!-- 게시판 유저 메뉴 버튼   -->
-        <section class = "delete del-alert">
-          <div class="home-post-user ">
-            <img class="user-profile" src="../assets/small-profile-img.png" alt="회원 프로필">
-            <h4 class="user-name">애월읍 위니브 감귤농장</h4>
-            <p class="user-id">@ weniv_Mandarin</p>
-            <button type="button" class="btn-menu user-menu"><img src="../assets/icon/icon-more-vertical.png"
-                alt="메뉴 열기"></button>
-          </div>
-        </section>
+        <div class="home-post-user ">
+          <img class="user-profile" src="../assets/small-profile-img.png" alt="회원 프로필">
+          <h4 class="user-name">애월읍 위니브 감귤농장</h4>
+          <p class="user-id">@ weniv_Mandarin</p>
+          <button type="button" class="btn-menu user-menu"><img src="../assets/icon/icon-more-vertical.png"
+              alt="메뉴 열기"></button>
+        </div>
     
         <section class="modal2 hidden">
           <div class="hidden-menu">
@@ -26,13 +24,12 @@
               <button type="button" class="delete-post">삭제</button>
             </li>
             <li>
-              <button type="button" class="edit-post">수정</button>
+              <a class="edit-post">수정</a>
             </li>
           </ul>
           </div>
         </section>
     
-          <!-- 게시글을 삭제할까요?? 모달 취소 or 삭제 버튼 -->
       <section class="dimm off">
       <div class="alert-modal">
         <div class="alert-modal-wrap">
@@ -57,91 +54,53 @@
     const close2 = () => {
       document.querySelector(".modal2").classList.add("hidden");   
     }  
-    const del2 = () => {
-      document.querySelector(".delete").classList.remove("del-alert");   
-    }  
 
     document.querySelector(".user-menu").addEventListener("click", open2);
     document.querySelector(".hidden-menu").addEventListener("click", close2); 
-    document.querySelector(".delete-btn").addEventListener("click", del2); 
 
     const btn2 = document.querySelector('.delete-post');
     const pop2 = document.querySelector('.dimm');
     const out2 = document.querySelector('.cancle-btn');
-    // const del2 = document.querySelector('.delete-btn');
+    const del2 = document.querySelector('.delete-btn');
 
         btn2.addEventListener('click',viewOption);
         out2.addEventListener('click',cancleOption);
+        del2.addEventListener('click',cancleOption);
 
         function viewOption() {
+            console.log(pop2);
             pop2.style.display = 'block';
         }
         function cancleOption() {
           pop2.style.display = 'none';
         }
-        // function deleteBtn() {
-        //   const del2 = document.querySelector('del2');
-        //   del2.remove(del-alert);
-        // } 
+    
 
-        // const url = "http://146.56.183.55:5050/"
-        // try{
 
-        //   const res = await fetch(url+"/user/login/", {
-        //                     method: "POST",
-        //                     headers: {
-        //                       "Authorization" : “Bearer key”,
-	      //                       "Content-type" : "application/json"
-        //                     },
-        //                     body : JSON.stringify({
-        //                         "post":{
-        //                           "content": String,
-        //                           "image": String
-        //                         }
-        //                     })
-        //                 })
-        //   const resJson = await res.json()
-        //   console.log(resJson)
-        // }catch(err){
-        // }
-
-      
-    // 1. 컨테이너 화면그려주기(데이터가 필요없는것만)
-    // 2. 데이터를 받아온다 (피드데이터)
-    // 3. 받아온 데이터를 이쁘게 그려준다.
-
-    // postId받아오기 
-    /* 
-      CHECK:: 쿼리 URLSearchParams
-      말풍선 버튼을 클릭하면 url 쿼리문으로 이동 
-      U01.html?postId=get('postId'); 
-    */
-    // 사용자 로그인 api 연동 함수
-// ----- 이 함수에 대한 설명 -----
-// 1. await 선언 필요 : 로그인 동작은 비동기로 이뤄져야 하기 때문에, async & await을 사용했고, 이 2개는 반드시 동시에 사용되어야 올바른 데이터 처리 가능
-// 2. res에 있는 fetch 값 : 기본적으로 api 문서에 명세되어있는 내용을 보고 채우면 됨. method, headers, body 크게 3가지로 보통 명시되어 있음.
-// 3. body 값 형변환 : jSON.stringify를 하지 않으면 object 형태로 return 되기 때문에 우리가 처리하려는 string 형변환 해야 함.
-// 4. try{}catch(){} : 동작 수행 후 예외처리를 위해 선언. catch(err)로 err 내용 확인 가능. 정확한 원리는 추후 확인 필요.
-
-// MEMO: test url http://127.0.0.1:5503/html/U01.html?postId=61f549049d09d36b2135c219
-
-    // http://127.0.0.1:5503/html/MD02.html?postId=61fb78a49d09d36b21369f3f
+   // http://127.0.0.1:5503/html/MD02.html?postId=61ff60609d09d36b213726f0
+    // 게시물 삭제 
     // 게시물 임시 url 
 
+
+    // http://127.0.0.1:5503/html/MD02.html?postId=61fe7e1d9d09d36b21371bb3
+    // 게시물 수정
+
+
+    //http://127.0.0.1:5503/html/MD02.html?postId=61fe7dd69d09d36b21371ba7
 
 
     const postId = new URLSearchParams(location.search).get('postId'); 
     
     
-    //게시글 삭제 API1 (삭제 버튼 .delete-btn)
+    //상품 삭제 API (삭제 버튼 .delete-btn)  상품 삭제 되있는지 확인 상품이 없다 - 상품 등록이 안됨 
 
-    const delAlert = document.querySelector('.delete-btn');
+    // const del2 = document.querySelector('.delete-btn');
 
     async function deletePost(){
       
       // 버튼을 누른다 -> 삭제 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
         const url = 'http://146.56.183.55:5050';
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZWY2MmUxMzY4NTcwZTE1MTQ5NTFjMSIsImV4cCI6MTY0OTA5MDE2OSwiaWF0IjoxNjQzOTA2MTY5fQ.k0moKC-5HSBkRwbRBEeQXsD2qncgE3CdZMPDoj9hZ14'
+        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmNjMjNkOWQwOWQzNmIyMTM2ZTk3MCIsImV4cCI6MTY0OTI2MDUzNiwiaWF0IjoxNjQ0MDc2NTM2fQ.dgflqthibSYSMd5p6EXqd-IdeHts0tv9fmLJjh-GOt4'
 
         try {
           const res = await fetch( `${url}/post/${postId}`, {
@@ -153,42 +112,63 @@
           });
           const json = await res.json();
           console.log(json);
-        
-
-      //  삭제누르면(delAlert) 이동 자스 
-      //  location.href = "./P02.html";
-
-
-        // 만약 delete-btn누르면 삭제 
-        // 아니면 // 게시글이 존재하지 않을 때
-        // 존재하지 않는 게시글입니다.
-        // 다른 사용자가 해당 게시물을 수정할 경우
-        //잘못된 요청입니다. 로그인 정보를 확인하세요.
-        
+      
     
             
       } catch(err) {
         console.log(err);
       }
     };
-    delAlert.addEventListener('click', deletePost);
-
-
-    //게시글 수정 API2 (수정 버튼 .edit-post)
+    del2.addEventListener('click', deletePost);
 
 
 
 
+    // const postId = new URLSearchParams(location.search).get('postId'); 
+    
+    
+    //상품 수정 API (수정 버튼 .edit-post) 
 
+    const editAlert = document.querySelector('.edit-post');
+    // const image = document.querySelector
+
+    // 게시물 이미지 업로드  판단
+    // const image = (image.value !== '') ? image.value : '';
+
+    async function editPost(){
+      
+      // 버튼을 누른다 -> 수정 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
+        const url = 'http://146.56.183.55:5050';
+
+        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmNjMjNkOWQwOWQzNmIyMTM2ZTk3MCIsImV4cCI6MTY0OTI2MDUzNiwiaWF0IjoxNjQ0MDc2NTM2fQ.dgflqthibSYSMd5p6EXqd-IdeHts0tv9fmLJjh-GOt4'
+        const image 
+        try {
+          const res = await fetch( `${url}/post/${postId}`, {
+            method: 'PUT',
+            headers: {
+              'Authorization' : `Bearer ${token}`,
+              'Content-type' : 'application/json'
+            },
+            body:JSON.stringify({
+              "post": {
+                "content": String,
+                "image": image  
+		            }
+            })
+            
+          });
+          const json = await res.json();
+          console.log(json);
+        
+
+            
+      } catch(err) {
+        console.log(err);
+      }
+    };
+    editAlert.addEventListener('click', editPost);
 
     </script>
   </body>
   </html>  
   
-
-
-  <!-- 
-  수정(수정 버튼 .edit-post) - 게시글/ 상품/
-삭제 (삭제 버튼 .delete-btn)- 게시글/ 상품 / 댓글
-신고(신고 버튼 .call-btn)- 댓글 / 게시글
--->

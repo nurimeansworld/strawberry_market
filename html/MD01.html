@@ -36,7 +36,7 @@
             <button type="button" class="cancle-btn" >취소</button>
           </li>
           <li>
-            <button type="button" class="logout-btn" onClick="location.href='M00.html'">로그아웃</button>
+            <button type="button" class="logout-btn">로그아웃</button>
           </li>
         </ul>
       </div>
@@ -58,16 +58,31 @@
     const pop = document.querySelector('.dimm');
     const out = document.querySelector('.cancle-btn');
 
+    const logout = document.querySelector('.logout-btn');
+
+
         btn.addEventListener('click',viewOption);
         out.addEventListener('click',cancleOption);
 
+        logout.addEventListener('click',checkLogout);
+
         function viewOption() {
-            console.log(pop);
             pop.style.display = 'block';
         }
         function cancleOption() {
           pop.style.display = 'none';
         }
+
+    //     const removeToken = (userToken) => {
+    // localStorage.removeItem("token");
+    // setToken(null);
+
+    function checkLogout(){
+      if (localStorage.removeItem("Token")) {
+        location.href="./L01.html";
+      }
+    }
+
     </script>
     </body>
     </html>  

@@ -4,16 +4,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3.1.16 Modal (희정) 다른 사용자가 작성한 게시글 : 신고 모달 </title>
+  <title>3.1.16 Modal (희정) 다른 사용자가 작성한 게시글일 경우 : 신고 버튼 </title>
   <link rel="stylesheet" href="../css/default.css">
 </head>
 <body>
-    <!-- 게시판 유저 메뉴 버튼   -->
     <div class="home-post-user ">
       <img class="user-profile" src="../assets/small-profile-img.png" alt="회원 프로필">
       <h4 class="user-name">애월읍 위니브 감귤농장</h4>
       <p class="user-id">@ weniv_Mandarin</p>
-      <button type="button" class="btn-menu other-user-post"><img src="../assets/icon/icon-more-vertical.png"
+      <button type="button" class="btn-menu me-post"><img src="../assets/icon/icon-more-vertical.png"
           alt="메뉴 열기"></button>
     </div>
   
@@ -21,7 +20,7 @@
       <div class="hidden-menu">
       <ul class="hidden-menu-list">
         <li>
-          <button type="button" class="call-post">신고</button>
+          <button type="button" class="call-post">신고하기</button>
         </li>
       </ul>
       </div>
@@ -30,7 +29,7 @@
     <section class="dimm off">
       <div class="alert-modal">
         <div class="alert-modal-wrap">
-          <strong class="alert-msg">게시글을 신고하시겠어요?</strong>       
+          <strong class="alert-msg">신고하시겠어요?</strong>       
           <ul class="alert-menu-list">
             <li>
               <button type="button" class="cancle-btn">취소</button>
@@ -44,17 +43,19 @@
     </section>
 
   <script>
-    const open5 = () => {
+    // 삭제 & 수정 모달 
+      const open5 = () => {
       document.querySelector(".modal5").classList.remove("hidden");
     }
     const close5 = () => {
       document.querySelector(".modal5").classList.add("hidden");   
     }  
-  
-  document.querySelector(".other-user-post").addEventListener("click", open5);
-  document.querySelector(".hidden-menu").addEventListener("click", close5); 
 
-  const btn5 = document.querySelector('.call-post ');
+  document.querySelector(".hidden-menu").addEventListener("click", close5); 
+  document.querySelector(".me-post").addEventListener("click", open5);
+
+  //  게시글을 삭제할까요??  취소 or 삭제 버튼 
+  const btn5 = document.querySelector('.call-post');
   const pop5 = document.querySelector('.dimm');
   const out5 = document.querySelector('.cancle-btn');
   const call5 = document.querySelector('.call-btn');
@@ -64,15 +65,47 @@
       call5.addEventListener('click',cancleOption);
 
       function viewOption() {
-          console.log(pop5);
+          // console.log(pop5);
           pop5.style.display = 'block';
       }
       function cancleOption() {
         pop5.style.display = 'none';
       }
 
+
+
+   // http://127.0.0.1:5503/html/MD05.html?postId=61f634b29d09d36b2135d24e
+  //  게시물 신고 
+
+    const postId = new URLSearchParams(location.search).get('postId'); 
+
+    // const callAlert = document.querySelector('.call-btn');
+
+    async function callPost(){
+      
+      // 버튼을 누른다 -> 삭제 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
+        const url = 'http://146.56.183.55:5050';
+        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmNjMjNkOWQwOWQzNmIyMTM2ZTk3MCIsImV4cCI6MTY0OTI2MDUzNiwiaWF0IjoxNjQ0MDc2NTM2fQ.dgflqthibSYSMd5p6EXqd-IdeHts0tv9fmLJjh-GOt4'
+
+        try {
+          const res = await fetch( `${url}/post/${postId}/report`, {
+            method: 'POST',
+            headers: {
+              'Authorization' : `Bearer ${token}`,
+              'Content-type' : 'application/json'
+            }
+          });
+          const json = await res.json();
+          console.log(json);
+            
+      } catch(err) {
+        console.log(err);
+      }
+    };
+    call5.addEventListener('click', callPost);
+
+
   </script>
   </body>
-  
   </html>  
   

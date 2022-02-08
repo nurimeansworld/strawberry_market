@@ -31,11 +31,10 @@
           <button type="button" class="delete-post">삭제</button>
         </li>
         <li>
-          <a href="P05.html" class="edit-post">수정</a>
+          <a class="edit-post">수정</a>
         </li>
         <li>
-          <a href="https://www.naver.com/" class="delete-post">웹사이트에서 상품 보기</a>
-          <!-- <button type="button" class="delete-post">웹사이트에서 상품 보기</button> -->
+          <a class="view-post">웹사이트에서 상품 보기</a>
         </li>
       </ul>
       </div>
@@ -74,17 +73,116 @@
     const btn4 = document.querySelector('.delete-post');
     const pop4 = document.querySelector('.dimm');
     const out4 = document.querySelector('.cancle-btn');
+    const del4 = document.querySelector('.delete-btn');
+    const view4 = document.querySelector('.view-post');
+   
 
         btn4.addEventListener('click',viewOption);
         out4.addEventListener('click',cancleOption);
+        del4.addEventListener('click',cancleOption);
+        view4.addEventListener('click',cancleOption);
 
         function viewOption() {
-            console.log(pop4);
             pop4.style.display = 'block';
         }
         function cancleOption() {
           pop4.style.display = 'none';
         }
+
+
+        // http://127.0.0.1:5503/html/MD04.html?productId/profile
+
+
+
+  
+
+async function deletePost(){
+  
+  // 버튼을 누른다 -> 삭제 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
+    const url = 'http://146.56.183.55:5050';
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmNjMjNkOWQwOWQzNmIyMTM2ZTk3MCIsImV4cCI6MTY0OTMzNjMwNiwiaWF0IjoxNjQ0MTUyMzA2fQ.1OxFHxHcN4BV1m_0TzK-t4h8aQ6VIbKs3Z-BM7B94yk'
+    const productId = new URLSearchParams(location.search).get('productId'); 
+
+    try {
+      const res = await fetch( `${url}/product/${productId}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization' : `Bearer ${token}`,
+          'Content-type' : 'application/json'
+        }
+      });
+      const json = await res.json();
+      console.log(json);
+        
+  } catch(err) {
+    console.log(err);
+  }
+};
+del4.addEventListener('click', deletePost);
+
+
+
+async function viewPost(){
+  
+  // 버튼을 누른다 -> 상세보기 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
+    const url = 'http://146.56.183.55:5050';
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmNjMjNkOWQwOWQzNmIyMTM2ZTk3MCIsImV4cCI6MTY0OTMzNjMwNiwiaWF0IjoxNjQ0MTUyMzA2fQ.1OxFHxHcN4BV1m_0TzK-t4h8aQ6VIbKs3Z-BM7B94yk'
+    const productId = new URLSearchParams(location.search).get('productId'); 
+
+    try {
+      const res = await fetch( `${url}/product/detail/${productId}`, {
+        method: 'GET',
+        headers: {
+          'Authorization' : `Bearer ${token}`,
+          'Content-type' : 'application/json'
+        }
+      });
+      const json = await res.json();
+      console.log(json);
+        
+  } catch(err) {
+    console.log(err);
+  }
+};
+view4.addEventListener('click', viewPost);
+
+
+
+
+const editAlert = document.querySelector('.edit-post');
+
+async function editPost(){
+  
+  // 버튼을 누른다 -> 수정 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
+    const url = 'http://146.56.183.55:5050';
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmNjMjNkOWQwOWQzNmIyMTM2ZTk3MCIsImV4cCI6MTY0OTMzNjMwNiwiaWF0IjoxNjQ0MTUyMzA2fQ.1OxFHxHcN4BV1m_0TzK-t4h8aQ6VIbKs3Z-BM7B94yk'
+    const productId = new URLSearchParams(location.search).get('productId'); 
+
+    try {
+      const res = await fetch( `${url}/product/${productId}`, {
+        method: 'PUT',
+            headers: {
+              'Authorization' : `Bearer ${token}`,
+              'Content-type' : 'application/json'
+            },
+            body:JSON.stringify({
+              "product": {
+                "itemName": String,
+                "itemName": Number,
+                "link": String,
+                "itemImage":String
+		            }
+            })
+      });
+      const json = await res.json();
+      console.log(json);
+        
+  } catch(err) {
+    console.log(err);
+  }
+};
+editAlert.addEventListener('click', editPost);
+
     </script>
       </body>
       </html>
