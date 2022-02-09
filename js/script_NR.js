@@ -16,7 +16,7 @@ function checkAccountName() {
 
 // prodid값 체크
 function checkProdId() {
-  const prodId = (location.search.split('prod=')[1]) ? location.search.split('prod=')[1] : null;
+  const prodId = (location.search.split('productId=')[1]) ? location.search.split('productId=')[1] : null;
   return prodId;
 }
 
