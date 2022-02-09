@@ -9,12 +9,15 @@
 </head>
 <body>
     <!-- 게시판 유저 메뉴 버튼   -->
-    <div class="home-post-user ">
+    <div class="home-post-user">
       <img class="user-profile" src="../assets/small-profile-img.png" alt="회원 프로필">
       <h4 class="user-name">애월읍 위니브 감귤농장</h4>
-      <!-- <p class="user-id">@ weniv_Mandarin</p> -->
+      <p class="comment-text">별로</p>
+      <li class="comment-item">
+        <a id= "620386a29d09d36b213a86e8"></a>
       <button type="button" class="btn-menu me-comment"><img src="../assets/icon/icon-more-vertical.png"
-          alt="메뉴 열기"></button>
+          alt="메뉴 열기"></button>  
+        </li>
     </div>
   
     <section class="modal7 hidden">
@@ -89,6 +92,8 @@ async function callPost(){
   // 버튼을 누른다 -> 삭제 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
     const url = 'http://146.56.183.55:5050';
     const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmNjMjNkOWQwOWQzNmIyMTM2ZTk3MCIsImV4cCI6MTY0OTI2MDUzNiwiaWF0IjoxNjQ0MDc2NTM2fQ.dgflqthibSYSMd5p6EXqd-IdeHts0tv9fmLJjh-GOt4'
+    const commentId = document.querySelector(".comment-item a").id;
+    console.log('test',commentId);
 
     try {
       const res = await fetch( `${url}/post/${postId}/comments/${commentId}`, {

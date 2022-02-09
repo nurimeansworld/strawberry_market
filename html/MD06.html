@@ -7,16 +7,38 @@
   <title>3.1.16 Modal (희정) 다른 사용자가 작성한 댓글 : 신고하기 모달 </title>
   <link rel="stylesheet" href="../css/default.css">
 </head>
+<style>
+ 
+</style>
 <body>
-    <!-- 게시판 유저 메뉴 버튼   -->
-    <div class="home-post-user ">
-      <img class="user-profile" src="../assets/small-profile-img.png" alt="회원 프로필">
-      <h4 class="user-name">애월읍 위니브 감귤농장</h4>
-      <!-- <p class="user-id">@ weniv_Mandarin</p> -->
-      <button type="button" class="btn-menu other-user-comment"><img src="../assets/icon/icon-more-vertical.png"
-          alt="메뉴 열기"></button>
-    </div>
-  
+
+      <div class="home-post-user">
+        <img class="user-profile" src="../assets/small-profile-img.png" alt="회원 프로필">
+        <h4 class="user-name">애월읍 위니브 감귤농장</h4>
+        <p class="comment-text">별로</p>
+        <li class="comment-item">
+          <a id= "620328789d09d36b213a7939"></a>
+        <button type="button" class="btn-menu other-user-comment"><img src="../assets/icon/icon-more-vertical.png"
+            alt="메뉴 열기"></button>  
+          </li>
+      </div>
+
+      <!-- <li class="comment-item" data-user="love" data-id="620328789d09d36b213a7939">
+        <div class="comment-author-info">
+            <a href="/profile/love">
+                <img src="http://146.56.183.55:5050/Ellipse.png" alt="love님의 프로필사진" class="profile-img">
+            </a>
+            <a href="/profile/love" class="author-name-link">
+                <strong class="author-name">딸기가 좋아</strong>
+            </a>
+            <span class="comment-date">5시간</span>
+        </div>
+        <p class="comment-text">별로</p>
+        <button class="btn-menu other-user-comment"><span class="ir">더보기 버튼</span></button>
+    </li> -->
+
+
+          
     <section class="modal6 hidden">
       <div class="hidden-menu">
       <ul class="hidden-menu-list">
@@ -71,16 +93,19 @@
       }
 
 
-
-      // 61f634b29d09d36b2135d24e
-  //http://127.0.0.1:5503/html/MD07.html?postId=61f634b29d09d36b2135d24e
+  //http://127.0.0.1:5503/html/MD06.html?postId=6202a3fb9d09d36b213a721e
+  // 별로 댓글
   //댓글 신고 
 
     const postId = new URLSearchParams(location.search).get('postId');
     console.log('postId',postId);
+
+        // 게시글 삭제 예시 
+    // const productId = document.querySelector(".product-item a").id;
+    // console.log('test', productId);
     
-    const commentId = new URLSearchParams(location.search).getAll('commentId');
-    console.log('commentId',commentId);
+    // commentId연결 안됨 
+   
 
 // const callAlert = document.querySelector('.call-btn');
 
@@ -88,10 +113,13 @@ async function callPost(){
   
   // 버튼을 누른다 -> 삭제 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
     const url = 'http://146.56.183.55:5050';
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmNjMjNkOWQwOWQzNmIyMTM2ZTk3MCIsImV4cCI6MTY0OTI2MDUzNiwiaWF0IjoxNjQ0MDc2NTM2fQ.dgflqthibSYSMd5p6EXqd-IdeHts0tv9fmLJjh-GOt4'
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmNjMjNkOWQwOWQzNmIyMTM2ZTk3MCIsImV4cCI6MTY0OTMzNjMwNiwiaWF0IjoxNjQ0MTUyMzA2fQ.1OxFHxHcN4BV1m_0TzK-t4h8aQ6VIbKs3Z-BM7B94yk'
+    const commentId = document.querySelector(".comment-item a").id;
+    console.log('test',commentId);
+
 
     try {
-      const res = await fetch( `${url}/post/${postId}/comments/${commentId}report`, {
+      const res = await fetch( `${url}/post/${postId}/comments/${commentId}/report`, {
         method: 'POST',
         headers: {
           'Authorization' : `Bearer ${token}`,

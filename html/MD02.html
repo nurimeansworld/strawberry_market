@@ -24,7 +24,7 @@
               <button type="button" class="delete-post">삭제</button>
             </li>
             <li>
-              <a class="edit-post" onClick="location.href='P05_1.html'">수정</a>
+              <a class="edit-post">수정</a>
             </li>
           </ul>
           </div>
@@ -63,9 +63,13 @@
     const out2 = document.querySelector('.cancle-btn');
     const del2 = document.querySelector('.delete-btn');
 
+    const editPost = document.querySelector('.edit-post');
+
         btn2.addEventListener('click',viewOption);
         out2.addEventListener('click',cancleOption);
         del2.addEventListener('click',cancleOption);
+
+        editPost.addEventListener('click',EditOption);
 
         function viewOption() {
             console.log(pop2);
@@ -74,18 +78,19 @@
         function cancleOption() {
           pop2.style.display = 'none';
         }
+
+        // 게시물 수정 이동 페이지 
+        function EditOption(){
+          const postId = new URLSearchParams(location.search).get('postId'); 
+          console.log('test', postId);
+      location.href=`./U03.html?postId=${postId}`;
+        }
     
 
 
    // http://127.0.0.1:5503/html/MD02.html?postId=61ff60609d09d36b213726f0
     // 게시물 삭제 
     // 게시물 임시 url 
-
-
-    // http://127.0.0.1:5503/html/MD02.html?postId=61ffe64e9d09d36b21376ee9
-    // 게시물 수정
-
-
 
     const postId = new URLSearchParams(location.search).get('postId'); 
     
@@ -110,7 +115,6 @@
           });
           const json = await res.json();
           console.log(json);
-      
     
             
       } catch(err) {
@@ -121,51 +125,7 @@
 
 
 
-
-    // const postId = new URLSearchParams(location.search).get('postId'); 
-    
-    
-    상품 수정 API (수정 버튼 .edit-post) 
-
-    const editAlert = document.querySelector('.edit-post');
-    const image = document.querySelector
-
-    게시물 이미지 업로드  판단
-    const image = (image.value !== '') ? image.value : '';
-
-    async function editPost(){
-      
-      // 버튼을 누른다 -> 수정 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
-        const url = 'http://146.56.183.55:5050';
-
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmNjMjNkOWQwOWQzNmIyMTM2ZTk3MCIsImV4cCI6MTY0OTI2MDUzNiwiaWF0IjoxNjQ0MDc2NTM2fQ.dgflqthibSYSMd5p6EXqd-IdeHts0tv9fmLJjh-GOt4'
-        // const image 
-        try {
-          const res = await fetch( `${url}/post/${postId}`, {
-            method: 'PUT',
-            headers: {
-              'Authorization' : `Bearer ${token}`,
-              'Content-type' : 'application/json'
-            },
-            body:JSON.stringify({
-              "post": {
-                "content": String,
-                "image": String  
-		            }
-            })
-            
-          });
-          const json = await res.json();
-          console.log(json);
-        
-
-            
-      } catch(err) {
-        console.log(err);
-      }
-    };
-    editAlert.addEventListener('click', editPost);
-
+ 
     </script>
   </body>
   </html>  

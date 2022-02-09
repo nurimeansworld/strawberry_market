@@ -253,3 +253,14 @@ color: #E26E7E
   border-left: 0.5px solid #DBDBDB;
   color: #E26E7E
 }
+
+
+.comment-text {
+  padding-left: 48px;
+  font-size: 14px;
+  line-height: 45px;
+}
+
+li {
+  list-style: none;
+}
