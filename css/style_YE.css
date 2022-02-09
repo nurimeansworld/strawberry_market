@@ -107,6 +107,7 @@
 
 .btn.btn-heart.on {
   background-image: url(../assets/icon/icon-heart-active.svg);
+  z-index: 10;
   /* display: block;
   z-index: 10; */
 }

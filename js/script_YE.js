@@ -70,7 +70,9 @@ async function rederFollowPost() {
           <img class="user-profile" src="${profileImg}" alt="회원 프로필">
           <h4 class="user-name">${userName}</h4>
           <p class="user-id">@ ${accountName}</p>
-          <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
+          <button type="button" class="btn-menu"><button type="button" class="btn-menu">
+        <strong class="sr-only">메뉴</strong>
+      </button>
         </div>
         <div class="home-post-content">
           <p class="user-cont">${content}</p>
