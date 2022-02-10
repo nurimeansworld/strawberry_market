@@ -262,6 +262,7 @@
   align-items: center;
   padding: 20px 20px 15px 15px;
   position: relative;
+  cursor: pointer;
 }
 
 .chat-user-profile {
@@ -279,16 +280,6 @@
     left: 18px;
     top: 21px;
 }
-
-/* .chat-user-profile ::before{
-  content: '';
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  top: 10px;
-  left: 10px;
-  background: url(../assets/Ellipse6.png) no-repeat;
-} */
 
 .chat-list-text .user-id {
   font-size: medium;
@@ -309,15 +300,13 @@
   position: absolute;
   bottom: 15px;
   right: 0px;
-  /* left: 310px;
-  top: 50px; */
 }
 
 /* 3.1.13 채팅방 (chat room) */
 .chat-room {
-  padding-top: 250px;
-  padding-bottom: 450px;
-  background-color: #F2F2F2;
+  padding: 224px 7px 20px;
+  /* background-color: #F2F2F2; */
+  box-sizing: border-box;
 }
 
 .chat-cont-sender {
@@ -351,10 +340,10 @@ ul .chat-cont-sender :nth-child(2) {
 
 .chat-cont-me .chat-user-profile {
   position: absolute;
-  width: 273px;
+  width: 240px;
   height: 240px;
   top: 130px;
-  left: 320px;
+  left: 250px;
   transform: translate(-50%, -50%);
   border-radius: 10px;
 
@@ -380,6 +369,37 @@ ul .chat-cont-sender :nth-child(2) {
   color: var(--cancel-color-text);
   position: absolute;
   top: 230px;
-  left: 140px;
+  left: 90px;
   font-size: small;
 }
+
+.chat-form {
+  border-top: 1px solid #dbdbdb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 20px 12px 16px;
+  margin-top: 250px;
+}
+
+.chat-content {
+  display: flex;
+  align-items: center;
+}
+
+.album-button {
+  background-color: #fff;
+}
+
+.chat-input {
+  margin-left: 10px;
+}
+.chat-btn {
+  color: var(--enabled-color);
+  font-size: 14px;
+  line-height: 18px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
