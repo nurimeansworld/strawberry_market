@@ -228,7 +228,7 @@ async function joinUser(e) {
     const json = await res.json();
     console.log(json);
     if(json.message === "회원가입 성공") {
-      window.location.href ="./L01.html"
+      window.location.href ="./login.html"
     }
   } catch(err) {
     console.log(err);

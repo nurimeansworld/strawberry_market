@@ -23,7 +23,7 @@ function checkProdId() {
 const btnBack = document.querySelector('.btn-back');
 const btnMenu = document.querySelector('.btn-menu');
 btnBack.addEventListener('click', goBack);
-btnMenu.addEventListener('click', openMenuModal);
+// btnMenu.addEventListener('click', openMenuModal);
 
 // P01 사용자 프로필
 // follow 상태 변경

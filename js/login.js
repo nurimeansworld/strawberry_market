@@ -53,7 +53,7 @@ async function login(e) {
     if(resJson.status !== 422){ // 로그인 성공한 경우
       localStorage.setItem("accountname",resJson.user.accountname);
       localStorage.setItem("Token",resJson.user.token);
-      location.href = "./H01.html";
+      location.href = "./home.html";
     }else{ // 로그인 실패한 경우
       // MEMO:: 나중에 다른 기능과 같이 함수화 할 기능이 생기면 함수화 하기 - setErrorMessage();
       LoginError.style.display = 'block'; // LoginError.classList.add = 'on';
@@ -69,9 +69,9 @@ largeLoginBtn.addEventListener('click', login);
 // 로그인하여 localStorage에 값이 있는 경우 해당 페이지 접근 불가
 function checkLogin() {
   if (localStorage.getItem("Token")) {
-    location.href = "./H01.html";
+    location.href = "./home.html";
   }
 }
-checkLogin();
+// checkLogin();
 
 // 정규식 관련 참고 블로그 링크 : https://rateye.tistory.com/468

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로그인 | 딸기마켓</title>
+  <link rel="stylesheet" href="../css/default.css">
+</head>
+
+<body>
+  <section class="container-join">
+    <h1 class="page-tit">로그인</h1>
+    <form class="login-form">
+      <label for="login-email" class="login-email-tit">이메일</label>
+      <input type="email" class="login-email-input" id="login-email" required>
+
+      <label for="login-pw" class="login-pw-tit">비밀번호</label>
+      <input type="password" class="login-pw-input" id="login-pw" required>
+
+      <strong class="form-error-message">*이메일 또는 비밀번호가 일치하지 않습니다.</strong>
+
+      <button class="large-login-btn" id="next-btn" disabled>로그인</button>
+    </form>
+    <a href="./join.html" class="join-link center">이메일로 회원가입</a>
+  </section>
+  <script src="../js/login.js"></script>
+</body>
+
+</html>
