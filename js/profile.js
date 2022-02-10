@@ -162,16 +162,25 @@ function setOtherPost(otherPost, otherProfile) {
     for (const post of otherPost.post) {
       const post_date = new Date(post.createdAt);
       const post_date_format = `${post_date.getFullYear()}년 ${post_date.getMonth() + 1}월 ${post_date.getDate()}일`;
-      const postImage = post.image ? `<img class="user-photo" src="${post.image}" alt="게시글 사진">` : '';
+      // 이미지 여부 확인 및 복수 처리
+      let postImageList = '';
+      if(post.image){
+        const postImages = post.image;
+        const imageList = postImages.split(',');
+        for (const item of imageList) {
+          postImageList = `${postImageList}<li class="current"><img src="${item}" alt="포스트 이미지" class="user-photo"></li>`
+        }
+      }
+      postImageList = `<ul class="post-img-list">${postImageList}</ul>`
+
       const heartBtnClass = post.hearted ? "btn btn-heart on" : "btn btn-heart";
       const postItem = document.createElement('li');
       postItem.setAttribute('class', 'post-list-item home-post');
       postItem.setAttribute('data-id', post.id);
-
       postItem.innerHTML = `${htmlPostUser}
           <div class="home-post-content">
             <p class="user-cont">${post.content}</p>
-            ${postImage}
+            ${postImageList}
           </div>`;
 
       const postComment = document.createElement('div');

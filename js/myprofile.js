@@ -218,19 +218,20 @@ function setUserPost(userPost, userProfile) {
     const postList = document.querySelector('.post-list-list');
 
     for (const post of userPost.post) {
-      // console.log(post);
       const post_date = new Date(post.createdAt);
       const post_date_format = `${post_date.getFullYear()}년 ${post_date.getMonth() + 1}월 ${post_date.getDate()}일`;
-      const postImageList = '';
+      // 이미지 여부 확인 및 복수 처리
+      let postImageList = '';
       if(post.image){
         const postImages = post.image;
         const imageList = postImages.split(',');
-        console.log('imageList', imageList);
+        for (const item of imageList) {
+          postImageList = `${postImageList}<li class="current"><img src="${item}" alt="포스트 이미지" class="user-photo"></li>`
+        }
       }
-      // console.log(postImageList);
-      
-      const heartBtnClass = post.hearted ? "btn btn-heart on" : "btn btn-heart";
+      postImageList = `<ul class="post-img-list">${postImageList}</ul>`
 
+      const heartBtnClass = post.hearted ? "btn btn-heart on" : "btn btn-heart";
       const postItem = document.createElement('li');
       postItem.setAttribute('class', 'post-list-item home-post');
       postItem.setAttribute('data-id', post.id);
