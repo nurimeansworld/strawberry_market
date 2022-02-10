@@ -308,6 +308,19 @@
   margin-top: 8px;
 }
 
+.item-wrap .comment-date {
+  font-size: 10px;
+  margin-top: 9px;
+  color: var(--cancel-color-text);
+  position: relative;
+}
+
+.item-wrap .comment-date::before {
+  content: '·';
+  position: absolute;
+  left: -6px;
+}
+
 .list-item .content {
   outline: none;
   resize: none;
