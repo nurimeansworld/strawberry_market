@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>채팅목록 | 딸기마켓</title>
+  <link rel="stylesheet" href="../css/default.css">
+</head>
+<body>
+  <header class="nav nav-basic bg-white">
+    <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
+    <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
+    <section class="modal hidden">
+      <div class="hidden-menu">
+        <ul class="hidden-menu-list">
+          <li>
+            <a href="profile.html">설정 및 개인정보</a>
+          </li>
+          <li>
+            <button type="button" class="log-out-btn">로그아웃</button>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="dimm off">
+      <div class="alert-modal  ">
+        <div class="alert-modal-wrap">
+          <strong class="alert-msg">로그아웃 하시겠어요?</strong>       
+          <ul class="alert-menu-list">
+            <li>
+              <button type="button" class="cancle-btn" >취소</button>
+            </li>
+            <li>
+              <button type="button" class="logout-btn">로그아웃</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </header>
+  <main class="main-chat-list bg-white">
+    <div class="chat-list">
+      <img class="chat-user-profile" src="../assets/Ellipse1.png" alt="프로필 이미지">
+      <span class="chat-live"></span>
+      <div class="chat-list-text">
+        <p class="user-id">애월읍 위니브 감귤농장</p>
+        <p class="user-chat">이번에 정정 언제하맨마씸?</p>
+      </div>
+      <p class="chat-date">2022.01.14</p>
+    </div>
+    <div class="chat-list">
+      <img class="chat-user-profile" src="../assets/Ellipse1.png" alt="프로필 이미지">
+      <div class="chat-list-text">
+        <p class="user-id">제주감귤마을</p>
+        <p class="user-chat">깊은 어둠의 존재감, 롤스로이스 뉴 블랙 배지...</p>
+      </div>
+      <p class="chat-date">2022.01.14</p>
+    </div>
+    <div class="chat-list">
+      <img class="chat-user-profile" src="../assets/Ellipse1.png" alt="프로필 이미지">
+      <div class="chat-list-text">
+        <p class="user-id">누구네 농장 친환경 한라봉</p>
+        <p class="user-chat">내 차는 내가 평가한다. 오픈 이벤트에 참여 하...</p>
+      </div>
+      <p class="chat-date">2022.01.14</p>
+    </div>
+  </main>
+  <nav class="tab-menu">
+    <ul class="tab-menu-list">
+      <li class="tab-menu-home">
+        <a href="./home.html">홈</a>
+      </li>
+      <li class=" tab-menu-chat on">
+        <a href="./chat.html">채팅</a>
+      </li>
+      <li class="tab-menu-post">
+        <a href="./post.html">게시물 작성</a>
+      </li>
+      <li class="tab-menu-profile">
+        <a href="./myprofile.html">프로필</a>
+      </li>
+    </ul>
+  </nav>
+  <script src="../js/script.js"></script>
+  <script src="../js/chat.js"></script>
+</body>
+</html>

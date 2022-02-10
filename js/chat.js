@@ -2,7 +2,7 @@
 const chatList = document.querySelector('.chat-list');
 
 function nextPageChat() {
-    window.location.href = "./C02.html";
+    window.location.href = "./chatroom.html";
 }
 
 chatList.addEventListener('click', nextPageChat);

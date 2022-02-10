@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>프로필 수정 | 딸기마켓</title>
+  <link rel="stylesheet" href="../css/default.css">
+</head>
+<body>
+  <div class="nav-skip">
+    <a href="#gnb">메뉴 바로가기</a>
+    <a href="#content">본문 바로가기</a>
+  </div>
+  <header class="nav nav-upload container">
+    <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
+    <button type="button" class="save-btn">저장</button>
+  </header>
+  <main>
+    <section class="container profile-edit">
+      <h1 class="sr-only">마이 프로필 수정</h1>
+      <div class="profile-edit-wrap">
+        <button type="button" class="profile-btn-upload"><img src="../assets/upload-file.png"
+            alt="프로필 이미지 업로드 버튼입니다."></button>
+      </div>
+      <form class="profile-edit-form">
+        <input type="hidden" id="editImgHidden" value="">
+        <input class="sr-only" id="editImg" type="file" accept="image/*" />
+        <label for="editName" class="edit-name-tit">사용자 이름</label>
+        <input type="text" minlength="2" maxlength="10" class="edit-name-input" id="editName" required
+          placeholder="2~10자 이내여야 합니다.">
+        <strong class="edit-message-error name">*2~10자 이내여야 합니다.</strong>
+        <label for="editId" class="edit-id-tit">계정 ID</label>
+        <input type="text" class="edit-id-input" id="editId" required placeholder="영문, 숫자, 특수문자(.),(_)만 사용 가능합니다.">
+        <strong class="edit-message-error id">*영문, 숫자, 특수문자(.),(_)만 사용 가능합니다.</strong>
+        <strong class="edit-message-error id-exist">*이미 사용중인 계정 ID입니다.</strong>
+        <label for="editIntro" class="edit-intro-tit">소개</label>
+        <input type="text" maxlength="50" class="edit-intro-input" id="editIntro" required
+          placeholder="자신과 판매할 상품에 대해 소개해 주세요!">
+        <strong class="edit-message-error intro">*최대 50자 입력 가능합니다.</strong>
+      </form>
+    </section>
+  </main>
+  <script src="../js/script.js"></script>
+  <script src="../js/accountedit.js"></script>
+
+
+</body>
+
+</html>

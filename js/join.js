@@ -97,7 +97,7 @@ const introError = document.querySelector('.intro-error-message');
 const profileImg = document.querySelector('#editImg');
 // image (type=hidden)
 const profileImgHidden = document.querySelector('#editImgHidden');
-// 감귤마켓 시작하기 버튼
+// 딸기마켓 시작하기 버튼
 const startBtn = document.querySelector('.large-start-btn');
 // image button
 const profileImgBtn = document.querySelector('.profile-btn-upload');

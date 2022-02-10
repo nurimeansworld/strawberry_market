@@ -32,7 +32,7 @@
 .join-pw-input:active{
   outline: none;
   border: none;
-  border-bottom: 1px solid #F26E22;
+  border-bottom: 1px solid var(--enabled-color);
 }
 
 /* icon-product-modal (3.1.6 사용자 프로필 페이지) 시작 */
@@ -224,7 +224,7 @@
 }
 
 .alert-btns .alert-delete-btn {
-  color: #F26E22;
+  color: var(--enabled-color);
 }
 
 /* S01.html 시작 */

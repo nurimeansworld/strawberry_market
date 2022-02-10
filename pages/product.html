@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>상품 등록 | 딸기마켓</title>
+  <link rel="stylesheet" href="../css/default.css">
+</head>
+<body>
+  <div class="nav-skip">
+    <a href="#gnb">메뉴 바로가기</a>
+    <a href="#content">본문 바로가기</a>
+  </div>
+  <header class="nav nav-upload container">
+    <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
+    <button type="button" class="save-btn" disabled>저장</button>
+  </header>
+  <main>
+    <section class="container prod">
+      <h1 class="sr-only">상품 등록</h1>
+      <form class="prod-form">
+        <label for="prodBtnImg" class="prod-img-tit">이미지 등록</label>
+        <input type="file" accept="image/*" class="prod-img-input sr-only" id="prodBtnImg" />
+        <input type="hidden" id="prodImgHidden" />
+        <div class="prod-img-wrap">
+          <button type="button" class="prod-btn-img"><img src="../assets/img-button.png"
+              alt="상품 이미지 업로드 버튼입니다."></button>
+        </div>
+        <label for="prodName" class="prod-name-tit">상품명</label>
+        <input type="text" minlength="2" maxlength="15" class="prod-name-input" id="prodName" required
+          placeholder="2~15자 이내여야 합니다.">
+        <strong class="prod-message-error prodname">*2~15자 이내여야 합니다.</strong>
+        <label for="prodPrice" class="prod-price-tit">가격</label>
+        <input type="text" class="prod-price-input" id="prodPrice" required placeholder="숫자만 입력 가능합니다.">
+        <strong class="prod-message-error prodprice">*숫자만 입력 가능합니다.</strong>
+        <label for="prodLink" class="prod-link-tit">판매 링크</label>
+        <input type="url" class="prod-link-input" id="prodLink" required placeholder="URL을 입력해 주세요.">
+        <strong class="prod-message-error prodlink">*URL을 입력해 주세요.</strong>
+      </form>
+    </section>
+  </main>
+  <script src="../js/script.js"></script>
+  <script src="../js/product.js"></script>
+</body>
+</html>
