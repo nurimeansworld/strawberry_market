@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>딸기마켓</title>
+  <link rel="shortcut icon" href="../assets/favicon.ico" />
   <link rel="stylesheet" href="../css/default.css">
 </head>
 
@@ -46,7 +47,10 @@
           </div>
         </div>
       </section>
-      <section class="product-sec"></section>
+      <section class="product-sec">
+        <h2 class="sec-title">판매 중인 상품</h2>
+        <ul class="product-list"></ul>
+      </section>
       <section class="post-sec">
         <h2 class="sr-only">사용자 게시글</h2>
         <article class="post-btn-tab">
@@ -120,9 +124,30 @@
       </div>
     </div>
   </section>
+  <section class="modal4 hidden">
+    <div class="hidden-menu">
+      <ul class="hidden-menu-list">
+        <li><button type="button" class="delete-item">삭제</button></li>
+        <li><a class="edit-item">수정</a></li>
+        <li><a class="view-item">웹사이트에서 상품 보기</a></li>
+      </ul>
+    </div>
+  </section>
+  <section class="dimm off delete">
+    <div class="alert-modal">
+      <div class="alert-modal-wrap">
+        <strong class="alert-msg">삭제하시겠어요?</strong>
+        <ul class="alert-menu-list">
+          <li><button type="button" class="cancle-btn">취소</button></li>
+          <li><button type="button" class="delete-btn">삭제</button></li>
+        </ul>
+      </div>
+    </div>
+  </section>
   <!-- // modal -->
   <script src="../js/script.js"></script>
   <script src="../js/myprofile.js"></script>
+  <!-- <a href="https://www.flaticon.com/kr/free-icons/" title="딸기 아이콘">딸기 아이콘 제작자: Freepik - Flaticon</a> -->
 </body>
 
 </html>

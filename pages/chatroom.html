@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>채팅방 | 딸기마켓</title>
+  <link rel="shortcut icon" href="../assets/favicon.ico" />
   <link rel="stylesheet" href="../css/default.css">
 </head>
+
 <body>
   <header class="nav nav-chat bg-white">
     <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
@@ -33,17 +36,21 @@
         <img class="chat-user-profile" src="../assets/chat-exapmle.png" alt="프로필 이미지">
         <p class="chat-time-picture">12:51</p>
       </li>
-    </ul>
+    </div>
   </main>
-  <section class="comment-upload">
+  <footer class="chat-form">
     <h2 class="sr-only">사용자와 채팅을 주고받는 페이지입니다.</h2>
-    <form method="post" class="comment-form">
-      <img src="../assets/small-profile-img.png" alt="프로필 사진" class="profile-img">
-      <label for="inp-set" class="sr-only">댓글 입력창입니다.</label>
-      <input type="text" placeholder="댓글 입력하기..." id="inp-set" class="comment-input">
-      <button type="submit" class="commenet-btn" disabled>전송</button>
-    </form>
-  </section>
+    <div class="chat-content">
+      <button type="button" class="album-button">
+        <img src="../assets/img-button.png" alt="앨범사진" class="album-button">
+      </button>
+      <input type="text" placeholder="댓글 입력하기..." class="chat-input">
+    </div>
+    <button type="button" class="chat-btn">전송</button>
+  </footer>
   <script src="../js/script.js"></script>
+  <!-- <a href="https://www.flaticon.com/kr/free-icons/" title="딸기 아이콘">딸기 아이콘 제작자: Freepik - Flaticon</a> -->
+  
 </body>
+
 </html>

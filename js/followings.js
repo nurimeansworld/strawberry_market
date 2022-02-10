@@ -2,7 +2,7 @@
 const followList = document.querySelector('.follow-list');
 followList.addEventListener('click', function (e) {
   if (e.target.nodeName === "BUTTON") {
-    btn = e.target;
+    const btn = e.target;
 
     if (btn.classList.contains('cancel-button')) {
       btn.classList.remove('cancel-button');
@@ -28,7 +28,7 @@ function setFollowing(userInfo) {
       const user_username = user.username;
       const user_intro = user.intro;
       const user_image = (user.image) ? user.image : '../assets/basic-profile-img-2.png';
-      const user_link = `./P01.html?id=${user_accountname}`;
+      const user_link = `./profile.html?id=${user_accountname}`;
       let user_btn = '';
 
       if (user_accountname == loginUser) {
