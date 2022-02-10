@@ -233,6 +233,7 @@ function setUserPost(userPost, userProfile) {
 
       const postItem = document.createElement('li');
       postItem.setAttribute('class', 'post-list-item home-post');
+      postItem.setAttribute('data-id', post.id);
       const htmlPostUser = `<div class="home-post-user">
         <img class="user-profile" src="${user_image}" alt="회원 프로필">
         <h4 class="user-name">${userProfile.username}</h4>
@@ -268,10 +269,13 @@ function setUserPost(userPost, userProfile) {
       const itemCommentBtn = document.createElement('button');
       itemCommentBtn.setAttribute('type', 'button');
       itemCommentBtn.setAttribute('class', 'btn btn-message');
+      itemCommentBtn.addEventListener('click', () => {
+        location.href=`./postdetail.html?postId=${post.id}`;
+      });
       const itemCommentImg = document.createElement('img');
       itemCommentImg.setAttribute('class', 'message-button');
       itemCommentImg.setAttribute('src', '../assets/icon/icon-message-circle.png');
-      itemCommentImg.setAttribute('alt', '메시지 버튼');
+      itemCommentImg.setAttribute('alt', '댓글 버튼');
       const itemCommentCount = document.createElement('p');
       itemCommentCount.setAttribute('class', 'message-count');
       itemCommentCount.textContent = post.commentCount;

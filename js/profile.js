@@ -166,6 +166,7 @@ function setOtherPost(otherPost, otherProfile) {
       const heartBtnClass = post.hearted ? "btn btn-heart on" : "btn btn-heart";
       const postItem = document.createElement('li');
       postItem.setAttribute('class', 'post-list-item home-post');
+      postItem.setAttribute('data-id', post.id);
 
       postItem.innerHTML = `${htmlPostUser}
           <div class="home-post-content">
@@ -199,7 +200,10 @@ function setOtherPost(otherPost, otherProfile) {
       const itemCommentImg = document.createElement('img');
       itemCommentImg.setAttribute('class', 'message-button');
       itemCommentImg.setAttribute('src', '../assets/icon/icon-message-circle.png');
-      itemCommentImg.setAttribute('alt', '메시지 버튼');
+      itemCommentImg.setAttribute('alt', '댓글 버튼');
+      itemCommentBtn.addEventListener('click', () => {
+        location.href=`./postdetail.html?postId=${post.id}`;
+      });
       const itemCommentCount = document.createElement('p');
       itemCommentCount.setAttribute('class', 'message-count');
       itemCommentCount.textContent = post.commentCount;
