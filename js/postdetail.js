@@ -195,6 +195,7 @@ async function renderCommentList() {
 
 renderCommentList();
 
+
 // 댓글 작성자의 프로필 이미지 동적으로 받아오기
 async function renderProfile() {
   const url = 'http://146.56.183.55:5050';
@@ -270,3 +271,5 @@ async function writeComment(e) {
   }
 };
 
+commentBtn.addEventListener('click', writeComment);
+commentForm.addEventListener('submit', writeComment);

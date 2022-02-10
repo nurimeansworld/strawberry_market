@@ -74,8 +74,6 @@
 }
 
 .comment-upload .comment-form {
-  width: calc(100% - 6px);
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
 }
@@ -92,7 +90,7 @@
 .comment-upload .comment-input {
   border: none;
   outline: none;
-  padding: 20px 0 20px 12px;
+  padding: 25px 0 20px 12px;
   flex-grow: 1;
 }
 
