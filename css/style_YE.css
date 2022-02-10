@@ -69,6 +69,10 @@
   line-height: 1.3;
 }
 
+.home-post-content .user-photo {
+  border-radius: 15px;
+}
+
 /* post 좋아요, 댓글  */
 .home-post-comment {
   display: flex;

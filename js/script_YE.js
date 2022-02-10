@@ -5,34 +5,21 @@ function fillHeartRed() {
   console.log('btnHeart.className', btnHeart.className);
 
   btnHeart.classList.toggle('on');
-
-  // // class안에 on이 있냐?
-  // if(btnHeart.classList.contains('on')){
-  //   // YES::
-  //   btnHeart.classList.remove('on');
-  // }else{
-  //   // NO::
-  //   btnHeart.classList.add('on');
-  // }
-
-  // // class가 btn btn-heart on과 다른가?
-  // if(btnHeart.className !== 'btn btn-heart on') {
-  //   btnHeart.classList.add('on');
-  // }else{
-  //   btnHeart.classList.remove('on');
-  }
+}
 
 btnHeart.addEventListener('click', fillHeartRed);
 
+const btnHeartFunction = document.querySelector
 //5.2팔로우한 사람 피드 받아오기-------------------------------------------------------------
 const homePostCont = document.querySelector(".container");
-const postId = localStorage.getItem('postId');
-let postUserId = "";
+// const postId = localStorage.getItem('postId');
+// let postUserId = "";
 
-async function rederFollowPost() {
+
+async function renderFollowPost() {
   const url = "http://146.56.183.55:5050";
   const token = localStorage.getItem('Token');
-
+  console.log(token);
   try {
     const res = await fetch(`${url}/post/feed`, {
       method: 'GET',
@@ -46,22 +33,23 @@ async function rederFollowPost() {
 
     // render
     for (let i = 0; i < json.posts.length; i++) {
-      console.log(json.posts[i]);
+      // console.log(json.posts[i]);
     let img = '';
     const profileImg = json.posts[i].author.image;
-    console.log(json.posts);
     const userName = json.posts[i].author.username;
     const accountName = json.posts[i].author.accountname;
     const content = json.posts[i].content;
-    if (json.posts.image !== '') {
-      img = `<img class="user-photo" src="${img}" alt="회원 사진">`;
+    if (json.posts[i].image !== '') {
+      // console.log(json.posts[i].image);
+      img = `<img class="user-photo" src="${json.posts[i].image}" alt="회원 사진">`;
     } else {
       img = '';
     }
+
     const heartCount = json.posts[i].heartCount;
     const commentCount = json.posts[i].commentCount;
     const createAt = json.posts[i].createdAt.slice(0, 11).replace('-', '년 ').replace('-', '월 ').replace('T', '일');
-    console.log(json.posts[i].createdAt)
+    // console.log(json.posts[i].createdAt)
     
     const postItem = document.createElement('li');
     postItem.setAttribute('class','home-post');
@@ -93,48 +81,32 @@ async function rederFollowPost() {
         </div>
         <p class="date">${createAt}</p>`;
       homePostCont.appendChild(postItem);
-    }
+
+      // ['img', 'name'].forEach(key => {
+      //   item
+      //     .querySelector(`.user-${key}`)
+      //     .addEventListener('click', () => {
+      //       gotoPage('../html/P01.html', { user: accountName }, ['user']);
+      //     });
+      // });
+
+      //댓글 버튼을 눌렀을 때 댓글로 넘어가기
+      const btnMessage = document.querySelector(".btn.btn-message");
+      console.log(btnMessage);
+      // btnMessage.innerHTML += `<a href= '../html/U01.html'>`
+
+      function nextPageMessage() {
+        const postId = new URLSearchParams(location.search).get('postId');
+        window.location.href = `../html/U01.html?postId=${postId}`;
+      }
+
+      btnMessage.addEventListener('click', nextPageMessage);
+
+    }//for문 닫는 버튼
   
   } catch (err) {
     console.log(err); // MEMO: err 내용 그대로 뜬다
   }
 };
 
-rederFollowPost();
-
-// 댓글 리스트 불러오기
-async function renderCommentList() {
-  const url = 'http://146.56.183.55:5050';
-  const token = localStorage.getItem('Token');
-  
-  try {
-    const res = await fetch(`${url}/post/${postId}/comments`, {
-      method: 'GET',
-      headers: {
-        'Authorization' : `Bearer ${token}`,
-        'Content-type' : 'application/json',
-      }
-    });
-    const json = await res.json();
-    console.log(json);
-
-    // render
-    json.comments.map(element => {
-      const profileImg = element.author.image;
-      const userName = element.author.username;
-      const content = element.content;
-      document.querySelector('.comment-list').innerHTML += `
-        <li class="list-item">
-          <div class="item-wrap">
-            <img class="user-profile" src="${profileImg}" alt="회원 프로필">
-            <strong class="user-name">${userName}</strong>
-            <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
-          </div>
-          <p class="content">${content}</p>
-        </li>
-      `
-    })
-  } catch(err) {
-    console.log(err);
-  }
-};
+renderFollowPost();
