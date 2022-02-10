@@ -72,6 +72,11 @@ function setOtherProduct(otherProduct) {
       productItem.setAttribute('class', 'product-item');
       productItem.setAttribute('data-id', product.id);
 
+      const productLink = document.createElement('a');
+      productLink.setAttribute('href', product.link);
+      productLink.setAttribute('target', '_blank');
+      productLink.setAttribute('data-id', product.id);
+
       const productImg = document.createElement('img');
       productImg.setAttribute('src', product.itemImage);
       productImg.setAttribute('alt', '상품 이미지입니다.');
@@ -87,9 +92,11 @@ function setOtherProduct(otherProduct) {
 
       // productItem.addEventListener('click', close4);
 
-      productItem.appendChild(productImg);
-      productItem.appendChild(productTit);
-      productItem.appendChild(productText);
+      productLink.appendChild(productImg);
+      productLink.appendChild(productTit);
+      productLink.appendChild(productText);
+      
+      productItem.appendChild(productLink);
       fragment.appendChild(productItem);
       productList.appendChild(fragment);
     }

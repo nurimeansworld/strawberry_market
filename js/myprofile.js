@@ -1,3 +1,87 @@
+const btn4 = document.querySelector('.delete-item');
+const pop4 = document.querySelector('.dimm.delete');
+const out4 = document.querySelector('.delete .cancle-btn');
+const del4 = document.querySelector('.delete .delete-btn');
+const edit = document.querySelector('.edit-item');
+const view4 = document.querySelector('.view-item');
+
+// 삭제 & 수정 모달 
+function close4() {
+  document.querySelector(".modal4").classList.remove("hidden");
+
+  const itemId = this.getAttribute('data-id');
+  btn4.setAttribute('data-id', itemId);
+  edit.setAttribute('data-id', itemId);
+  view4.setAttribute('data-id', itemId);
+}
+const open4 = () => {
+  document.querySelector(".modal4").classList.add("hidden");   
+} 
+
+document.querySelector(".modal4.hidden .hidden-menu").addEventListener("click", open4); 
+
+//  삭제, 수정, 웹사이트에서 보기 모달
+btn4.addEventListener('click',viewOption);
+out4.addEventListener('click',cancleOption);
+del4.addEventListener('click',cancleOption);
+del4.addEventListener('click', deleteItem);
+edit.addEventListener('click',editOption);
+view4.addEventListener('click',viewItem);
+
+function viewOption() {
+  pop4.style.display = 'block';
+}
+function cancleOption() {
+  pop4.style.display = 'none';
+}
+
+// 삭제
+async function deleteItem(){
+  const url = 'http://146.56.183.55:5050';
+  const token = localStorage.getItem('Token');
+  const productId = btn4.getAttribute('data-id');
+
+  try {
+    const res = await fetch( `${url}/product/${productId}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization' : `Bearer ${token}`,
+        'Content-type' : 'application/json'
+      }
+    });
+    const json = await res.json();
+    location.href="./myprofile.html";
+
+  } catch(err) {
+    console.log(err);
+  }
+};
+
+// 상품 수정 이동 페이지 
+function editOption(){
+  const productId = edit.getAttribute('data-id');
+  location.href=`./edit.html?productId=${productId}`;
+}
+async function viewItem(){
+  const url = 'http://146.56.183.55:5050';
+  const token = localStorage.getItem('Token');
+  const productId = view4.getAttribute('data-id');
+
+  try {
+    const res = await fetch(`${url}/product/detail/${productId}`, {
+      method: 'GET',
+      headers: {
+        'Authorization' : `Bearer ${token}`,
+        'Content-type' : 'application/json'
+      },
+    });
+    const json = await res.json();
+    window.open(json.product.link);
+  } catch(err) {
+    console.log(err);
+  }
+};
+
 // 리스트로 보기, 엘범으로 보기
 function toggleOn(){
   const viewListSec = document.querySelector('#viewList');
@@ -134,9 +218,17 @@ function setUserPost(userPost, userProfile) {
     const postList = document.querySelector('.post-list-list');
 
     for (const post of userPost.post) {
+      // console.log(post);
       const post_date = new Date(post.createdAt);
       const post_date_format = `${post_date.getFullYear()}년 ${post_date.getMonth() + 1}월 ${post_date.getDate()}일`;
-      const postImage = post.image ? `<img class="user-photo" src="${post.image}" alt="게시글 사진">` : '';
+      const postImageList = '';
+      if(post.image){
+        const postImages = post.image;
+        const imageList = postImages.split(',');
+        console.log('imageList', imageList);
+      }
+      // console.log(postImageList);
+      
       const heartBtnClass = post.hearted ? "btn btn-heart on" : "btn btn-heart";
 
       const postItem = document.createElement('li');
@@ -150,7 +242,7 @@ function setUserPost(userPost, userProfile) {
       postItem.innerHTML = `${htmlPostUser}
           <div class="home-post-content">
             <p class="user-cont">${post.content}</p>
-            ${postImage}
+            ${postImageList}
           </div>`;
 
       const postComment = document.createElement('div');

@@ -34,7 +34,7 @@ const close = () => {
 }  
 
 document.querySelector(".btn-menu").addEventListener("click", open);
-document.querySelector(".hidden-menu").addEventListener("click", close); 
+document.querySelector(".modal.hidden .hidden-menu").addEventListener("click", close); 
 
 const btn = document.querySelector('.log-out-btn');
 const pop = document.querySelector('.dimm');
