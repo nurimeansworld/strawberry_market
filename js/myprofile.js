@@ -134,9 +134,17 @@ function setUserPost(userPost, userProfile) {
     const postList = document.querySelector('.post-list-list');
 
     for (const post of userPost.post) {
+      // console.log(post);
       const post_date = new Date(post.createdAt);
       const post_date_format = `${post_date.getFullYear()}년 ${post_date.getMonth() + 1}월 ${post_date.getDate()}일`;
-      const postImage = post.image ? `<img class="user-photo" src="${post.image}" alt="게시글 사진">` : '';
+      const postImageList = '';
+      if(post.image){
+        const postImages = post.image;
+        const imageList = postImages.split(',');
+        console.log('imageList', imageList);
+      }
+      // console.log(postImageList);
+      
       const heartBtnClass = post.hearted ? "btn btn-heart on" : "btn btn-heart";
 
       const postItem = document.createElement('li');
@@ -150,7 +158,7 @@ function setUserPost(userPost, userProfile) {
       postItem.innerHTML = `${htmlPostUser}
           <div class="home-post-content">
             <p class="user-cont">${post.content}</p>
-            ${postImage}
+            ${postImageList}
           </div>`;
 
       const postComment = document.createElement('div');
