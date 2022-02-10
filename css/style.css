@@ -25,13 +25,13 @@ body {
   margin: 0 auto;
   /* min-width: 390px; */
   max-width: calc(100% - 32px);
-  background-color: #fff;
+  /* background-color: #fff; */
 }
 .container-join{
   margin: 0 auto;
   max-width: calc(100% - 68px);
   /* max-width: 390px; */
-  background-color: #fff;
+  /* background-color: #fff; */
 }
 .center{
   text-align: center;

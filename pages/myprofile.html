@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
   <title>딸기마켓</title>
   <link rel="stylesheet" href="../css/default.css">
 </head>
+
 <body>
   <div class="nav-skip">
     <a href="#gnb">메뉴 바로가기</a>
@@ -98,7 +100,29 @@
       </section>
     </section>
   </main>
+  <!-- modal -->
+  <section class="modal hidden">
+    <div class="hidden-menu">
+      <ul class="hidden-menu-list">
+        <li><a href="./myprofile.html">설정 및 개인정보</a></li>
+        <li><button type="button" class="log-out-btn ">로그아웃</button></li>
+      </ul>
+    </div>
+  </section>
+  <section class="dimm off">
+    <div class="alert-modal">
+      <div class="alert-modal-wrap">
+        <strong class="alert-msg">로그아웃 하시겠어요?</strong>
+        <ul class="alert-menu-list">
+          <li><button type="button" class="cancle-btn">취소</button></li>
+          <li><button type="button" class="logout-btn">로그아웃</button></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!-- // modal -->
   <script src="../js/script.js"></script>
   <script src="../js/myprofile.js"></script>
 </body>
+
 </html>

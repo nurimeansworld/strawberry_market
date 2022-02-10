@@ -25,7 +25,7 @@ function checkProdId() {
   return prodId;
 }
 
-// 모달 
+// 모달 open, close
 const open = () => {
   document.querySelector(".modal").classList.remove("hidden");
 }
@@ -39,12 +39,10 @@ document.querySelector(".hidden-menu").addEventListener("click", close);
 const btn = document.querySelector('.log-out-btn');
 const pop = document.querySelector('.dimm');
 const out = document.querySelector('.cancle-btn');
-
 const logout = document.querySelector('.logout-btn');
 
 btn.addEventListener('click',viewOption);
 out.addEventListener('click',cancleOption);
-
 logout.addEventListener('click',checkLogout);
 
 function viewOption() {
@@ -53,12 +51,8 @@ function viewOption() {
 function cancleOption() {
   pop.style.display = 'none';
 }
-
-// const removeToken = (userToken) => {
-// localStorage.removeItem("token");
-// setToken(null);
-
 function checkLogout(){
   localStorage.removeItem("Token");
-    location.href="./login.html";
+  localStorage.removeItem("accountname");
+  location.href="./login.html";
 }
