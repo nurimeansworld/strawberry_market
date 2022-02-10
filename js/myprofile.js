@@ -51,25 +51,36 @@ function setUserProduct(userProduct) {
   if (userProduct.data !== 0) {
     // 상품 O
     const fragment = document.createDocumentFragment();
-    const productTit = document.createElement('h2');
-    productTit.setAttribute('class', 'sec-title');
-    productTit.textContent = '판매 중인 상품';
-
-    const productList = document.createElement('ul');
-    productList.setAttribute('class', 'product-list');
+    const productList = document.querySelector('.product-list');
 
     for (const product of userProduct.product) {
       const productPrice = product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
       const productItem = document.createElement('li');
       productItem.setAttribute('class', 'product-item');
-      productItem.innerHTML = `<a id="${product.id}" href="./edit.html?productId=${product.id}"><img src="${product.itemImage}" alt="상품 이미지입니다." class="item-img">
-        <h3 class="item-tit sl-ellipsis">${product.itemName}</h3><p class="item-price">${productPrice}원</p></a>`;
+      productItem.setAttribute('data-id', product.id);
+
+      const productImg = document.createElement('img');
+      productImg.setAttribute('src', product.itemImage);
+      productImg.setAttribute('alt', '상품 이미지입니다.');
+      productImg.setAttribute('class', 'item-img');
+
+      const productTit = document.createElement('h3');
+      productTit.setAttribute('class', 'item-tit sl-ellipsis');
+      productTit.textContent = product.itemName;
+
+      const productText = document.createElement('p');
+      productText.setAttribute('class', 'item-price');
+      productText.textContent = `${productPrice}원`;
+
+      productItem.addEventListener('click', close4);
+
+      productItem.appendChild(productImg);
+      productItem.appendChild(productTit);
+      productItem.appendChild(productText);
       fragment.appendChild(productItem);
       productList.appendChild(fragment);
     }
-
-    productSec.appendChild(productTit);
     productSec.appendChild(productList);
   } else {
     // 상품 X
@@ -113,13 +124,6 @@ function checkImagePost(userPost) {
 
 function setUserPost(userPost, userProfile) {
   const user_image = (userProfile.image) ? userProfile.image : '../assets/basic-profile-img-2.png';
-  const htmlPostUser = `<div class="home-post-user">
-    <img class="user-profile" src="${user_image}" alt="회원 프로필">
-    <h4 class="user-name">${userProfile.username}</h4>
-    <p class="user-id">@ ${userProfile.accountname}</p>
-    <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
-    </div>`;
-
   const postSec = document.querySelector('.post-sec');
 
   if (Object.keys(userPost.post).length !== 0) {
@@ -132,35 +136,64 @@ function setUserPost(userPost, userProfile) {
     for (const post of userPost.post) {
       const post_date = new Date(post.createdAt);
       const post_date_format = `${post_date.getFullYear()}년 ${post_date.getMonth() + 1}월 ${post_date.getDate()}일`;
-
       const postImage = post.image ? `<img class="user-photo" src="${post.image}" alt="게시글 사진">` : '';
-      const post_image = post.image;
-
-      const heartBtn = post.hearted ? `<img class="heart-button" src="../assets/icon/icon-heart-active.png" alt="하트버튼">` : `<img class="heart-button" src="../assets/icon/icon-heart.png" alt="하트버튼">`;
+      const heartBtnClass = post.hearted ? "btn btn-heart on" : "btn btn-heart";
 
       const postItem = document.createElement('li');
       postItem.setAttribute('class', 'post-list-item home-post');
+      const htmlPostUser = `<div class="home-post-user">
+        <img class="user-profile" src="${user_image}" alt="회원 프로필">
+        <h4 class="user-name">${userProfile.username}</h4>
+        <p class="user-id">@ ${userProfile.accountname}</p>
+        <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
+        </div>`;
       postItem.innerHTML = `${htmlPostUser}
-          <!-- 게시글 내용 부분 -->
           <div class="home-post-content">
             <p class="user-cont">${post.content}</p>
             ${postImage}
-          </div>
-          <!-- 게시글 좋아요,메세지 버튼 -->
-          <div class="home-post-comment">
-            <div class="item-count">
-              <button type="button" class="btn btn-heart">${heartBtn}</button>
-              <p class="heart-count">${post.heartCount}</p>
-            </div>
-            <div class="item-count">
-              <button type="button" class="btn btn-message">
-                <img class="message-button" src="../assets/icon/icon-message-circle.png" alt="메세지 버튼">
-              </button>
-              <p class="message-count">${post.commentCount}</p>
-            </div>
-          </div>
-          <!-- 게시글 날짜 -->
-          <p class="date">${post_date_format}</p>`;
+          </div>`;
+
+      const postComment = document.createElement('div');
+      postComment.setAttribute('class', 'home-post-comment');
+
+      const itemHeart = document.createElement('div');
+      itemHeart.setAttribute('class', 'item-count');
+      const itemHeartBtn = document.createElement('button');
+      itemHeartBtn.setAttribute('type', 'button');
+      itemHeartBtn.setAttribute('class', heartBtnClass);
+      const itemHeartCount = document.createElement('p');
+      itemHeartCount.setAttribute('class', 'heart-count');
+      itemHeartCount.textContent = post.heartCount;
+
+      itemHeart.appendChild(itemHeartBtn);
+      itemHeart.appendChild(itemHeartCount);
+
+      const itemComment = document.createElement('div');
+      itemComment.setAttribute('class', 'item-count');
+      const itemCommentBtn = document.createElement('button');
+      itemCommentBtn.setAttribute('type', 'button');
+      itemCommentBtn.setAttribute('class', 'btn btn-message');
+      const itemCommentImg = document.createElement('img');
+      itemCommentImg.setAttribute('class', 'message-button');
+      itemCommentImg.setAttribute('src', '../assets/icon/icon-message-circle.png');
+      itemCommentImg.setAttribute('alt', '메시지 버튼');
+      const itemCommentCount = document.createElement('p');
+      itemCommentCount.setAttribute('class', 'message-count');
+      itemCommentCount.textContent = post.commentCount;
+
+      itemComment.appendChild(itemCommentBtn);
+      itemCommentBtn.appendChild(itemCommentImg);
+      itemComment.appendChild(itemCommentCount);
+
+      const itemDate = document.createElement('p');
+      itemDate.setAttribute('class', 'date');
+      itemDate.textContent = post_date_format;
+      
+      postComment.appendChild(itemHeart);
+      postComment.appendChild(itemComment);
+
+      postItem.appendChild(postComment);
+      postItem.appendChild(itemDate);
       fragment.appendChild(postItem);
     }
     postList.appendChild(fragment);
@@ -216,7 +249,6 @@ function checkUserOther() {
   }
 }
 
-// title 수정
 changeTitle();
 checkUserOther();
 getUserProfile();
