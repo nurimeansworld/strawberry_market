@@ -253,6 +253,9 @@ function setUserPost(userPost, userProfile) {
       const itemHeartBtn = document.createElement('button');
       itemHeartBtn.setAttribute('type', 'button');
       itemHeartBtn.setAttribute('class', heartBtnClass);
+      itemHeartBtn.addEventListener('click', (e) => {
+        e.target.classList.toggle('on');
+      });
       const itemHeartCount = document.createElement('p');
       itemHeartCount.setAttribute('class', 'heart-count');
       itemHeartCount.textContent = post.heartCount;
