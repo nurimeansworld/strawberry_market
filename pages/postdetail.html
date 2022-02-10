@@ -4,13 +4,40 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>게시글 댓글 페이지 - 딸기마켓</title>
+  <title>딸기마켓</title>
   <link rel="stylesheet" href="../css/default.css">
 </head>
 <body>
   <header class="nav nav-basic">
     <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
     <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
+    <section class="modal hidden">
+      <div class="hidden-menu">
+        <ul class="hidden-menu-list">
+          <li>
+            <a href="profile.html">설정 및 개인정보</a>
+          </li>
+          <li>
+            <button type="button" class="log-out-btn">로그아웃</button>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="dimm off">
+      <div class="alert-modal">
+        <div class="alert-modal-wrap">
+          <strong class="alert-msg">로그아웃 하시겠어요?</strong>       
+          <ul class="alert-menu-list">
+            <li>
+              <button type="button" class="cancle-btn" >취소</button>
+            </li>
+            <li>
+              <button type="button" class="logout-btn">로그아웃</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
   </header>
   <section class="post-detail">
     <h2 class="sr-only">클릭한 게시글 내용입니다.</h2>
@@ -19,18 +46,43 @@
     <h2 class="sr-only">게시글에 작성된 댓글입니다.</h2>
     <ul class="comment-list container">
     </ul>
+    <section class="modal6 hidden">
+      <div class="hidden-menu">
+      <ul class="hidden-menu-list">
+        <li>
+          <button type="button" class="call-post">신고하기</button>
+        </li>
+      </ul>
+      </div>
+    </section>
+    <section class="dimm off">
+      <div class="alert-modal">
+        <div class="alert-modal-wrap">
+          <strong class="alert-msg">신고하시겠어요?</strong>       
+          <ul class="alert-menu-list">
+            <li>
+              <button type="button" class="cancle-btn">취소</button>
+            </li>
+            <li>
+              <button type="button" class="call-btn">신고</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
   </section>
   <section class="comment-upload">
     <h2 class="sr-only">댓글을 작성하세요.</h2>
     <form class="comment-form">
-      <!-- CHECK:: prfiile-img도 동적으로 받아와야 함 -->
       <img src="../assets/small-profile-img.png" alt="프로필 사진" class="profile-img">
       <label for="" class="sr-only">댓글 입력창입니다.</label>
       <input type="text" placeholder="댓글 입력하기..." class="comment-input">
       <button type="button" class="comment-btn" disabled>게시</button>
     </form>
   </section>
+
   <script src="../js/script.js"></script>
   <script src="../js/postdetail.js"></script>
 </body>
 </html>
+
