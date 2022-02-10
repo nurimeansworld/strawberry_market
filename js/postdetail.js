@@ -195,6 +195,31 @@ async function renderCommentList() {
 
 renderCommentList();
 
+// 댓글 작성자의 프로필 이미지 동적으로 받아오기
+async function renderProfile() {
+  const url = 'http://146.56.183.55:5050';
+  const token = localStorage.getItem('Token');
+  const accountName = localStorage.getItem('accountname');
+  const profileImg = document.querySelector('.profile-img');
+  
+  try {
+    const res = await fetch(`${url}/profile/${accountName}`, {
+      method: 'GET',
+      headers: {
+        'Authorization' : `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    });
+    const json = await res.json();
+    console.log(json.profile.image);
+    profileImg.setAttribute('src', json.profile.image);
+  } catch(err) {
+    console.log(err);
+  }
+}
+
+renderProfile();
+
 
 // 댓글 작성 
 // 게시 버튼 활성화

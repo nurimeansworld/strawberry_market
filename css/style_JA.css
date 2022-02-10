@@ -82,7 +82,11 @@
 
 .comment-form .profile-img {
   width: 34px;
+  height: 34px;
+  border-radius: 50%;
   object-fit: contain;
+  align-self: center;
+  border: .5px solid var(--cancel-color-border);
 }
 
 .comment-upload .comment-input {
