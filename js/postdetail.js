@@ -84,7 +84,7 @@ renderPost();
 
 
 // 댓글 작성 시간 계산
-const getElapsedTime = (time) => {
+const getTimeGap = (time) => {
   const ms = Date.parse(time);
   const now = Date.now();
   const gap = (now - ms) / 1000;
@@ -146,7 +146,7 @@ async function renderCommentList() {
       img.setAttribute('alt', '회원 프로필');
       a2.setAttribute('href', `./profile.html?id=${accountName}`)
       strong.textContent = userName;
-      span.textContent = getElapsedTime(createdAt);
+      span.textContent = getTimeGap(createdAt);
       img2.setAttribute('src', '../assets/icon/icon-more-vertical.png');
       img2.setAttribute('alt', '메뉴 열기')
       p.textContent = content;
@@ -266,62 +266,30 @@ CHECK:: 상세 페이지-작성된 댓글에 모달 붙이기
 1. 작성된 댓글을 불러와서 화면에 뿌려주는 async 함수에서 모달을 붙여야 한다 -> 모달 관련 JS을 async 함수 내부에 넣음
 2. 상단 nav에 있는 버튼을 누르면 나오는 모달과 댓글에 있는 버튼을 누르면 나오는 모달의 클래스명이 동일해서 이벤트가 제대로 동작하지 않는다. 
 */
-const open6 = () => {
-  document.querySelector(".modal6").classList.remove("hidden");
-}
-const close6 = () => {
-  document.querySelector(".modal6").classList.add("hidden");   
-}  
+// const open6 = () => {
+//   document.querySelector(".modal6").classList.remove("hidden");
+// }
+// const close6 = () => {
+//   document.querySelector(".modal6").classList.add("hidden");   
+// }  
 
-button.addEventListener("click", open6);
-document.querySelector(".hidden-menu").addEventListener("click", close6); 
-console.log(document.querySelector(".hidden-menu"));
+// button.addEventListener("click", open6);
+// document.querySelector(".hidden-menu").addEventListener("click", close6); 
+// console.log(document.querySelector(".hidden-menu"));
 
-const btn6 = document.querySelector('.call-post');
-const pop6 = document.querySelector('.dimm');
-const out6 = document.querySelector('.cancle-btn');
-const call6 = document.querySelector('.call-btn');
+// const btn6 = document.querySelector('.call-post');
+// const pop6 = document.querySelector('.dimm');
+// const out6 = document.querySelector('.cancle-btn');
+// const call6 = document.querySelector('.call-btn');
 
-btn6.addEventListener('click',viewOption);
-out6.addEventListener('click',cancleOption);
-call6.addEventListener('click',cancleOption);
+// btn6.addEventListener('click',viewOption);
+// out6.addEventListener('click',cancleOption);
+// call6.addEventListener('click',cancleOption);
 
-function viewOption() {
-  pop6.style.display = 'block';
-}
-function cancleOption() {
-  pop6.style.display = 'none';
-}
+// function viewOption() {
+//   pop6.style.display = 'block';
+// }
+// function cancleOption() {
+//   pop6.style.display = 'none';
+// }
 // 모달 끝 
-
-
-
-/* 게시물 불러오기 수정 전 
-<article class="home-post">
-  <div class="home-post-user">
-    <img class="user-profile" src="${profileImg}" alt="회원 프로필">
-    <h4 class="user-name">${userName}</h4>
-    <p class="user-id">@ ${accountName}</p>
-    <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
-  </div>
-  <div class="home-post-content">
-    <p class="user-cont">${content}</p>
-    ${img}
-  </div>
-  <div class="home-post-comment">
-    <div class="item-count">
-      <button type="button" class="btn btn-heart">
-        <img class="heart-button" src="../assets/icon/heart.png" alt="하트버튼">
-      </button>
-      <p class="heart-count">${heartCount}</p>
-    </div>
-    <div class="item-count">
-      <button type="button" class="btn btn-message">
-        <img class="message-button" src="../assets/icon/icon-message-circle.png" alt="메세지 버튼">
-      </button>
-      <p class="message-count">${commentCount}</p>
-    </div>
-  </div>
-  <p class="date">${createdAt}</p>
-</article>
-*/
