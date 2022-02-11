@@ -1,8 +1,10 @@
 // follow 상태 변경
 const followList = document.querySelector('.follow-list');
-console.log(followList);
+// console.log(followList);
 followList.addEventListener('click', function (e) {
   if (e.target.nodeName === "BUTTON") {
+    const btn = e.target;
+
     if (btn.classList.contains('cancel-button')) {
       btn.classList.remove('cancel-button');
       btn.classList.add('small-follow-button');
