@@ -80,7 +80,8 @@
 .profile-wrap .profile-img{
   margin: 0 auto;
   width: 110px;
-  border-radius:55px;
+  height: 110px;
+  border-radius: 50%;
 }
 .profile-follow{
   min-width: 77%;
