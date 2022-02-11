@@ -6,3 +6,4 @@ function nextPageChat() {
 }
 
 chatList.addEventListener('click', nextPageChat);
+

@@ -8,14 +8,42 @@
   <title>채팅방 | 딸기마켓</title>
   <link rel="shortcut icon" href="../assets/favicon.ico" />
   <link rel="stylesheet" href="../css/default.css">
+  <!-- <a href="https://www.flaticon.com/kr/free-icons/" title="딸기 아이콘">딸기 아이콘 제작자: Freepik - Flaticon</a> -->
 </head>
 
 <body>
-  <header class="nav nav-chat bg-white">
+  <header class="nav nav-chat">
     <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
     <p class="sl-ellipsis">애월읍 위니브 감귤농장</p>
-    <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
+    <button type="button" class="btn-menu chat-menu"><img src="../assets/icon/icon-more-vertical.png"
+        alt="메뉴 열기"></button>
   </header>
+  
+  <section class="modal3 hidden">
+    <div class="hidden-menu">
+      <ul class="hidden-menu-list">
+        <li>
+          <button type="button" class="delete-post">채팅방 나가기</button>
+        </li>
+      </ul>
+    </div>
+  </section>
+  
+  <section class="dimm off">
+    <div class="alert-modal">
+      <div class="alert-modal-wrap">
+        <strong class="alert-msg">채팅방을 나가시겠어요?</strong>
+        <ul class="alert-menu-list">
+          <li>
+            <button type="button" class="cancle-btn">취소</button>
+          </li>
+          <li>
+            <button type="button" class="out-btn" onClick="location.href='./chat.html'">나가기</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
   <main class="chat-room">
     <ul>
       <li class="chat-cont-sender">
@@ -49,8 +77,6 @@
     <button type="button" class="chat-btn">전송</button>
   </footer>
   <script src="../js/script.js"></script>
-  <!-- <a href="https://www.flaticon.com/kr/free-icons/" title="딸기 아이콘">딸기 아이콘 제작자: Freepik - Flaticon</a> -->
-  
+  <script src="../js/chatroom.js"></script>
 </body>
-
 </html>

@@ -213,6 +213,7 @@
   width: 100px;
   height: 100px;
   margin: 0 auto;
+  filter: invert(48%) sepia(0%) saturate(13%) hue-rotate(136deg) brightness(95%) contrast(92%);
 }
 
 .home-main-init .home-init-text {
@@ -231,6 +232,7 @@
   font-family: Spoqa Han Sans Neo;
   font-weight: 200;
   color: #fff;
+  padding: 20px 30px;
 }
 
 /* 하단 탭 메뉴 */

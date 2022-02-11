@@ -1,20 +1,7 @@
-///A01 하트 버튼 클릭시 하트 칠하기
-const btnHeart = document.querySelector('.btn-heart');
-
-function fillHeartRed() {
-  console.log('btnHeart.className', btnHeart.className);
-
-  btnHeart.classList.toggle('on');
-}
-
-btnHeart.addEventListener('click', fillHeartRed);
-
-const btnHeartFunction = document.querySelector
-//5.2팔로우한 사람 피드 받아오기-------------------------------------------------------------
+//5.2팔로우한 사람 피드-------------------------------------------------------------
 const homePostCont = document.querySelector(".container");
 // const postId = localStorage.getItem('postId');
 // let postUserId = "";
-
 
 async function renderFollowPost() {
   const url = "http://146.56.183.55:5050";
@@ -31,7 +18,10 @@ async function renderFollowPost() {
     const json = await res.json();
     console.log(json);
 
-    // render
+    // rende
+    if (json.posts.length === 0) {
+      
+    }
     for (let i = 0; i < json.posts.length; i++) {
       // console.log(json.posts[i]);
     let img = '';
@@ -45,6 +35,7 @@ async function renderFollowPost() {
     } else {
       img = '';
     }
+
 
     const heartCount = json.posts[i].heartCount;
     const commentCount = json.posts[i].commentCount;
@@ -90,9 +81,10 @@ async function renderFollowPost() {
       //     });
       // });
 
+      //
+
       //댓글 버튼을 눌렀을 때 댓글로 넘어가기
       const btnMessage = document.querySelector(".btn.btn-message");
-      console.log(btnMessage);
       // btnMessage.innerHTML += `<a href= '../html/U01.html'>`
 
       function nextPageMessage() {
