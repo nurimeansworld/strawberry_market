@@ -381,7 +381,9 @@ ul .chat-cont-sender :nth-child(2) {
   justify-content: space-between;
   align-items: center;
   padding: 13px 20px 12px 16px;
-  margin-top: 250px;
+  margin-top: 350px;
+  /* bottom: 0;
+  position: fixed; */
 }
 
 .chat-content {

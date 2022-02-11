@@ -64,6 +64,7 @@
 /* 누리 작업 - P01 사용자 프로필 */
 .container.profile{
   padding-top: 48px;
+  min-width: 390px;
   max-width: none;
 }
 .profile-sec{
