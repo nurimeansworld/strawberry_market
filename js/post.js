@@ -3,6 +3,7 @@ const uploadInp = document.querySelector('.upload-input');
 const imgContainer = document.querySelector('.img-container');
 const uploadBtn = document.querySelector('.upload-btn');
 
+
 /* 
   MEMO:: 
   0. 전역 변수로 imgFiles을 빈 배열로 선언한다.
@@ -13,6 +14,31 @@ const uploadBtn = document.querySelector('.upload-btn');
   4. 서버에 imgUrls을 보낸다.
 */
 const imgFiles = [];
+
+// 댓글 작성자의 프로필 이미지 동적으로 받아오기
+async function renderProfile() {
+  const url = 'http://146.56.183.55:5050';
+  const token = localStorage.getItem('Token');
+  const accountName = localStorage.getItem('accountname');
+  const profileImg = document.querySelector('.profile-img');
+  
+  try {
+    const res = await fetch(`${url}/profile/${accountName}`, {
+      method: 'GET',
+      headers: {
+        'Authorization' : `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    });
+    const json = await res.json();
+    console.log(json.profile.image);
+    profileImg.setAttribute('src', json.profile.image);
+  } catch(err) {
+    console.log(err);
+  }
+}
+
+renderProfile();
 
 
 // 이미지 업로드
