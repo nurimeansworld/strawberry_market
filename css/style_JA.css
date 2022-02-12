@@ -271,7 +271,7 @@
   padding-top: 48px;
 }
 
-.home-post .home-post-comment .item-count .btn-message {
+.post-detail .home-post .btn-message {
   cursor: default;
 }
 
@@ -351,9 +351,11 @@ section.upload.container {
 }
 
 .upload-form .profile-img {
-  width: 34px;
-  object-fit: cover;
-  margin: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: contain;
+  border: .5px solid var(--cancel-color-border);
 }
 
 .upload-form .upload-txt {
