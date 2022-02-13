@@ -76,7 +76,6 @@
 }
 .post-img-list {
   display: flex;
-  transition: all .4s;
 }
 .post-img-list li {
   min-width: 304px;
