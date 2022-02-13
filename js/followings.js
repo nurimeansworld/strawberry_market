@@ -49,7 +49,7 @@ function setFollowing(userInfo) {
       <img src="${user_image}" alt="사용자 이미지" class="user-image">
         <div class="user-follow-info">
           <span>${user_username}</span>
-          <div class="user-email">${user_intro}</div>
+          <div class="user-email sl-ellipsis">${user_intro}</div>
         </div>
       </a>${user_btn}`;
       fragment.appendChild(followItem);
