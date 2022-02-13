@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>딸기마켓</title>
+  <title>게시물 상세 | 딸기마켓</title>
   <link rel="shortcut icon" href="../assets/favicon.ico" />
   <link rel="stylesheet" href="../css/default.css">
 </head>
@@ -15,6 +15,7 @@
   </header>
   <section class="post-detail">
     <h2 class="sr-only">클릭한 게시글 내용입니다.</h2>
+    <li class="home-post"></li>
   </section>
   <section class="post-comment">
     <h2 class="sr-only">게시글에 작성된 댓글입니다.</h2>
@@ -30,8 +31,7 @@
       <button type="button" class="comment-btn" disabled>게시</button>
     </form>
   </section>
-
-  <!-- 모달 : 상단 nav-->
+  <!-- 상단 nav 모달(희정님 담당)-->
   <section class="modal hidden">
     <div class="hidden-menu">
       <ul class="hidden-menu-list">
@@ -59,20 +59,19 @@
       </div>
     </div>
   </section>
-
-  <!-- 모달 : 댓글 -->
+  <!-- 게시글, 댓글 모달(희정님 담당) -->
   <section class="modal6 hidden">
-    <div class="hidden-menu">
-    <ul class="hidden-menu-list">
+    <div class="hidden-menu report-menu">
+    <ul class="hidden-menu-list report-menu-list">
       <li>
         <button type="button" class="call-post">신고하기</button>
       </li>
     </ul>
     </div>
   </section>
-  <section class="dimm off">
-    <div class="alert-modal">
-      <div class="alert-modal-wrap">
+  <section class="dimm off report-dim">
+    <div class="alert-modal report-modal">
+      <div class="alert-modal-wrap report-modal-wrap">
         <strong class="alert-msg">신고하시겠어요?</strong>       
         <ul class="alert-menu-list">
           <li>
@@ -85,10 +84,8 @@
       </div>
     </div>
   </section>
-
   <script src="../js/script.js"></script>
   <script src="../js/postdetail.js"></script>
   <!-- <a href="https://www.flaticon.com/kr/free-icons/" title="딸기 아이콘">딸기 아이콘 제작자: Freepik - Flaticon</a> -->
 </body>
-
 </html>
