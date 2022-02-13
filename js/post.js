@@ -1,7 +1,10 @@
+// [post] 게시물 작성 
+
 const uploadTxt = document.querySelector('.upload-txt');
 const uploadInp = document.querySelector('.upload-input');
 const imgContainer = document.querySelector('.img-container');
 const uploadBtn = document.querySelector('.upload-btn');
+
 
 /* 
   MEMO:: 
@@ -14,20 +17,42 @@ const uploadBtn = document.querySelector('.upload-btn');
 */
 const imgFiles = [];
 
+// 댓글 작성자의 프로필 이미지 동적으로 받아오기
+async function renderProfile() {
+  const url = 'http://146.56.183.55:5050';
+  const token = localStorage.getItem('Token');
+  const accountName = localStorage.getItem('accountname');
+  const profileImg = document.querySelector('.profile-img');
+  
+  try {
+    const res = await fetch(`${url}/profile/${accountName}`, {
+      method: 'GET',
+      headers: {
+        'Authorization' : `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    });
+    const json = await res.json();
+    console.log(json.profile.image);
+    profileImg.setAttribute('src', json.profile.image);
+  } catch(err) {
+    console.log(err);
+  }
+}
+
+renderProfile();
+
 
 // 이미지 업로드
 async function uploadImg(file) {
   const formData = new FormData();
   formData.append("image", file);
-  // console.log('formData: ' + formData);
   const res = await fetch(`http://146.56.183.55:5050/image/uploadfiles`, {
       method: "POST",
       body: formData
   });
   const data = await res.json()
-  // console.log('data: ' ,data);
   const productImgName = data[0].filename;
-  // console.log('productImgName: ' + productImgName);
   return productImgName;
 }
 
@@ -55,7 +80,7 @@ async function createPost() {
       body:JSON.stringify({
         "post": {
           "content": contentText,
-          "image": imgUrls.join(',') //"imageurl1", "imageurl2" 형식으로 
+          "image": imgUrls.join(',') 
         }
       })
     })
@@ -67,13 +92,8 @@ async function createPost() {
 
 uploadBtn.addEventListener('click', createPost)
 
-function removeImg() {
-
-}
-
 
 // 사진 미리보기
-// CHECK:: 아래 미리 만들어둔 코드 활용해서 쓰면 된다!!!
 function readInputFile(e){
   const files = e.target.files;
   const fileArr = [...files];
@@ -85,17 +105,13 @@ function readInputFile(e){
     if(files.length <= 3){
       const reader = new FileReader();
       reader.onload = function(e) {
-        // 1. div를 생성해서 선택된 파일을 백그라운드로 넣는다 
         const imgItem = document.createElement('div');
         imgItem.style.backgroundImage = `url(${reader.result})`;
         imgItem.className = 'img-item';
 
-        // 2. 생성한 div를 원래 있던 부모요소의 자식으로 지정한다
         imgContainer.appendChild(imgItem);
-        // CHECK:: 왜 넣어야 하는지 모름
         e.target.value = '';
 
-        // 3. close 아이콘을 클릭하면 div를 제거한다
         const closeBtn = document.createElement('button');
         closeBtn.className = 'close-btn';
         imgItem.appendChild(closeBtn);
