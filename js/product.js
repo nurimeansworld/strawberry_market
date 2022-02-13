@@ -88,7 +88,13 @@ async function reqProdData() {
     const resProdDataJson = await resProdData.json();
 
     if (resProdDataJson.status != 422) {
-      location.href = "./myprofile.html"
+      // img 용량
+      if(resProdDataJson.type == 'entity.too.large'){
+        console.error(resProdDataJson.message);
+        alert('이미지 용량이 너무 큽니다.');
+      }else{
+        location.href = "./myprofile.html"
+      }
     } else {
       console.error(resProdDataJson);
     }
