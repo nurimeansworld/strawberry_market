@@ -1,12 +1,11 @@
+// [postdetail] 게시물 상세
+
+const postId = new URLSearchParams(location.search).get('postId'); 
+
 const postComment = document.querySelector('.post-comment');
 const commentInp = document.querySelector('.comment-input');
 const commentBtn = document.querySelector('.comment-btn');
 const commentForm = document.querySelector('.comment-form');
-
-const postId = new URLSearchParams(location.search).get('postId'); 
-console.log('postId',postId);
-
-// http://127.0.0.1:5503/pages/postdetail.html?postId=62040c2e9d09d36b213aa275
 
 
 // 게시글 불러오기 
@@ -23,63 +22,115 @@ async function renderPost() {
       }
     });
     const json = await res.json();
-    console.log(json);
 
     // render
-    let img = '';
+    let postImg = '';
     const profileImg = json.post.author.image;
     const userName = json.post.author.username;
     const accountName = json.post.author.accountname;
     const content = json.post.content;
-    const contentImg = json.post.image;
-    if(json.post.image !== '') {
-      img = `<img class="user-photo" src="${contentImg}" alt="회원 사진">`;
+    const jsonImg = json.post.image.split(',');
+    if(jsonImg.length > 1) {
+      jsonImg.map((src) => {
+        postImg += `<li class="img-item"><img src="${src}" alt="게시물 사진" class="post-img"></li>`;
+      });
     } else {
-      img = '';
+      postImg = '';
     }
     const heartCount = json.post.heartCount;
     const commentCount = json.post.commentCount;
-    const createdAt = json.post.createdAt.slice(0,11).replace('-','년 ').replace('-', '월 ').replace('T', '일');
+    const createdAt = json.post.createdAt.slice(0,11).replace('-','년 ').replace('-', '월 ').replace('T', '일'); 
+
+    const li = document.querySelector('.home-post');
+    // render 전에 초기화
+    li.textContent = '';
+
+    const div = document.createElement('div');
+    const img = document.createElement('img');
+    const h4 = document.createElement('h4');
+    const p = document.createElement('p');
+    const button = document.createElement('button');
+    const strong = document.createElement('strong');
+    const div2 = document.createElement('div');
+    const p2 = document.createElement('p');
+    const div3 = document.createElement('div');
+    const ul = document.createElement('ul');
+    const div4 = document.createElement('div');
+    const div5 = document.createElement('div');
+    const button2 = document.createElement('button');
+    const p3 = document.createElement('p');
+    const div6 = document.createElement('div');
+    const button3 = document.createElement('button');
+    const img2 = document.createElement('img');
+    const p4 = document.createElement('p');
+    const p5 = document.createElement('p');
+
+    div.className = 'home-post-user';
+    img.className = 'user-profile';
+    h4.className = 'user-name';
+    p.className = 'user-id';
+    button.className = 'btn-menu';
+    strong.className = 'sr-only';
+    div2.className = 'home-post-content';
+    p2.className = 'user-cont';
+    div3.className = 'post-content-imgs';
+    ul.className = 'imgs-container';
+    div4.className = 'home-post-comment';
+    div5.className = 'item-count item-count-heart';
+    button2.className = 'btn btn-heart';
+    p3.className = 'heart-count';
+    div6.className = 'item-count item-count-message';
+    button3.className = 'btn btn-message ';
+    img2.className = 'message-button';
+    p4.className = 'message-count';
+    p5.className = 'date';
+
+    img.setAttribute('src', profileImg);
+    img.setAttribute('alt', '회원 프로필');
+    h4.textContent = userName;
+    p.textContent = accountName;
+    button.setAttribute('type', 'button')
+    p2.textContent = content;
+    button2.setAttribute('type', 'button')
+    button3.setAttribute('type', 'button')
+    img2.setAttribute('src', '../assets/icon/icon-message-circle.svg');
+    img2.setAttribute('alt', '메세지 버튼');
+    p3.textContent = heartCount;
+    p4.textContent = commentCount;
+    p5.textContent = createdAt;
+
+    button.addEventListener('click', (e) => {
+      open6();
+    })
     
-    /* 
-      CHECK:: 모듈에서 복붙해옴 → li로 변경되서 수정 필요
-      사진 여러장일 때 피드에서 어떻게 렌더하는지 참고
-    */
-    document.querySelector('.post-detail').innerHTML = `
-      <li class="home-post">
-        <div class="home-post-user">
-          <img class="user-profile" src="${profileImg}" alt="회원 프로필">
-          <h4 class="user-name">${userName}</h4>
-          <p class="user-id">@ ${accountName}</p>
-          <button type="button" class="btn-menu">
-            <strong class="sr-only">메뉴</strong>
-          </button>
-        </div>
-        <div class="home-post-content">
-          <p class="user-cont">${content}</p>
-          ${img}
-        </div>
-        <div class="home-post-comment">
-          <div class="item-count">
-            <button type="button" class="btn btn-heart">
-            </button>
-            <p class="heart-count">${heartCount}</p>
-          </div>
-          <div class="item-count">
-            <button type="button" class="btn btn-message">
-              <img class="message-button" src="../assets/icon/icon-message-circle.svg" alt="메세지 버튼">
-            </button>
-            <p class="message-count">${commentCount}</p>
-          </div>
-        </div>
-        <p class="date">${createdAt}</p>
-      </li>
-    `
+    button2.addEventListener('click', (e) => {
+      e.target.classList.toggle('on');
+    })
+    
+    li.appendChild(div);
+    div.appendChild(img);
+    div.appendChild(h4);
+    div.appendChild(p);
+    div.appendChild(button);
+    button.appendChild(strong);
+    li.appendChild(div2);
+    div2.appendChild(p2);    
+    li.appendChild(div3);
+    div3.appendChild(ul);
+    ul.innerHTML = postImg;
+    li.appendChild(div4);
+    div4.appendChild(div5);
+    div5.appendChild(button2);
+    div5.appendChild(p3);
+    div4.appendChild(div6);
+    div6.appendChild(button3);
+    button3.appendChild(img2);
+    div6.appendChild(p4);
+    li.appendChild(p5);
   } catch(err) { 
     console.log(err); 
   }
 };
-
 renderPost();
 
 
@@ -110,7 +161,6 @@ async function renderCommentList() {
       }
     });
     const json = await res.json();
-    console.log(json);
 
     // render
     json.comments.map(element => {
@@ -138,7 +188,6 @@ async function renderCommentList() {
       a2.className = 'user-name';
       span.className = 'comment-date';
       button.className = 'btn-menu';
-      // button.className = 'other-user-comment';
       p.className = 'content';
 
       a.setAttribute('href', `./profile.html?id=${accountName}`)
@@ -150,6 +199,10 @@ async function renderCommentList() {
       img2.setAttribute('src', '../assets/icon/icon-more-vertical.png');
       img2.setAttribute('alt', '메뉴 열기')
       p.textContent = content;
+
+      button.addEventListener('click', (e) => {
+        open6();
+      })
       
       commentList.appendChild(li);
       li.appendChild(div);
@@ -161,24 +214,11 @@ async function renderCommentList() {
       li.appendChild(p);
       li.appendChild(button);
       button.appendChild(img2);
-
-      // 수정 전 
-      // document.querySelector('.comment-list').innerHTML += `
-      //   <li class="list-item">
-      //     <div class="item-wrap">
-      //       <img class="user-profile" src="${profileImg}" alt="회원 프로필">
-      //       <strong class="user-name">${userName}</strong>
-      //       <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
-      //     </div>
-      //     <p class="content">${content}</p>
-      //   </li>
-      // `
     })
   } catch(err) {
     console.log(err);
   }
 };
-
 renderCommentList();
 
 
@@ -198,13 +238,11 @@ async function renderProfile() {
       },
     });
     const json = await res.json();
-    console.log(json.profile.image);
     profileImg.setAttribute('src', json.profile.image);
   } catch(err) {
     console.log(err);
   }
 }
-
 renderProfile();
 
 
@@ -219,12 +257,11 @@ function checkValue() {
     commentBtn.style.color = '#C4C4C4';
   }
 };
-
 commentInp.addEventListener('input', checkValue);
 
 
 // 작성된 댓글을 서버에 post
-async function writeComment(e) {
+async function sendComment(e) {
   e.preventDefault();
   const url = 'http://146.56.183.55:5050';
   const token = localStorage.getItem('Token');
@@ -245,51 +282,44 @@ async function writeComment(e) {
     const json = await res.json();
 
     // render 전에 초기화
-    document.querySelector('.comment-list').innerHTML = '';
+    document.querySelector('.comment-list').textContent = '';
+
     // render
     renderPost();
     renderCommentList();
     commentInp.value = '';
     checkValue()
-    console.log(json);
   } catch(err) {
     console.log(err);
   }
 };
 
-commentBtn.addEventListener('click', writeComment);
-commentForm.addEventListener('submit', writeComment);
+commentBtn.addEventListener('click', sendComment);
+commentForm.addEventListener('submit', sendComment);
 
 
-/* 
-CHECK:: 상세 페이지-작성된 댓글에 모달 붙이기
-1. 작성된 댓글을 불러와서 화면에 뿌려주는 async 함수에서 모달을 붙여야 한다 -> 모달 관련 JS을 async 함수 내부에 넣음
-2. 상단 nav에 있는 버튼을 누르면 나오는 모달과 댓글에 있는 버튼을 누르면 나오는 모달의 클래스명이 동일해서 이벤트가 제대로 동작하지 않는다. 
-*/
-// const open6 = () => {
-//   document.querySelector(".modal6").classList.remove("hidden");
-// }
-// const close6 = () => {
-//   document.querySelector(".modal6").classList.add("hidden");   
-// }  
+// 신고하기 모달(희정님 담당) 
+const open6 = () => {
+  document.querySelector(".modal6").classList.remove("hidden");
+}
+const close6 = () => {
+  document.querySelector(".modal6").classList.add("hidden");   
+}  
 
-// button.addEventListener("click", open6);
-// document.querySelector(".hidden-menu").addEventListener("click", close6); 
-// console.log(document.querySelector(".hidden-menu"));
+document.querySelector(".report-menu").addEventListener("click", close6); 
 
-// const btn6 = document.querySelector('.call-post');
-// const pop6 = document.querySelector('.dimm');
-// const out6 = document.querySelector('.cancle-btn');
-// const call6 = document.querySelector('.call-btn');
+const btn6 = document.querySelector('.call-post');
+const pop6 = document.querySelector('.report-dim');
+const out6 = document.querySelector('.cancle-btn');
+const call6 = document.querySelector('.call-btn');
 
-// btn6.addEventListener('click',viewOption);
-// out6.addEventListener('click',cancleOption);
-// call6.addEventListener('click',cancleOption);
+btn6.addEventListener('click',viewOption);
+out6.addEventListener('click',cancleOption);
+call6.addEventListener('click',cancleOption);
 
-// function viewOption() {
-//   pop6.style.display = 'block';
-// }
-// function cancleOption() {
-//   pop6.style.display = 'none';
-// }
-// 모달 끝 
+function viewOption() {
+  pop6.style.display = 'block';
+}
+function cancleOption() {
+  pop6.style.display = 'none';
+}
