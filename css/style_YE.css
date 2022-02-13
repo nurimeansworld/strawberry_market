@@ -77,6 +77,11 @@
 .post-img-list {
   display: flex;
   transition: all .4s;
+  width: 304px;
+  white-space: nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scrollbar-color: var(--enabled-color);
 }
 .post-img-list li {
   min-width: 304px;
@@ -337,7 +342,6 @@ ul .chat-cont-sender :nth-child(2) {
   flex-direction: row-reverse;
   margin: 0 auto;
   padding: 5px;
-  padding-top: 20px;
   position: relative;
 }
 
@@ -355,11 +359,10 @@ ul .chat-cont-sender :nth-child(2) {
   border-radius: 5px 0 5px 5px;
   border: 1px solid var(--enabled-color);
   background-color: var(--enabled-color);
-  width: 335px;
-  height: 100px;
-  padding: 5px;
+  width: 108px;
+  height: 42px;
   text-align: center;
-  line-height: 30px;
+  line-height: 35px;
   color: white;
 }
 
@@ -384,9 +387,8 @@ ul .chat-cont-sender :nth-child(2) {
   align-items: center;
   padding: 13px 20px 12px 16px;
   margin-top: 350px;
-  bottom: 0;
-  width: 390px;
-  position: fixed;
+  /* bottom: 0;
+  position: fixed; */
 }
 
 .chat-content {
