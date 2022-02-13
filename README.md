@@ -1,6 +1,5 @@
 # <span id="top">🍓 딸기마켓</span>
-[🔗 배포 URL]()<br>
-[🔗 퍼블리싱 문서 리스트](https://nurimeansworld.github.io/strawberry_market/html/index.html)
+[🔗 배포 URL]()
 ## 개요
 - 🦁 멋쟁이사자처럼 프론트엔드스쿨 1기 팀 프로젝트로 진행한 딸기마켓입니다.
 - 🍓 딸기마켓 서비스는 자신의 스토어에서 판매하고 있는 상품(딸기)을 등록하여 홍보할 수 있는 SNS입니다.
@@ -134,10 +133,10 @@ URL : 🔗 https://nurimeansworld.github.io/strawberry_market/pages
 <p style="text-align: right"><a href="#top">(Top)</a></p>
 
 
-## <span id="task">5. 개발 기간 및 이슈 관리</span>
+## <span id="task">5. 개발 기간 및 작업 관리</span>
 - 전체 개발 기간 : 2022-01-03 ~ 2022-02-13
-### 이슈 관리
-
+### 작업 관리
+- 배포용 HTML과 개발용 HTML을 분리하여 작업하였습니다. ([🔗 개발용 퍼블리싱 리스트](https://nurimeansworld.github.io/strawberry_market/html/index.html))
 - 🔗[GitHub Projects](https://github.com/nurimeansworld/strawberry_market/projects/1)와 🔗[Issues](https://github.com/nurimeansworld/strawberry_market/issues)를 사용하여 진행도와 상황을 꾸준히 공유하였습니다.
 <img src="https://user-images.githubusercontent.com/69141304/153535829-d60fd615-291c-49a2-a52b-86f05893d804.png">
 
