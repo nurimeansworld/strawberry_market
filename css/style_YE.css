@@ -337,6 +337,7 @@ ul .chat-cont-sender :nth-child(2) {
   flex-direction: row-reverse;
   margin: 0 auto;
   padding: 5px;
+  padding-top: 20px;
   position: relative;
 }
 
@@ -354,10 +355,11 @@ ul .chat-cont-sender :nth-child(2) {
   border-radius: 5px 0 5px 5px;
   border: 1px solid var(--enabled-color);
   background-color: var(--enabled-color);
-  width: 108px;
-  height: 42px;
+  width: 335px;
+  height: 100px;
+  padding: 5px;
   text-align: center;
-  line-height: 35px;
+  line-height: 30px;
   color: white;
 }
 
@@ -382,8 +384,9 @@ ul .chat-cont-sender :nth-child(2) {
   align-items: center;
   padding: 13px 20px 12px 16px;
   margin-top: 350px;
-  /* bottom: 0;
-  position: fixed; */
+  bottom: 0;
+  width: 390px;
+  position: fixed;
 }
 
 .chat-content {
