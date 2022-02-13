@@ -283,12 +283,8 @@
   margin-right: 12px;
   border-radius: 25px;
 }
-.follow-item .user-info{
-}
-.follow-item .user-desc{
-}
 .follow-item .user-follow-bar{
-  width: auto;
+  width: calc(100% - 64px);
   position:relative;
   align-content: baseline;
 }
@@ -296,6 +292,7 @@
   border-radius: 25px;
 }
 .user-follow-bar .user-follow-info{
+  width: calc(100% - 62px);
   margin-left: 12px;
 }
 .user-follow-item .small-follow-button,

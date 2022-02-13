@@ -77,6 +77,11 @@
 .post-img-list {
   display: flex;
   transition: all .4s;
+  width: 304px;
+  white-space: nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scrollbar-color: var(--enabled-color);
 }
 .post-img-list li {
   min-width: 304px;
