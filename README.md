@@ -162,41 +162,33 @@ URL : 🔗 https://nurimeansworld.github.io/strawberry_market/pages
 ## <span id="pages">7. 페이지 기능</span>
 - 상세 기능 설명은 각 페이지별 링크 연결해두었습니다.
 
-### 홈
-|   |   |
-|:-:|:-:|
-|🔗[splash]()|🔗[로그인 페이지]()|
-|index.html intro.html <img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747664-ff315846-7e38-4079-8eae-429167206a54.gif"> |login.html <img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747733-5d0fc2c9-a7b5-4662-91a6-41ca7ba268e7.gif">|
-|회원가입 페이지|홈 페이지|
-|join.html <img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747881-67414426-6365-412f-8dde-479e1fe24eb8.gif">|home.html, followfeed.html <img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747260-e9b4b788-bc6e-4087-8706-362267577f3f.gif">|
-|검색 페이지|채팅 페이지|
-|searh.html <img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747473-9658f82d-d8b7-4cbd-bcfd-7e7fc726da06.gif">|chat.html, chatlist.html <img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747299-3ad2f035-811c-4d6c-8729-44eec3a28af7.gif">|
+### 1) 홈
+|🔗[splash]()|🔗[로그인 페이지]()|🔗[회원가입 페이지]()|
+|:-:|:-:|:-:|
+|<img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747664-ff315846-7e38-4079-8eae-429167206a54.gif"> |<img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747733-5d0fc2c9-a7b5-4662-91a6-41ca7ba268e7.gif">|<img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747881-67414426-6365-412f-8dde-479e1fe24eb8.gif">|
+|🔗[홈 페이지]()|🔗[검색 페이지]()|🔗[채팅 페이지]()|
+|<img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747260-e9b4b788-bc6e-4087-8706-362267577f3f.gif">|<img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747473-9658f82d-d8b7-4cbd-bcfd-7e7fc726da06.gif">|<img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747299-3ad2f035-811c-4d6c-8729-44eec3a28af7.gif">|
 
-## 게시글
-|   |   |
+## 2) 게시글
+|🔗[게시글 작성 페이지]()|🔗[게시물 상세 페이지]()|
 |:-:|:-:|
-|게시글 작성 페이지|게시물 상세 페이지|
-|post.html <img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747294-d2221590-7045-477b-992c-595c20f7d645.gif">|postdetail.html <img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747313-ef897173-eae7-407a-b91b-b5f4580ce135.gif">|
-|게시글 수정 or 신고 페이지|댓글 수정 or 신고 페이지|
-|postdetail.html <img width="390px;" src="">|postdetail.html <img width="390px;" src="">|
+|<img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747294-d2221590-7045-477b-992c-595c20f7d645.gif">|<img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747313-ef897173-eae7-407a-b91b-b5f4580ce135.gif">|
+|🔗[게시글 수정 or 신고 페이지]()|🔗[댓글 수정 or 신고 페이지]()|
+|<img width="390px;" src="">|<img width="390px;" src="">|
 
-## 프로필
-|   |   |
-|:-:|:-:|
-|마이 프로필 페이지|유저 프로필 페이지|
-|myprofile.html <img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747320-3f079fc2-2320-4700-a176-5825c0bfdc55.gif">|profile.html <img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747325-3c89fa25-e70e-460b-9daf-26e625650805.gif">|
-|팔로워 페이지|팔로잉 페이지|
-|followers.html <img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747331-d4d9375b-581f-4c0f-ba7a-deabf3554b04.gif">|followings.html <img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747337-50aecd0d-89ba-4db2-bd3b-3bfec547e22a.gif">|
-|로그아웃 페이지|프로필 수정 페이지|
-|myprofile.html <img width="390px;" src="https://user-images.githubusercontent.com/92960723/153748447-97dc681e-fda1-458e-98fb-f15080aff7a3.gif">|accountedit.html <img width="390px;" src="https://user-images.githubusercontent.com/92960723/153748465-7fb6c22a-7ec9-4ca0-96dc-83fbf8028d98.gif">|
+## 3) 프로필
+|🔗[마이 프로필 페이지]()|🔗[유저 프로필 페이지]()|🔗[팔로워 페이지]()
+|:-:|:-:|:-:|
+|<img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747320-3f079fc2-2320-4700-a176-5825c0bfdc55.gif">|<img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747325-3c89fa25-e70e-460b-9daf-26e625650805.gif">|<img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747331-d4d9375b-581f-4c0f-ba7a-deabf3554b04.gif">
+|🔗[팔로잉 페이지]()|🔗[로그아웃 페이지]()|🔗[프로필 수정 페이지]()
+|<img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747337-50aecd0d-89ba-4db2-bd3b-3bfec547e22a.gif">|<img width="390px;" src="https://user-images.githubusercontent.com/92960723/153748447-97dc681e-fda1-458e-98fb-f15080aff7a3.gif">|<img width="390px;" src="https://user-images.githubusercontent.com/92960723/153748465-7fb6c22a-7ec9-4ca0-96dc-83fbf8028d98.gif">|
 
-## 판매 상품
-|   |   |
+## 4) 판매 상품
+|🔗[상품 등록 페이지]()|🔗[상품 수정 페이지]()|
 |:-:|:-:|
-|상품 등록 페이지|상품 수정 페이지|
-|product.html <img width="390px;" src="https://user-images.githubusercontent.com/92960723/153748485-118b6333-7daa-44a0-ab41-74b5117cab7a.gif">|edit.html <img width="390px;" src="https://user-images.githubusercontent.com/92960723/153748515-593f4d20-3522-4ed9-a898-f98a888c73a0.gif">|
-|상품 삭제 페이지|상품 사이트로 이동 페이지|
-|edit.html <img width="390px;" src="https://user-images.githubusercontent.com/92960723/153748525-8686cd58-e904-4fee-8525-576af9a60b32.gif">|edit.html <img width="390px;" src="https://user-images.githubusercontent.com/92960723/153748544-c4e968a8-fce7-4e56-ae70-1da32bdcfae7.gif">|
+|<img width="390px;" src="https://user-images.githubusercontent.com/92960723/153748485-118b6333-7daa-44a0-ab41-74b5117cab7a.gif">|<img width="390px;" src="https://user-images.githubusercontent.com/92960723/153748515-593f4d20-3522-4ed9-a898-f98a888c73a0.gif">|
+|🔗[상품 삭제 페이지]()|🔗[상품 사이트로 이동 페이지]()|
+|<img width="390px;" src="https://user-images.githubusercontent.com/92960723/153748525-8686cd58-e904-4fee-8525-576af9a60b32.gif">|<img width="390px;" src="https://user-images.githubusercontent.com/92960723/153748544-c4e968a8-fce7-4e56-ae70-1da32bdcfae7.gif">|
 
 <p style="text-align: right"><a href="#top">(Top)</a></p>
 
