@@ -154,7 +154,7 @@ URL : 🔗 https://nurimeansworld.github.io/strawberry_market/pages
 <p align="right"><a href="#top">(Top)</a></p>
 
 ## <span id="ui">6. UI</span>
-<img src="https://user-images.githubusercontent.com/69141304/153748670-ddfc60ae-7c66-416b-9a7d-9467f6b40a04.png">
+<img src="https://user-images.githubusercontent.com/89337955/153887850-b1199e73-15a8-474a-a7b9-e11155ad7168.jpg">
 
 <p align="right"><a href="#top">(Top)</a></p>
 
