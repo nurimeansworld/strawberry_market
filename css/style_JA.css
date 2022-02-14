@@ -453,3 +453,45 @@ section.upload.container {
   background: url(../assets/icon/close.png) no-repeat;
   background-size: contain;
 }
+
+/* 404페이지 */
+.error-page {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.error-page .symbol-logo-gray {
+  margin: 0 auto;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  filter: invert(48%) sepia(0%) saturate(13%) hue-rotate(136deg) brightness(95%) contrast(92%);
+}
+
+.error-page .error-page-tit {
+  position: absolute;
+  top: 41px;
+  left: 61px;
+  font-size: 18px;
+  color: var(--enabled-color);
+  background-color: #fff;
+  border-radius: 20px;
+}
+
+.error-page .error-page-des {
+  font-size: 14px;
+  margin: 32px 0 20px;
+  color: var(--cancel-color-text);
+}
+
+.error-page .btn-back {
+  width: 120px;
+  line-height: 44px;
+  border-radius: 44px;
+  color: #fff;
+  background-color: var(--enabled-color);
+  display: block;
+  margin: 0 auto;
+}
