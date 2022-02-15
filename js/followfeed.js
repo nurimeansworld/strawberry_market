@@ -6,7 +6,7 @@ const homePostCont = document.querySelector(".container");
 async function renderFollowPost() {
   const url = "http://146.56.183.55:5050";
   const token = localStorage.getItem('Token');
-  console.log(token);
+  // console.log(token);
   try {
     const res = await fetch(`${url}/post/feed`, {
       method: 'GET',
@@ -16,7 +16,7 @@ async function renderFollowPost() {
       }
     });
     const json = await res.json();
-    console.log(json);
+    // console.log(json);
 
     // rende
     if (json.posts.length === 0) {
@@ -97,7 +97,7 @@ async function renderFollowPost() {
     }//for문 닫는 버튼
   
   } catch (err) {
-    console.log(err); // MEMO: err 내용 그대로 뜬다
+    console.error(err); // MEMO: err 내용 그대로 뜬다
   }
 };
 
