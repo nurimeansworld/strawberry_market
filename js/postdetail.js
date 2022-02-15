@@ -24,8 +24,6 @@ async function renderPost() {
     const json = await res.json();
 
     // render
-    // let postImg = '';
-    // const postImg = document.createElement('img');
     const profileImg = json.post.author.image;
     const userName = json.post.author.username;
     const accountName = json.post.author.accountname;
@@ -44,79 +42,76 @@ async function renderPost() {
     // render 전에 초기화
     li.textContent = '';
 
-    const div = document.createElement('div');
-    const img = document.createElement('img');
-    const h4 = document.createElement('h4');
-    const p = document.createElement('p');
-    const button = document.createElement('button');
-    const strong = document.createElement('strong');
-    const div2 = document.createElement('div');
-    const p2 = document.createElement('p');
-    const div3 = document.createElement('div');
-    const ul = document.createElement('ul');
-    // const li2 = document.createElement('li');
-    const div4 = document.createElement('div');
-    const div5 = document.createElement('div');
-    const button2 = document.createElement('button');
-    const p3 = document.createElement('p');
-    const div6 = document.createElement('div');
-    const button3 = document.createElement('button');
-    const img2 = document.createElement('img');
-    const p4 = document.createElement('p');
-    const p5 = document.createElement('p');
+    const homePostUser = document.createElement('div');
+    const userProfile = document.createElement('img');
+    const postUserName = document.createElement('h4');
+    const userId = document.createElement('p');
+    const btnMenu = document.createElement('button');
+    const srOnly = document.createElement('strong');
+    const homePostContent = document.createElement('div');
+    const userCont = document.createElement('p');
+    const postContentImgs = document.createElement('div');
+    const imgsContainer = document.createElement('ul');
+    const homePostComment = document.createElement('div');
+    const itemCountHeart = document.createElement('div');
+    const btnHeart = document.createElement('button');
+    const postHeartCount = document.createElement('p');
+    const itemCountMessage = document.createElement('div');
+    const btnMessage = document.createElement('button');
+    const messageButton = document.createElement('img');
+    const messageCount = document.createElement('p');
+    const date = document.createElement('p');
 
-    div.className = 'home-post-user';
-    img.className = 'user-profile';
-    h4.className = 'user-name';
-    p.className = 'user-id';
-    button.className = 'btn-menu';
-    strong.className = 'sr-only';
-    div2.className = 'home-post-content';
-    p2.className = 'user-cont';
-    div3.className = 'post-content-imgs';
-    ul.className = 'imgs-container';
-    // li2.className = 'img-item';
-    // postImg.className = 'post-img'
-    div4.className = 'home-post-comment';
-    div5.className = 'item-count item-count-heart';
-    button2.className = 'btn btn-heart';
-    p3.className = 'heart-count';
-    div6.className = 'item-count item-count-message';
-    button3.className = 'btn btn-message ';
-    img2.className = 'message-button';
-    p4.className = 'message-count';
-    p5.className = 'date';
+    homePostUser.className = 'home-post-user';
+    userProfile.className = 'user-profile';
+    postUserName.className = 'user-name';
+    userId.className = 'user-id';
+    btnMenu.className = 'btn-menu';
+    srOnly.className = 'sr-only';
+    homePostContent.className = 'home-post-content';
+    userCont.className = 'user-cont';
+    postContentImgs.className = 'post-content-imgs';
+    imgsContainer.className = 'imgs-container';
+    homePostComment.className = 'home-post-comment';
+    itemCountHeart.className = 'item-count item-count-heart';
+    btnHeart.className = 'btn btn-heart';
+    postHeartCount.className = 'heart-count';
+    itemCountMessage.className = 'item-count item-count-message';
+    btnMessage.className = 'btn btn-message';
+    messageButton.className = 'message-button';
+    messageCount.className = 'message-count';
+    date.className = 'date';
 
-    img.setAttribute('src', profileImg);
-    img.setAttribute('alt', '회원 프로필');
-    h4.textContent = userName;
-    p.textContent = accountName;
-    button.setAttribute('type', 'button')
-    p2.textContent = content;
-    button2.setAttribute('type', 'button')
-    button3.setAttribute('type', 'button')
-    img2.setAttribute('src', '../assets/icon/icon-message-circle.svg');
-    img2.setAttribute('alt', '메세지 버튼');
-    p3.textContent = heartCount;
-    p4.textContent = commentCount;
-    p5.textContent = createdAt;
+    userProfile.setAttribute('src', profileImg);
+    userProfile.setAttribute('alt', '회원 프로필');
+    postUserName.textContent = userName;
+    userId.textContent = accountName;
+    btnMenu.setAttribute('type', 'button')
+    userCont.textContent = content;
+    btnHeart.setAttribute('type', 'button')
+    btnMessage.setAttribute('type', 'button')
+    messageButton.setAttribute('src', '../assets/icon/icon-message-circle.svg');
+    messageButton.setAttribute('alt', '메세지 버튼');
+    postHeartCount.textContent = heartCount;
+    messageCount.textContent = commentCount;
+    date.textContent = createdAt;
 
-    button.addEventListener('click', (e) => {
+    btnMenu.addEventListener('click', (e) => {
       open6();
     })
     
-    button2.addEventListener('click', (e) => {
+    btnHeart.addEventListener('click', (e) => {
       e.target.classList.toggle('on');
     })
     
-    li.appendChild(div);
-    div.appendChild(img);
-    div.appendChild(h4);
-    div.appendChild(p);
-    div.appendChild(button);
-    button.appendChild(strong);
-    li.appendChild(div2);
-    div2.appendChild(p2);    
+    li.appendChild(homePostUser);
+    homePostUser.appendChild(userProfile);
+    homePostUser.appendChild(postUserName);
+    homePostUser.appendChild(userId);
+    homePostUser.appendChild(btnMenu);
+    btnMenu.appendChild(srOnly);
+    li.appendChild(homePostContent);
+    homePostContent.appendChild(userCont);    
     if(jsonImg.length >= 1 && jsonImg[0] !== '') { 
       jsonImg.map((src) => {
         const li2 = document.createElement('li');
@@ -125,20 +120,20 @@ async function renderPost() {
         postImg.className = 'post-img'
         postImg.setAttribute('src', src);
         li2.appendChild(postImg);
-        ul.appendChild(li2);
+        imgsContainer.appendChild(li2);
       });
-      li.appendChild(div3);
-      div3.appendChild(ul);
+      li.appendChild(postContentImgs);
+      postContentImgs.appendChild(imgsContainer);
     }
-    li.appendChild(div4);
-    div4.appendChild(div5);
-    div5.appendChild(button2);
-    div5.appendChild(p3);
-    div4.appendChild(div6);
-    div6.appendChild(button3);
-    button3.appendChild(img2);
-    div6.appendChild(p4);
-    li.appendChild(p5);
+    li.appendChild(homePostComment);
+    homePostComment.appendChild(itemCountHeart);
+    itemCountHeart.appendChild(btnHeart);
+    itemCountHeart.appendChild(postHeartCount);
+    homePostComment.appendChild(itemCountMessage);
+    itemCountMessage.appendChild(btnMessage);
+    btnMessage.appendChild(messageButton);
+    itemCountMessage.appendChild(messageCount);
+    li.appendChild(date);
   } catch(err) { 
     console.log(err); 
   }
@@ -183,49 +178,49 @@ async function renderCommentList() {
       const createdAt = element.createdAt;
 
       const commentList = document.querySelector('.comment-list');
-      const li = document.createElement('li');
-      const div = document.createElement('div');
+      const listItem = document.createElement('li');
+      const itemWrap = document.createElement('div');
       const a = document.createElement('a');
-      const img = document.createElement('img');
-      const a2 = document.createElement('a');
+      const userProfile = document.createElement('img');
+      const commentUserName = document.createElement('a');
       const strong = document.createElement('strong');
-      const span = document.createElement('span');
-      const p = document.createElement('p');
-      const button = document.createElement('button');
+      const commentDate = document.createElement('span');
+      const commentContent = document.createElement('p');
+      const btnMenu = document.createElement('button');
       const img2 = document.createElement('img');
 
-      li.className = 'list-item';
-      div.className = 'item-wrap';
-      img.className = 'user-profile';
-      a2.className = 'user-name';
-      span.className = 'comment-date';
-      button.className = 'btn-menu';
-      p.className = 'content';
+      listItem.className = 'list-item';
+      itemWrap.className = 'item-wrap';
+      userProfile.className = 'user-profile';
+      commentUserName.className = 'user-name';
+      commentDate.className = 'comment-date';
+      commentContent.className = 'content';
+      btnMenu.className = 'btn-menu';
 
       a.setAttribute('href', `./profile.html?id=${accountName}`)
-      img.setAttribute('src', profileImg);
-      img.setAttribute('alt', '회원 프로필');
-      a2.setAttribute('href', `./profile.html?id=${accountName}`)
+      userProfile.setAttribute('src', profileImg);
+      userProfile.setAttribute('alt', '회원 프로필');
+      commentUserName.setAttribute('href', `./profile.html?id=${accountName}`)
       strong.textContent = userName;
-      span.textContent = getTimeGap(createdAt);
+      commentDate.textContent = getTimeGap(createdAt);
       img2.setAttribute('src', '../assets/icon/icon-more-vertical.png');
       img2.setAttribute('alt', '메뉴 열기')
-      p.textContent = content;
+      commentContent.textContent = content;
 
-      button.addEventListener('click', (e) => {
+      btnMenu.addEventListener('click', (e) => {
         open6();
       })
       
-      commentList.appendChild(li);
-      li.appendChild(div);
-      div.appendChild(a);
-      a.appendChild(img);
-      div.appendChild(a2);
-      a2.appendChild(strong)
-      div.appendChild(span);
-      li.appendChild(p);
-      li.appendChild(button);
-      button.appendChild(img2);
+      commentList.appendChild(listItem);
+      listItem.appendChild(itemWrap);
+      itemWrap.appendChild(a);
+      a.appendChild(userProfile);
+      itemWrap.appendChild(commentUserName);
+      commentUserName.appendChild(strong)
+      itemWrap.appendChild(commentDate);
+      listItem.appendChild(commentContent);
+      listItem.appendChild(btnMenu);
+      btnMenu.appendChild(img2);
     })
   } catch(err) {
     console.log(err);
