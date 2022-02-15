@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,17 +21,20 @@
     overflow: hidden;
     /* border: 0.5px solid var(--border-color); */
     margin-top: 30px;
-}
+  }
+
   .post-txt-input {
     padding: 10px 0px 0 10px;
     width: 100%;
   }
 
-  input, textarea {
+  input,
+  textarea {
     outline: none;
     border: none;
-}
+  }
 </style>
+
 <body>
   <div class="nav nav-upload">
     <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
@@ -41,30 +45,30 @@
     <h2 class="sr-only">게시글을 작성해주세요.</h2>
     <form action="javascript:void(0)" method="post" class="upload-form">
       <img src="../assets/small-profile-img.png" alt="프로필 사진" class="profile-img">
-      
+
       <form class="post-form" autocomplete="off">
         <textarea name="text" class="post-txt-input" data-value="0">
-       
+
         </textarea>
         <label for="file-sync" class="upload-img">이미지 업로드 버튼입니다.</label>
-      <input type="file" id="file-sync" accept=".png, .jpg, .jpeg" class="upload-input">
-    </form>
+        <input type="file" id="file-sync" accept=".png, .jpg, .jpeg" class="upload-input">
+      </form>
       <section class="upload-photo-list">
         <!-- <h4 class="ir">추가된 사진</h4> -->
         <ul class="photo-list">
-            <li>
-                <img src="http://146.56.183.55:5050/1644322649801.jpeg" alt="">
-                <!-- <button type="button" class="img-remove">
+          <li>
+            <img src="http://146.56.183.55:5050/1644322649801.jpeg" alt="">
+            <!-- <button type="button" class="img-remove">
                     <span class="ir">이미지 삭제</span>
                 </button> -->
-            </li>
+          </li>
         </ul>
-    </section>
+      </section>
       <!-- <label for="file-sync" class="upload-img">이미지 업로드 버튼입니다.</label>
       <input type="file" id="file-sync" accept=".png, .jpg, .jpeg" class="upload-input"> -->
     </form>
 
-      <!-- js 기능 구현 -->
+    <!-- js 기능 구현 -->
     </div>
   </section>
 
@@ -78,7 +82,7 @@
       // const originNum = parseInt(prodPrice.value.replace(/,/gi, ""));
       // const prodId = checkProdId();
       const productId = document.querySelector(".upload a").id;
-      console.log('prodId', productId);
+      // console.log('prodId', productId);
 
       const prodData = {
         "product": {
@@ -126,7 +130,7 @@
       document.querySelector('.profile-img').value = resProdDataJson.product.image;
       // 컨텐츠
       document.querySelector('.post-txt-input').value = resProdDataJson.product.content;
-      
+
     }
 
     async function getProdData() {
@@ -134,7 +138,7 @@
       const token = localStorage.getItem('Token');
       // const prodId = checkProdId();
       const productId = document.querySelector(".upload a").id;
-    console.log('test', productId);
+      // console.log('test', productId);
       const init = {
         method: 'GET',
         headers: {
@@ -153,36 +157,36 @@
       }
     }
     getProdData();
-    async function editPost(){
-      
+    async function editPost() {
+
       // 버튼을 누른다 -> 수정 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
-        const url = 'http://146.56.183.55:5050';
+      const url = 'http://146.56.183.55:5050';
 
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmNjMjNkOWQwOWQzNmIyMTM2ZTk3MCIsImV4cCI6MTY0OTI2MDUzNiwiaWF0IjoxNjQ0MDc2NTM2fQ.dgflqthibSYSMd5p6EXqd-IdeHts0tv9fmLJjh-GOt4'
-        const postId = new URLSearchParams(location.search).get('postId'); 
+      const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmNjMjNkOWQwOWQzNmIyMTM2ZTk3MCIsImV4cCI6MTY0OTI2MDUzNiwiaWF0IjoxNjQ0MDc2NTM2fQ.dgflqthibSYSMd5p6EXqd-IdeHts0tv9fmLJjh-GOt4'
+      const postId = new URLSearchParams(location.search).get('postId');
 
-        try {
-          const res = await fetch( `${url}/post/${postId}`, {
-            method: 'PUT',
-            headers: {
-              'Authorization' : `Bearer ${token}`,
-              'Content-type' : 'application/json'
-            },
-            body:JSON.stringify({
-              "post": {
-                "content": content.value,
-                "image": image.value  
-              }
-            })
-            
-          });
-          const json = await res.json();
-          console.log(json);
-        
+      try {
+        const res = await fetch(`${url}/post/${postId}`, {
+          method: 'PUT',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-type': 'application/json'
+          },
+          body: JSON.stringify({
+            "post": {
+              "content": content.value,
+              "image": image.value
+            }
+          })
 
-            
-      } catch(err) {
-        console.log(err);
+        });
+        const json = await res.json();
+        // console.log(json);
+
+
+
+      } catch (err) {
+        console.error(err);
       }
     };
 
@@ -191,6 +195,7 @@
   </script>
   <script src="../js/U02.js"></script>
 </body>
+
 </html>
 
 <!-- http://192.168.0.6:5503/html/U03.html?postId=62025f5a9d09d36b213a6df7 -->

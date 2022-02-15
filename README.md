@@ -73,7 +73,6 @@ URL : 🔗 https://nurimeansworld.github.io/strawberry_market/pages
 |    followers.js
 |    followfeed.js
 |    followings.js
-|    home.js
 |    index.js
 |    intro.js
 |    join.js
