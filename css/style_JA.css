@@ -76,13 +76,14 @@
 .comment-upload .comment-form {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
 }
 
 .comment-form .profile-img {
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  object-fit: contain;
+  object-fit: cover;
   align-self: center;
   border: .5px solid var(--cancel-color-border);
 }
@@ -90,7 +91,7 @@
 .comment-upload .comment-input {
   border: none;
   outline: none;
-  padding: 25px 0 20px 12px;
+  padding: 25px 12px 20px 12px;
   flex-grow: 1;
 }
 
@@ -286,16 +287,19 @@
   gap: 8px;
 }
 
+.upload .img-container::-webkit-scrollbar,
 .post-content-imgs .imgs-container::-webkit-scrollbar {
   width: 100px;
   height: 10px;
 }
 
+.upload .img-container::-webkit-scrollbar-thumb,
 .post-content-imgs .imgs-container::-webkit-scrollbar-thumb {
   background-color: var(--enabled-color);
   border-radius: 10px;
 }
 
+.upload .img-container::-webkit-scrollbar-track,
 .post-content-imgs .imgs-container::-webkit-scrollbar-track {
   background-color: white;
 }
@@ -394,7 +398,7 @@ section.upload.container {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  object-fit: contain;
+  object-fit: cover;
   border: .5px solid var(--cancel-color-border);
 }
 
