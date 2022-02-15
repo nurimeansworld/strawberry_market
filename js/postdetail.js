@@ -25,7 +25,7 @@ async function renderPost() {
 
     // render
     // let postImg = '';
-    const postImg = document.createElement('img');
+    // const postImg = document.createElement('img');
     const profileImg = json.post.author.image;
     const userName = json.post.author.username;
     const accountName = json.post.author.accountname;
@@ -54,7 +54,7 @@ async function renderPost() {
     const p2 = document.createElement('p');
     const div3 = document.createElement('div');
     const ul = document.createElement('ul');
-    const li2 = document.createElement('li');
+    // const li2 = document.createElement('li');
     const div4 = document.createElement('div');
     const div5 = document.createElement('div');
     const button2 = document.createElement('button');
@@ -75,8 +75,8 @@ async function renderPost() {
     p2.className = 'user-cont';
     div3.className = 'post-content-imgs';
     ul.className = 'imgs-container';
-    li2.className = 'img-item';
-    postImg.className = 'post-img'
+    // li2.className = 'img-item';
+    // postImg.className = 'post-img'
     div4.className = 'home-post-comment';
     div5.className = 'item-count item-count-heart';
     button2.className = 'btn btn-heart';
@@ -119,12 +119,16 @@ async function renderPost() {
     div2.appendChild(p2);    
     if(jsonImg.length >= 1 && jsonImg[0] !== '') { 
       jsonImg.map((src) => {
+        const li2 = document.createElement('li');
+        const postImg = document.createElement('img');
+        li2.className = 'img-item';
+        postImg.className = 'post-img'
         postImg.setAttribute('src', src);
+        li2.appendChild(postImg);
+        ul.appendChild(li2);
       });
       li.appendChild(div3);
       div3.appendChild(ul);
-      ul.appendChild(li2);
-      li2.appendChild(postImg);
     }
     li.appendChild(div4);
     div4.appendChild(div5);
