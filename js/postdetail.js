@@ -32,9 +32,9 @@ async function renderPost() {
     const content = json.post.content;
     const jsonImg = json.post.image.split(',');
 
-    console.log(jsonImg);
-    console.log(jsonImg.length);
-    console.log(jsonImg[0] === '');
+    // console.log(jsonImg);
+    // console.log(jsonImg.length);
+    // console.log(jsonImg[0] === '');
 
     const heartCount = json.post.heartCount;
     const commentCount = json.post.commentCount;
@@ -136,7 +136,7 @@ async function renderPost() {
     div6.appendChild(p4);
     li.appendChild(p5);
   } catch(err) { 
-    console.log(err); 
+    console.error(err); 
   }
 };
 renderPost();
@@ -224,7 +224,7 @@ async function renderCommentList() {
       button.appendChild(img2);
     })
   } catch(err) {
-    console.log(err);
+    console.error(err);
   }
 };
 renderCommentList();
@@ -248,7 +248,7 @@ async function renderProfile() {
     const json = await res.json();
     profileImg.setAttribute('src', json.profile.image);
   } catch(err) {
-    console.log(err);
+    console.error(err);
   }
 }
 renderProfile();
@@ -298,7 +298,7 @@ async function sendComment(e) {
     commentInp.value = '';
     checkValue()
   } catch(err) {
-    console.log(err);
+    console.error(err);
   }
 };
 

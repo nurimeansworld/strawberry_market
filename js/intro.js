@@ -4,4 +4,4 @@ function checkLogin() {
     location.href = "./home.html";
   }
 }
-// checkLogin();
+checkLogin();

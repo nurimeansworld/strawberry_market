@@ -62,7 +62,7 @@ async function reqProdData() {
   const token = localStorage.getItem('Token');
   const originNum = parseInt(prodPrice.value.replace(/,/gi, ""));
   const prodId = checkProdId();
-  console.log('prodId', prodId);
+  // console.log('prodId', prodId);
 
   const prodData = {
     "product": {

@@ -33,10 +33,10 @@ async function renderProfile() {
       },
     });
     const json = await res.json();
-    console.log(json.profile.image);
+    // console.log(json.profile.image);
     profileImg.setAttribute('src', json.profile.image);
   } catch(err) {
-    console.log(err);
+    console.error(err);
   }
 }
 
@@ -70,7 +70,7 @@ async function createPost() {
     for (const file of imgFiles) {
       imgUrls.push(`${url}/${await uploadImg(file)}`);
     }
-    console.log('imgUrls', imgUrls);
+    // console.log('imgUrls', imgUrls);
     const res = await fetch(`${url}/post`, {
       method: 'POST',
       headers: {
@@ -85,7 +85,7 @@ async function createPost() {
       })
     })
     const json = await res.json();
-    console.log(json);
+    // console.log(json);
     location.href = '../pages/myprofile.html';
   }
 }
@@ -99,7 +99,7 @@ function readInputFile(e){
   const fileArr = [...files];
   const index = 0;
   fileArr.forEach(file => imgFiles.push(file));
-  console.log(imgFiles);
+  // console.log(imgFiles);
   
   fileArr.forEach(function(i) {
     if(files.length <= 3){
@@ -119,7 +119,7 @@ function readInputFile(e){
           // MEMO:: imgFiles에서 삭제, 미리보기에 삭제
           imgFiles.splice([...imgContainer.children].indexOf(imgItem), 1);
           imgContainer.removeChild(imgItem);
-          console.log(imgFiles);
+          // console.log(imgFiles);
         });
       };
       reader.readAsDataURL(i);

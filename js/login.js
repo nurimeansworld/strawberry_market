@@ -1,5 +1,3 @@
-
-// @@@@@@@@@@@@@@@@@@@@@@ L01.html @@@@@@@@@@@@@@@@@@@@@@ //
 const loginForm = document.querySelector('.login-form');
 const loginEmailInput = document.querySelector('.login-email-input');
 const loginPwInput = document.querySelector('.login-pw-input');
@@ -55,8 +53,7 @@ async function login(e) {
       localStorage.setItem("Token",resJson.user.token);
       location.href = "./home.html";
     }else{ // 로그인 실패한 경우
-      // MEMO:: 나중에 다른 기능과 같이 함수화 할 기능이 생기면 함수화 하기 - setErrorMessage();
-      LoginError.style.display = 'block'; // LoginError.classList.add = 'on';
+      LoginError.style.display = 'block';
       LoginError.textContent = resJson.message;
     }
   }catch(err){
@@ -72,6 +69,4 @@ function checkLogin() {
     location.href = "./home.html";
   }
 }
-// checkLogin();
-
-// 정규식 관련 참고 블로그 링크 : https://rateye.tistory.com/468
+checkLogin();

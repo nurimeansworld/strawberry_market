@@ -1,5 +1,3 @@
-// L02 이메일로 회원가입 
-
 // 모든 input 입력되면 다음 버튼 활성화
 const joinForm = document.querySelector('.join-form');
 const joinEmail = document.querySelector('.join-email-input');
@@ -82,24 +80,15 @@ joinEmail.addEventListener('focusout',checkEmailValid);
 
 
 // L03 프로필 설정
-// CHECK:: 프로필 이미지 용량 제한 있는지 큰 파일은 업로드 안됨 
-
-// username
 const userName = document.querySelector('.edit-name-input');
 const nameError = document.querySelector('.name-error-message');
-// accountname
 const accountName = document.querySelector('.edit-id-input');
 const accountError = document.querySelector('.account-error-message');
-// intro
 const intro = document.querySelector('.edit-intro-input');
 const introError = document.querySelector('.intro-error-message');
-// image (type=file)
 const profileImg = document.querySelector('#editImg');
-// image (type=hidden)
 const profileImgHidden = document.querySelector('#editImgHidden');
-// 딸기마켓 시작하기 버튼
 const startBtn = document.querySelector('.large-start-btn');
-// image button
 const profileImgBtn = document.querySelector('.profile-btn-upload');
 
 // 버튼 클릭시 이미지 input 버튼 클릭
@@ -123,22 +112,12 @@ editImg.addEventListener('change', function (e) {
   readURL(this);
 });
 
-// 프로필 설정 유효성 
-// accountname에 지정된 문자 이외의 문자가 들어갈 경우
-// 조건
-// 1. 사용자 이름(2~10자 이내),
-// 2. 계정 아이디 중복 불가 
-// 3. 영문, 숫자, 밑줄, 마침표만 사용할 수 있습니다.
-// 가입된 accountname일 경우 = 계정 id 중복일 때 -> 이미 사용중인 계정 ID입니다.
-
-// 1. 사용자 이름(2~10자 이내)
 userName.addEventListener('focusout', () => {
   if((userName.value.length < 2) || (userName.value.length > 11) ){
     nameError.style.display = 'block';
     startBtn.disabled = true;
   }else{
     nameError.style.display = 'none';
-    // startBtn.disabled = false;
   }
 });
 
@@ -159,15 +138,7 @@ async function checkIdValid(){
       })
     });
     const json = await res.json();
-    console.log(json);
-
-    // accountname (계정id) 
-    // 조건1. 이미 가입된 계정id면 안된다. 
-    // 조건에 불일치 -> 이미 가입이 됐다 -> 에러메세지: '이미 가입된 계정ID 입니다' 
-    // 조건 2. 영문,숫자,밑줄,마침표 빼고 안된다. 
-    // const 정규표현식 = /^[영문,숫자,밑줄,마침표만 가능]/
-    // 사용자가 입력한 accountname이 정규표현식과 같다 -> 통과! 
-    // 같지 않다면 -> 에러메세지: '계정ID는 영문자, 숫자, 점(.), 밑줄(_)만 포함해야 합니다.'
+    // console.log(json);
 
     // 가입여부 검사 
     // CHECK:: if문 중첩이 심함
@@ -175,8 +146,6 @@ async function checkIdValid(){
       accountError.textContent = '*이미 가입된 계정ID 입니다.';
       accountError.style.display = 'block';
     } else { // 통과 
-      // accountError.style.display = 'none';
-
       // 가입여부를 통과한 계정ID가 정규표현식에는 맞는지 유효성 검사 
       const regexName  = /^[0-9a-zA-Z._]*$/i; 
       if(accountName.value.match(regexName) == null  && accountName.value !== '') { // 정규표현식 아닌 경우
@@ -188,16 +157,11 @@ async function checkIdValid(){
 
       }
     }
-
-
   } catch(err) {
-    console.log(err);
+    console.error(err);
   }
 }
-
-// 이벤트대상.이벤트걸어줘라는명령어('이벤트내용', 이벤트가발생하면호출할함수이름);
 accountName.addEventListener('focusout', checkIdValid);
-
 
 // 회원 정보 api에 post하기
 async function joinUser(e) {
@@ -226,12 +190,12 @@ async function joinUser(e) {
       })
     });
     const json = await res.json();
-    console.log(json);
+    // console.log(json);
     if(json.message === "회원가입 성공") {
       window.location.href ="./login.html"
     }
   } catch(err) {
-    console.log(err);
+    console.error(err);
   }
 }
 
