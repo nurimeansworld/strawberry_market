@@ -1,5 +1,3 @@
-// [search] 유저검색
-
 const searchForm = document.querySelector('.search-form');
 const searchInp = document.querySelector('.inp-search');
 
@@ -19,7 +17,7 @@ async function searchUser(e) {
       }
     });
     const json = await res.json();
-    console.log(json);
+    // console.log(json);
     
     document.querySelector(".container").innerHTML = '';
 

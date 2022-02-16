@@ -24,19 +24,18 @@ async function renderPost() {
     const json = await res.json();
 
     // render
-    let postImg = '';
+    // let postImg = '';
+    const postImg = document.createElement('img');
     const profileImg = json.post.author.image;
     const userName = json.post.author.username;
     const accountName = json.post.author.accountname;
     const content = json.post.content;
     const jsonImg = json.post.image.split(',');
-    if(jsonImg.length > 1) {
-      jsonImg.map((src) => {
-        postImg += `<li class="img-item"><img src="${src}" alt="게시물 사진" class="post-img"></li>`;
-      });
-    } else {
-      postImg = '';
-    }
+
+    // console.log(jsonImg);
+    // console.log(jsonImg.length);
+    // console.log(jsonImg[0] === '');
+
     const heartCount = json.post.heartCount;
     const commentCount = json.post.commentCount;
     const createdAt = json.post.createdAt.slice(0,11).replace('-','년 ').replace('-', '월 ').replace('T', '일'); 
@@ -55,6 +54,7 @@ async function renderPost() {
     const p2 = document.createElement('p');
     const div3 = document.createElement('div');
     const ul = document.createElement('ul');
+    const li2 = document.createElement('li');
     const div4 = document.createElement('div');
     const div5 = document.createElement('div');
     const button2 = document.createElement('button');
@@ -75,6 +75,8 @@ async function renderPost() {
     p2.className = 'user-cont';
     div3.className = 'post-content-imgs';
     ul.className = 'imgs-container';
+    li2.className = 'img-item';
+    postImg.className = 'post-img'
     div4.className = 'home-post-comment';
     div5.className = 'item-count item-count-heart';
     button2.className = 'btn btn-heart';
@@ -115,9 +117,15 @@ async function renderPost() {
     button.appendChild(strong);
     li.appendChild(div2);
     div2.appendChild(p2);    
-    li.appendChild(div3);
-    div3.appendChild(ul);
-    ul.innerHTML = postImg;
+    if(jsonImg.length >= 1 && jsonImg[0] !== '') { 
+      jsonImg.map((src) => {
+        postImg.setAttribute('src', src);
+      });
+      li.appendChild(div3);
+      div3.appendChild(ul);
+      ul.appendChild(li2);
+      li2.appendChild(postImg);
+    }
     li.appendChild(div4);
     div4.appendChild(div5);
     div5.appendChild(button2);
@@ -128,7 +136,7 @@ async function renderPost() {
     div6.appendChild(p4);
     li.appendChild(p5);
   } catch(err) { 
-    console.log(err); 
+    console.error(err); 
   }
 };
 renderPost();
@@ -216,7 +224,7 @@ async function renderCommentList() {
       button.appendChild(img2);
     })
   } catch(err) {
-    console.log(err);
+    console.error(err);
   }
 };
 renderCommentList();
@@ -240,7 +248,7 @@ async function renderProfile() {
     const json = await res.json();
     profileImg.setAttribute('src', json.profile.image);
   } catch(err) {
-    console.log(err);
+    console.error(err);
   }
 }
 renderProfile();
@@ -290,7 +298,7 @@ async function sendComment(e) {
     commentInp.value = '';
     checkValue()
   } catch(err) {
-    console.log(err);
+    console.error(err);
   }
 };
 

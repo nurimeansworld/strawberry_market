@@ -1,6 +1,5 @@
 // 뒤로가기
 function goBack(){
-  // console.log('뒤로 보내조');
   // window.history;
   window.history.back();
 }

@@ -17,7 +17,7 @@ btn3.addEventListener('click', viewOption);
 out3.addEventListener('click', cancleOption);
 
 function viewOption() {
-    console.log(pop3);
+    // console.log(pop3);
     pop3.style.display = 'block';
 }
 function cancleOption() {

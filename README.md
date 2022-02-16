@@ -1,5 +1,5 @@
 # <span id="top">🍓 딸기마켓</span>
-[🔗 배포 URL]()
+[🔗 배포 URL](https://nurimeansworld.github.io/strawberry_market/pages)
 ## 개요
 - 🦁 멋쟁이사자처럼 프론트엔드스쿨 1기 팀 프로젝트로 진행한 딸기마켓입니다.
 - 🍓 딸기마켓 서비스는 자신의 스토어에서 판매하고 있는 상품(딸기)을 등록하여 홍보할 수 있는 SNS입니다.
@@ -32,18 +32,18 @@
 - 현재 판매를 진행하지 않는 잠재 판매자와 고객에게 쉽게 접근 가능한 SNS 플랫폼을 제공합니다.
 - 손수 제작한 상품을 등록하여 수익 창출이 가능한 SNS 장터입니다.
 
-<p style="text-align: right"><a href="#top">(Top)</a></p>
+<p align="right"><a href="#top">(Top)</a></p>
 
 ## <span id="dev">2. 개발 환경 및 배포 URL</span>
 ### 개발 환경
 - Front : HTML & CSS & Vanilla JS
 - Back : 제공된 API 사용
 - 버전 관리 및 이슈 : 🔗[GitHub](https://github.com/nurimeansworld/strawberry_market), 🔗[GitHub Issues](https://github.com/nurimeansworld/strawberry_market/issues), 🔗[GitHub Project](https://github.com/nurimeansworld/strawberry_market/projects/1)
-- 서비스 배포 환경 : GitHub Pages
+- 서비스 배포 환경 : [🔗 GitHub Pages](https://github.com/nurimeansworld/strawberry_market/deployments)
 ### 배포 URL
 URL : 🔗 https://nurimeansworld.github.io/strawberry_market/pages
 
-<p style="text-align: right"><a href="#top">(Top)</a></p>
+<p align="right"><a href="#top">(Top)</a></p>
 
 ## <span id="tree">3. 프로젝트 구조</span>
 - assets/ : 이미지, 파비콘, 아이콘 등
@@ -73,7 +73,6 @@ URL : 🔗 https://nurimeansworld.github.io/strawberry_market/pages
 |    followers.js
 |    followfeed.js
 |    followings.js
-|    home.js
 |    index.js
 |    intro.js
 |    join.js
@@ -108,7 +107,7 @@ URL : 🔗 https://nurimeansworld.github.io/strawberry_market/pages
      search.html
 ```
 
-<p style="text-align: right"><a href="#top">(Top)</a></p>
+<p align="right"><a href="#top">(Top)</a></p>
 
 
 ## <span id="role">4. 역할 분담</span>
@@ -130,7 +129,7 @@ URL : 🔗 https://nurimeansworld.github.io/strawberry_market/pages
   - 🔗[github/greenknight03](https://github.com/greenknight03)
   - 모달 페이지, 하단 탭 메뉴 페이지
 
-<p style="text-align: right"><a href="#top">(Top)</a></p>
+<p align="right"><a href="#top">(Top)</a></p>
 
 
 ## <span id="task">5. 개발 기간 및 작업 관리</span>
@@ -151,45 +150,45 @@ URL : 🔗 https://nurimeansworld.github.io/strawberry_market/pages
 - 🔗[220103 회의록](https://github.com/nurimeansworld/strawberry_market/wiki/220103-회의록)
 - 🔗[211228 회의록](https://github.com/nurimeansworld/strawberry_market/wiki/211228-회의록)
 
-<p style="text-align: right"><a href="#top">(Top)</a></p>
+<p align="right"><a href="#top">(Top)</a></p>
 
 ## <span id="ui">6. UI</span>
-<img src="https://user-images.githubusercontent.com/69141304/153748670-ddfc60ae-7c66-416b-9a7d-9467f6b40a04.png">
+<img src="https://user-images.githubusercontent.com/89337955/153887850-b1199e73-15a8-474a-a7b9-e11155ad7168.jpg">
 
-<p style="text-align: right"><a href="#top">(Top)</a></p>
+<p align="right"><a href="#top">(Top)</a></p>
 
 ## <span id="pages">7. 페이지 기능</span>
 - 상세 기능 설명은 각 페이지별 링크 연결해두었습니다.
 
 ### 1) 홈
-|🔗[splash]()|🔗[로그인 페이지]()|🔗[회원가입 페이지]()|
+|🔗[splash](https://github.com/nurimeansworld/strawberry_market/wiki/페이지-기능-상세-설명#-splash)|🔗[로그인 페이지](https://github.com/nurimeansworld/strawberry_market/wiki/페이지-기능-상세-설명#-로그인-페이지)|🔗[회원가입 페이지](https://github.com/nurimeansworld/strawberry_market/wiki/페이지-기능-상세-설명#-회원가입-페이지)|
 |:-:|:-:|:-:|
 |<img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747664-ff315846-7e38-4079-8eae-429167206a54.gif"> |<img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747733-5d0fc2c9-a7b5-4662-91a6-41ca7ba268e7.gif">|<img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747881-67414426-6365-412f-8dde-479e1fe24eb8.gif">|
-|🔗[홈 페이지]()|🔗[검색 페이지]()|🔗[채팅 페이지]()|
+|🔗[홈 페이지](https://github.com/nurimeansworld/strawberry_market/wiki/%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B8%B0%EB%8A%A5-%EC%83%81%EC%84%B8-%EC%84%A4%EB%AA%85#-%ED%99%88-%ED%8E%98%EC%9D%B4%EC%A7%80)|🔗[검색 페이지](https://github.com/nurimeansworld/strawberry_market/wiki/%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B8%B0%EB%8A%A5-%EC%83%81%EC%84%B8-%EC%84%A4%EB%AA%85#-%EA%B2%80%EC%83%89-%ED%8E%98%EC%9D%B4%EC%A7%80)|🔗[채팅 페이지](https://github.com/nurimeansworld/strawberry_market/wiki/%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B8%B0%EB%8A%A5-%EC%83%81%EC%84%B8-%EC%84%A4%EB%AA%85#-%EA%B2%80%EC%83%89-%ED%8E%98%EC%9D%B4%EC%A7%80)|
 |<img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747260-e9b4b788-bc6e-4087-8706-362267577f3f.gif">|<img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747473-9658f82d-d8b7-4cbd-bcfd-7e7fc726da06.gif">|<img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747299-3ad2f035-811c-4d6c-8729-44eec3a28af7.gif">|
 
 ## 2) 게시글
-|🔗[게시글 작성 페이지]()|🔗[게시물 상세 페이지]()|
+|🔗[게시글 작성 페이지](https://github.com/nurimeansworld/strawberry_market/wiki/%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B8%B0%EB%8A%A5-%EC%83%81%EC%84%B8-%EC%84%A4%EB%AA%85#-%EA%B2%8C%EC%8B%9C%EA%B8%80-%EC%9E%91%EC%84%B1-%ED%8E%98%EC%9D%B4%EC%A7%80)|🔗[게시물 상세 페이지](https://github.com/nurimeansworld/strawberry_market/wiki/%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B8%B0%EB%8A%A5-%EC%83%81%EC%84%B8-%EC%84%A4%EB%AA%85#-%EA%B2%8C%EC%8B%9C%EB%AC%BC-%EC%83%81%EC%84%B8-%ED%8E%98%EC%9D%B4%EC%A7%80)|
 |:-:|:-:|
 |<img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747294-d2221590-7045-477b-992c-595c20f7d645.gif">|<img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747313-ef897173-eae7-407a-b91b-b5f4580ce135.gif">|
-|🔗[게시글 수정 or 신고 페이지]()|🔗[댓글 수정 or 신고 페이지]()|
+|🔗[게시글 수정 or 신고 페이지](https://github.com/nurimeansworld/strawberry_market/wiki/%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B8%B0%EB%8A%A5-%EC%83%81%EC%84%B8-%EC%84%A4%EB%AA%85#-%EA%B2%8C%EC%8B%9C%EA%B8%80-%EC%88%98%EC%A0%95-or-%EC%8B%A0%EA%B3%A0-%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%8C%93%EA%B8%80-%EC%88%98%EC%A0%95-or-%EC%8B%A0%EA%B3%A0-%ED%8E%98%EC%9D%B4%EC%A7%80)|🔗[댓글 수정 or 신고 페이지](https://github.com/nurimeansworld/strawberry_market/wiki/%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B8%B0%EB%8A%A5-%EC%83%81%EC%84%B8-%EC%84%A4%EB%AA%85#-%EA%B2%8C%EC%8B%9C%EA%B8%80-%EC%88%98%EC%A0%95-or-%EC%8B%A0%EA%B3%A0-%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%8C%93%EA%B8%80-%EC%88%98%EC%A0%95-or-%EC%8B%A0%EA%B3%A0-%ED%8E%98%EC%9D%B4%EC%A7%80)|
 |<img width="390px;" src="">|<img width="390px;" src="">|
 
 ## 3) 프로필
-|🔗[마이 프로필 페이지]()|🔗[유저 프로필 페이지]()|🔗[팔로워 페이지]()
+|🔗[마이 프로필 페이지](https://github.com/nurimeansworld/strawberry_market/wiki/%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B8%B0%EB%8A%A5-%EC%83%81%EC%84%B8-%EC%84%A4%EB%AA%85#-%EB%A7%88%EC%9D%B4-%ED%94%84%EB%A1%9C%ED%95%84-%ED%8E%98%EC%9D%B4%EC%A7%80)|🔗[유저 프로필 페이지](https://github.com/nurimeansworld/strawberry_market/wiki/%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B8%B0%EB%8A%A5-%EC%83%81%EC%84%B8-%EC%84%A4%EB%AA%85#-%EC%9C%A0%EC%A0%80-%ED%94%84%EB%A1%9C%ED%95%84-%ED%8E%98%EC%9D%B4%EC%A7%80)|🔗[팔로워 페이지](https://github.com/nurimeansworld/strawberry_market/wiki/%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B8%B0%EB%8A%A5-%EC%83%81%EC%84%B8-%EC%84%A4%EB%AA%85#-%ED%8C%94%EB%A1%9C%EC%9B%8C-%ED%8E%98%EC%9D%B4%EC%A7%80-%ED%8C%94%EB%A1%9C%EC%9E%89-%ED%8E%98%EC%9D%B4%EC%A7%80)
 |:-:|:-:|:-:|
 |<img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747320-3f079fc2-2320-4700-a176-5825c0bfdc55.gif">|<img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747325-3c89fa25-e70e-460b-9daf-26e625650805.gif">|<img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747331-d4d9375b-581f-4c0f-ba7a-deabf3554b04.gif">
-|🔗[팔로잉 페이지]()|🔗[로그아웃 페이지]()|🔗[프로필 수정 페이지]()
+|🔗[팔로잉 페이지](https://github.com/nurimeansworld/strawberry_market/wiki/%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B8%B0%EB%8A%A5-%EC%83%81%EC%84%B8-%EC%84%A4%EB%AA%85#-%ED%8C%94%EB%A1%9C%EC%9B%8C-%ED%8E%98%EC%9D%B4%EC%A7%80-%ED%8C%94%EB%A1%9C%EC%9E%89-%ED%8E%98%EC%9D%B4%EC%A7%80)|🔗[로그아웃 페이지](https://github.com/nurimeansworld/strawberry_market/wiki/%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B8%B0%EB%8A%A5-%EC%83%81%EC%84%B8-%EC%84%A4%EB%AA%85#-%EB%A1%9C%EA%B7%B8%EC%95%84%EC%9B%83-%ED%8E%98%EC%9D%B4%EC%A7%80)|🔗[프로필 수정 페이지](https://github.com/nurimeansworld/strawberry_market/wiki/%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B8%B0%EB%8A%A5-%EC%83%81%EC%84%B8-%EC%84%A4%EB%AA%85#-%ED%94%84%EB%A1%9C%ED%95%84-%EC%88%98%EC%A0%95-%ED%8E%98%EC%9D%B4%EC%A7%80)
 |<img width="390px;" src="https://user-images.githubusercontent.com/86909942/153747337-50aecd0d-89ba-4db2-bd3b-3bfec547e22a.gif">|<img width="390px;" src="https://user-images.githubusercontent.com/92960723/153748447-97dc681e-fda1-458e-98fb-f15080aff7a3.gif">|<img width="390px;" src="https://user-images.githubusercontent.com/92960723/153748465-7fb6c22a-7ec9-4ca0-96dc-83fbf8028d98.gif">|
 
 ## 4) 판매 상품
-|🔗[상품 등록 페이지]()|🔗[상품 수정 페이지]()|
+|🔗[상품 등록 페이지](https://github.com/nurimeansworld/strawberry_market/wiki/%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B8%B0%EB%8A%A5-%EC%83%81%EC%84%B8-%EC%84%A4%EB%AA%85#-%EC%83%81%ED%92%88-%EB%93%B1%EB%A1%9D-%ED%8E%98%EC%9D%B4%EC%A7%80)|🔗[상품 수정 페이지](https://github.com/nurimeansworld/strawberry_market/wiki/%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B8%B0%EB%8A%A5-%EC%83%81%EC%84%B8-%EC%84%A4%EB%AA%85#-%EC%83%81%ED%92%88-%EC%88%98%EC%A0%95-%ED%8E%98%EC%9D%B4%EC%A7%80)|
 |:-:|:-:|
 |<img width="390px;" src="https://user-images.githubusercontent.com/92960723/153748485-118b6333-7daa-44a0-ab41-74b5117cab7a.gif">|<img width="390px;" src="https://user-images.githubusercontent.com/92960723/153748515-593f4d20-3522-4ed9-a898-f98a888c73a0.gif">|
-|🔗[상품 삭제 페이지]()|🔗[상품 사이트로 이동 페이지]()|
+|🔗[상품 삭제 페이지](https://github.com/nurimeansworld/strawberry_market/wiki/%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B8%B0%EB%8A%A5-%EC%83%81%EC%84%B8-%EC%84%A4%EB%AA%85#-%EC%83%81%ED%92%88-%EC%82%AD%EC%A0%9C-%EC%9D%B4%EB%8F%99-%ED%8E%98%EC%9D%B4%EC%A7%80)|🔗[상품 사이트로 이동 페이지](https://github.com/nurimeansworld/strawberry_market/wiki/%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B8%B0%EB%8A%A5-%EC%83%81%EC%84%B8-%EC%84%A4%EB%AA%85#-%EC%83%81%ED%92%88-%EC%82%AD%EC%A0%9C-%EC%9D%B4%EB%8F%99-%ED%8E%98%EC%9D%B4%EC%A7%80)|
 |<img width="390px;" src="https://user-images.githubusercontent.com/92960723/153748525-8686cd58-e904-4fee-8525-576af9a60b32.gif">|<img width="390px;" src="https://user-images.githubusercontent.com/92960723/153748544-c4e968a8-fce7-4e56-ae70-1da32bdcfae7.gif">|
 
-<p style="text-align: right"><a href="#top">(Top)</a></p>
+<p align="right"><a href="#top">(Top)</a></p>
 
 ## <span id="issues">8. 개발하며 겪은 이슈</span>
 ### 1) 코딩 컨벤션, 커밋 컨벤션 정하기
@@ -245,4 +244,4 @@ URL : 🔗 https://nurimeansworld.github.io/strawberry_market/pages
 - 각 태그의 의미를 고려하여 페이지 이동의 경우에는 a 태그로, 클래스나 데이터가 변경되는 경우에는 button 태그로 사용하기로 결정하였습니다.
 
 
-<p style="text-align: right"><a href="#top">(Top)</a></p>
+<p align="right"><a href="#top">(Top)</a></p>

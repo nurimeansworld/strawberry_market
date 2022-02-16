@@ -53,7 +53,7 @@ async function deleteItem(){
     location.href="./myprofile.html";
 
   } catch(err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
@@ -78,7 +78,7 @@ async function viewItem(){
     const json = await res.json();
     window.open(json.product.link);
   } catch(err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
