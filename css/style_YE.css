@@ -206,6 +206,9 @@
   justify-content: center;
 
 }
+.feed-cont {
+  padding-top : 48px;
+}
 
 .home-main-init .home-init-message {
   display: flex;
