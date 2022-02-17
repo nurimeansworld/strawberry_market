@@ -26,6 +26,7 @@ async function renderFollowPost() {
       for (let i = 0; i < json.posts.length; i++) {
         // console.log(json.posts[i]);
         let img = '';
+        const postId = json.posts[i].id;
         const profileImg = json.posts[i].author.image;
         const userName = json.posts[i].author.username;
         const accountName = json.posts[i].author.accountname;
@@ -63,7 +64,6 @@ async function renderFollowPost() {
         const p4 = document.createElement('p');
         const p5 = document.createElement('p');
 
-    
         div.className = 'home-post-user';
         img22.className = 'user-profile';
         h4.className = 'user-name';
@@ -153,6 +153,117 @@ async function renderFollowPost() {
           div3.appendChild(ul);
         }
       }//for문 닫는 버튼
+
+    //댓글 버튼을 눌렀을 때 댓글로 넘어가기
+    const btnMessage = document.querySelector(".item-count-message");
+    // btnMessage.innerHTML += `<a href= '../html/U01.html'>`
+    
+    function nextPageMessage() {
+      window.location.href = `../pages/postdetail.html`;
+    };
+
+    btnMessage.addEventListener('click', nextPageMessage);
+
+    
+    // 신고하기 모달(희정님 담당) 
+    btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', (e) => {
+      open6();
+    })
+
+    const open6 = () => {
+      document.querySelector(".modal6").classList.remove("hidden");
+    }
+    const close6 = () => {
+      document.querySelector(".modal6").classList.add("hidden");
+    }
+
+    document.querySelector(".other-user-comment").addEventListener("click", open6);
+    document.querySelector(".hidden-menu").addEventListener("click", close6);
+
+    const btn6 = document.querySelector('.call-post');
+    const pop6 = document.querySelector('.dimm');
+    const out6 = document.querySelector('.cancle-btn');
+    const call6 = document.querySelector('.call-btn');
+
+    btn6.addEventListener('click', viewOption);
+    out6.addEventListener('click', cancleOption);
+    call6.addEventListener('click', cancleOption);
+
+    function viewOption() {
+      pop6.style.display = 'block';
+    }
+    function cancleOption() {
+      pop6.style.display = 'none';
+    }
+
+
+    //http://127.0.0.1:5503/html/MD06.html?postId=6202a3fb9d09d36b213a721e
+    // 별로 댓글
+    //댓글 신고 
+
+    const postId = new URLSearchParams(location.search).get('postId');
+    console.log('postId', postId);
+
+    // 게시글 삭제 예시 
+    // const productId = document.querySelector(".product-item a").id;
+    // console.log('test', productId);
+
+    // commentId연결 안됨 
+
+
+    // const callAlert = document.querySelector('.call-btn');
+
+    async function callPost() {
+
+      // 버튼을 누른다 -> 삭제 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
+      const url = 'http://146.56.183.55:5050';
+      const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmNjMjNkOWQwOWQzNmIyMTM2ZTk3MCIsImV4cCI6MTY0OTMzNjMwNiwiaWF0IjoxNjQ0MTUyMzA2fQ.1OxFHxHcN4BV1m_0TzK-t4h8aQ6VIbKs3Z-BM7B94yk'
+      const commentId = document.querySelector(".comment-item a").id;
+      console.log('test', commentId);
+
+
+      try {
+        const res = await fetch(`${url}/post/${postId}/comments/${commentId}/report`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-type': 'application/json'
+          }
+        });
+        const json = await res.json();
+        console.log(json);
+
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    call6.addEventListener('click', callPost);
+    // const open6 = () => {
+    //   document.querySelector(".modal6").classList.remove("hidden");
+    // }
+    // const close6 = () => {
+    //   document.querySelector(".modal6").classList.add("hidden");
+    // }
+
+    // document.querySelector(".report-menu").addEventListener("click", close6);
+
+    // const btn6 = document.querySelector('.call-post');
+    // const pop6 = document.querySelector('.report-dim');
+    // const out6 = document.querySelector('.cancle-btn');
+    // const call6 = document.querySelector('.call-btn');
+
+    // btn6.addEventListener('click', viewOption);
+    // out6.addEventListener('click', cancleOption);
+    // call6.addEventListener('click', cancleOption);
+
+    // function viewOption() {
+    //   pop6.style.display = 'block';
+    // }
+    // function cancleOption() {
+    //   pop6.style.display = 'none';
+    // }
+
   }catch (err) {
     console.log(err); // MEMO: err 내용 그대로 뜬다
   }
@@ -160,12 +271,4 @@ async function renderFollowPost() {
 
 renderFollowPost();
 
-//댓글 버튼을 눌렀을 때 댓글로 넘어가기
-const btnMessage = document.querySelector(".message-button");
-// btnMessage.innerHTML += `<a href= '../html/U01.html'>`
 
-function nextPageMessage() {
-  window.location.href = `../pages/postdetail.html`;
-};
-
-btnMessage.addEventListener('click', nextPageMessage);
