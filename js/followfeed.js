@@ -160,13 +160,12 @@ async function renderFollowPost() {
 
 renderFollowPost();
 
-// //댓글 버튼을 눌렀을 때 댓글로 넘어가기
-// const btnMessage = document.querySelector(".btn.btn-message");
-// // btnMessage.innerHTML += `<a href= '../html/U01.html'>`
+//댓글 버튼을 눌렀을 때 댓글로 넘어가기
+const btnMessage = document.querySelector(".message-button");
+// btnMessage.innerHTML += `<a href= '../html/U01.html'>`
 
-// function nextPageMessage() {
-//   const postId = new URLSearchParams(location.search).get('postId');
-//   window.location.href = `../html/U01.html?postId=${postId}`;
-// }
+function nextPageMessage() {
+  window.location.href = `../pages/postdetail.html`;
+};
 
-// btnMessage.addEventListener('click', nextPageMessage);
+btnMessage.addEventListener('click', nextPageMessage);
