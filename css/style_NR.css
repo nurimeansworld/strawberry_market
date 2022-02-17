@@ -37,6 +37,9 @@
 .nav .inp-search::placeholder{
   color: #C4C4C4;
 }
+.nav .inp-search:focus {
+  outline: 2px solid var(--enabled-color);
+}
 .nav .link-search{
   margin: 4px;
   width: 24px;
