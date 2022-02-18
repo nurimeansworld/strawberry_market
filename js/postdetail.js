@@ -7,6 +7,10 @@ const commentInp = document.querySelector('.comment-input');
 const commentBtn = document.querySelector('.comment-btn');
 const commentForm = document.querySelector('.comment-form');
 
+//MEMO:: 여러 async function에서 써야하는 변수는 let으로 미리 선언
+let accountName;
+let commentId;
+
 
 // 게시글 불러오기 
 async function renderPost() {
@@ -29,7 +33,6 @@ async function renderPost() {
     const accountName = json.post.author.accountname;
     const content = json.post.content;
     const jsonImg = json.post.image.split(',');
-
     // console.log(jsonImg);
     // console.log(jsonImg.length);
     // console.log(jsonImg[0] === '');
@@ -114,13 +117,13 @@ async function renderPost() {
     homePostContent.appendChild(userCont);    
     if(jsonImg.length >= 1 && jsonImg[0] !== '') { 
       jsonImg.map((src) => {
-        const li2 = document.createElement('li');
+        const imgItem = document.createElement('li');
         const postImg = document.createElement('img');
-        li2.className = 'img-item';
+        imgItem.className = 'img-item';
         postImg.className = 'post-img'
         postImg.setAttribute('src', src);
-        li2.appendChild(postImg);
-        imgsContainer.appendChild(li2);
+        imgItem.appendChild(postImg);
+        imgsContainer.appendChild(imgItem);
       });
       li.appendChild(postContentImgs);
       postContentImgs.appendChild(imgsContainer);
@@ -173,9 +176,10 @@ async function renderCommentList() {
     json.comments.map(element => {
       const profileImg = element.author.image;
       const userName = element.author.username;
-      const accountName = element.author.accountname;
+      accountName = element.author.accountname;
       const content = element.content;
       const createdAt = element.createdAt;
+      commentId = element.id;
 
       const commentList = document.querySelector('.comment-list');
       const listItem = document.createElement('li');
@@ -207,9 +211,11 @@ async function renderCommentList() {
       img2.setAttribute('alt', '메뉴 열기')
       commentContent.textContent = content;
 
-      btnMenu.addEventListener('click', (e) => {
-        open6();
-      })
+      btnMenu.addEventListener('click', showModal);
+
+      // btnMenu.addEventListener('click', (e) => {
+      //   open6();
+      // })
       
       commentList.appendChild(listItem);
       listItem.appendChild(itemWrap);
@@ -227,6 +233,8 @@ async function renderCommentList() {
   }
 };
 renderCommentList();
+
+
 
 
 // 댓글 작성자의 프로필 이미지 동적으로 받아오기
@@ -304,6 +312,39 @@ async function sendComment(e) {
 commentBtn.addEventListener('click', sendComment);
 commentForm.addEventListener('submit', sendComment);
 
+// 댓글에 모달 붙이기 
+// 내가 작성한 댓글이면 -> 삭제 / 남이 쓴 거면 -> 신고
+// 구별법: 로컬스토리지에 있는 accountName과 댓글의 accountName 같은지 확인 
+
+
+async function callPost(){  
+  const url = 'http://146.56.183.55:5050';
+  const token = localStorage.getItem('Token');
+
+  try {
+    const res = await fetch(`${url}/post/${postId}/comments/${commentId}/report`, {
+      method: 'POST',
+      headers: {
+        'Authorization' : `Bearer ${token}`,
+        'Content-type' : 'application/json'
+      }
+    });
+    const json = await res.json();
+    console.log(json);
+  } catch(err) {
+    console.log(err);
+  }
+};
+
+function showModal() {
+  if(accountName === localStorage.getItem('accountname')) {
+    console.log('내가쓴댓글이야 - 삭제');
+  } else {
+    console.log('내가쓴거아니야 - 신고');
+    open6();
+    call6.addEventListener('click', callPost);
+  }
+}
 
 // 신고하기 모달(희정님 담당) 
 const open6 = () => {
@@ -330,3 +371,6 @@ function viewOption() {
 function cancleOption() {
   pop6.style.display = 'none';
 }
+
+
+// call6.addEventListener('click', callPost);
