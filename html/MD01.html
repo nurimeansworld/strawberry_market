@@ -1,36 +1,33 @@
-  <!DOCTYPE html>
-  <html lang="ko">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3.1.16 Modal (희정) 설정 및 개인정보& 로그아웃 모달 </title>
-    <link rel="stylesheet" href="../css/default.css">
-  </head>
-  <body>
-    <header class="nav nav-basic">
-      <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
-      <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
-    </header>
-    
-    <section class="modal hidden">
-      <div class="hidden-menu">
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3.1.16 Modal (희정) 설정 및 개인정보& 로그아웃 모달 </title>
+  <link rel="stylesheet" href="../css/default.css">
+</head>
+<body>
+  <header class="nav nav-basic">
+    <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
+    <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
+  </header>
+  <section class="modal hidden">
+    <div class="hidden-menu">
       <ul class="hidden-menu-list">
         <li>
           <a href="P01.html">설정 및 개인정보</a>
         </li>
         <li>
           <button type="button" class="log-out-btn ">로그아웃</button>
-          <!-- 자스로 로그인 토큰 지우기  -->
         </li>
       </ul>
-      </div>
-    </section>
-  
-    <section class="dimm off">
-      <div class="alert-modal  ">
-        <div class="alert-modal-wrap">
-          <strong class="alert-msg">로그아웃 하시겠어요?</strong>       
+    </div>
+  </section>
+  <section class="dimm off">
+    <div class="alert-modal  ">
+      <div class="alert-modal-wrap">
+        <strong class="alert-msg">로그아웃 하시겠어요?</strong>       
         <ul class="alert-menu-list">
           <li>
             <button type="button" class="cancle-btn" >취소</button>
@@ -41,9 +38,8 @@
         </ul>
       </div>
     </div>
-    </section>
-  
-    <script>
+  </section>
+  <script>
     const open = () => {
       document.querySelector(".modal").classList.remove("hidden");
     }
@@ -57,31 +53,23 @@
     const btn = document.querySelector('.log-out-btn');
     const pop = document.querySelector('.dimm');
     const out = document.querySelector('.cancle-btn');
-
     const logout = document.querySelector('.logout-btn');
 
+    btn.addEventListener('click',viewOption);
+    out.addEventListener('click',cancleOption);
+    logout.addEventListener('click',checkLogout);
 
-        btn.addEventListener('click',viewOption);
-        out.addEventListener('click',cancleOption);
-
-        logout.addEventListener('click',checkLogout);
-
-        function viewOption() {
-            pop.style.display = 'block';
-        }
-        function cancleOption() {
-          pop.style.display = 'none';
-        }
-
-    //     const removeToken = (userToken) => {
-    // localStorage.removeItem("token");
-    // setToken(null);
-
+    function viewOption() {
+      pop.style.display = 'block';
+    }
+    function cancleOption() {
+      pop.style.display = 'none';
+    }   
     function checkLogout(){
       localStorage.removeItem("Token");
-        location.href="./L01.html";
+      location.href="./L01.html";
     }
 
-    </script>
-    </body>
-    </html>  
+  </script>
+</body>
+</html>  

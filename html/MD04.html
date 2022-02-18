@@ -7,86 +7,63 @@
   <title>3.1.16 Modal (희정) 상품 이미지 모달</title>
   <link rel="stylesheet" href="../css/default.css">
 </head>   
-    <body>
-      <!-- 2. 판매 중인 상품 -->
-      <section class="product-sec">
-      <h2 class="sec-title">판매 중인 상품</h2>
+<body>
+  <section class="product-sec">
+    <h2 class="sec-title">판매 중인 상품</h2>
       <ul class="product-list">
         <li class="product-item">
-          <a id="61ffe5409d09d36b21376e24">
-          <!-- <a id="61ffe5409d09d36b21376e24" href="./P05_1.html?prod=61ffe5409d09d36b21376e24"> -->
             <img src="http://146.56.183.55:5050/1644160303600.png" alt="상품 이미지입니다." class="item-img">
             <h3 class="item-tit sl-ellipsis">설명충팝니다</h3>
-            <p class="item-price">9,848,944원</p>
-          </a>
-      </li>
+            <p class="item-price">9,848,944원</p>  
+        </li>
         <li class="product-item">
-          <a id="61ffe4fa9d09d36b21376dd9">
-          <!-- <a id="61ffe4fa9d09d36b21376dd9" href="./P05_1.html?prod=61ffe4fa9d09d36b21376dd9"> -->
             <img src="http://146.56.183.55:5050/1644160226699.png" alt="상품 이미지입니다." class="item-img">
             <h3 class="item-tit sl-ellipsis">삼항연산자 팝니다</h3>
-            <p class="item-price">5,461,546원</p>
-          </a>
-      </li>
-      <li class="product-item">
-        <a id="61ffe4d29d09d36b21376d96">
-          <!-- <a id="61ffe4d29d09d36b21376d96" href="./P05_1.html?prod=61ffe4d29d09d36b21376d96"> -->
+            <p class="item-price">5,461,546원</p> 
+        </li>
+        <li class="product-item">
           <img src="http://146.56.183.55:5050/1644152410629.png" alt="상품 이미지입니다." class="item-img">
           <h3 class="item-tit sl-ellipsis">몽둥이 팝니다</h3>
           <p class="item-price">2,322,323원</p>
-        </a>
-      </li>
-      <li class="product-item">
-        <a id="61ffc6439d09d36b21376297">
-          <!-- <a id="61ffc6439d09d36b21376297" href="./P05_1.html?prod=61ffc6439d09d36b21376297"> -->
+        </li>
+        <li class="product-item">
           <img src="http://146.56.183.55:5050/1644152332998.png" alt="상품 이미지입니다." class="item-img">
           <h3 class="item-tit sl-ellipsis">드모르간팝니다</h3>
           <p class="item-price">10,000,000원</p>
-        </a>
+        </li>
+      </ul>
+  </section>
+  <section class="modal4 hidden">
+    <div class="hidden-menu">
+    <ul class="hidden-menu-list">
+      <li>
+        <button type="button" class="delete-item">삭제</button>
       </li>
-      </ul>
-    </section>
-    
-    <!-- // 2. 판매 중인 상품 -->
-    <section class="modal4 hidden">
-      <div class="hidden-menu">
-      <ul class="hidden-menu-list">
-        <li>
-          <!-- <a href="P01.html">설정 및 개인정보</a> -->
-          <button type="button" class="delete-item">삭제</button>
-        </li>
-        <li>
-          <a class="edit-item">수정</a>
-        </li>
-        <li>
-          <a class="view-item">웹사이트에서 상품 보기</a>
-        </li>
-      </ul>
-      </div>
-    </section>
-    
-  <!-- 게시글을 삭제할까요?? 모달 취소 or 삭제 버튼 -->
+      <li>
+        <a class="edit-item">수정</a>
+      </li>
+      <li>
+        <a class="view-item">웹사이트에서 상품 보기</a>
+      </li>
+    </ul>
+    </div>
+  </section>
   <section class="dimm off">
     <div class="alert-modal">
       <div class="alert-modal-wrap">
         <strong class="alert-msg">삭제하시겠어요?</strong>       
-      <ul class="alert-menu-list">
-        <li>
-          <button type="button" class="cancle-btn">취소</button>
-        </li>
-        <li>
-          <button type="button" class="delete-btn">삭제</button>
-        </li>
-      </ul>
-    </div>
+        <ul class="alert-menu-list">
+          <li>
+            <button type="button" class="cancle-btn">취소</button>
+          </li>
+          <li>
+            <button type="button" class="delete-btn">삭제</button>
+          </li>
+        </ul>
+      </div>
     </div>
   </section>
-
-
-
   <script>
-
-    // 삭제 & 수정 모달 
     const  close4 = () => {
       document.querySelector(".modal4").classList.remove("hidden");
     }
@@ -103,120 +80,88 @@
     const out4 = document.querySelector('.cancle-btn');
     const del4 = document.querySelector('.delete-btn');
     const view4 = document.querySelector('.view-item');
-  
     const edit = document.querySelector('.edit-item');
 
-        btn4.addEventListener('click',viewOption);
-        out4.addEventListener('click',cancleOption);
-        del4.addEventListener('click',cancleOption);
-        view4.addEventListener('click',viewItem);
+    btn4.addEventListener('click',viewOption);
+    out4.addEventListener('click',cancleOption);
+    del4.addEventListener('click',cancleOption);
+    view4.addEventListener('click',viewItem);
+    edit.addEventListener('click',EditOption);
 
-        edit.addEventListener('click',EditOption);
-
-        function viewOption() {
-          pop4.style.display = 'block';
-        }
-        function cancleOption() {
-          pop4.style.display = 'none';
-        }
-         // 게시물 수정 이동 페이지 
-        // function EditOption(){
-        //   const postId = new URLSearchParams(location.search).get('postId'); 
-        //   console.log('test', postId);
-        // location.href=`./U03.html?postId=${postId}`;
-        // }
-
-        const prodList = document.querySelector('.product-list');
-        console.log(prodList);
-        // prodList.foreach(function(el) {
-          prodList.addEventListener('click', (e) => {
-            console.log(e.target);
-            // document.querySelector(".hidden-menu").addEventListener("click", close4); 
-          });
-        // })
-        
-
-        // 상품 수정 이동 페이지 
-        function EditOption(){
-          const productId = document.querySelector(".product-item a").id;
-          // console.log('productId', `./P05_1.html?productId=${productId}`);
-          location.href=`./P05_1.html?productId=${productId}`;
-        }
-
-      //  http://192.168.0.6:5503/html/MD04.html?prod=61ffe5409d09d36b21376e24
-  
-
-      // http://192.168.0.6:5503/html/P05_1.html?prod=61ffe5409d09d36b21376e24
-
-// 61ffc6439d09d36b21376297
-
-// 상품 삭제 
-// 누리 코드
-async function deleteItem(){
-  
-  // 버튼을 누른다 -> 삭제 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
-    const url = 'http://146.56.183.55:5050';
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmNjMjNkOWQwOWQzNmIyMTM2ZTk3MCIsImV4cCI6MTY0OTMzNjMwNiwiaWF0IjoxNjQ0MTUyMzA2fQ.1OxFHxHcN4BV1m_0TzK-t4h8aQ6VIbKs3Z-BM7B94yk';
-
-    const productId = document.querySelector(".product-item a").id;
-    console.log('test', productId);
-
-    try {
-      const res = await fetch( `${url}/product/${productId}`, {
-        method: 'DELETE',
-        headers: {
-          'Authorization' : `Bearer ${token}`,
-          'Content-type' : 'application/json'
-        }
-      });
-      const json = await res.json();
-      console.log(json);
-
-      location.href="./P02.html";
-   
-    } catch(err) {
-      console.log(err);
+    function viewOption() {
+      pop4.style.display = 'block';
     }
-  };
-del4.addEventListener('click', deleteItem);
+    function cancleOption() {
+      pop4.style.display = 'none';
+    }
 
-
-
-
-// http://192.168.0.6:5503/html/P05_1.html?prod=61ffe5409d09d36b21376e24
-
-async function viewItem(){
-  
-  // 버튼을 누른다 -> 상품 상세보기 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
-    const url = 'http://146.56.183.55:5050';
-    const token = localStorage.getItem('Token');
-    // const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmNjMjNkOWQwOWQzNmIyMTM2ZTk3MCIsImV4cCI6MTY0OTMzNjMwNiwiaWF0IjoxNjQ0MTUyMzA2fQ.1OxFHxHcN4BV1m_0TzK-t4h8aQ6VIbKs3Z-BM7B94yk'
-    // const productId = new URLSearchParams(location.search).get('productId'); 
-    const productId = document.querySelector(".product-item a").id;
-    console.log('test' , productId);
-
-    try {
-      
-      const res = await fetch(`${url}/product/detail/${productId}`, {
-        method: 'GET',
-        headers: {
-          'Authorization' : `Bearer ${token}`,
-          'Content-type' : 'application/json'
-        },
-      });
-      console.log('try');
-      const json = await res.json();
-      console.log('결과', json);
+    const prodList = document.querySelector('.product-list');
+    console.log(prodList);
+      prodList.addEventListener('click', (e) => {
+        console.log(e.target);
+    });
         
-  } catch(err) {
-    console.log('catch');
-    console.log(err);
-  }
-};
-view4.addEventListener('click', viewItem);
+
+    // 상품 수정 이동 페이지 
+    function EditOption(){
+      const productId = document.querySelector(".product-item a").id;
+      location.href=`./P05_1.html?productId=${productId}`;
+    }
+
+    // 상품 삭제 
+    // 누리 코드
+    async function deleteItem(){
+  
+    // 버튼을 누른다 -> 삭제 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
+      const url = 'http://146.56.183.55:5050';
+      const token = localStorage.getItem('Token');
+      const productId = document.querySelector(".product-item a").id;
+      console.log('test', productId);
+
+      try {
+        const res = await fetch( `${url}/product/${productId}`, {
+          method: 'DELETE',
+          headers: {
+            'Authorization' : `Bearer ${token}`,
+            'Content-type' : 'application/json'
+          }
+        });
+        const json = await res.json();
+        console.log(json);
+
+        location.href="./P02.html";
+
+      } catch(err) {
+        console.log(err);
+      }
+    };
+  del4.addEventListener('click', deleteItem);
 
 
-
-    </script>
-      </body>
-      </html>
+    async function viewItem(){
+      // 버튼을 누른다 -> 상품 상세보기 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
+      const url = 'http://146.56.183.55:5050';
+      const token = localStorage.getItem('Token');
+      const productId = document.querySelector(".product-item a").id;
+      console.log('test' , productId);
+      try {
+        const res = await fetch(`${url}/product/detail/${productId}`, {
+          method: 'GET',
+          headers: {
+            'Authorization' : `Bearer ${token}`,
+            'Content-type' : 'application/json'
+            },
+          });
+          console.log('try');
+          const json = await res.json();
+          console.log('결과', json);
+            
+      } catch(err) {
+        console.log('catch');
+        console.log(err);
+      }
+    };
+    view4.addEventListener('click', viewItem);
+  </script>
+</body>
+</html>

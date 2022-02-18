@@ -6,28 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>3.1.16 Modal (희정) 채팅방 나가기 모달</title>
   <link rel="stylesheet" href="../css/default.css">
-  </head>
-  
-  <body>
-    <header class="nav nav-chat">
-      <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
-      <p class="sl-ellipsis">애월읍 위니브 감귤농장</p>
-      <button type="button" class="btn-menu chat-menu"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
-    </header>
-  
-    <section class="modal3 hidden">
-      <div class="hidden-menu">
+</head>
+<body>
+  <header class="nav nav-chat">
+    <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
+    <p class="sl-ellipsis">애월읍 위니브 감귤농장</p>
+    <button type="button" class="btn-menu chat-menu"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
+  </header>
+  <section class="modal3 hidden">
+    <div class="hidden-menu">
       <ul class="hidden-menu-list">
         <li>
           <button type="button" class="delete-post">채팅방 나가기</button>
         </li>
       </ul>
-      </div>
-    </section>
-  
-      <section class="dimm off">
-      <div class="alert-modal">
-        <div class="alert-modal-wrap">
+    </div>
+  </section>
+  <section class="dimm off">
+    <div class="alert-modal">
+      <div class="alert-modal-wrap">
           <strong class="alert-msg">채팅방을 나가시겠어요?</strong>       
         <ul class="alert-menu-list">
           <li>
@@ -38,9 +35,8 @@
           </li>
         </ul>
       </div>
-      </div>
+    </div>
   </section>
-
   <script>
     const open3 = () => {
       document.querySelector(".modal3").classList.remove("hidden");
@@ -56,17 +52,17 @@
     const pop3 = document.querySelector('.dimm');
     const out3 = document.querySelector('.cancle-btn');
 
-        btn3.addEventListener('click',viewOption);
-        out3.addEventListener('click',cancleOption);
+    btn3.addEventListener('click',viewOption);
+    out3.addEventListener('click',cancleOption);
 
-        function viewOption() {
-            console.log(pop3);
-            pop3.style.display = 'block';
-        }
-        function cancleOption() {
-          pop3.style.display = 'none';
-        }
-    </script>
-    </body>
-    </html>  
+    function viewOption() {
+        console.log(pop3);
+        pop3.style.display = 'block';
+    }
+    function cancleOption() {
+      pop3.style.display = 'none';
+    }
+  </script>
+</body>
+</html>  
   

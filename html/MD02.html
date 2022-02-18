@@ -1,120 +1,112 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
+<head> 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>3.1.16 Modal (희정) 내가 작성한 게시글일 경우 : 삭제, 수정 버튼 </title>
   <link rel="stylesheet" href="../css/default.css">
-  </head>
-  <body>
-      <!-- 게시판 유저 메뉴 버튼   -->
-        <div class="home-post-user ">
-          <img class="user-profile" src="../assets/small-profile-img.png" alt="회원 프로필">
-          <h4 class="user-name">애월읍 위니브 감귤농장</h4>
-          <p class="user-id">@ weniv_Mandarin</p>
-          <button type="button" class="btn-menu user-menu"><img src="../assets/icon/icon-more-vertical.png"
-              alt="메뉴 열기"></button>
-        </div>
-    
-        <section class="modal2 hidden">
-          <div class="hidden-menu">
-          <ul class="hidden-menu-list">
-            <li>
-              <button type="button" class="delete-post">삭제</button>
-            </li>
-            <li>
-              <a class="edit-post">수정</a>
-            </li>
-          </ul>
-          </div>
-        </section>
-    
-      <section class="dimm off">
-      <div class="alert-modal">
-        <div class="alert-modal-wrap">
-          <strong class="alert-msg">게시글을 삭제할까요?</strong>       
-        <ul class="alert-menu-list">
+</head>
+<body>
+  <div class="home-post-user ">
+    <img class="user-profile" src="../assets/small-profile-img.png" alt="회원 프로필">
+    <h4 class="user-name">애월읍 위니브 감귤농장</h4>
+    <p class="user-id">@ weniv_Mandarin</p>
+    <button type="button" class="btn-menu me-post-btn">
+      <img src="../assets/icon/icon-more-vertical.png"alt="메뉴 열기">
+    </button>
+  </div>
+  <section class="modal2 me-post-hidden">
+    <div class="me-post-hidden-menu">
+      <ul class="me-post-hidden-menu-list">
+        <li> 
+          <button type="button" class="me-delete-post">삭제</button>
+        </li>
+        <li>
+          <a class="me-edit-post">수정</a>
+        </li>
+      </ul>
+    </div>
+  </section>    
+  <section class="me-post-dimm me-post-off">
+    <div class="me-post-alert-modal">
+      <div class="me-post-alert-modal-wrap">
+        <strong class="me-post-alert-msg">게시글을 삭제할까요?</strong>       
+        <ul class="me-post-alert-menu-list">
           <li>
-            <button type="button" class="cancle-btn">취소</button>
-          
+            <button type="button" class="me-post-cancle-btn">취소</button> 
           </li>
           <li>
-            <button type="button" class="delete-btn">삭제</button>
+            <button type="button" class="me-post-delete-btn">삭제</button>
           </li>
         </ul>
       </div>
-      </div>
-      </section>
+    </div>
+  </section>
       
   <script>
     const open2 = () => {
-      document.querySelector(".modal2").classList.remove("hidden");
+      document.querySelector(".modal2").classList.remove("me-post-hidden");
     }
     const close2 = () => {
-      document.querySelector(".modal2").classList.add("hidden");   
+      document.querySelector(".modal2").classList.add("me-post-hidden");   
     }  
 
-    document.querySelector(".user-menu").addEventListener("click", open2);
-    document.querySelector(".hidden-menu").addEventListener("click", close2); 
+    document.querySelector(".me-post-btn").addEventListener("click", open2);
+    document.querySelector(".me-post-hidden-menu").addEventListener("click", close2); 
 
-    const btn2 = document.querySelector('.delete-post');
-    const pop2 = document.querySelector('.dimm');
-    const out2 = document.querySelector('.cancle-btn');
-    const del2 = document.querySelector('.delete-btn');
+    const btn2 = document.querySelector('.me-delete-post');
+    const pop2 = document.querySelector('.me-post-dimm');
+    const out2 = document.querySelector('.me-post-cancle-btn');
+    const del2 = document.querySelector('.me-post-delete-btn');
 
-    const editPost = document.querySelector('.edit-post');
+    const editPost = document.querySelector('.me-edit-post');
 
-        btn2.addEventListener('click',viewOption);
-        out2.addEventListener('click',cancleOption);
-        del2.addEventListener('click',cancleOption);
+    btn2.addEventListener('click',viewOption);
+    out2.addEventListener('click',cancleOption);
+    del2.addEventListener('click',cancleOption);
 
-        editPost.addEventListener('click',EditOption);
+    editPost.addEventListener('click',EditOption);
 
-        function viewOption() {
-            console.log(pop2);
-            pop2.style.display = 'block';
-        }
-        function cancleOption() {
-          pop2.style.display = 'none';
-        }
+    function viewOption() {
+      console.log(pop2);
+      pop2.style.display = 'block';
+    }
+    function cancleOption() {
+      pop2.style.display = 'none';
+    }
 
-        // 게시물 수정 이동 페이지 
-        function EditOption(){
-          const postId = new URLSearchParams(location.search).get('postId'); 
-          console.log('test', postId);
-      location.href=`./U03.html?postId=${postId}`;
-        }
+    // 게시물 수정 이동 페이지 
+    function EditOption(){
+      const postId = new URLSearchParams(location.search).get('postId'); 
+      console.log('test', postId);
+      location.href=`./mypostedit.html?postId=${postId}`;
+    }
+
     
-
-
-   // http://127.0.0.1:5503/html/MD02.html?postId=61ff60609d09d36b213726f0
-    // 게시물 삭제 
-    // 게시물 임시 url 
-
-    const postId = new URLSearchParams(location.search).get('postId'); 
-    
-    
-    //상품 삭제 API (삭제 버튼 .delete-btn)  상품 삭제 되있는지 확인 상품이 없다 - 상품 등록이 안됨 
-
-    // const del2 = document.querySelector('.delete-btn');
-
     async function deletePost(){
       
       // 버튼을 누른다 -> 삭제 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
-        const url = 'http://146.56.183.55:5050';
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmNjMjNkOWQwOWQzNmIyMTM2ZTk3MCIsImV4cCI6MTY0OTI2MDUzNiwiaWF0IjoxNjQ0MDc2NTM2fQ.dgflqthibSYSMd5p6EXqd-IdeHts0tv9fmLJjh-GOt4'
-
-        try {
-          const res = await fetch( `${url}/post/${postId}`, {
-            method: 'DELETE',
-            headers: {
-              'Authorization' : `Bearer ${token}`,
-              'Content-type' : 'application/json'
-            }
-          });
-          const json = await res.json();
-          console.log(json);
+      const url = 'http://146.56.183.55:5050';
+      // token이 어떻게 생기나요 왜 생기나요 
+      // 회원가입 - 고유의 계정임을 증명하기 위해서 token
+      // 회원마다 token이 다르다 
+      // token은 어디에 저장되나 -> 개발자도구 - 애플리케이션 - 개발자도구 
+      // 저장된 곳에서 불러와서 쓰면 되잖아요 
+      // 로컬스토리지에서 꺼내와서 쓰면 되잖아요 
+      const token = localStorage.getItem('Token');
+      const postId = new URLSearchParams(location.search).get('postId'); 
+        
+      try {
+        const res = await fetch( `${url}/post/${postId}`, {
+          method: 'DELETE',
+          headers: {
+            'Authorization' : `Bearer ${token}`,
+            'Content-type' : 'application/json'
+          }
+        });
+        const json = await res.json();
+        console.log(json);
     
             
       } catch(err) {
@@ -122,11 +114,7 @@
       }
     };
     del2.addEventListener('click', deletePost);
-
-
-
- 
-    </script>
-  </body>
-  </html>  
+  </script>
+</body>
+</html>  
   

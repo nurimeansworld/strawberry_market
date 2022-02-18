@@ -120,7 +120,11 @@
 
 
 /* MD01-06.html 모달 창 공통 CSS  */
-.hidden-menu {
+.hidden-menu , 
+.me-post-hidden-menu,
+.other-post-hidden-menu,
+.other-cmt-hidden-menu,
+.me-cmt-hidden-menu{
   position: fixed;
   top: 0;
   left: 0;
@@ -130,22 +134,27 @@
   z-index: 20;
 }
 
-.hidden-menu .hidden-menu-list {
+.hidden-menu .hidden-menu-list , 
+.me-post-hidden-menu .me-post-hidden-menu-list,
+.other-post-hidden-menu .other-post-hidden-menu-list,
+.other-cmt-hidden-menu .other-cmt-hidden-menu-list,
+.me-cmt-hidden-menu .me-cmt-hidden-menu-list{
   height: auto;
   width: 100%;
   padding: 36px 0 16px;
-} 
-
-.hidden-menu .hidden-menu-list {
   position: absolute;
   bottom: 0;
   background: #fff;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  transition: all .4s;
-}
+} 
 
-.hidden-menu .hidden-menu-list::before {
+.hidden-menu .hidden-menu-list::before,
+.me-post-hidden-menu .me-post-hidden-menu-list::before,
+.other-post-hidden-menu .other-post-hidden-menu-list::before,
+.other-cmt-hidden-menu .other-cmt-hidden-menu-list::before,
+.me-cmt-hidden-menu .me-cmt-hidden-menu-list::before
+{
 position: absolute;
 content: "";
 top: 16px;
@@ -157,12 +166,21 @@ border-radius: 5px;
 transform: translateX(-50%);
 }
 
-.hidden-menu .hidden-menu-list li {
+.hidden-menu .hidden-menu-list li,
+.me-post-hidden-menu .me-post-hidden-menu-list li,
+.other-post-hidden-menu .other-post-hidden-menu-list li,
+.other-cmt-hidden-menu .other-cmt-hidden-menu-list li,
+.me-cmt-hidden-menu .me-cmt-hidden-menu-list li{
 display: flex;
 padding-left: 26px;
 }
 
-.hidden-menu .hidden-menu-list a, .hidden-menu .hidden-menu-list button {
+.hidden-menu .hidden-menu-list a, .hidden-menu .hidden-menu-list button ,
+.me-post-hidden-menu .me-post-hidden-menu-list a , .me-post-hidden-menu .me-post-hidden-menu-list button,
+.other-post-hidden-menu .other-post-hidden-menu-list a , .other-post-hidden-menu .other-post-hidden-menu-list button,
+.other-cmt-hidden-menu .other-cmt-hidden-menu-list a , .other-cmt-hidden-menu .other-cmt-hidden-menu-list button,
+.me-cmt-hidden-menu .me-cmt-hidden-menu-list a, .me-cmt-hidden-menu .me-cmt-hidden-menu-list button{
+
 display: flex;
 align-items: center;
 width: 100%;
@@ -173,21 +191,54 @@ line-height: 18px;
 background-color: #fff;
 }
 
-.hidden {                                                                   
-display: none;
+.hidden , 
+.me-post-hidden,
+.other-post-hidden,
+.other-cmt-hidden,
+.me-cmt-hidden
+{
+  display: none;
 }
 
-.dimm .alert-modal {
+.me-post-alert-modal,
+.other-post-alert-modal,
+.other-cmt-alert-modal,
+.me-cmt-alert-modal {
+  background-color: #fff;
+  width: 252px;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+}
+
+.dimm .alert-modal ,
+.me-post-dimm .me-post-alert-modal,
+.other-post-dimm .other-post-alert-modal,
+.other-cmt-dimm .other-cmt-alert-modal,
+.me-cmt-dimm .me-cmt-alert-modal{
 display: flex;
 justify-content: center;
 align-items: center;
 }
-.alert-modal .alert-modal-wrap {
+
+.alert-modal .alert-modal-wrap , 
+.me-post-alert-modal .me-post-alert-modal-wrap,
+.other-post-alert-modal .other-post-alert-modal-wrap,
+.other-cmt-alert-modal .other-cmt-alert-modal-wrap,
+.me-cmt-alert-modal .me-cmt-alert-modal-wrap
+ {
 width: 100%;  
 border-radius: 10px;
 }
 
-.alert-modal .alert-msg {
+.alert-modal .alert-msg, 
+.me-post-alert-modal .me-post-alert-msg,
+.other-post-alert-modal .other-post-alert-msg,
+.other-cmt-alert-modal .other-cmt-alert-msg,
+.me-cmt-alert-modal .me-cmt-alert-msg {
 display: block;
 padding: 22px 0;
 font-weight: 500;
@@ -196,17 +247,29 @@ line-height: 20px;
 text-align: center;
 }
 
-.alert-modal .alert-menu-list {
+.alert-modal .alert-menu-list , 
+.me-post-alert-modal .me-post-alert-menu-list,
+.other-post-alert-modal .other-post-alert-menu-list,
+.other-cmt-alert-modal .other-cmt-alert-menu-list,
+.me-cmt-alert-modal .me-cmt-alert-menu-list {
 display: flex;
 width: 100%;
 border-top: 0.5px solid #DBDBDB;
 }
 
-.alert-modal .alert-menu-list li {
+.alert-modal .alert-menu-list li, 
+.me-post-alert-modal .me-post-alert-menu-list li,
+.other-post-alert-modal .other-post-alert-menu-list li,
+.other-cmt-alert-modal .other-cmt-alert-menu-list li,
+.me-cmt-alert-modal .me-cmt-alert-menu-list li {
 width: 50%;
 }
 
-.alert-modal .alert-menu-list button {
+.alert-modal .alert-menu-list button,
+.me-post-alert-modal .me-post-alert-menu-list button,
+.other-post-alert-modal .other-post-alert-menu-list button,
+.other-cmt-alert-modal .other-cmt-alert-menu-list button,
+.me-cmt-alert-modal .me-cmt-alert-menu-list button {
 width: 100%;
 height: 46px;
 font-weight: 400;
@@ -214,14 +277,21 @@ font-size: 14px;
 line-height: 18px;
 background-color: white;
 border-bottom-right-radius: 10px;
-/* border-bottom-left-radius: 10px; */
 }
 
-.off {
+.off, 
+.me-post-off, 
+.other-post-off,
+.other-cmt-off,
+.me-cmt-off {
 display: none;
 }
 
-.dimm {
+.dimm, 
+.me-post-dimm,
+.other-post-dimm,
+.other-cmt-dimm,
+.me-cmt-dimm {
 position: fixed;
   top: 0;
   left: 0;
@@ -232,7 +302,12 @@ position: fixed;
 }
 
 /* 팝업창CSS */
-.alert-modal .alert-menu-list .cancle-btn {
+.alert-modal .alert-menu-list .cancle-btn ,
+.me-post-alert-modal .me-post-alert-menu-list .me-post-cancle-btn,
+.other-post-alert-modal .other-post-alert-menu-list .other-post-cancle-btn,
+.other-cmt-alert-modal .other-cmt-alert-menu-list .other-cmt-cancle-btn,
+.me-cmt-alert-modal .me-cmt-alert-menu-list .me-cmt-cancle-btn
+{
 border-bottom-left-radius: 10px;
 }
 
@@ -241,7 +316,9 @@ border-left: 0.5px solid #DBDBDB;
 color: #E26E7E
 }
 
-.alert-modal .alert-menu-list .delete-btn {
+.alert-modal .alert-menu-list .delete-btn,
+.me-post-alert-modal .me-post-alert-menu-list .me-post-delete-btn,
+.me-cmt-delete-btn {
   border-left: 0.5px solid #DBDBDB;
   color: #E26E7E
 }
@@ -251,7 +328,9 @@ color: #E26E7E
   color: #E26E7E
 }
 
-.alert-modal .alert-menu-list .call-btn {
+.alert-modal .alert-menu-list .call-btn, 
+.other-post-call-btn, 
+.other-cmt-call-btn {
   border-left: 0.5px solid #DBDBDB;
   color: #E26E7E
 }

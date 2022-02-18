@@ -7,137 +7,96 @@
   <title>3.1.16 Modal (희정) 다른 사용자가 작성한 댓글 : 신고하기 모달 </title>
   <link rel="stylesheet" href="../css/default.css">
 </head>
-<style>
- 
-</style>
 <body>
-
-      <div class="home-post-user">
-        <img class="user-profile" src="../assets/small-profile-img.png" alt="회원 프로필">
-        <h4 class="user-name">애월읍 위니브 감귤농장</h4>
-        <p class="comment-text">별로</p>
-        <li class="comment-item">
-          <a id= "620328789d09d36b213a7939"></a>
-        <button type="button" class="btn-menu other-user-comment"><img src="../assets/icon/icon-more-vertical.png"
-            alt="메뉴 열기"></button>  
-          </li>
-      </div>
-
-      <!-- <li class="comment-item" data-user="love" data-id="620328789d09d36b213a7939">
-        <div class="comment-author-info">
-            <a href="/profile/love">
-                <img src="http://146.56.183.55:5050/Ellipse.png" alt="love님의 프로필사진" class="profile-img">
-            </a>
-            <a href="/profile/love" class="author-name-link">
-                <strong class="author-name">딸기가 좋아</strong>
-            </a>
-            <span class="comment-date">5시간</span>
-        </div>
-        <p class="comment-text">별로</p>
-        <button class="btn-menu other-user-comment"><span class="ir">더보기 버튼</span></button>
-    </li> -->
-
-
-          
-    <section class="modal6 hidden">
-      <div class="hidden-menu">
-      <ul class="hidden-menu-list">
+  <div class="home-post-user">
+    <img class="user-profile" src="../assets/small-profile-img.png" alt="회원 프로필">
+    <h4 class="user-name">애월읍 위니브 감귤농장</h4>
+    <p class="comment-text">내용</p>
+    <li class="comment-item">
+      <button type="button" class="btn-menu other-cmt-btn">
+        <img src="../assets/icon/icon-more-vertical.png"alt="메뉴 열기">
+      </button>  
+    </li>
+  </div>        
+  <section class="modal6 other-cmt-hidden">
+    <div class="other-cmt-hidden-menu">
+      <ul class="other-cmt-hidden-menu-list">
         <li>
-          <button type="button" class="call-post">신고하기</button>
+          <button type="button" class="other-cmt-call-post">신고하기</button>
         </li>
       </ul>
+    </div>
+  </section>  
+  <section class="other-cmt-dimm other-cmt-off">
+    <div class="other-cmt-alert-modal">
+      <div class="other-cmt-alert-modal-wrap">
+        <strong class="other-cmt-alert-msg">신고하시겠어요?</strong>       
+        <ul class="other-cmt-alert-menu-list">
+          <li>
+            <button type="button" class="other-cmt-cancle-btn">취소</button>
+          </li>
+          <li>
+            <button type="button" class="other-cmt-call-btn">신고</button>
+          </li>
+        </ul>
       </div>
-    </section>
-  
-    <section class="dimm off">
-      <div class="alert-modal">
-        <div class="alert-modal-wrap">
-          <strong class="alert-msg">신고하시겠어요?</strong>       
-          <ul class="alert-menu-list">
-            <li>
-              <button type="button" class="cancle-btn">취소</button>
-            </li>
-            <li>
-              <button type="button" class="call-btn">신고</button>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
+    </div>
+  </section>
   <script>
     const open6 = () => {
-      document.querySelector(".modal6").classList.remove("hidden");
+      document.querySelector(".modal6").classList.remove("other-cmt-hidden");
     }
     const close6 = () => {
-      document.querySelector(".modal6").classList.add("hidden");   
+      document.querySelector(".modal6").classList.add("other-cmt-hidden");   
     }  
   
-  document.querySelector(".other-user-comment").addEventListener("click", open6);
-  document.querySelector(".hidden-menu").addEventListener("click", close6); 
+    document.querySelector(".other-cmt-btn").addEventListener("click", open6);
+    document.querySelector(".other-cmt-hidden-menu").addEventListener("click", close6); 
 
-  const btn6 = document.querySelector('.call-post');
-  const pop6 = document.querySelector('.dimm');
-  const out6 = document.querySelector('.cancle-btn');
-  const call6 = document.querySelector('.call-btn');
+    const btn6 = document.querySelector('.other-cmt-call-post');
+    const pop6 = document.querySelector('.other-cmt-dimm');
+    const out6 = document.querySelector('.other-cmt-cancle-btn');
+    const call6 = document.querySelector('.other-cmt-call-btn');
 
-      btn6.addEventListener('click',viewOption);
-      out6.addEventListener('click',cancleOption);
-      call6.addEventListener('click',cancleOption);
+    btn6.addEventListener('click',viewOption);
+    out6.addEventListener('click',cancleOption);
+    call6.addEventListener('click',cancleOption);
 
-      function viewOption() {
-          pop6.style.display = 'block';
-      }
-      function cancleOption() {
-        pop6.style.display = 'none';
-      }
-
-
-  //http://127.0.0.1:5503/html/MD06.html?postId=6202a3fb9d09d36b213a721e
-  // 별로 댓글
-  //댓글 신고 
+    function viewOption() {
+      pop6.style.display = 'block';
+    }
+    function cancleOption() {
+      pop6.style.display = 'none';
+    }
 
     const postId = new URLSearchParams(location.search).get('postId');
     console.log('postId',postId);
 
-        // 게시글 삭제 예시 
-    // const productId = document.querySelector(".product-item a").id;
-    // console.log('test', productId);
-    
-    // commentId연결 안됨 
-   
 
-// const callAlert = document.querySelector('.call-btn');
+    async function callPost(){
+      
+      // 버튼을 누른다 -> 삭제 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
+      const url = 'http://146.56.183.55:5050';
+      const token = localStorage.getItem('Token');
+      const commentId = new URLSearchParams(location.search).get('commentId'); 
 
-async function callPost(){
-  
-  // 버튼을 누른다 -> 삭제 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
-    const url = 'http://146.56.183.55:5050';
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmNjMjNkOWQwOWQzNmIyMTM2ZTk3MCIsImV4cCI6MTY0OTMzNjMwNiwiaWF0IjoxNjQ0MTUyMzA2fQ.1OxFHxHcN4BV1m_0TzK-t4h8aQ6VIbKs3Z-BM7B94yk'
-    const commentId = document.querySelector(".comment-item a").id;
-    console.log('test',commentId);
-
-
-    try {
-      const res = await fetch( `${url}/post/${postId}/comments/${commentId}/report`, {
-        method: 'POST',
-        headers: {
-          'Authorization' : `Bearer ${token}`,
-          'Content-type' : 'application/json'
-        }
-      });
-      const json = await res.json();
-      console.log(json);
-        
-  } catch(err) {
-    console.log(err);
-  }
-};
-call6.addEventListener('click', callPost);
-
-
+      try {
+        const res = await fetch( `${url}/post/${postId}/comments/${commentId}/report`, {
+          method: 'POST',
+          headers: {
+            'Authorization' : `Bearer ${token}`,
+            'Content-type' : 'application/json'
+          }
+        });
+        const json = await res.json();
+        console.log(json);
+            
+      } catch(err) {
+        console.log(err);
+      }
+    };
+    call6.addEventListener('click', callPost);
   </script>
-  </body>
-  
-  </html>  
+</body>
+</html>  
   

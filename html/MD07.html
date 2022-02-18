@@ -8,115 +8,93 @@
   <link rel="stylesheet" href="../css/default.css">
 </head>
 <body>
-    <!-- 게시판 유저 메뉴 버튼   -->
-    <div class="home-post-user">
-      <img class="user-profile" src="../assets/small-profile-img.png" alt="회원 프로필">
-      <h4 class="user-name">애월읍 위니브 감귤농장</h4>
-      <p class="comment-text">별로</p>
-      <li class="comment-item">
-        <a id= "620386a29d09d36b213a86e8"></a>
-      <button type="button" class="btn-menu me-comment"><img src="../assets/icon/icon-more-vertical.png"
-          alt="메뉴 열기"></button>  
-        </li>
-    </div>
-  
-    <section class="modal7 hidden">
-      <div class="hidden-menu">
-      <ul class="hidden-menu-list">
+  <div class="home-post-user">
+    <img class="user-profile" src="../assets/small-profile-img.png" alt="회원 프로필">
+    <h4 class="user-name">애월읍 위니브 감귤농장</h4>
+    <p class="comment-text">별로</p>
+    <li class="comment-item">
+      <button type="button" class="btn-menu me-cmt-btn">
+        <img src="../assets/icon/icon-more-vertical.png"alt="메뉴 열기">
+      </button>  
+    </li>
+  </div>
+  <section class="modal7 me-cmt-hidden">
+    <div class="me-cmt-hidden-menu">
+      <ul class="me-cmt-hidden-menu-list">
         <li>
-          <button type="button" class="delete-post">삭제</button>
+          <button type="button" class="me-cmt-delete-post">삭제</button>
         </li>
       </ul>
+    </div>
+  </section> 
+  <section class="me-cmt-dimm me-cmt-off">
+    <div class="me-cmt-alert-modal">
+      <div class="me-cmt-alert-modal-wrap">
+        <strong class="me-cmt-alert-msg">댓글을 삭제하시겠어요?</strong>       
+        <ul class="me-cmt-alert-menu-list">
+          <li>
+            <button type="button" class="me-cmt-cancle-btn">취소</button>
+          </li>
+          <li>
+            <button type="button" class="me-cmt-delete-btn">삭제</button>
+          </li>
+        </ul>
       </div>
-    </section>
-  
-    <section class="dimm off">
-      <div class="alert-modal">
-        <div class="alert-modal-wrap">
-          <strong class="alert-msg">댓글을 삭제하시겠어요?</strong>       
-          <ul class="alert-menu-list">
-            <li>
-              <button type="button" class="cancle-btn">취소</button>
-            </li>
-            <li>
-              <button type="button" class="delete-btn">삭제</button>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
+    </div>
+  </section>
   <script>
     const open7 = () => {
-      document.querySelector(".modal7").classList.remove("hidden");
+      document.querySelector(".modal7").classList.remove("me-cmt-hidden");
     }
     const close7 = () => {
-      document.querySelector(".modal7").classList.add("hidden");   
+      document.querySelector(".modal7").classList.add("me-cmt-hidden");   
     }  
   
-  document.querySelector(".me-comment").addEventListener("click", open7);
-  document.querySelector(".hidden-menu").addEventListener("click", close7); 
+    document.querySelector(".me-cmt-btn").addEventListener("click", open7);
+    document.querySelector(".me-cmt-hidden-menu").addEventListener("click", close7); 
 
-  const btn7 = document.querySelector('.delete-post');
-  const pop7 = document.querySelector('.dimm');
-  const out7 = document.querySelector('.cancle-btn');
-  const call7 = document.querySelector('.delete-btn');
+    const btn7 = document.querySelector('.me-cmt-delete-post');
+    const pop7 = document.querySelector('.me-cmt-dimm');
+    const out7 = document.querySelector('.me-cmt-cancle-btn');
+    const call7 = document.querySelector('.me-cmt-delete-btn');
 
-      btn7.addEventListener('click',viewOption);
-      out7.addEventListener('click',cancleOption);
-      call7.addEventListener('click',cancleOption);
+    btn7.addEventListener('click',viewOption);
+    out7.addEventListener('click',cancleOption);
+    call7.addEventListener('click',cancleOption);
 
-      function viewOption() {
-          pop7.style.display = 'block';
-      }
-      function cancleOption() {
-        pop7.style.display = 'none';
-      }
-
-
-
-      // 61f634b29d09d36b2135d24e
-  //http://127.0.0.1:5503/html/MD07.html?postId=61f634b29d09d36b2135d24e
-  //댓글 삭제 
-
-    const postId = new URLSearchParams(location.search).get('postId');
-    console.log('postId',postId);
-    
-    const commentId = new URLSearchParams(location.search).getAll('commentId');
-    console.log('commentId',commentId);
-
-// const callAlert = document.querySelector('.call-btn');
-
-async function callPost(){
+    function viewOption() {
+        pop7.style.display = 'block';
+    }
+    function cancleOption() {
+      pop7.style.display = 'none';
+    }
   
-  // 버튼을 누른다 -> 삭제 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
-    const url = 'http://146.56.183.55:5050';
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmNjMjNkOWQwOWQzNmIyMTM2ZTk3MCIsImV4cCI6MTY0OTI2MDUzNiwiaWF0IjoxNjQ0MDc2NTM2fQ.dgflqthibSYSMd5p6EXqd-IdeHts0tv9fmLJjh-GOt4'
-    const commentId = document.querySelector(".comment-item a").id;
-    console.log('test',commentId);
 
-    try {
-      const res = await fetch( `${url}/post/${postId}/comments/${commentId}`, {
-        method: 'DELETE',
-        headers: {
-          'Authorization' : `Bearer ${token}`,
-          'Content-type' : 'application/json'
-        }
-      });
-      const json = await res.json();
-      console.log(json);
-        
-  } catch(err) {
-    console.log(err);
-  }
-};
-call7.addEventListener('click', callPost);
+    async function callPost(){
+      
+      // 버튼을 누른다 -> 삭제 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
+      const url = 'http://146.56.183.55:5050';
+      const token = localStorage.getItem('Token');
+      const postId = new URLSearchParams(location.search).get('postId');
+      const commentId = new URLSearchParams(location.search).get('commentId');
 
-
-
-
+      try {
+        const res = await fetch( `${url}/post/${postId}/comments/${commentId}`, {
+          method: 'DELETE',
+          headers: {
+            'Authorization' : `Bearer ${token}`,
+            'Content-type' : 'application/json'
+          }
+        });
+        const json = await res.json();
+        console.log(json);
+          
+      } catch(err) {
+        console.log(err);
+      }
+    };
+    call7.addEventListener('click', callPost);
   </script>
-  </body>
-  
-  </html>  
+</body>  
+</html>  
   
