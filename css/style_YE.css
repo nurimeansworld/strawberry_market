@@ -21,7 +21,7 @@
 
 /* 게시글 li 시작! */
 .home-post-user {
-    padding: 20px 5px 0 5px;
+    padding-top: 20px;
 }
 
 .home-post-user .user-profile {
