@@ -4,193 +4,134 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>게시글 작성 페이지 - 딸기마켓</title>
+  <title>게시물 수정 | 딸기마켓</title>
+  <link rel="shortcut icon" href="../assets/favicon.ico" />
   <link rel="stylesheet" href="../css/default.css">
 </head>
 <style>
-  /* .photo-list{
-    width: 304px;
-  } */
-
-  .upload-photo-list li {
-    /* position: relative; */
-    border-radius: 10px;
-    width: 304px;
-    height: 228px;
-    overflow: hidden;
-    /* border: 0.5px solid var(--border-color); */
-    margin-top: 30px;
-}
-  .post-txt-input {
-    padding: 10px 0px 0 10px;
-    width: 100%;
-  }
-
-  input, textarea {
-    outline: none;
-    border: none;
-}
 </style>
+
 <body>
   <div class="nav nav-upload">
     <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
     <button type="button" class="upload-btn">업로드</button>
   </div>
   <section class="upload container">
-    <a id="62025f5a9d09d36b213a6df7"></a>
     <h2 class="sr-only">게시글을 작성해주세요.</h2>
     <form action="javascript:void(0)" method="post" class="upload-form">
-      <img src="../assets/small-profile-img.png" alt="프로필 사진" class="profile-img">
-      
-      <form class="post-form" autocomplete="off">
-        <textarea name="text" class="post-txt-input" data-value="0">
-       
-        </textarea>
-        <label for="file-sync" class="upload-img">이미지 업로드 버튼입니다.</label>
+      <img src="" alt="프로필 사진" class="profile-img">
+      <label for="txt-sync" class="sr-only">게시글 입력창입니다.</label>
+      <textarea id="txt-sync" cols="40" rows="6" maxlength="140" placeholder="게시글 입력하기..."
+        class="upload-txt"></textarea>
+      <label for="file-sync" class="upload-img">이미지 업로드 버튼입니다.</label>
       <input type="file" id="file-sync" accept=".png, .jpg, .jpeg" class="upload-input">
     </form>
-      <section class="upload-photo-list">
-        <!-- <h4 class="ir">추가된 사진</h4> -->
-        <ul class="photo-list">
-            <li>
-                <img src="http://146.56.183.55:5050/1644322649801.jpeg" alt="">
-                <!-- <button type="button" class="img-remove">
-                    <span class="ir">이미지 삭제</span>
-                </button> -->
-            </li>
-        </ul>
-    </section>
-      <!-- <label for="file-sync" class="upload-img">이미지 업로드 버튼입니다.</label>
-      <input type="file" id="file-sync" accept=".png, .jpg, .jpeg" class="upload-input"> -->
-    </form>
-
-      <!-- js 기능 구현 -->
+    <div class="img-container">
+      <div></div>
     </div>
   </section>
 
   <script>
-    uploadBtn = document.querySelector('.upload-btn');
-
-    // 게시물 이미지 업로드  판단
-    async function reqProdData() {
+    const profileImg = document.querySelector('.profile-img')
+    const postTxt = document.querySelector('.upload-txt');
+    const uploadInput = document.querySelector('.upload-input');
+    const imgContainer = document.querySelector('.img-container');
+    
+    // 수정할 게시물의 내용을 화면에 뿌리기 
+    async function renderPost() {
       const url = 'http://146.56.183.55:5050';
-      const token = localStorage.getItem('Token');
-      // const originNum = parseInt(prodPrice.value.replace(/,/gi, ""));
-      // const prodId = checkProdId();
-      const productId = document.querySelector(".upload a").id;
-      console.log('prodId', productId);
-
-      const prodData = {
-        "product": {
-          // "itemName": prodName.value,
-          // "price": originNum,
-          // "link": prodLink.value,
-          // "itemImage": prodImgHidden.value
-        }
-      }
-      const init = {
-        method: 'PUT',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-type': 'application/json'
-        },
-        body: JSON.stringify(prodData)
-      }
+      const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmNjMjNkOWQwOWQzNmIyMTM2ZTk3MCIsImV4cCI6MTY0OTI2MDUzNiwiaWF0IjoxNjQ0MDc2NTM2fQ.dgflqthibSYSMd5p6EXqd-IdeHts0tv9fmLJjh-GOt4'
+      // const token = localStorage.getItem('Token');
+      const postId = new URLSearchParams(location.search).get('postId'); 
 
       try {
-        const resProdData = await fetch(`${url}/product/${productId}`, init);
-        const resProdDataJson = await resProdData.json();
+        const res = await fetch( `${url}/post/${postId}`, {
+          method: 'GET',
+          headers: {
+            'Authorization' : `Bearer ${token}`,
+            'Content-type' : 'application/json'
+          }, 
+        });
+        const json = await res.json();
+        console.log(json);
 
-        if (resProdDataJson.status != 422) {
-          location.href = "./P02.html"
-        } else {
-          console.error(resProdDataJson);
-        }
-      } catch (err) {
-        console.error(err);
-      }
-    }
-    uploadBtn.addEventListener('click', reqProdData);
+        // json으로 받아온 데이터를 화면에 render(화면에 뿌림)
+        // 화면에 뿌릴 내용(데이터)과 접근법
+        // 1. 프로필이미지: post - author - image 
+        // 2. 글 : post - content 
+        // 3. 이미지 : post - image 
+        // 데이터를 가져오는 법 
+        // 1. 변수 선언 
+        // 2. 변수의 값으로 데이터를 할당한다. 
+        const src = json.post.author.image;
+        const content = json.post.content;
+        const jsonImg = json.post.image.split(',');
+        console.log(src);
+        console.log(content);
+        console.log(jsonImg);
 
-    // 게시글 정보 받아와서 뿌려주기
-    function setProdData(resProdDataJson) {
-      // const price = resProdDataJson.product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-
-      document.querySelector('.prod-img-wrap').style.background = `url(${resProdDataJson.product.itemImage}) center center / cover`;
-      document.querySelector('#prodImgHidden').value = resProdDataJson.product.itemImage;
-      document.querySelector('.prod-name-input').value = resProdDataJson.product.itemName;
-      // document.querySelector('.prod-price-input').value = price;
-      document.querySelector('.prod-link-input').value = resProdDataJson.product.link;
-
-      // 사진
-      document.querySelector('.profile-img').value = resProdDataJson.product.image;
-      // 컨텐츠
-      document.querySelector('.post-txt-input').value = resProdDataJson.product.content;
-      
-    }
-
-    async function getProdData() {
-      const url = 'http://146.56.183.55:5050';
-      const token = localStorage.getItem('Token');
-      // const prodId = checkProdId();
-      const productId = document.querySelector(".upload a").id;
-    console.log('test', productId);
-      const init = {
-        method: 'GET',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-type': 'application/json'
-        },
-      }
-
-      try {
-        const resProdData = await fetch(`${url}/product/detail/${productId}`, init);
-        const resProdDataJson = await resProdData.json();
-
-        setProdData(resProdDataJson);
-      } catch (err) {
-        console.error(err);
-      }
-    }
-    getProdData();
-    async function editPost(){
-      
-      // 버튼을 누른다 -> 수정 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
-        const url = 'http://146.56.183.55:5050';
-
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmNjMjNkOWQwOWQzNmIyMTM2ZTk3MCIsImV4cCI6MTY0OTI2MDUzNiwiaWF0IjoxNjQ0MDc2NTM2fQ.dgflqthibSYSMd5p6EXqd-IdeHts0tv9fmLJjh-GOt4'
-        const postId = new URLSearchParams(location.search).get('postId'); 
-
-        try {
-          const res = await fetch( `${url}/post/${postId}`, {
-            method: 'PUT',
-            headers: {
-              'Authorization' : `Bearer ${token}`,
-              'Content-type' : 'application/json'
-            },
-            body:JSON.stringify({
-              "post": {
-                "content": content.value,
-                "image": image.value  
-              }
-            })
+        // 받아온 데이터를 동적으로!!!! 화면에 뿌려야 된다고요.. 
+        profileImg.setAttribute('src', src);
+        postTxt.textContent = content;
+        if(jsonImg.length >= 1 && jsonImg[0] !== '') { 
+          jsonImg.map((src) => {
+            // 업로드 이미지 
+            const imgItem = document.createElement('div');
+            imgItem.className = 'img-item';
+            imgItem.setAttribute("style", `background-image: url(${src})`);
+            imgContainer.appendChild(imgItem);
+            // 이미지 삭제 버튼
+            const closeBtn = document.createElement('button');
+            closeBtn.className = 'close-btn';
+            imgItem.appendChild(closeBtn);
+            closeBtn.addEventListener('click', () => {
+              // 버튼이 이미지에 달려있음 -> 눌러진 버튼이 달려있는 이미지가 jsonImg 배열에서 빠져야 해요
+              closeBtn
+              // imgItem 얘도 사라져야 합니다.
             
+            });
           });
-          const json = await res.json();
-          console.log(json);
-        
+        }
+      } catch(err) {
+        console.log(err);
+      }
+    }
+    renderPost();
 
-            
+    // 게시물을 수정한 후에 서버에 전송
+    async function editPost(){     
+    // 버튼을 누른다 -> 수정 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
+      const url = 'http://146.56.183.55:5050';
+      const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmNjMjNkOWQwOWQzNmIyMTM2ZTk3MCIsImV4cCI6MTY0OTI2MDUzNiwiaWF0IjoxNjQ0MDc2NTM2fQ.dgflqthibSYSMd5p6EXqd-IdeHts0tv9fmLJjh-GOt4'
+      const postId = new URLSearchParams(location.search).get('postId'); 
+
+      try {
+        const res = await fetch( `${url}/post/${postId}`, {
+          method: 'PUT',
+          headers: {
+            'Authorization' : `Bearer ${token}`,
+            'Content-type' : 'application/json'
+          },
+          body:JSON.stringify({
+            "post": {
+              "content": postTxt.value,
+              "image": postImg.value  
+            }
+          })
+          
+        });
+        const json = await res.json();
+        console.log(json);
       } catch(err) {
         console.log(err);
       }
     };
-
-
-
   </script>
-  <script src="../js/U02.js"></script>
+
 </body>
 </html>
 
-<!-- http://192.168.0.6:5503/html/U03.html?postId=62025f5a9d09d36b213a6df7 -->
+
+
+
+<!-- http://172.30.1.46:5503/pages/mypostedit.html?postId=620d38789d09d36b214960f8 -->

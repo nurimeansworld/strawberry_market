@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>게시물 수정 | 딸기마켓</title>
+  <link rel="shortcut icon" href="../assets/favicon.ico" />
+  <link rel="stylesheet" href="../css/default.css">
+</head>
+<body>
+  <div class="nav nav-upload">
+    <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
+    <button type="button" class="upload-btn">업로드</button>
+  </div>
+  <section class="upload container">
+    <h2 class="sr-only">게시글을 작성해주세요.</h2>
+    <form action="javascript:void(0)" method="post" class="upload-form">
+      <img src="" alt="프로필 사진" class="profile-img">
+      <label for="txt-sync" class="sr-only">게시글 입력창입니다.</label>
+      <textarea id="txt-sync" cols="40" rows="6" maxlength="140" placeholder="게시글 입력하기..."
+        class="upload-txt"></textarea>
+      <label for="file-sync" class="upload-img">이미지 업로드 버튼입니다.</label>
+      <input type="file" id="file-sync" accept=".png, .jpg, .jpeg" class="upload-input">
+    </form>
+    <div class="img-container">
+      <div></div>
+    </div>
+  </section>
+  <script src="../js/mypostedit.js"></script>
+</body>
+</html>
+
+
+
+<!-- http://172.30.1.46:5503/pages/mypostedit.html?postId=620d38789d09d36b214960f8 -->
