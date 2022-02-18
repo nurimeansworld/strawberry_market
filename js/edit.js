@@ -88,9 +88,11 @@ async function reqProdData() {
     if (resProdDataJson.status != 422) {
       location.href = "./myprofile.html"
     } else {
+      location.href="./404.html";
       console.error(resProdDataJson);
     }
   } catch (err) {
+    location.href="./404.html";
     console.error(err);
   }
 }
@@ -124,6 +126,7 @@ async function getProdData() {
 
     setProdData(resProdDataJson);
   } catch (err) {
+    location.href="./404.html";
     console.error(err);
   }
 }

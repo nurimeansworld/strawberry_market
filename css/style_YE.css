@@ -61,7 +61,17 @@
   height: 100%;
   padding: 16px 16px 16px 54px;
 }
-
+.home-post-content .post-img-contr::-webkit-scrollbar { 
+  width: 100px; 
+  height: 10px; 
+}
+.home-post-content .post-img-contr::-webkit-scrollbar-thumb { 
+  background-color: var(--enabled-color); 
+  border-radius: 10px; 
+} 
+.home-post-content .post-img-contr::-webkit-scrollbar-track { 
+  background-color: white; 
+}
 .home-post-content .user-cont {
   margin-bottom: 5px;
   font-size: 14px;

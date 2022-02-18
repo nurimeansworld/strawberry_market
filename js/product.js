@@ -96,9 +96,11 @@ async function reqProdData() {
         location.href = "./myprofile.html"
       }
     } else {
+      location.href="./404.html";
       console.error(resProdDataJson);
     }
   } catch (err) {
+    location.href="./404.html";
     console.error(err);
   }
 }

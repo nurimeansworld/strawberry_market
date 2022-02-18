@@ -83,6 +83,7 @@ async function getFollowing() {
 
     setFollowing(resJson);
   } catch (err) {
+    location.href="./404.html";
     console.error('err', err);
   }
 }

@@ -95,6 +95,7 @@ async function checkAccountnamevalid() {
       saveBtn.disabled = true;
     }
   } catch (err) {
+    location.href="./404.html";
     console.error(err);
   }
 }
@@ -131,6 +132,7 @@ async function reqEditProfile() {
       location.href = "./myprofile.html"
     }
   } catch (err) {
+    location.href="./404.html";
     console.error(err);
   }
 }
@@ -166,6 +168,7 @@ async function getEditUserProfile() {
 
     setEditUserProfile(editUserProfile);
   } catch (err) {
+    location.href="./404.html";
     console.error(err);
   }
 }
