@@ -26,9 +26,9 @@
 
 .home-post-user .user-profile {
   float: left;
-  width: 36px;
-  height: 36px;
-  margin-right: 11px;
+  width: 42px;
+  height: 42px;
+  margin-right: 12px;
   border: 1px solid var(--cancel-color-border);
   border-radius: 50px;
 }
