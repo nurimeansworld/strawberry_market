@@ -6,10 +6,11 @@ const postComment = document.querySelector('.post-comment');
 const commentInp = document.querySelector('.comment-input');
 const commentBtn = document.querySelector('.comment-btn');
 const commentForm = document.querySelector('.comment-form');
+const commentList = document.querySelector('.comment-list');
 
-//MEMO:: 여러 async function에서 써야하는 변수는 let으로 미리 선언
-let accountName;
-let commentId;
+//MEMO:: 현재 클릭한 댓글의 accountName과 commentId를 저장할 변수 선언 
+let curAccountName;
+let curCommentId;
 
 
 // 게시글 불러오기 
@@ -171,17 +172,18 @@ async function renderCommentList() {
       }
     });
     const json = await res.json();
-
+    console.log(json);
     // render
     json.comments.map(element => {
+      // accountName = '';
       const profileImg = element.author.image;
       const userName = element.author.username;
-      accountName = element.author.accountname;
+      const accountName = element.author.accountname;
+      console.log(`mapping 후 accountName: ${accountName}`);
       const content = element.content;
       const createdAt = element.createdAt;
-      commentId = element.id;
-
-      const commentList = document.querySelector('.comment-list');
+      const commentId = element.id;
+      
       const listItem = document.createElement('li');
       const itemWrap = document.createElement('div');
       const a = document.createElement('a');
@@ -211,12 +213,14 @@ async function renderCommentList() {
       img2.setAttribute('alt', '메뉴 열기')
       commentContent.textContent = content;
 
-      btnMenu.addEventListener('click', showModal);
+      // MEMO:: 전역의 curAccountName과 curCommendId 값을 클릭한 댓글의 accountName과 commentId로 변경
+      btnMenu.addEventListener('click', () => {
+        console.log(`댓글 모달 클릭 후 해당 accountName 확인: ${accountName}`)
+        curAccountName = accountName;
+        curCommentId = commentId;
+        commentModal();
+      });
 
-      // btnMenu.addEventListener('click', (e) => {
-      //   open6();
-      // })
-      
       commentList.appendChild(listItem);
       listItem.appendChild(itemWrap);
       itemWrap.appendChild(a);
@@ -233,8 +237,6 @@ async function renderCommentList() {
   }
 };
 renderCommentList();
-
-
 
 
 // 댓글 작성자의 프로필 이미지 동적으로 받아오기
@@ -308,21 +310,18 @@ async function sendComment(e) {
     console.error(err);
   }
 };
-
 commentBtn.addEventListener('click', sendComment);
 commentForm.addEventListener('submit', sendComment);
 
-// 댓글에 모달 붙이기 
+
 // 내가 작성한 댓글이면 -> 삭제 / 남이 쓴 거면 -> 신고
 // 구별법: 로컬스토리지에 있는 accountName과 댓글의 accountName 같은지 확인 
-
-
-async function callPost(){  
+async function reqReport(){  
   const url = 'http://146.56.183.55:5050';
   const token = localStorage.getItem('Token');
 
   try {
-    const res = await fetch(`${url}/post/${postId}/comments/${commentId}/report`, {
+    const res = await fetch(`${url}/post/${postId}/comments/${curCommentId}/report`, {
       method: 'POST',
       headers: {
         'Authorization' : `Bearer ${token}`,
@@ -335,42 +334,71 @@ async function callPost(){
     console.log(err);
   }
 };
+async function reqDelete(){
+  const url = 'http://146.56.183.55:5050';
+  const token = localStorage.getItem('Token');
+  const postId = new URLSearchParams(location.search).get('postId');
+  const commentId = new URLSearchParams(location.search).get('commentId');
 
-function showModal() {
-  if(accountName === localStorage.getItem('accountname')) {
+  try {
+    const res = await fetch( `${url}/post/${postId}/comments/${curCommentId}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization' : `Bearer ${token}`,
+        'Content-type' : 'application/json'
+      }
+    });
+    const json = await res.json();
+    console.log(json);
+  } catch(err) {
+    console.log(err);
+  }
+};
+
+const modalBg = document.querySelector('.modal-background');
+const btmModal = document.querySelector('.bottom-modal');
+const btmModalBtn = document.querySelector('.bottom-modal-btn');
+const alertModal = document.querySelector('.modal-background .alert-modal');
+console.log(alertModal);
+const alertTit = document.querySelector('.alert-tit');
+const alertBtns = document.querySelector('.alert-btns');
+const cancelBtn = document.querySelector('.alert-cancel-btn');
+const multiBtn = document.querySelector('.alert-multi-btn');
+
+function commentModal() {
+  if(curAccountName === localStorage.getItem('accountname')) {
     console.log('내가쓴댓글이야 - 삭제');
+    modalBg.style.display = 'block';
+    btmModal.style.display = 'block';
+    btmModalBtn.textContent = '삭제';
+    btmModalBtn.addEventListener('click', () => {
+      btmModal.style.display = 'none';
+      alertModal.style.display = 'block';
+    });
+    alertTit.textContent = '댓글을 삭제하시겠습니까';
+    multiBtn.textContent = '삭제';
+    multiBtn.className = 'alert-delete-btn';
+    cancelBtn.addEventListener('click', () => {
+      modalBg.style.display = 'none';
+      alertModal.style.display = 'none';
+    });
+    multiBtn.addEventListener('click', reqDelete);
   } else {
     console.log('내가쓴거아니야 - 신고');
-    open6();
-    call6.addEventListener('click', callPost);
+    modalBg.style.display = 'block';
+    btmModal.style.display = 'block';
+    btmModalBtn.textContent = '신고';
+    btmModalBtn.addEventListener('click', () => {
+      btmModal.style.display = 'none';
+      alertModal.style.display = 'block';
+    });
+    alertTit.textContent = '신고하시겠습니까';
+    multiBtn.textContent = '신고';
+    multiBtn.className = 'alert-delete-btn';
+    cancelBtn.addEventListener('click', () => {
+      modalBg.style.display = 'none';
+      alertModal.style.display = 'none';
+    });
+    multiBtn.addEventListener('click', reqReport);
   }
 }
-
-// 신고하기 모달(희정님 담당) 
-const open6 = () => {
-  document.querySelector(".modal6").classList.remove("hidden");
-}
-const close6 = () => {
-  document.querySelector(".modal6").classList.add("hidden");   
-}  
-
-document.querySelector(".report-menu").addEventListener("click", close6); 
-
-const btn6 = document.querySelector('.call-post');
-const pop6 = document.querySelector('.report-dim');
-const out6 = document.querySelector('.cancle-btn');
-const call6 = document.querySelector('.call-btn');
-
-btn6.addEventListener('click',viewOption);
-out6.addEventListener('click',cancleOption);
-call6.addEventListener('click',cancleOption);
-
-function viewOption() {
-  pop6.style.display = 'block';
-}
-function cancleOption() {
-  pop6.style.display = 'none';
-}
-
-
-// call6.addEventListener('click', callPost);

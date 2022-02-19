@@ -13,7 +13,7 @@
     <button type="button" class="btn-back"><img src="../assets/icon/icon-arrow-left.png" alt="뒤로가기"></button>
     <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
   </header>
-  <section class="post-detail">
+  <section class="post-detail container">
     <h2 class="sr-only">클릭한 게시글 내용입니다.</h2>
     <li class="home-post"></li>
   </section>
@@ -59,56 +59,21 @@
       </div>
     </div>
   </section>
-  <!-- 댓글 모달 - 삭제(희정님 담당) -->
-  <!-- <section class="modal7 hidden">
-    <div class="hidden-menu">
-    <ul class="hidden-menu-list">
-      <li>
-        <button type="button" class="delete-post">삭제</button>
-      </li>
-    </ul>
+  <!-- 모달 -->
+  <div class="modal-background">
+    <h2 class="sr-only">댓글의 상태를 변경합니다.</h2>
+    <div class="bottom-modal">
+      <button class="bottom-modal-btn"></button>
     </div>
-  </section>
-  <section class="dimm off">
     <div class="alert-modal">
-      <div class="alert-modal-wrap">
-        <strong class="alert-msg">댓글을 삭제하시겠어요?</strong>       
-        <ul class="alert-menu-list">
-          <li>
-            <button type="button" class="cancle-btn">취소</button>
-          </li>
-          <li>
-            <button type="button" class="delete-btn">삭제</button>
-          </li>
-        </ul>
+      <p class="alert-tit"></p>
+      <div class="alert-btns">
+        <button class="alert-cancel-btn">취소</button>
+        <button class="alert-multi-btn"></button>
       </div>
     </div>
-  </section> -->
-  <!-- 댓글 모달 - 신고(희정님 담당) -->
-  <section class="modal6 hidden">
-    <div class="hidden-menu report-menu">
-    <ul class="hidden-menu-list report-menu-list">
-      <li>
-        <button type="button" class="call-post">신고하기</button>
-      </li>
-    </ul>
-    </div>
-  </section>
-  <section class="dimm2 off report-dim">
-    <div class="alert-modal report-modal">
-      <div class="alert-modal-wrap report-modal-wrap">
-        <strong class="alert-msg">신고하시겠어요?</strong>       
-        <ul class="alert-menu-list">
-          <li>
-            <button type="button" class="cancle-btn">취소</button>
-          </li>
-          <li>
-            <button type="button" class="call-btn">신고</button>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
+  </div>
+
   <script src="../js/script.js"></script>
   <script src="../js/postdetail.js"></script>
   <!-- <a href="https://www.flaticon.com/kr/free-icons/" title="딸기 아이콘">딸기 아이콘 제작자: Freepik - Flaticon</a> -->
