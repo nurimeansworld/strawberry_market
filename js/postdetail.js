@@ -11,6 +11,7 @@ const commentList = document.querySelector('.comment-list');
 //MEMO:: 현재 클릭한 댓글의 accountName과 commentId를 저장할 변수 선언 
 let curAccountName;
 let curCommentId;
+let curListitem;
 
 
 // 게시글 불러오기 
@@ -218,6 +219,7 @@ async function renderCommentList() {
         console.log(`댓글 모달 클릭 후 해당 accountName 확인: ${accountName}`)
         curAccountName = accountName;
         curCommentId = commentId;
+        curListitem = listItem;
         commentModal();
       });
 
@@ -316,6 +318,16 @@ commentForm.addEventListener('submit', sendComment);
 
 // 내가 작성한 댓글이면 -> 삭제 / 남이 쓴 거면 -> 신고
 // 구별법: 로컬스토리지에 있는 accountName과 댓글의 accountName 같은지 확인 
+const modalBg = document.querySelector('.modal-background');
+const btmModal = document.querySelector('.bottom-modal');
+const btmModalBtn = document.querySelector('.bottom-modal-btn');
+const alertModal = document.querySelector('.modal-background .alert-modal');
+console.log(alertModal);
+const alertTit = document.querySelector('.alert-tit');
+const alertBtns = document.querySelector('.alert-btns');
+const cancelBtn = document.querySelector('.alert-cancel-btn');
+const multiBtn = document.querySelector('.alert-multi-btn');
+
 async function reqReport(){  
   const url = 'http://146.56.183.55:5050';
   const token = localStorage.getItem('Token');
@@ -330,6 +342,8 @@ async function reqReport(){
     });
     const json = await res.json();
     console.log(json);
+    modalBg.style.display = 'none';
+    alertModal.style.display = 'none';
   } catch(err) {
     console.log(err);
   }
@@ -350,20 +364,14 @@ async function reqDelete(){
     });
     const json = await res.json();
     console.log(json);
+    modalBg.style.display = 'none';
+    alertModal.style.display = 'none';
+    commentList.removeChild(curListitem)
   } catch(err) {
     console.log(err);
   }
 };
 
-const modalBg = document.querySelector('.modal-background');
-const btmModal = document.querySelector('.bottom-modal');
-const btmModalBtn = document.querySelector('.bottom-modal-btn');
-const alertModal = document.querySelector('.modal-background .alert-modal');
-console.log(alertModal);
-const alertTit = document.querySelector('.alert-tit');
-const alertBtns = document.querySelector('.alert-btns');
-const cancelBtn = document.querySelector('.alert-cancel-btn');
-const multiBtn = document.querySelector('.alert-multi-btn');
 
 function commentModal() {
   if(curAccountName === localStorage.getItem('accountname')) {
