@@ -350,9 +350,8 @@
 
 .post-comment .comment-list {
   padding-bottom: 60px;
-  /* CHECK:: 일단 거꾸로! */
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
 }
 
 .comment-list .list-item {
