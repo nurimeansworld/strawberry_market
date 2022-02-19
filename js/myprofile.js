@@ -53,6 +53,7 @@ async function deleteItem(){
     location.href="./myprofile.html";
 
   } catch(err) {
+    location.href="./404.html";
     console.error(err);
   }
 };
@@ -78,6 +79,7 @@ async function viewItem(){
     const json = await res.json();
     window.open(json.product.link);
   } catch(err) {
+    location.href="./404.html";
     console.error(err);
   }
 };
@@ -338,6 +340,7 @@ async function getUserProfile() {
 
     setUserPost(userPost, userProfile);
   } catch (err) {
+    location.href="./404.html";
     console.error('err', err);
   }
 }

@@ -275,6 +275,7 @@ async function getOtherProfile() {
 
     setOtherPost(otherPost, otherProfile);
   } catch (err) {
+    location.href="./404.html";
     console.error('err', err);
   }
 }
