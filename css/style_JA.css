@@ -63,6 +63,29 @@
   padding: 0;
   font-size: inherit;
 }
+/* CHECK:: postdetail의 up-modal 클래스명 bottom-modal로 변경함, 기능 구현 후 하나로 통일 */
+.bottom-modal {
+  width: 100%;
+  background-color: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  position: absolute;
+  bottom: 0;
+  background-image: url(../assets/indicator.png);
+  background-repeat: no-repeat;
+  background-position: 50% 15px;
+  background-size: 50px 4px;
+  display: none;
+}
+.bottom-modal .bottom-modal-btn {
+  line-height: 46px;
+  padding: 36px 0 5px 26px;
+  font-size: 14px;
+  cursor: pointer;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+}
 
 /* comment (3.1.10 게시글 댓글 페이지) 시작 */
 .comment-upload {
@@ -191,6 +214,7 @@
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 30;
   display: none;
 }
 
@@ -204,6 +228,7 @@
   transform: translate(-50%, -50%);
   box-sizing: border-box;
   display: none;
+  z-index: 40;
 }
 
 .alert-modal .alert-tit {
@@ -325,7 +350,6 @@
 
 .post-comment .comment-list {
   padding-bottom: 60px;
-  /* CHECK:: 일단 거꾸로! */
   display: flex;
   flex-direction: column-reverse;
 }
