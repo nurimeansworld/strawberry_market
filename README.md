@@ -36,7 +36,7 @@
 
 ## <span id="dev">2. 개발 환경 및 배포 URL</span>
 ### 개발 환경
-- Front : HTML & CSS & Vanilla JS
+- Front : HTML, CSS, Vanilla JS
 - Back : 제공된 API 사용
 - 버전 관리 및 이슈 : 🔗[GitHub](https://github.com/nurimeansworld/strawberry_market), 🔗[GitHub Issues](https://github.com/nurimeansworld/strawberry_market/issues), 🔗[GitHub Project](https://github.com/nurimeansworld/strawberry_market/projects/1)
 - 서비스 배포 환경 : [🔗 GitHub Pages](https://github.com/nurimeansworld/strawberry_market/deployments)
@@ -49,6 +49,7 @@ URL : 🔗 https://nurimeansworld.github.io/strawberry_market/pages
 - assets/ : 이미지, 파비콘, 아이콘 등
 - html/ : 개발용 html 디렉토리
 - pages/ : 서비스용 html 디렉토리
+- js/ : pages의 html과 매칭되는 JS 디렉토리. script.js는 pages 공통으로 사용되는 함수가 등록된 파일
 
 ```bash
 |  README.md
@@ -116,6 +117,8 @@ URL : 🔗 https://nurimeansworld.github.io/strawberry_market/pages
 
 <img src="https://user-images.githubusercontent.com/92960723/153541899-7a566b69-f9f6-4e34-846c-112ff6dfa35a.png">
 
+### 🛠 공통 담당
+  - splash 페이지, 로그인 페이지, 회원가입 페이지
 ### 🙋‍♀️ 박누리
   - 🔗[github/nurimeansworld](https://github.com/nurimeansworld)
   - 프로필 페이지, 팔로잉 페이지, 상품 등록 페이지, 상품 수정 페이지
