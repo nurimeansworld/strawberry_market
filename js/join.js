@@ -190,7 +190,10 @@ async function joinUser(e) {
       })
     });
     const json = await res.json();
-    // console.log(json);
+    if(json.type == 'entity.too.large'){
+      console.error(json.message);
+      alert('이미지 용량이 너무 큽니다.');
+    }
     if(json.message === "회원가입 성공") {
       window.location.href ="./login.html"
     }

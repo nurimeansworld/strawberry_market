@@ -127,6 +127,10 @@ async function reqEditProfile() {
     const resEditProfile = await fetch(`${url}/user`, init);
     const resEditProfileJson = await resEditProfile.json();
 
+    if(resEditProfileJson.type == 'entity.too.large'){
+      console.error(resEditProfileJson.message);
+      alert('이미지 용량이 너무 큽니다.');
+    }
     if (resEditProfileJson.status != 422) {
       localStorage.setItem("accountname", editId.value);
       location.href = "./myprofile.html"
