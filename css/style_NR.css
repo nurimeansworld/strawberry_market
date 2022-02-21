@@ -226,13 +226,25 @@
 .post-btn-album.on{
   background: url(../assets/icon/icon-post-album-on.png) no-repeat;
 }
-
 .post-list-sec{
   margin: 16px;
   display: none;
 }
 .post-list-sec.on{
   display: block;
+}
+.post-list-sec .post-img-list::-webkit-scrollbar {
+  width: 100px;
+  height: 10px;
+}
+
+.post-list-sec .post-img-list::-webkit-scrollbar-thumb {
+  background-color: var(--enabled-color);
+  border-radius: 10px;
+}
+
+.post-list-sec .post-img-list::-webkit-scrollbar-track {
+  background-color: white;
 }
 .post-album-sec{
   margin: 16px;
