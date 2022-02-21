@@ -256,11 +256,18 @@
 
 .post-album-list{
   display: grid;
-  grid-template-columns: repeat(3, minmax(114px, 33%));
+  /* grid-template-columns: repeat(3, minmax(114px, 33%)); */
+  grid-template-columns: repeat(3, 114px);
+  justify-content: center;
   gap: 8px;
 }
-.post-album-item.multi{
+.post-album-item{
   position:relative;
+  height: 114px;
+}
+.post-album-item img{
+  height: 100%;
+  object-fit: cover;
 }
 .post-album-item.multi::before{
   margin: 6px;
