@@ -111,9 +111,23 @@ function setOtherImgPost(otherImgPost) {
   const fragement = document.createDocumentFragment();
   const postAlbumList = document.querySelector('.post-album-list');
   for (const imgPost of otherImgPost) {
+    const imgString = imgPost.image;
+    const imgArr = imgString.split(',');
+    console.log('imgArr',imgArr);
+    if(imgArr.length == 1){
+      // 이미지 1개
+      imgUrl = imgArr[0];
+      imgClass = '';
+      console.log(imgUrl);
+    }else{
+      // 이미지 여러개
+      imgUrl = imgArr[0];
+      imgClass = 'multi';
+    }
     const postAlbumItem = document.createElement('li');
-    postAlbumItem.setAttribute('class', 'post-album-item');
-    postAlbumItem.innerHTML = `<a href="./postdetail.html?postId=${imgPost.id}"><img src="${imgPost.image}" alt=""></a>`;
+    postAlbumItem.setAttribute('class', `post-album-item ${imgClass}`);
+    postAlbumItem.innerHTML = `<a href="./postdetail.html?postId=${imgPost.id}"><img src="${imgUrl}" alt="게시글 이미지 입니다."></a>`;
+    console.log('postAlbumItem', postAlbumItem);
     fragement.appendChild(postAlbumItem);
   }
   postAlbumList.appendChild(fragement);
