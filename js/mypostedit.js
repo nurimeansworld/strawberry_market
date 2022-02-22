@@ -5,6 +5,9 @@ const imgContainer = document.querySelector('.img-container');
 const uploadBtn = document.querySelector('.upload-btn');
 
 const imgFiles = []; 
+// 0. 전역 변수로 imgfiles을 빈 배열로 선언한다.
+
+// 게시글 상세 api
 // 수정할 게시물의 내용을 화면에 뿌리기 
 async function renderPost() {
   const url = 'http://146.56.183.55:5050';
@@ -38,25 +41,32 @@ async function renderPost() {
     console.log(content);
     console.log(jsonImg);
 
-    // 받아온 데이터를 동적으로!!!! 화면에 뿌려야 된다고요.. 
-    profileImg.setAttribute('src', src);
+    //받아온 데이터를 동적으로!!!! 화면에 뿌려야 된다고요.. 
+    profileImg.setAttribute('src', src); // 요소의 속성값 설정
     postTxt.textContent = content;
+    
     if(jsonImg.length >= 1 && jsonImg[0] !== '') { 
+      console.log(jsonImg);
       jsonImg.map((src) => {
         // 업로드 이미지 
         const imgItem = document.createElement('div');
         imgItem.className = 'img-item';
         imgItem.setAttribute("style", `background-image: url(${src})`);
         imgContainer.appendChild(imgItem);
-        // 이미지 삭제 버튼
+           // child 자식요소에 접근
+
+        // 기존 이미지 삭제 버튼
         const closeBtn = document.createElement('button');
         closeBtn.className = 'close-btn';
         imgItem.appendChild(closeBtn);
         closeBtn.addEventListener('click', () => {
-          // 버튼이 이미지에 달려있음 -> 눌러진 버튼이 달려있는 이미지가 jsonImg 배열에서 빠져야 해요
-          // imgFiles.splice([...imgContainer.children].indexOf(imgItem), 1);  
+          // 버튼이 이미지에 달려있음 -> 눌러진 버튼이 달려있는 이미지가 jsonImg 배열에서 빠져야 해요 
+          // index값 기준으로 splice 요소 제거
+          jsonImg.splice([...imgContainer.children].indexOf(imgItem), 1);  
           // imgItem 얘도 사라져야 합니다.
           imgContainer.removeChild(imgItem);
+          // 화면상으로는 없어지기는 하나 배열에서 빠지지 않은 상태 
+          console.log(imgFiles);
         });
       });
     }
@@ -66,7 +76,9 @@ async function renderPost() {
 }
 renderPost();
 
-// 이미지 업로드 (지아님코드)
+
+
+//이미지 업로드 (지아님코드)
 async function uploadImg(file) {
   const formData = new FormData();
   formData.append("image", file);
@@ -79,25 +91,26 @@ async function uploadImg(file) {
   return productImgName;
 }
 
-
-
+// 게시글 수정 api
 // 게시물을 수정한 후에 서버에 전송
 async function editPost(){     
 // 버튼을 누른다 -> 수정 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
   const url = 'http://146.56.183.55:5050';
-  // const token = localStorage.getItem('Token');
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmNjMjNkOWQwOWQzNmIyMTM2ZTk3MCIsImV4cCI6MTY0OTI2MDUzNiwiaWF0IjoxNjQ0MDc2NTM2fQ.dgflqthibSYSMd5p6EXqd-IdeHts0tv9fmLJjh-GOt4'
+  const token = localStorage.getItem('Token');
+  // const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmNjMjNkOWQwOWQzNmIyMTM2ZTk3MCIsImV4cCI6MTY0OTI2MDUzNiwiaWF0IjoxNjQ0MDc2NTM2fQ.dgflqthibSYSMd5p6EXqd-IdeHts0tv9fmLJjh-GOt4'
   const postId = new URLSearchParams(location.search).get('postId'); 
   const files = uploadInput.files;
-  if(imgFiles.length > 3) {
+  if(imgFiles.length > 3) {  //이미지 파일 3장이상이면 
     alert('이미지 파일은 최대 3장까지만 가능합니다.');
   } else {
     const imgUrls = [];
     for (const file of imgFiles) {
-      imgUrls.push(`${url}/${await uploadImg(file)}`);
+      imgUrls.splice(`${url}/${await uploadImg(file)}`); //배열요소 추가하거나 제거  splice
     }
       console.log('imgUrls', imgUrls);
   }
+
+  
   try {
     const res = await fetch( `${url}/post/${postId}`, {
       method: 'PUT',
@@ -108,13 +121,18 @@ async function editPost(){
       body:JSON.stringify({
         "post": {
           "content": postTxt.value,
-          "image": imgFiles.value 
+          "image": imgFiles    // imgcontainer , imgUrls imgItem jsonImg uploadImg
+          //이미지 추가시에 이미지 url을 post할 배열에 넣으세요??! 
+          // 3. createPost()에서 imgFiles의 요소를 서버로 post할 imgUrls에 담는다.
+          // 4. 서버에 imgUrls을 보낸다. 여기서 문제인가?
         }
       })
       
     });
     const json = await res.json();
     console.log(json);
+
+
     location.href = '../pages/myprofile.html';
   } catch(err) {
     console.log(err);
@@ -125,18 +143,17 @@ uploadBtn.addEventListener('click', editPost)
 
 
 
-
-
 // 사진 미리보기 (지아님코드)
 function readInputFile(e){
   const files = e.target.files;
   const fileArr = [...files];
   const index = 0;
-  fileArr.forEach(file => imgFiles.push(file));
-  console.log(imgFiles);
-  
+
+  // 파일 추가됨 
+  fileArr.forEach(file => imgFiles.push(file)); // 베열끝 요소추가 
+  console.log(imgFiles); // 추가한 이미지 생김
   fileArr.forEach(function(i) {
-    if(files.length <= 3){
+    if(files.length < 3){
       const reader = new FileReader();
       reader.onload = function(e) {
         const imgItem = document.createElement('div');
@@ -144,15 +161,19 @@ function readInputFile(e){
         imgItem.className = 'img-item';
         imgContainer.appendChild(imgItem);
         e.target.value = '';
-
+        
+        // 추가된 이미지 삭제 버튼
+        // 2. readInputFile()에서 업로드한 이미지의 삭제 버튼을 누르면 미리보기에서 삭제되고 imgFiles에서도 삭제된다 
         const closeBtn = document.createElement('button');
         closeBtn.className = 'close-btn';
         imgItem.appendChild(closeBtn);
         closeBtn.addEventListener('click',function(){
           // MEMO:: imgFiles에서 삭제, 미리보기에 삭제
           imgFiles.splice([...imgContainer.children].indexOf(imgItem), 1);
+          // → 몇번 째에 있는 이미지를 삭제하는 건지 구별해야 한다. 이미지의 index값 기준으로 삭제해야 한다.
           imgContainer.removeChild(imgItem);
           console.log(imgFiles);
+          // 추가한 이미지가 화면에서 삭제는 되나 배열에서 빠지지 않음 
         });
       };
       reader.readAsDataURL(i);
@@ -161,3 +182,10 @@ function readInputFile(e){
 }
 
 uploadInput.addEventListener('change',readInputFile);
+// 1. readInputFile()에서 uploadInput 업로드한 파일을 imgFiles에 담는다. 
+
+
+
+
+
+//  http://172.30.1.4:5503/pages/mypostedit.html?postId=6214bd519d09d36b215042cd -->
