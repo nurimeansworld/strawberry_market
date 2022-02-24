@@ -94,6 +94,7 @@
   bottom: 0;
   width: 100%;
   background-color: #fff;
+  padding: 0 16px;
 }
 
 .comment-upload .comment-form {

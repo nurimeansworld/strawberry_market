@@ -85,6 +85,7 @@
   width: 110px;
   height: 110px;
   border-radius: 50%;
+  font-size: 10px;
 }
 .profile-follow{
   min-width: 77%;
@@ -311,7 +312,9 @@
   align-content: baseline;
 }
 .user-follow-bar .user-image{
+  border: 0.5px solid #DBDBDB;
   border-radius: 25px;
+  font-size: 10px;
 }
 .user-follow-bar .user-follow-info{
   width: calc(100% - 62px);
