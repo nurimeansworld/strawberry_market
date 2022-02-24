@@ -212,12 +212,12 @@
 
 .home-main-init {
   max-width: 100%;
-  height: 85vh;
-  background-color: #fff;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 .feed-cont {
   padding: 48px 0 61px 0;
