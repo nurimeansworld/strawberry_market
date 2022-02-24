@@ -142,7 +142,7 @@
   display: flex;
   font-size: small;
   color: #767676;
-  margin-left: 60px;
+  margin-left: 55px;
 }
 
 /* 버튼묶음 */
@@ -180,6 +180,9 @@
   z-index: 10; */
 }
 
+.heart-count, .message-count {
+  color: var(--cancel-color-text)
+}
 
 .date {
   margin: 15px 0 10px 60px;
@@ -221,7 +224,7 @@
   padding-bottom: 20px;
 }
 .feed-cont {
-  padding: 48px 0 61px 0;
+  padding: 44px 16px 55px 16px;
 }
 
 .home-main-init .home-init-message {
@@ -361,6 +364,7 @@ ul .chat-cont-sender :nth-child(2) {
   padding: 5px;
   position: relative;
 }
+
 
 .chat-cont-me .chat-user-profile {
   position: absolute;
