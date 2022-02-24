@@ -1,10 +1,36 @@
-// follow 상태 변경
-function changeFollow(){
+// follow, unfollow 상태 변경
+async function changeFollow(){
+  // const url = 'https://api.mandarin.cf';
+  const url = 'http://146.56.183.55:5050';
+  const accountName = checkAccountName();
+  const token = localStorage.getItem('Token');
+  const init = {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-type': 'application/json'
+    },
+  }
   if(this.className === 'medium-follow-btn'){
+    try {
+      const resFollow = await fetch(`${url}/profile/${accountName}/follow`, init);
+      const resFollowJson = await resFollow.json();
+    }catch(err){
+      console.error('err', err);
+    }
+
     this.classList.remove('medium-follow-btn');
     this.classList.add('medium-unfollow-btn');
     this.textContent = '언팔로우';
   }else{
+    try {
+      init['method'] = 'DELETE';
+      const resUnfollow = await fetch(`${url}/profile/${accountName}/unfollow`, init);
+      const resUnfollowJson = await resUnfollow.json();
+    }catch(err){
+      console.error('err', err);
+    }
+
     this.classList.remove('medium-unfollow-btn');
     this.classList.add('medium-follow-btn');
     this.textContent = '팔로우';
@@ -255,7 +281,7 @@ function setOtherPost(otherPost, otherProfile) {
 
 // 1. api - 프로필 정보 얻어오기
 async function getOtherProfile() {
-  const url = 'https://api.mandarin.cf';
+  const url = 'http://146.56.183.55:5050';
 
   // ?id= 값이 있는지 확인
   const accountName = checkAccountName();
