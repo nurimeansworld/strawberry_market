@@ -30,7 +30,7 @@ async function login(e) {
 
   const userEmail = loginEmailInput.value;
   const userPw = loginPwInput.value;
-  const url = "http://146.56.183.55:5050";
+  const url = "https://api.mandarin.cf/";
   const loginData = {
     "user": {
       "email": userEmail,
