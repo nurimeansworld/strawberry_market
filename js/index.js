@@ -1,1 +1,1 @@
-window.setTimeout(()=>{location.href="./intro.html"},1000);
+window.setTimeout(()=>{location.href="/pages/intro.html"},1000);
