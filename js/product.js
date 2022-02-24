@@ -63,7 +63,7 @@ prodPrice.addEventListener('input', function (e) {
 });
 
 async function reqProdData() {
-  const url = 'http://146.56.183.55:5050';
+  const url = 'https://api.mandarin.cf';
   const token = localStorage.getItem('Token');
   const originNum = parseInt(prodPrice.value.replace(/,/gi, ""));
   const prodData = {

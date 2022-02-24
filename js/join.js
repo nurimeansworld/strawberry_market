@@ -35,7 +35,7 @@ function checkPw() {
 
 // 이메일 중복 체크하는 함수
 async function checkEmailValid() {
-  const url = 'http://146.56.183.55:5050';
+  const url = 'https://api.mandarin.cf';
   const emailInp = {
     "user":{
       "email": joinEmail.value
@@ -123,7 +123,7 @@ userName.addEventListener('focusout', () => {
 
 //조건 2. 계정 아이디(accountname) 중복 불가
 async function checkIdValid(){
-  const url = 'http://146.56.183.55:5050';
+  const url = 'https://api.mandarin.cf';
   
   try {
     const res = await fetch(`${url}/user/accountnamevalid`, {
@@ -167,10 +167,10 @@ accountName.addEventListener('focusout', checkIdValid);
 async function joinUser(e) {
   // button 비활성화
   e.preventDefault();
-  const url = 'http://146.56.183.55:5050';
+  const url = 'https://api.mandarin.cf';
 
   // 프로필 이미지 업로드 유무 판단
-  const image = (profileImgHidden.value !== '') ? profileImgHidden.value : 'http://146.56.183.55:5050/Ellipse.png';
+  const image = (profileImgHidden.value !== '') ? profileImgHidden.value : 'https://api.mandarin.cf/Ellipse.png';
   
   try {
     const res = await fetch(`${url}/user`, {
@@ -185,7 +185,7 @@ async function joinUser(e) {
           'password': joinPw.value,
           'accountname': accountName.value,
           'intro': intro.value,
-          'image': image //http://146.56.183.55:5050/1641906557953.png 형식.
+          'image': image //https://api.mandarin.cf/1641906557953.png 형식.
         }
       })
     });

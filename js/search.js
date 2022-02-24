@@ -7,7 +7,7 @@ async function searchUser(e) {
   if(searchValue == '') {
     document.querySelector(".container").innerHTML = '';
   } else {
-    const url = "http://146.56.183.55:5050";
+    const url = "https://api.mandarin.cf";
     const token = localStorage.getItem('Token');
     const res = await fetch(`${url}/user/searchuser/?keyword=${searchValue}`, {
       method: "GET",

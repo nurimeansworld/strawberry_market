@@ -255,7 +255,7 @@ function setOtherPost(otherPost, otherProfile) {
 
 // 1. api - 프로필 정보 얻어오기
 async function getOtherProfile() {
-  const url = 'http://146.56.183.55:5050';
+  const url = 'https://api.mandarin.cf';
 
   // ?id= 값이 있는지 확인
   const accountName = checkAccountName();
