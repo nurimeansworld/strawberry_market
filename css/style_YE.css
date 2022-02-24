@@ -32,6 +32,7 @@
   border: 1px solid var(--cancel-color-border);
   border-radius: 50px;
   cursor: pointer;
+  font-size: 10px;
 }
 
 .home-post-user .user-name {
@@ -134,7 +135,6 @@
 
 .home-post-content .user-photo {
   border-radius: 15px;
-  border: 1px solid var(--cancel-color-border);
 }
 
 /* post 좋아요, 댓글  */
