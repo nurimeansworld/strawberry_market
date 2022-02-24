@@ -260,7 +260,9 @@
   color: var(--enabled-color);
 }
 
-/* S01.html 시작 */
+/* 담당 페이지 */
+
+/* 검색 페이지(search.html) 시작 */
 .search-result {
   padding: 68px 0 60px;
 }
@@ -294,7 +296,7 @@
   color: #767676;
 }
 
-/* U01.html 시작 */
+/* 게시물 상세 페이지(postdetail.html) 시작 */
 .post-detail {
   padding-top: 48px;
 }
@@ -371,6 +373,7 @@
   height: 36px;
   border: 0.5px solid #DBDBDB;
   border-radius: 50%;
+  font-size: 10px;
 }
 
 .item-wrap .user-name {
@@ -405,13 +408,9 @@
 }
 
 
-/* U02.html 시작 */
+/* 게시물 작성 페이지(post.html) 시작 */
 section.upload {
-  padding-top: 68px;
-}
-
-section.upload.container {
-  position: static;
+  padding: 68px 16px 0 16px;
 }
 
 .upload .upload-form {
@@ -425,9 +424,11 @@ section.upload.container {
   border-radius: 50%;
   object-fit: cover;
   border: .5px solid var(--cancel-color-border);
+  font-size: 10px;
 }
 
 .upload-form .upload-txt {
+  width: 100%;
   padding: 10px;
   outline: none;
   resize: none;
