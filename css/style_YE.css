@@ -31,6 +31,7 @@
   margin-right: 12px;
   border: 1px solid var(--cancel-color-border);
   border-radius: 50px;
+  cursor: pointer;
 }
 
 .home-post-user .user-name {
