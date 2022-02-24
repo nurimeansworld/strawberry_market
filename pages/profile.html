@@ -20,41 +20,45 @@
     <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
   </header>
   <main>
-    <section class="container profile">
+    <section class="profile">
       <h1 class="sr-only">사용자 프로필</h1>
       <section id="content" class="profile-sec">
         <h2 class="sr-only">프로필 영역</h2>
-        <div class="profile-wrap">
-          <img src="../assets/basic-profile-img-2.png" alt="사용자 프로필 이미지입니다." class="profile-img">
-          <dl class="profile-follow">
-            <div class="center profile-followers">
-              <dd><a href="./followers.html">{0}</a></dd>
-              <dt>followers</dt>
+        <div class="container">
+          <div class="profile-wrap">
+            <img src="../assets/basic-profile-img-2.png" alt="사용자 프로필 이미지입니다." class="profile-img">
+            <dl class="profile-follow">
+              <div class="center profile-followers">
+                <dd><a href="./followers.html">{0}</a></dd>
+                <dt>followers</dt>
+              </div>
+              <div class="center profile-followings">
+                <dd><a href="./followings.html">{0}</a></dd>
+                <dt>followings</dt>
+              </div>
+            </dl>
+          </div>
+          <div class="center">
+            <h3 class="profile-name">{profile-name}</h3>
+            <span class="profile-account">@ {profile-account}</span>
+            <p class="profile-desc">{profile-desc}</p>
+            <div class="profile-btn-wrap">
+              <button class="profile-btn message-btn">
+                <i class="sr-only">메시지 보내기</i>
+              </button>
+              <button type="button" class="medium-follow-btn">팔로우</button>
+              <button class="profile-btn share-btn">
+                <i class="sr-only">공유하기</i>
+              </button>
             </div>
-            <div class="center profile-followings">
-              <dd><a href="./followings.html">{0}</a></dd>
-              <dt>followings</dt>
-            </div>
-          </dl>
-        </div>
-        <div class="center">
-          <h3 class="profile-name">{profile-name}</h3>
-          <span class="profile-account">@ {profile-account}</span>
-          <p class="profile-desc">{profile-desc}</p>
-          <div class="profile-btn-wrap">
-            <button class="profile-btn message-btn">
-              <i class="sr-only">메시지 보내기</i>
-            </button>
-            <button type="button" class="medium-follow-btn">팔로우</button>
-            <button class="profile-btn share-btn">
-              <i class="sr-only">공유하기</i>
-            </button>
           </div>
         </div>
       </section>
       <section class="product-sec">
-        <h2 class="sec-title">판매 중인 상품</h2>
-        <ul class="product-list"></ul>
+        <div class="container">
+          <h2 class="sec-title">판매 중인 상품</h2>
+          <ul class="product-list"></ul>
+        </div>
       </section>
       <section class="post-sec">
         <h2 class="sr-only">사용자 게시글</h2>
@@ -68,14 +72,16 @@
             </button>
           </div>
         </article>
-        <section id="viewList" class="post-list-sec on">
-          <h3 class="sr-only">리스트 게시글</h3>
-          <ul class="post-list-list"></ul>
-        </section>
-        <section id="viewAlbum" class="post-album-sec">
-          <h3 class="sr-only">앨범 게시글</h3>
-          <ul class="post-album-list"></ul>
-        </section>
+        <div class="container">
+          <section id="viewList" class="post-list-sec on">
+            <h3 class="sr-only">리스트 게시글</h3>
+            <ul class="post-list-list"></ul>
+          </section>
+          <section id="viewAlbum" class="post-album-sec">
+            <h3 class="sr-only">앨범 게시글</h3>
+            <ul class="post-album-list"></ul>
+          </section>
+        </div>
       </section>
       <nav class="tab-menu">
         <ul class="tab-menu-list">

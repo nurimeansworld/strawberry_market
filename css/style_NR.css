@@ -65,7 +65,7 @@
 }
 
 /* 누리 작업 - P01 사용자 프로필 */
-.container.profile{
+.profile{
   padding-top: 48px;
   min-width: 390px;
   max-width: none;
@@ -207,7 +207,11 @@
   border-bottom: 0.5px solid var(--cancel-color-border); 
 }
 .post-btn-wrap{
-  float: right;
+  padding-right: 14px;
+  margin: 0 auto;
+  width: 390px;
+  display: flex;
+  justify-content: flex-end;  
 }
 .post-btn-wrap button{
   margin-left: 16px;

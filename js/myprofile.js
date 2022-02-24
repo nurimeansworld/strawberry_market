@@ -132,7 +132,7 @@ function setUserProfile(userProfile) {
 }
 
 function setUserProduct(userProduct) {
-  const productSec = document.querySelector('.product-sec');
+  const productSec = document.querySelector('.product-sec .container');
 
   if (userProduct.data !== 0) {
     // 상품 O

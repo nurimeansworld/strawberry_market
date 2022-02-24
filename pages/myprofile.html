@@ -20,36 +20,40 @@
     <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
   </header>
   <main>
-    <section class="container profile">
+    <section class="profile">
       <h1 class="sr-only">마이 프로필</h1>
       <section id="content" class="profile-sec">
         <h2 class="sr-only">프로필 영역</h2>
-        <div class="profile-wrap">
-          <img src="../assets/basic-profile-img-2.png" alt="사용자 프로필 이미지입니다." class="profile-img">
-          <dl class="profile-follow">
-            <div class="center profile-followers">
-              <dd><a href="./followers.html">{0}</a></dd>
-              <dt>followers</dt>
+        <div class="container">
+          <div class="profile-wrap">
+            <img src="../assets/basic-profile-img-2.png" alt="사용자 프로필 이미지입니다." class="profile-img">
+            <dl class="profile-follow">
+              <div class="center profile-followers">
+                <dd><a href="./followers.html">{0}</a></dd>
+                <dt>followers</dt>
+              </div>
+              <div class="center profile-followings">
+                <dd><a href="./followings.html">{0}</a></dd>
+                <dt>followings</dt>
+              </div>
+            </dl>
+          </div>
+          <div class="center">
+            <h3 class="profile-name">{profile-name}</h3>
+            <span class="profile-account">@ {profile-account}</span>
+            <p class="profile-desc">{profile-desc}</p>
+            <div class="profile-btn-wrap">
+              <button type="button" class="medium-unfollow-btn profile-edit-btn">프로필 수정</button>
+              <button type="button" class="medium-unfollow-btn profile-product-btn">상품 등록</button>
             </div>
-            <div class="center profile-followings">
-              <dd><a href="./followings.html">{0}</a></dd>
-              <dt>followings</dt>
-            </div>
-          </dl>
-        </div>
-        <div class="center">
-          <h3 class="profile-name">{profile-name}</h3>
-          <span class="profile-account">@ {profile-account}</span>
-          <p class="profile-desc">{profile-desc}</p>
-          <div class="profile-btn-wrap">
-            <button type="button" class="medium-unfollow-btn profile-edit-btn">프로필 수정</button>
-            <button type="button" class="medium-unfollow-btn profile-product-btn">상품 등록</button>
           </div>
         </div>
       </section>
       <section class="product-sec">
-        <h2 class="sec-title">판매 중인 상품</h2>
-        <ul class="product-list"></ul>
+        <div class="container">
+          <h2 class="sec-title">판매 중인 상품</h2>
+          <ul class="product-list"></ul>
+        </div>
       </section>
       <section class="post-sec">
         <h2 class="sr-only">사용자 게시글</h2>
@@ -63,15 +67,17 @@
             </button>
           </div>
         </article>
-        <!-- TODO:: 컴포넌트 수정되면 확인 후 반영 -->
-        <section id="viewList" class="post-list-sec on">
-          <h3 class="sr-only">리스트 게시글</h3>
-          <ul class="post-list-list"></ul>
-        </section>
-        <section id="viewAlbum" class="post-album-sec">
-          <h3 class="sr-only">앨범 게시글</h3>
-          <ul class="post-album-list"></ul>
-        </section>
+        <div class="container">
+          <!-- TODO:: 컴포넌트 수정되면 확인 후 반영 -->
+          <section id="viewList" class="post-list-sec on">
+            <h3 class="sr-only">리스트 게시글</h3>
+            <ul class="post-list-list"></ul>
+          </section>
+          <section id="viewAlbum" class="post-album-sec">
+            <h3 class="sr-only">앨범 게시글</h3>
+            <ul class="post-album-list"></ul>
+          </section>
+        </div>
       </section>
       <nav class="tab-menu">
         <ul class="tab-menu-list">

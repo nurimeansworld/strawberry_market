@@ -58,7 +58,7 @@ function setOtherProfile(otherProfile) {
 }
 
 function setOtherProduct(otherProduct) {
-  const productSec = document.querySelector('.product-sec');
+  const productSec = document.querySelector('.product-sec .container');
 
   if (otherProduct.data !== 0) {
     // 상품 O
