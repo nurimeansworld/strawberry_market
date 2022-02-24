@@ -87,6 +87,7 @@
 }
 .post-img-list {
   display: flex;
+  gap: 8px;
   transition: all .4s;
   width: 304px;
   white-space: nowrap;
