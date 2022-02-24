@@ -11,7 +11,7 @@ const imgFiles = [];
 // 수정할 게시물의 내용을 화면에 뿌리기 
 async function renderPost() {
   const url = 'https://api.mandarin.cf';
-  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmNjMjNkOWQwOWQzNmIyMTM2ZTk3MCIsImV4cCI6MTY0OTI2MDUzNiwiaWF0IjoxNjQ0MDc2NTM2fQ.dgflqthibSYSMd5p6EXqd-IdeHts0tv9fmLJjh-GOt4'
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMTc0MThkODY1NjVjNDg2NzdjMTAxYiIsImV4cCI6MTY1MDg3NTI4NCwiaWF0IjoxNjQ1NjkxMjg0fQ.eFYoDRDBbWuoPgWQLqbVrdEtXCILR5y270Qr2LUJ9jE'
   // const token = localStorage.getItem('Token');
   const postId = new URLSearchParams(location.search).get('postId'); 
 
@@ -62,7 +62,8 @@ async function renderPost() {
         closeBtn.addEventListener('click', () => {
           // 버튼이 이미지에 달려있음 -> 눌러진 버튼이 달려있는 이미지가 jsonImg 배열에서 빠져야 해요 
           // index값 기준으로 splice 요소 제거
-          jsonImg.splice([...imgContainer.children].indexOf(imgItem), 1);  
+          jsonImg.splice( [...imgContainer.children].indexOf(imgItem), 1); 
+          console.log([...imgContainer.children].indexOf(imgItem));
           // imgItem 얘도 사라져야 합니다.
           imgContainer.removeChild(imgItem);
           // 화면상으로는 없어지기는 하나 배열에서 빠지지 않은 상태 
@@ -96,8 +97,8 @@ async function uploadImg(file) {
 async function editPost(){     
 // 버튼을 누른다 -> 수정 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
   const url = 'https://api.mandarin.cf';
-  const token = localStorage.getItem('Token');
-  // const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZmNjMjNkOWQwOWQzNmIyMTM2ZTk3MCIsImV4cCI6MTY0OTI2MDUzNiwiaWF0IjoxNjQ0MDc2NTM2fQ.dgflqthibSYSMd5p6EXqd-IdeHts0tv9fmLJjh-GOt4'
+  // const token = localStorage.getItem('Token');
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMTc0MThkODY1NjVjNDg2NzdjMTAxYiIsImV4cCI6MTY1MDg3NTI4NCwiaWF0IjoxNjQ1NjkxMjg0fQ.eFYoDRDBbWuoPgWQLqbVrdEtXCILR5y270Qr2LUJ9jE'
   const postId = new URLSearchParams(location.search).get('postId'); 
   const files = uploadInput.files;
   if(imgFiles.length > 3) {  //이미지 파일 3장이상이면 
@@ -187,5 +188,8 @@ uploadInput.addEventListener('change',readInputFile);
 
 
 
+// 딸기 마켓 하하하하하 계정 임시 수정 페이지  
+// http://172.30.1.51:5503/pages/mypostedit.html?postId=621741b786565c48677c102e
 
-//  http://172.30.1.4:5503/pages/mypostedit.html?postId=6214bd519d09d36b215042cd -->
+
+
