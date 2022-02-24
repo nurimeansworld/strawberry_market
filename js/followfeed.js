@@ -157,6 +157,11 @@ async function renderFollowPost() {
       button3.addEventListener('click', () => {
         location.href = `./postdetail.html?postId=${postId}`;
       });
+
+      //myprofile 눌렀을 때 마이프로필로 넘어가기
+      img22.addEventListener('click', () => {
+        location.href = `./profile.html?id=${accountName}`;
+      });
     }//for문 닫는 버튼
     
     // 신고하기 모달(희정님 담당) 
