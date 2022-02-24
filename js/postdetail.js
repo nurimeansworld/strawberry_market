@@ -101,8 +101,9 @@ async function renderPost() {
     messageCount.textContent = commentCount;
     date.textContent = createdAt;
 
-    btnMenu.addEventListener('click', (e) => {
-      open6();
+    btnMenu.addEventListener('click', () => {
+      curAccountName = accountName;
+      exePostModal();
     })
     
     btnHeart.addEventListener('click', (e) => {
@@ -173,14 +174,14 @@ async function renderCommentList() {
       }
     });
     const json = await res.json();
-    console.log(json);
+    // console.log(json);
     // render
     json.comments.map(element => {
       // accountName = '';
       const profileImg = element.author.image;
       const userName = element.author.username;
       const accountName = element.author.accountname;
-      console.log(`mapping 후 accountName: ${accountName}`);
+      // console.log(`mapping 후 accountName: ${accountName}`);
       const content = element.content;
       const createdAt = element.createdAt;
       const commentId = element.id;
@@ -216,11 +217,11 @@ async function renderCommentList() {
 
       // MEMO:: 전역의 curAccountName과 curCommendId 값을 클릭한 댓글의 accountName과 commentId로 변경
       btnMenu.addEventListener('click', () => {
-        console.log(`댓글 모달 클릭 후 해당 accountName 확인: ${accountName}`)
+        // console.log(`댓글 모달 클릭 후 해당 accountName 확인: ${accountName}`)
         curAccountName = accountName;
         curCommentId = commentId;
         curListitem = listItem;
-        commentModal();
+        exeCommentModal();
       });
 
       commentList.appendChild(listItem);
@@ -320,15 +321,59 @@ commentForm.addEventListener('submit', sendComment);
 // 구별법: 로컬스토리지에 있는 accountName과 댓글의 accountName 같은지 확인 
 const modalBg = document.querySelector('.modal-background');
 const btmModal = document.querySelector('.bottom-modal');
-const btmModalBtn = document.querySelector('.bottom-modal-btn');
-const alertModal = document.querySelector('.modal-background .alert-modal');
-console.log(alertModal);
+const deleteBtn = document.querySelector('.bottom-modal-btn');
+const alertModal = document.querySelector('.alert-modal-js');
+// console.log(alertModal);
 const alertTit = document.querySelector('.alert-tit');
 const alertBtns = document.querySelector('.alert-btns');
 const cancelBtn = document.querySelector('.alert-cancel-btn');
 const multiBtn = document.querySelector('.alert-multi-btn');
+const EditBtn = document.createElement('button');
+EditBtn.className = 'bottom-modal-btn';
+EditBtn.textContent = '수정';
 
-async function reqReport(){  
+
+async function deletePost() {
+  const url = 'http://146.56.183.55:5050';
+  const token = localStorage.getItem('Token');
+    
+  try {
+    const res = await fetch( `${url}/post/${postId}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization' : `Bearer ${token}`,
+        'Content-type' : 'application/json'
+      }
+    });
+    const json = await res.json(); 
+    console.log(json);
+    location.href = `./profile.html?id=${curAccountName}`;    
+  } catch(err) {
+    console.log(err);
+  }
+};
+async function reportPost() {
+  const url = 'http://146.56.183.55:5050';
+  const token = localStorage.getItem('Token');
+
+  try {
+    const res = await fetch( `${url}/post/${postId}/report`, {
+      method: 'POST',
+      headers: {
+        'Authorization' : `Bearer ${token}`,
+        'Content-type' : 'application/json'
+      }
+    });
+    const json = await res.json();
+    console.log(json);
+    modalBg.style.display = 'none';
+    alertModal.style.display = 'none';
+  } catch(err) {
+    console.log(err);
+  }
+};
+
+async function reportComment(){  
   const url = 'http://146.56.183.55:5050';
   const token = localStorage.getItem('Token');
 
@@ -348,7 +393,8 @@ async function reqReport(){
     console.log(err);
   }
 };
-async function reqDelete(){
+
+async function deleteComment(){
   const url = 'http://146.56.183.55:5050';
   const token = localStorage.getItem('Token');
   const postId = new URLSearchParams(location.search).get('postId');
@@ -373,13 +419,19 @@ async function reqDelete(){
 };
 
 
-function commentModal() {
+function exeCommentModal() {
   if(curAccountName === localStorage.getItem('accountname')) {
     console.log('내가쓴댓글이야 - 삭제');
     modalBg.style.display = 'block';
     btmModal.style.display = 'block';
-    btmModalBtn.textContent = '삭제';
-    btmModalBtn.addEventListener('click', () => {
+    deleteBtn.textContent = '삭제';
+    modalBg.addEventListener('click', () => {
+      modalBg.style.display = 'none';
+      btmModal.style.display = 'none';
+      alertModal.style.display = 'none';
+    });
+    deleteBtn.addEventListener('click', () => {
+      modalBg.style.display = 'block';
       btmModal.style.display = 'none';
       alertModal.style.display = 'block';
     });
@@ -390,13 +442,18 @@ function commentModal() {
       modalBg.style.display = 'none';
       alertModal.style.display = 'none';
     });
-    multiBtn.addEventListener('click', reqDelete);
+    multiBtn.addEventListener('click', deleteComment);
   } else {
     console.log('내가쓴거아니야 - 신고');
     modalBg.style.display = 'block';
     btmModal.style.display = 'block';
-    btmModalBtn.textContent = '신고';
-    btmModalBtn.addEventListener('click', () => {
+    deleteBtn.textContent = '신고';
+    modalBg.addEventListener('click', () => {
+      modalBg.style.display = 'none';
+      btmModal.style.display = 'none';
+      alertModal.style.display = 'none';
+    });
+    deleteBtn.addEventListener('click', () => {
       btmModal.style.display = 'none';
       alertModal.style.display = 'block';
     });
@@ -407,6 +464,59 @@ function commentModal() {
       modalBg.style.display = 'none';
       alertModal.style.display = 'none';
     });
-    multiBtn.addEventListener('click', reqReport);
+    multiBtn.addEventListener('click', reportComment);
+  }
+}
+
+function exePostModal() {
+  if(curAccountName === localStorage.getItem('accountname')) {
+    console.log('내가쓴게시글이야 - 수정,삭제');
+    btmModal.appendChild(EditBtn);
+    EditBtn.addEventListener('click', () => {
+      location.href = `../pages/mypostedit.html?postId=${postId}`;
+    });
+    modalBg.style.display = 'block';
+    btmModal.style.display = 'block';
+    deleteBtn.textContent = '삭제';
+    modalBg.addEventListener('click', () => {
+      modalBg.style.display = 'none';
+      btmModal.style.display = 'none';
+      alertModal.style.display = 'none';
+    });
+    deleteBtn.addEventListener('click', () => {
+      modalBg.style.display = 'block';
+      btmModal.style.display = 'none';
+      alertModal.style.display = 'block';
+    });
+    alertTit.textContent = '게시글을 삭제할까요?';
+    multiBtn.textContent = '삭제';
+    multiBtn.className = 'alert-delete-btn';
+    cancelBtn.addEventListener('click', () => {
+      modalBg.style.display = 'none';
+      alertModal.style.display = 'none';
+    });
+    multiBtn.addEventListener('click', deletePost);
+  } else {
+    console.log('내가쓴거아니야 - 신고');
+    modalBg.style.display = 'block';
+    btmModal.style.display = 'block';
+    deleteBtn.textContent = '신고';
+    modalBg.addEventListener('click', () => {
+      modalBg.style.display = 'none';
+      btmModal.style.display = 'none';
+      alertModal.style.display = 'none';
+    });
+    deleteBtn.addEventListener('click', () => {
+      btmModal.style.display = 'none';
+      alertModal.style.display = 'block';
+    });
+    alertTit.textContent = '신고하시겠습니까';
+    multiBtn.textContent = '신고';
+    multiBtn.className = 'alert-delete-btn';
+    cancelBtn.addEventListener('click', () => {
+      modalBg.style.display = 'none';
+      alertModal.style.display = 'none';
+    });
+    multiBtn.addEventListener('click', reportPost);
   }
 }

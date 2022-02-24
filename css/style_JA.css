@@ -66,20 +66,18 @@
 /* CHECK:: postdetail의 up-modal 클래스명 bottom-modal로 변경함, 기능 구현 후 하나로 통일 */
 .bottom-modal {
   width: 100%;
-  background-color: #fff;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  padding: 36px 0 5px 26px;
+  border-radius: 10px 10px 0 0;
   position: absolute;
   bottom: 0;
-  background-image: url(../assets/indicator.png);
-  background-repeat: no-repeat;
+  background: #fff url(../assets/indicator.png) no-repeat;
   background-position: 50% 15px;
   background-size: 50px 4px;
+  z-index: 30;
   display: none;
 }
 .bottom-modal .bottom-modal-btn {
   line-height: 46px;
-  padding: 36px 0 5px 26px;
   font-size: 14px;
   cursor: pointer;
   background: transparent;
@@ -115,7 +113,7 @@
 .comment-upload .comment-input {
   border: none;
   outline: none;
-  padding: 25px 12px 20px 12px;
+  padding: 23px 12px 22px 12px;
   flex-grow: 1;
 }
 
@@ -159,6 +157,11 @@
 
 .tab-menu-list li a {
   position: relative;
+  display: inline-block;
+  color: var(--cancel-color-text);
+  font-size: 10px;
+  width: 100%;
+  padding: 44px 1px 6px 0;
 }
 
 .tab-menu-list li a::before {
@@ -199,14 +202,6 @@
   color: var(--enabled-color);
 }
 
-.tab-menu-list li a {
-  display: inline-block;
-  color: var(--cancel-color-text);
-  font-size: 10px;
-  width: 100%;
-  padding: 44px 0 6px;
-}
-
 /* delete-alert (3.1.16 모달 버튼) 시작 */
 .modal-background {
   background: rgba(11,19,30,.37);
@@ -219,7 +214,7 @@
   display: none;
 }
 
-.alert-modal {
+.alert-modal-js {
   background-color: #fff;
   width: 252px;
   border-radius: 10px;
@@ -232,7 +227,7 @@
   z-index: 40;
 }
 
-.alert-modal .alert-tit {
+.alert-modal-js .alert-tit {
   text-align: center;
   font-size: 16px;
   font-weight: bold;
@@ -240,7 +235,7 @@
   border-bottom: 0.5px solid var(--cancel-color-border);
 }
 
-.alert-modal .alert-btns {
+.alert-modal-js .alert-btns {
   display: flex;
   justify-content: space-between;
 }
@@ -297,8 +292,8 @@
 }
 
 /* 게시물 상세 페이지(postdetail.html) 시작 */
-.post-detail {
-  padding-top: 48px;
+section.post-detail {
+  padding: 48px 16px 0 16px;
 }
 
 .post-detail .home-post .btn-message {
@@ -352,7 +347,7 @@
 }
 
 .post-comment .comment-list {
-  padding-bottom: 60px;
+  padding: 0 16px 60px 16px;;
   display: flex;
   flex-direction: column-reverse;
 }
@@ -425,6 +420,7 @@ section.upload {
   object-fit: cover;
   border: .5px solid var(--cancel-color-border);
   font-size: 10px;
+  flex: none;
 }
 
 .upload-form .upload-txt {
