@@ -134,6 +134,7 @@
 
 .home-post-content .user-photo {
   border-radius: 15px;
+  border: 1px solid var(--cancel-color-border);
 }
 
 /* post 좋아요, 댓글  */
