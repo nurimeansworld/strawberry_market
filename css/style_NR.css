@@ -65,7 +65,7 @@
 }
 
 /* 누리 작업 - P01 사용자 프로필 */
-.container.profile{
+.profile{
   padding-top: 48px;
   min-width: 390px;
   max-width: none;
@@ -85,6 +85,7 @@
   width: 110px;
   height: 110px;
   border-radius: 50%;
+  font-size: 10px;
 }
 .profile-follow{
   min-width: 77%;
@@ -206,7 +207,11 @@
   border-bottom: 0.5px solid var(--cancel-color-border); 
 }
 .post-btn-wrap{
-  float: right;
+  padding-right: 14px;
+  margin: 0 auto;
+  width: 390px;
+  display: flex;
+  justify-content: flex-end;  
 }
 .post-btn-wrap button{
   margin-left: 16px;
@@ -311,7 +316,9 @@
   align-content: baseline;
 }
 .user-follow-bar .user-image{
+  border: 0.5px solid #DBDBDB;
   border-radius: 25px;
+  font-size: 10px;
 }
 .user-follow-bar .user-follow-info{
   width: calc(100% - 62px);

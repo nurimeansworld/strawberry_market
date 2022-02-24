@@ -1,5 +1,5 @@
 # <span id="top">🍓 딸기마켓</span>
-[🔗 배포 URL](https://nurimeansworld.github.io/strawberry_market/pages)
+[🔗 배포 URL](https://strawberry-market.vercel.app/)
 ## 개요
 - 🦁 멋쟁이사자처럼 프론트엔드스쿨 1기 팀 프로젝트로 진행한 딸기마켓입니다.
 - 🍓 딸기마켓 서비스는 자신의 스토어에서 판매하고 있는 상품(딸기)을 등록하여 홍보할 수 있는 SNS입니다.
@@ -39,9 +39,9 @@
 - Front : HTML, CSS, Vanilla JS
 - Back : 제공된 API 사용
 - 버전 관리 및 이슈 : 🔗[GitHub](https://github.com/nurimeansworld/strawberry_market), 🔗[GitHub Issues](https://github.com/nurimeansworld/strawberry_market/issues), 🔗[GitHub Project](https://github.com/nurimeansworld/strawberry_market/projects/1)
-- 서비스 배포 환경 : [🔗 GitHub Pages](https://github.com/nurimeansworld/strawberry_market/deployments)
+- 서비스 배포 환경 : [🔗 Vercel](https://vercel.com/)
 ### 배포 URL
-URL : 🔗 https://nurimeansworld.github.io/strawberry_market/pages
+URL : 🔗 https://strawberry-market.vercel.app/
 
 <p align="right"><a href="#top">(Top)</a></p>
 
@@ -52,41 +52,41 @@ URL : 🔗 https://nurimeansworld.github.io/strawberry_market/pages
 - js/ : pages의 html과 매칭되는 JS 디렉토리. script.js는 pages 공통으로 사용되는 함수가 등록된 파일
 
 ```bash
-|  README.md
-+--.vscode/
-+--assets/
-+--css/
-|    default.css
-|    font.css
-|    reset.css
-|    style.css
-|    style_HJ.css
-|    style_JA.css
-|    style_NR.css
-|    style_YE.css
-+--font/
-+--html/
-+--js/
-|    accountedit.js
-|    chat.js
-|    chatroom.js
-|    edit.js
-|    followers.js
-|    followfeed.js
-|    followings.js
-|    index.js
-|    intro.js
-|    join.js
-|    login.js
-|    myprofile.js
-|    post.js
-|    postdetail.js
-|    product.js
-|    profile.js
-|    script.js
-|    search.js
-|    useredit.js
-\--pages/
+│  README.md
+│  index.html
+├── assets/
+├── css/
+│    default.css
+│    font.css
+│    reset.css
+│    style.css
+│    style_HJ.css
+│    style_JA.css
+│    style_NR.css
+│    style_YE.css
+├── font/
+├── html/
+├── js/
+│    accountedit.js
+│    chat.js
+│    chatroom.js
+│    edit.js
+│    followers.js
+│    followfeed.js
+│    followings.js
+│    index.js
+│    intro.js
+│    join.js
+│    login.js
+│    myprofile.js
+│    post.js
+│    postdetail.js
+│    product.js
+│    profile.js
+│    script.js
+│    search.js
+│    useredit.js
+└── pages/
      accountedit.html
      chat.html
      chatroom.html
@@ -95,7 +95,6 @@ URL : 🔗 https://nurimeansworld.github.io/strawberry_market/pages
      followfeed.html
      followings.html
      home.html
-     index.html
      intro.html
      join.html
      login.html

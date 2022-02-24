@@ -31,6 +31,8 @@
   margin-right: 12px;
   border: 1px solid var(--cancel-color-border);
   border-radius: 50px;
+  cursor: pointer;
+  font-size: 10px;
 }
 
 .home-post-user .user-name {
@@ -87,6 +89,7 @@
 }
 .post-img-list {
   display: flex;
+  gap: 8px;
   transition: all .4s;
   width: 304px;
   white-space: nowrap;
@@ -139,7 +142,7 @@
   display: flex;
   font-size: small;
   color: #767676;
-  margin-left: 60px;
+  margin-left: 55px;
 }
 
 /* 버튼묶음 */
@@ -177,9 +180,12 @@
   z-index: 10; */
 }
 
+.heart-count, .message-count {
+  color: var(--cancel-color-text)
+}
 
 .date {
-  margin: 15px 0 10px 60px;
+  padding: 18px 0 18px 55px;
   font-size: small;
   color: #767676;
   padding-bottom: 15px;
@@ -210,15 +216,15 @@
 
 .home-main-init {
   max-width: 100%;
-  height: 85vh;
-  background-color: #fff;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 .feed-cont {
-  padding: 48px 0 61px 0;
+  padding: 44px 16px 55px 16px;
 }
 
 .home-main-init .home-init-message {
@@ -359,6 +365,7 @@ ul .chat-cont-sender :nth-child(2) {
   position: relative;
 }
 
+
 .chat-cont-me .chat-user-profile {
   position: absolute;
   width: 240px;
@@ -401,6 +408,7 @@ ul .chat-cont-sender :nth-child(2) {
   align-items: center;
   padding: 13px 20px 12px 16px;
   margin-top: 350px;
+  padding-bottom: 0;
   /* bottom: 0;
   position: fixed; */
 }
