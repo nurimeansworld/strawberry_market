@@ -30,7 +30,7 @@ async function login(e) {
 
   const userEmail = loginEmailInput.value;
   const userPw = loginPwInput.value;
-  const url = "http://146.56.183.55:5050";
+  const url = "https://api.mandarin.cf";
   const loginData = {
     "user": {
       "email": userEmail,
@@ -54,7 +54,7 @@ async function login(e) {
       location.href = "./followfeed.html";
     }else{ // 로그인 실패한 경우
       LoginError.style.display = 'block';
-      LoginError.textContent = resJson.message;
+      LoginError.textContent = `*${resJson.message}`;
     }
   }catch(err){
     // 아예 api와 연결이 되지 않았을 때

@@ -67,7 +67,7 @@ function setFollowing(userInfo) {
 }
 
 async function getFollowing() {
-  const url = 'http://146.56.183.55:5050';
+  const url = 'https://api.mandarin.cf';
   const accountName = checkAccountName();
   const token = localStorage.getItem('Token');
   const init = {

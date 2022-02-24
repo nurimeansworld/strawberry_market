@@ -19,7 +19,7 @@ const imgFiles = [];
 
 // 댓글 작성자의 프로필 이미지 동적으로 받아오기
 async function renderProfile() {
-  const url = 'http://146.56.183.55:5050';
+  const url = 'https://api.mandarin.cf';
   const token = localStorage.getItem('Token');
   const accountName = localStorage.getItem('accountname');
   const profileImg = document.querySelector('.profile-img');
@@ -47,7 +47,7 @@ renderProfile();
 async function uploadImg(file) {
   const formData = new FormData();
   formData.append("image", file);
-  const res = await fetch(`http://146.56.183.55:5050/image/uploadfiles`, {
+  const res = await fetch(`https://api.mandarin.cf/image/uploadfiles`, {
       method: "POST",
       body: formData
   });
@@ -59,7 +59,7 @@ async function uploadImg(file) {
 
 // 게시글 작성 후 서버에 post
 async function createPost() {
-  const url = "http://146.56.183.55:5050";
+  const url = "https://api.mandarin.cf";
   const token = localStorage.getItem('Token');
   const contentText = uploadTxt.value;
   const files = uploadInp.files;

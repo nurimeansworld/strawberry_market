@@ -16,7 +16,7 @@ let curListitem;
 
 // 게시글 불러오기 
 async function renderPost() {
-  const url = 'http://146.56.183.55:5050';
+  const url = 'https://api.mandarin.cf';
   const token = localStorage.getItem('Token');
 
   try {
@@ -161,7 +161,7 @@ const getTimeGap = (time) => {
 
 // 댓글 리스트 불러오기
 async function renderCommentList() {
-  const url = 'http://146.56.183.55:5050';
+  const url = 'https://api.mandarin.cf';
   const token = localStorage.getItem('Token');
   
   try {
@@ -243,7 +243,7 @@ renderCommentList();
 
 // 댓글 작성자의 프로필 이미지 동적으로 받아오기
 async function renderProfile() {
-  const url = 'http://146.56.183.55:5050';
+  const url = 'https://api.mandarin.cf';
   const token = localStorage.getItem('Token');
   const accountName = localStorage.getItem('accountname');
   const profileImg = document.querySelector('.profile-img');
@@ -282,7 +282,7 @@ commentInp.addEventListener('input', checkValue);
 // 작성된 댓글을 서버에 post
 async function sendComment(e) {
   e.preventDefault();
-  const url = 'http://146.56.183.55:5050';
+  const url = 'https://api.mandarin.cf';
   const token = localStorage.getItem('Token');
   
   try {
@@ -329,7 +329,7 @@ const cancelBtn = document.querySelector('.alert-cancel-btn');
 const multiBtn = document.querySelector('.alert-multi-btn');
 
 async function reqReport(){  
-  const url = 'http://146.56.183.55:5050';
+  const url = 'https://api.mandarin.cf';
   const token = localStorage.getItem('Token');
 
   try {
@@ -349,7 +349,7 @@ async function reqReport(){
   }
 };
 async function reqDelete(){
-  const url = 'http://146.56.183.55:5050';
+  const url = 'https://api.mandarin.cf';
   const token = localStorage.getItem('Token');
   const postId = new URLSearchParams(location.search).get('postId');
   const commentId = new URLSearchParams(location.search).get('commentId');

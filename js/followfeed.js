@@ -5,7 +5,7 @@ const homePostCont = document.querySelector(".container");
 
 // 팔로우한 게시글 불러오기 
 async function renderFollowPost() {
-  const url = "http://146.56.183.55:5050";
+  const url = "https://api.mandarin.cf";
   const token = localStorage.getItem('Token');
   // console.log(token);
   try {
