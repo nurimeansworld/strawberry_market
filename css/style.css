@@ -23,9 +23,7 @@ body {
 /* body */
 .container{
   margin: 0 auto;
-  /* min-width: 390px; */
-  max-width: calc(100% - 32px);
-  /* background-color: #fff; */
+  width: 390px;
 }
 .container-join{
   margin: 0 auto;
