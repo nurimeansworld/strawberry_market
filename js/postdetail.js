@@ -373,7 +373,7 @@ async function reportPost() {
   }
 };
 
-async function reportComment(){  
+async function reportComment() {  
   const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
   const token = localStorage.getItem('Token');
 
@@ -393,7 +393,7 @@ async function reportComment(){
     console.log(err);
   }
 };
-async function deleteComment(){
+async function deleteComment() {
   const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
   const token = localStorage.getItem('Token');
   const postId = new URLSearchParams(location.search).get('postId');
