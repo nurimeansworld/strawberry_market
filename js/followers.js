@@ -1,52 +1,3 @@
-// follow 상태 변경
-async function changeFollowList(){
-
-  console.log(this);
-  // if (e.target.nodeName === "BUTTON") {
-  //   console.log(e.target);
-  //   const btn = e.target;
-  //   const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
-  //   const accountName = checkAccountName();
-  //   const token = localStorage.getItem('Token');
-  //   const init = {
-  //     method: 'POST',
-  //     headers: {
-  //       'Authorization': `Bearer ${token}`,
-  //       'Content-type': 'application/json'
-  //     },
-  //   }
-  //   if (btn.classList.contains('cancel-button')) {
-  //     try {
-  //       init['method'] = 'DELETE';
-  //       const resUnfollow = await fetch(`${url}/profile/${accountName}/unfollow`, init);
-  //       const resUnfollowJson = await resUnfollow.json();
-  //     }catch(err){
-  //       console.error('err', err);
-  //     }
-
-  //     btn.classList.remove('cancel-button');
-  //     btn.classList.add('small-follow-button');
-  //     btn.textContent = '팔로우';
-  //   } else {
-  //     try {
-  //       const resFollow = await fetch(`${url}/profile/${accountName}/follow`, init);
-  //       const resFollowJson = await resFollow.json();
-  //     }catch(err){
-  //       console.error('err', err);
-  //     }
-
-  //     btn.classList.remove('small-follow-button');
-  //     btn.classList.add('cancel-button');
-  //     btn.textContent = '취소';
-  //   }
-  // }
-}
-// followList.addEventListener('click', function (e) {
-  
-// });
-const followEvent = document.querySelector('.follow-list');
-followEvent.addEventListener('click', changeFollowList);
-
 function setFollowing(userInfo) {
   const followList = document.querySelector('.follow-list');
   const fragment = document.createDocumentFragment();
@@ -67,15 +18,16 @@ function setFollowing(userInfo) {
         user_btn = '';
       } else {
         if (user.isfollow === true) {
-          user_btn = '<button type="button" class="cancel-button">취소</button>';
+          user_btn = `<button type="button" class="cancel-button" data-id="${user_accountname}">취소</button>`;
         } else {
-          user_btn = '<button type="button" class="small-follow-button">팔로우</button>';
+          user_btn = `<button type="button" class="small-follow-button" data-id="${user_accountname}">팔로우</button>`;
         }
       }
 
       // 계정 추가
       const followItem = document.createElement('li');
       followItem.setAttribute('class', 'follow-item');
+      // followItem.setAttribute('data-id', user_accountname);
       followItem.innerHTML = `<a href="${user_link}" class="user-follow-bar">
       <img src="${user_image}" alt="사용자 이미지" class="user-image">
         <div class="user-follow-info">
@@ -83,6 +35,9 @@ function setFollowing(userInfo) {
           <div class="user-email sl-ellipsis">${user_intro}</div>
         </div>
     </a>${user_btn}`;
+
+      const followBtnEvent = followItem.getElementsByTagName('BUTTON')[0];
+      followBtnEvent.addEventListener('click', changeFollowList);
       fragment.appendChild(followItem);
     }
     followList.appendChild(fragment);
@@ -114,7 +69,7 @@ async function getFollowing() {
 
     setFollowing(resJson);
   } catch (err) {
-    location.href="./404.html";
+    // location.href="./404.html";
     console.error('err', err);
   }
 }

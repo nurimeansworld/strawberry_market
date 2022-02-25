@@ -57,4 +57,41 @@ function checkLogout(){
 }
 
 
-// 팔로우, 언팔로우
+// followings, followers - 팔로우, 언팔로우 기능 함수
+async function changeFollowList(){
+  const btn = this;
+  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
+  const accountName = this.getAttribute('data-id');
+  const token = localStorage.getItem('Token');
+  const init = {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-type': 'application/json'
+    },
+  }
+  if (btn.classList.contains('cancel-button')) {
+    try {
+      init['method'] = 'DELETE';
+      const resUnfollow = await fetch(`${url}/profile/${accountName}/unfollow`, init);
+      const resUnfollowJson = await resUnfollow.json();
+    }catch(err){
+      console.error('err', err);
+    }
+
+    btn.classList.remove('cancel-button');
+    btn.classList.add('small-follow-button');
+    btn.textContent = '팔로우';
+  } else {
+    try {
+      const resFollow = await fetch(`${url}/profile/${accountName}/follow`, init);
+      const resFollowJson = await resFollow.json();
+    }catch(err){
+      console.error('err', err);
+    }
+
+    btn.classList.remove('small-follow-button');
+    btn.classList.add('cancel-button');
+    btn.textContent = '취소';
+  }
+}
