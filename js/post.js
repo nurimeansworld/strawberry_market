@@ -59,7 +59,7 @@ async function uploadImg(file) {
 
 // 게시글 작성 후 서버에 post
 async function createPost() {
-  const url = "https://api.mandarin.cf";
+  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
   const token = localStorage.getItem('Token');
   const contentText = uploadTxt.value;
   const files = uploadInp.files;
