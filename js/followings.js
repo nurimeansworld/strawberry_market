@@ -3,12 +3,25 @@ const followList = document.querySelector('.follow-list');
 followList.addEventListener('click', function (e) {
   if (e.target.nodeName === "BUTTON") {
     const btn = e.target;
-
+    const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
+    const accountName = checkAccountName();
+    const token = localStorage.getItem('Token');
+    const init = {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-type': 'application/json'
+      },
+    }
     if (btn.classList.contains('cancel-button')) {
+
+
       btn.classList.remove('cancel-button');
       btn.classList.add('small-follow-button');
       btn.textContent = '팔로우';
     } else {
+
+
       btn.classList.remove('small-follow-button');
       btn.classList.add('cancel-button');
       btn.textContent = '취소';
@@ -66,7 +79,7 @@ function setFollowing(userInfo) {
 }
 
 async function getFollowing() {
-  const url = 'https://api.mandarin.cf';
+  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
   const accountName = checkAccountName();
   const token = localStorage.getItem('Token');
   const init = {

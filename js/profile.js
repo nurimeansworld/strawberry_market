@@ -1,7 +1,6 @@
 // follow, unfollow 상태 변경
 async function changeFollow(){
-  // const url = 'https://api.mandarin.cf';
-  const url = 'http://146.56.183.55:5050';
+  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
   const accountName = checkAccountName();
   const token = localStorage.getItem('Token');
   const init = {
@@ -64,6 +63,7 @@ viewAlbumBtn.addEventListener('click', toggleOn);
 
 // 2. 얻어온 정보 뿌려주기
 function setOtherProfile(otherProfile) {
+  console.log(otherProfile);
   const other_image = (otherProfile.image) ? otherProfile.image : '../assets/basic-profile-img-2.png';
   const followBtn = document.querySelector('.medium-follow-btn');
 
@@ -281,10 +281,12 @@ function setOtherPost(otherPost, otherProfile) {
 
 // 1. api - 프로필 정보 얻어오기
 async function getOtherProfile() {
-  const url = 'http://146.56.183.55:5050';
+  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
+  console.log(url);
 
   // ?id= 값이 있는지 확인
   const accountName = checkAccountName();
+  console.log(accountName);
   const token = localStorage.getItem('Token');
   const init = {
     method: 'GET',
@@ -315,7 +317,7 @@ async function getOtherProfile() {
 
     setOtherPost(otherPost, otherProfile);
   } catch (err) {
-    location.href="./404.html";
+    // location.href="./404.html";
     console.error('err', err);
   }
 }

@@ -37,7 +37,7 @@ function cancleOption() {
 
 // 삭제
 async function deleteItem(){
-  const url = 'https://api.mandarin.cf';
+  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
   const token = localStorage.getItem('Token');
   const productId = btn4.getAttribute('data-id');
 
@@ -64,7 +64,7 @@ function editOption(){
   location.href=`./edit.html?productId=${productId}`;
 }
 async function viewItem(){
-  const url = 'https://api.mandarin.cf';
+  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
   const token = localStorage.getItem('Token');
   const productId = view4.getAttribute('data-id');
 
@@ -164,9 +164,9 @@ function setUserProduct(userProduct) {
       productItem.appendChild(productImg);
       productItem.appendChild(productTit);
       productItem.appendChild(productText);
-      fragment.appendChild(productItem);
-      productList.appendChild(fragment);
+      fragment.appendChild(productItem);  
     }
+    productList.appendChild(fragment);
     productSec.appendChild(productList);
   } else {
     // 상품 X
@@ -321,7 +321,7 @@ function setUserPost(userPost, userProfile) {
 
 // 1. api - 프로필 정보 얻어오기
 async function getUserProfile() {
-  const url = 'https://api.mandarin.cf';
+  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
   const accountName = checkAccountName();
   const token = localStorage.getItem('Token');
   const init = {

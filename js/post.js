@@ -19,7 +19,7 @@ const imgFiles = [];
 
 // 댓글 작성자의 프로필 이미지 동적으로 받아오기
 async function renderProfile() {
-  const url = 'https://api.mandarin.cf';
+  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
   const token = localStorage.getItem('Token');
   const accountName = localStorage.getItem('accountname');
   const profileImg = document.querySelector('.profile-img');

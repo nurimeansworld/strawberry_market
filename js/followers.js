@@ -1,21 +1,51 @@
 // follow 상태 변경
-const followList = document.querySelector('.follow-list');
-// console.log(followList);
-followList.addEventListener('click', function (e) {
-  if (e.target.nodeName === "BUTTON") {
-    const btn = e.target;
+async function changeFollowList(){
 
-    if (btn.classList.contains('cancel-button')) {
-      btn.classList.remove('cancel-button');
-      btn.classList.add('small-follow-button');
-      btn.textContent = '팔로우';
-    } else {
-      btn.classList.remove('small-follow-button');
-      btn.classList.add('cancel-button');
-      btn.textContent = '취소';
-    }
-  }
-});
+  console.log(this);
+  // if (e.target.nodeName === "BUTTON") {
+  //   console.log(e.target);
+  //   const btn = e.target;
+  //   const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
+  //   const accountName = checkAccountName();
+  //   const token = localStorage.getItem('Token');
+  //   const init = {
+  //     method: 'POST',
+  //     headers: {
+  //       'Authorization': `Bearer ${token}`,
+  //       'Content-type': 'application/json'
+  //     },
+  //   }
+  //   if (btn.classList.contains('cancel-button')) {
+  //     try {
+  //       init['method'] = 'DELETE';
+  //       const resUnfollow = await fetch(`${url}/profile/${accountName}/unfollow`, init);
+  //       const resUnfollowJson = await resUnfollow.json();
+  //     }catch(err){
+  //       console.error('err', err);
+  //     }
+
+  //     btn.classList.remove('cancel-button');
+  //     btn.classList.add('small-follow-button');
+  //     btn.textContent = '팔로우';
+  //   } else {
+  //     try {
+  //       const resFollow = await fetch(`${url}/profile/${accountName}/follow`, init);
+  //       const resFollowJson = await resFollow.json();
+  //     }catch(err){
+  //       console.error('err', err);
+  //     }
+
+  //     btn.classList.remove('small-follow-button');
+  //     btn.classList.add('cancel-button');
+  //     btn.textContent = '취소';
+  //   }
+  // }
+}
+// followList.addEventListener('click', function (e) {
+  
+// });
+const followEvent = document.querySelector('.follow-list');
+followEvent.addEventListener('click', changeFollowList);
 
 function setFollowing(userInfo) {
   const followList = document.querySelector('.follow-list');
@@ -67,7 +97,7 @@ function setFollowing(userInfo) {
 }
 
 async function getFollowing() {
-  const url = 'https://api.mandarin.cf';
+  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
   const accountName = checkAccountName();
   const token = localStorage.getItem('Token');
   const init = {

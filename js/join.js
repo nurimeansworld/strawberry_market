@@ -35,7 +35,7 @@ function checkPw() {
 
 // 이메일 중복 체크하는 함수
 async function checkEmailValid() {
-  const url = 'https://api.mandarin.cf';
+  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
   const emailInp = {
     "user":{
       "email": joinEmail.value
@@ -123,7 +123,7 @@ userName.addEventListener('focusout', () => {
 
 //조건 2. 계정 아이디(accountname) 중복 불가
 async function checkIdValid(){
-  const url = 'https://api.mandarin.cf';
+  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
   
   try {
     const res = await fetch(`${url}/user/accountnamevalid`, {
@@ -167,7 +167,7 @@ accountName.addEventListener('focusout', checkIdValid);
 async function joinUser(e) {
   // button 비활성화
   e.preventDefault();
-  const url = 'https://api.mandarin.cf';
+  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
 
   // 프로필 이미지 업로드 유무 판단
   const image = (profileImgHidden.value !== '') ? profileImgHidden.value : 'https://api.mandarin.cf/Ellipse.png';

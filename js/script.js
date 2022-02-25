@@ -55,3 +55,6 @@ function checkLogout(){
   localStorage.removeItem("accountname");
   location.href="./login.html";
 }
+
+
+// 팔로우, 언팔로우
