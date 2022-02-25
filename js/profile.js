@@ -63,7 +63,6 @@ viewAlbumBtn.addEventListener('click', toggleOn);
 
 // 2. 얻어온 정보 뿌려주기
 function setOtherProfile(otherProfile) {
-  console.log(otherProfile);
   const other_image = (otherProfile.image) ? otherProfile.image : '../assets/basic-profile-img-2.png';
   const followBtn = document.querySelector('.medium-follow-btn');
 
@@ -139,12 +138,10 @@ function setOtherImgPost(otherImgPost) {
   for (const imgPost of otherImgPost) {
     const imgString = imgPost.image;
     const imgArr = imgString.split(',');
-    console.log('imgArr',imgArr);
     if(imgArr.length == 1){
       // 이미지 1개
       imgUrl = imgArr[0];
       imgClass = '';
-      console.log(imgUrl);
     }else{
       // 이미지 여러개
       imgUrl = imgArr[0];
@@ -153,7 +150,6 @@ function setOtherImgPost(otherImgPost) {
     const postAlbumItem = document.createElement('li');
     postAlbumItem.setAttribute('class', `post-album-item ${imgClass}`);
     postAlbumItem.innerHTML = `<a href="./postdetail.html?postId=${imgPost.id}"><img src="${imgUrl}" alt="게시글 이미지 입니다."></a>`;
-    console.log('postAlbumItem', postAlbumItem);
     fragement.appendChild(postAlbumItem);
   }
   postAlbumList.appendChild(fragement);
@@ -282,11 +278,9 @@ function setOtherPost(otherPost, otherProfile) {
 // 1. api - 프로필 정보 얻어오기
 async function getOtherProfile() {
   const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
-  console.log(url);
 
   // ?id= 값이 있는지 확인
   const accountName = checkAccountName();
-  console.log(accountName);
   const token = localStorage.getItem('Token');
   const init = {
     method: 'GET',
