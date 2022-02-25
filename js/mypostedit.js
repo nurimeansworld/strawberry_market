@@ -10,7 +10,7 @@ const imgFiles = [];
 // 게시글 상세 api
 // 수정할 게시물의 내용을 화면에 뿌리기 
 async function renderPost() {
-  const url = 'https://api.mandarin.cf';
+  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
   const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMTc0MThkODY1NjVjNDg2NzdjMTAxYiIsImV4cCI6MTY1MDg3NTI4NCwiaWF0IjoxNjQ1NjkxMjg0fQ.eFYoDRDBbWuoPgWQLqbVrdEtXCILR5y270Qr2LUJ9jE'
   // const token = localStorage.getItem('Token');
   const postId = new URLSearchParams(location.search).get('postId'); 
@@ -96,7 +96,7 @@ async function uploadImg(file) {
 // 게시물을 수정한 후에 서버에 전송
 async function editPost(){     
 // 버튼을 누른다 -> 수정 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
-  const url = 'https://api.mandarin.cf';
+  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
   // const token = localStorage.getItem('Token');
   const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMTc0MThkODY1NjVjNDg2NzdjMTAxYiIsImV4cCI6MTY1MDg3NTI4NCwiaWF0IjoxNjQ1NjkxMjg0fQ.eFYoDRDBbWuoPgWQLqbVrdEtXCILR5y270Qr2LUJ9jE'
   const postId = new URLSearchParams(location.search).get('postId'); 

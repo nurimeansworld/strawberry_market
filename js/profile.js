@@ -1,7 +1,6 @@
 // follow, unfollow 상태 변경
 async function changeFollow(){
-  // const url = 'https://api.mandarin.cf';
-  const url = 'http://146.56.183.55:5050';
+  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
   const accountName = checkAccountName();
   const token = localStorage.getItem('Token');
   const init = {
@@ -139,12 +138,10 @@ function setOtherImgPost(otherImgPost) {
   for (const imgPost of otherImgPost) {
     const imgString = imgPost.image;
     const imgArr = imgString.split(',');
-    console.log('imgArr',imgArr);
     if(imgArr.length == 1){
       // 이미지 1개
       imgUrl = imgArr[0];
       imgClass = '';
-      console.log(imgUrl);
     }else{
       // 이미지 여러개
       imgUrl = imgArr[0];
@@ -153,7 +150,6 @@ function setOtherImgPost(otherImgPost) {
     const postAlbumItem = document.createElement('li');
     postAlbumItem.setAttribute('class', `post-album-item ${imgClass}`);
     postAlbumItem.innerHTML = `<a href="./postdetail.html?postId=${imgPost.id}"><img src="${imgUrl}" alt="게시글 이미지 입니다."></a>`;
-    console.log('postAlbumItem', postAlbumItem);
     fragement.appendChild(postAlbumItem);
   }
   postAlbumList.appendChild(fragement);
@@ -281,7 +277,7 @@ function setOtherPost(otherPost, otherProfile) {
 
 // 1. api - 프로필 정보 얻어오기
 async function getOtherProfile() {
-  const url = 'http://146.56.183.55:5050';
+  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
 
   // ?id= 값이 있는지 확인
   const accountName = checkAccountName();
@@ -315,7 +311,7 @@ async function getOtherProfile() {
 
     setOtherPost(otherPost, otherProfile);
   } catch (err) {
-    location.href="./404.html";
+    // location.href="./404.html";
     console.error('err', err);
   }
 }
