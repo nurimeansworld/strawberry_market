@@ -334,7 +334,7 @@ EditBtn.textContent = '수정';
 
 
 async function deletePost() {
-  const url = 'http://146.56.183.55:5050';
+  const url = 'https://api.mandarin.cf';
   const token = localStorage.getItem('Token');
     
   try {
@@ -353,7 +353,7 @@ async function deletePost() {
   }
 };
 async function reportPost() {
-  const url = 'http://146.56.183.55:5050';
+  const url = 'https://api.mandarin.cf';
   const token = localStorage.getItem('Token');
 
   try {
@@ -373,7 +373,7 @@ async function reportPost() {
   }
 };
 
-async function reqReport(){  
+async function reportComment(){  
   const url = 'https://api.mandarin.cf';
   const token = localStorage.getItem('Token');
 
@@ -393,7 +393,7 @@ async function reqReport(){
     console.log(err);
   }
 };
-async function reqDelete(){
+async function deleteComment(){
   const url = 'https://api.mandarin.cf';
   const token = localStorage.getItem('Token');
   const postId = new URLSearchParams(location.search).get('postId');
