@@ -311,7 +311,7 @@ position: fixed;
 border-bottom-left-radius: 10px;
 }
 
-.alert-modal .alert-menu-list .logout-btn {
+.alert-modal .alert-menu-list .logout-btn, .report-btn {
 border-left: 0.5px solid #DBDBDB;
 color: #E26E7E
 }

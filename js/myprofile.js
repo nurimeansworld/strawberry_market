@@ -5,7 +5,7 @@ const del4 = document.querySelector('.delete .delete-btn');
 const edit = document.querySelector('.edit-item');
 const view4 = document.querySelector('.view-item');
 
-// 삭제 & 수정 모달 
+// 상품 - 삭제 & 수정 모달 
 function close4() {
   document.querySelector(".modal4").classList.remove("hidden");
 
@@ -15,26 +15,14 @@ function close4() {
   view4.setAttribute('data-id', itemId);
 }
 const open4 = () => {
-  document.querySelector(".modal4").classList.add("hidden");   
+  document.querySelector(".modal4").classList.add("hidden");
 } 
-
-document.querySelector(".modal4.hidden .hidden-menu").addEventListener("click", open4); 
-
-//  삭제, 수정, 웹사이트에서 보기 모달
-btn4.addEventListener('click',viewOption);
-out4.addEventListener('click',cancleOption);
-del4.addEventListener('click',cancleOption);
-del4.addEventListener('click', deleteItem);
-edit.addEventListener('click',editOption);
-view4.addEventListener('click',viewItem);
-
 function viewOption() {
   pop4.style.display = 'block';
 }
 function cancleOption() {
   pop4.style.display = 'none';
 }
-
 // 삭제
 async function deleteItem(){
   const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
@@ -56,8 +44,7 @@ async function deleteItem(){
     location.href="./404.html";
     console.error(err);
   }
-};
-
+}
 // 상품 수정 이동 페이지 
 function editOption(){
   const productId = edit.getAttribute('data-id');
@@ -83,6 +70,71 @@ async function viewItem(){
     console.error(err);
   }
 };
+
+document.querySelector(".modal4.hidden .hidden-menu").addEventListener("click", open4); 
+
+//  삭제, 수정, 웹사이트에서 보기 모달
+btn4.addEventListener('click',viewOption);
+out4.addEventListener('click',cancleOption);
+del4.addEventListener('click',cancleOption);
+del4.addEventListener('click', deleteItem);
+edit.addEventListener('click',editOption);
+view4.addEventListener('click',viewItem);
+
+// -----------------------------------------------
+const modalUserPost = document.querySelector("#userPost");
+const modalPostDel = modalUserPost.querySelector('.delete-item');
+const modalPostEdit = modalUserPost.querySelector('.edit-item');
+const modalDelete = document.querySelector('.dimm.off.delete');
+
+// 게시글 - 삭제 & 수정 모달 
+function close5() {
+  console.log(this);
+  modalUserPost.classList.remove("hidden");
+
+  const postId = this.getAttribute('data-id');
+  modalPostDel.setAttribute('data-id', postId);
+  modalPostEdit.setAttribute('data-id', postId);
+}
+const open5 = () => {
+  modalUserPost.classList.add("hidden");   
+}
+async function deletePost(){
+  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
+  const token = localStorage.getItem('Token');
+  const postId = modalPostDel.getAttribute('data-id');
+
+  try {
+    const res = await fetch( `${url}/post/${postId}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization' : `Bearer ${token}`,
+        'Content-type' : 'application/json'
+      }
+    });
+    const json = await res.json();
+    // console.log(json);
+    location.href="./myprofile.html";
+
+  } catch(err) {
+    location.href="./404.html";
+    console.error(err);
+  }
+}
+function editPost(){
+  const postId = modalPostEdit.getAttribute('data-id');
+  location.href=`./mypostedit.html?postId=${postId}`;
+}
+
+modalUserPost.querySelector('.hidden-menu').addEventListener("click", open5);
+modalPostDel.addEventListener('click', function() {
+  modalDelete.style.display = 'block';
+});
+modalDelete.querySelector('.delete-btn').addEventListener('click', deletePost);
+modalDelete.querySelector('.cancle-btn').addEventListener('click', () => {
+  modalDelete.style.display = 'none';
+});
+modalPostEdit.addEventListener('click', editPost);
 
 // 리스트로 보기, 엘범으로 보기
 function toggleOn(){
@@ -252,13 +304,18 @@ function setUserPost(userPost, userProfile) {
         <img class="user-profile" src="${user_image}" alt="회원 프로필">
         <h4 class="user-name">${userProfile.username}</h4>
         <p class="user-id">@ ${userProfile.accountname}</p>
-        <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
+        <button type="button" class="btn-menu" data-id="${post.id}"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
         </div>`;
       postItem.innerHTML = `${htmlPostUser}
           <div class="home-post-content">
             <p class="user-cont">${post.content}</p>
             ${postImageList}
           </div>`;
+
+      const postMenuBtn = postItem.querySelector('.btn-menu');
+      postMenuBtn.addEventListener('click', close5);
+      // console.log();
+      // 모달 하나로 해서 스크립트로 내용 바꾸기...
 
       const postComment = document.createElement('div');
       postComment.setAttribute('class', 'home-post-comment');
@@ -305,6 +362,7 @@ function setUserPost(userPost, userProfile) {
       postComment.appendChild(itemHeart);
       postComment.appendChild(itemComment);
 
+      // postItem.appendChild(postDiv);
       postItem.appendChild(postComment);
       postItem.appendChild(itemDate);
       fragment.appendChild(postItem);

@@ -289,6 +289,15 @@
   margin: 0 12px; 
 }
 
+.alert-modal.myprofile-modal,
+.alert-modal.profile-modal{
+  margin: 50% auto;
+  background: #fff;
+  width: 252px;
+  border: 0.5px solid #DBDBDB;
+  border-radius: 10px;
+}
+
 /* 누리 작업 - P03 팔로우, 팔로워 */
 .follow-sec{
   padding-top: 48px

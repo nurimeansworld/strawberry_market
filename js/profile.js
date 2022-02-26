@@ -1,3 +1,46 @@
+const modalPost = document.querySelector("#postReport");
+const modalPostReport = modalPost.querySelector('.report-item');
+const modalReport = document.querySelector('.dimm.off.report');
+// 게시글 - 신고하기
+function close5() {
+  console.log(this);
+  modalPost.classList.remove("hidden");
+
+  const postId = this.getAttribute('data-id');
+  modalPostReport.setAttribute('data-id', postId);
+}
+const open5 = () => {
+  modalPost.classList.add("hidden");   
+}
+async function reportPost(){
+  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
+  const token = localStorage.getItem('Token');
+  const postId = modalPostReport.getAttribute('data-id');
+
+  try {
+    const res = await fetch( `${url}/post/${postId}/report`, {
+      method: 'POST',
+      headers: {
+        'Authorization' : `Bearer ${token}`,
+        'Content-type' : 'application/json'
+      }
+    });
+    const json = await res.json();
+    modalReport.style.display = 'none';
+  } catch(err) {
+    location.href="./404.html";
+    console.error(err);
+  }
+}
+modalPost.querySelector('.hidden-menu').addEventListener("click", open5);
+modalPostReport.addEventListener('click', () => {
+  modalReport.style.display = 'block';
+});
+modalReport.querySelector('.report-btn').addEventListener('click', reportPost);
+modalReport.querySelector('.cancle-btn').addEventListener('click', () => {
+  modalReport.style.display = 'none';
+});
+
 // follow, unfollow 상태 변경
 async function changeFollow(){
   const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
@@ -179,12 +222,7 @@ function checkImagePost(otherPost) {
 
 function setOtherPost(otherPost, otherProfile) {
   const user_image = (otherProfile.image) ? otherProfile.image : '../assets/basic-profile-img-2.png';
-  const htmlPostUser = `<div class="home-post-user">
-    <img class="user-profile" src="${user_image}" alt="회원 프로필">
-    <h4 class="user-name">${otherProfile.username}</h4>
-    <p class="user-id">@ ${otherProfile.accountname}</p>
-    <button type="button" class="btn-menu"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>
-    </div>`;
+  const htmlPostUser = `<img class="user-profile" src="${user_image}" alt="회원 프로필"><h4 class="user-name">${otherProfile.username}</h4><p class="user-id">@ ${otherProfile.accountname}</p>`;
 
   const postSec = document.querySelector('.post-sec');
 
@@ -196,6 +234,7 @@ function setOtherPost(otherPost, otherProfile) {
     const postList = document.querySelector('.post-list-list');
 
     for (const post of otherPost.post) {
+      const modalBtn = `<button type="button" class="btn-menu" data-id="${post.id}"><img src="../assets/icon/icon-more-vertical.png" alt="메뉴 열기"></button>`;
       const post_date = new Date(post.createdAt);
       const post_date_format = `${post_date.getFullYear()}년 ${post_date.getMonth() + 1}월 ${post_date.getDate()}일`;
       // 이미지 여부 확인 및 복수 처리
@@ -213,11 +252,14 @@ function setOtherPost(otherPost, otherProfile) {
       const postItem = document.createElement('li');
       postItem.setAttribute('class', 'post-list-item home-post');
       postItem.setAttribute('data-id', post.id);
-      postItem.innerHTML = `${htmlPostUser}
+      postItem.innerHTML = `<div class="home-post-user">${htmlPostUser}${modalBtn}</div>
           <div class="home-post-content">
             <p class="user-cont">${post.content}</p>
             ${postImageList}
           </div>`;
+
+      const postMenuBtn = postItem.querySelector('.btn-menu');
+      postMenuBtn.addEventListener('click', close5);
 
       const postComment = document.createElement('div');
       postComment.setAttribute('class', 'home-post-comment');
@@ -311,7 +353,7 @@ async function getOtherProfile() {
 
     setOtherPost(otherPost, otherProfile);
   } catch (err) {
-    // location.href="./404.html";
+    location.href="./404.html";
     console.error('err', err);
   }
 }
