@@ -188,7 +188,7 @@ URL : 🔗 https://strawberry-market.vercel.app/
 |:-:|:-:|
 |<img width="390px;" src="https://user-images.githubusercontent.com/89337955/154147633-4842d449-544d-4268-b3ef-361a031bb964.gif">|<img width="390px;" src="https://user-images.githubusercontent.com/89337955/154154506-7f492ae0-31cd-4da3-bf11-43a3b1608306.gif">|
 |🔗[상품 삭제 페이지](https://github.com/nurimeansworld/strawberry_market/wiki/%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B8%B0%EB%8A%A5-%EC%83%81%EC%84%B8-%EC%84%A4%EB%AA%85#-%EC%83%81%ED%92%88-%EC%82%AD%EC%A0%9C-%EC%9D%B4%EB%8F%99-%ED%8E%98%EC%9D%B4%EC%A7%80)|🔗[상품 사이트로 이동 페이지](https://github.com/nurimeansworld/strawberry_market/wiki/%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B8%B0%EB%8A%A5-%EC%83%81%EC%84%B8-%EC%84%A4%EB%AA%85#-%EC%83%81%ED%92%88-%EC%82%AD%EC%A0%9C-%EC%9D%B4%EB%8F%99-%ED%8E%98%EC%9D%B4%EC%A7%80)|
-|<img width="390px;" src="https://user-images.githubusercontent.com/89337955/154155295-5c75bcb8-82cd-4b9b-930d-fb380e5b8218.gif">|<img width="390px;" src="">|
+|<img width="390px;" src="https://user-images.githubusercontent.com/89337955/154155295-5c75bcb8-82cd-4b9b-930d-fb380e5b8218.gif">|<img width="390px;" src="https://user-images.githubusercontent.com/89337955/155849036-8466debe-7267-454b-8f4b-4f74b1eac7be.gif">|
 
 <p align="right"><a href="#top">(Top)</a></p>
 
