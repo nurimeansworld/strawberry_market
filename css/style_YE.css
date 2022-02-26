@@ -361,7 +361,7 @@ ul .chat-cont-sender :nth-child(2) {
   align-items: flex-end;
   flex-direction: row-reverse;
   margin: 0 auto;
-  padding: 5px;
+  padding: 10px;
   position: relative;
 }
 
@@ -380,10 +380,11 @@ ul .chat-cont-sender :nth-child(2) {
   border-radius: 5px 0 5px 5px;
   border: 1px solid var(--enabled-color);
   background-color: var(--enabled-color);
-  width: 108px;
-  height: 42px;
+  width: 80%;
+  height: 80%;
   text-align: center;
-  line-height: 35px;
+  line-height: 22px;
+  padding: 7px;
   color: white;
 }
 
