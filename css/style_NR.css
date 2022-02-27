@@ -202,7 +202,6 @@
 }
 .post-btn-tab{
   padding: 9px 16px;
-  overflow: auto;
   border-top: 0.5px solid var(--cancel-color-border); 
   border-bottom: 0.5px solid var(--cancel-color-border); 
 }
