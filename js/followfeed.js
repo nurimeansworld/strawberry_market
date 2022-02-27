@@ -186,10 +186,9 @@ async function renderFollowPost() {
       // 버튼을 누른다 -> 삭제 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
       const url = 'https://api.mandarin.cf';
       const token = localStorage.getItem('Token');
-      const commentId = new URLSearchParams(location.search).get('commentId');
 
       try {
-        const res = await fetch(`${url}/post/${postId}/comments/${commentId}/report`, {
+        const res = await fetch(`${url}/post/${postId}/report`, {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`,
