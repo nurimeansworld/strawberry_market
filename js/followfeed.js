@@ -165,19 +165,44 @@ async function renderFollowPost() {
     }//for문 닫는 버튼
     
     // 신고하기 모달(희정님 담당) 
+    // const open6 = () => {
+    //   document.querySelector(".modal6").classList.remove("hidden");
+    // }
+    // const close6 = () => {
+    //   document.querySelector(".modal6").classList.add("hidden");
+    // }
+
+    // document.querySelector(".report-menu").addEventListener("click", close6);
+
+    // const btn6 = document.querySelector('.call-post');
+    // const pop6 = document.querySelector('.report-dim');
+    // const out6 = document.querySelector('.cancle-btn');
+    // const call6 = document.querySelector('.call-btn');
+
+    // btn6.addEventListener('click', viewOption);
+    // out6.addEventListener('click', cancleOption);
+    // call6.addEventListener('click', cancleOption);
+
+    // function viewOption() {
+    //   pop6.style.display = 'block';
+    // }
+    // function cancleOption() {
+    //   pop6.style.display = 'none';
+    // }
     const open6 = () => {
-      document.querySelector(".modal6").classList.remove("hidden");
+      document.querySelector(".modal6").classList.remove("other-cmt-hidden");
     }
     const close6 = () => {
-      document.querySelector(".modal6").classList.add("hidden");
+      document.querySelector(".modal6").classList.add("other-cmt-hidden");
     }
 
-    document.querySelector(".report-menu").addEventListener("click", close6);
+    document.querySelector(".other-cmt-call-post").addEventListener("click", open6);
+    document.querySelector(".other-cmt-hidden-menu").addEventListener("click", close6);
 
-    const btn6 = document.querySelector('.call-post');
-    const pop6 = document.querySelector('.report-dim');
-    const out6 = document.querySelector('.cancle-btn');
-    const call6 = document.querySelector('.call-btn');
+    const btn6 = document.querySelector('.other-cmt-call-post');
+    const pop6 = document.querySelector('.other-cmt-dimm');
+    const out6 = document.querySelector('.other-cmt-cancle-btn');
+    const call6 = document.querySelector('.other-cmt-call-btn');
 
     btn6.addEventListener('click', viewOption);
     out6.addEventListener('click', cancleOption);
@@ -189,6 +214,34 @@ async function renderFollowPost() {
     function cancleOption() {
       pop6.style.display = 'none';
     }
+
+    const postId = new URLSearchParams(location.search).get('postId');
+    console.log('postId', postId);
+
+
+    async function callPost() {
+
+      // 버튼을 누른다 -> 삭제 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
+      const url = 'https://api.mandarin.cf';
+      const token = localStorage.getItem('Token');
+      const commentId = new URLSearchParams(location.search).get('commentId');
+
+      try {
+        const res = await fetch(`${url}/post/${postId}/comments/${commentId}/report`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-type': 'application/json'
+          }
+        });
+        const json = await res.json();
+        console.log(json);
+
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    call6.addEventListener('click', callPost);
     }catch (err) {
       console.log(err); // MEMO: err 내용 그대로 뜬다
     }
