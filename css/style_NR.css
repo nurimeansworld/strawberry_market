@@ -290,7 +290,7 @@
 
 .alert-modal.myprofile-modal,
 .alert-modal.profile-modal{
-  margin: 50% auto;
+  margin: 50vh auto;
   background: #fff;
   width: 252px;
   border: 0.5px solid #DBDBDB;
