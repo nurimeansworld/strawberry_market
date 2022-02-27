@@ -184,7 +184,7 @@ function setUserProfile(userProfile) {
 }
 
 function setUserProduct(userProduct) {
-  const productSec = document.querySelector('.product-sec');
+  const productSec = document.querySelector('.product-sec .container');
 
   if (userProduct.data !== 0) {
     // 상품 O
@@ -222,7 +222,7 @@ function setUserProduct(userProduct) {
     productSec.appendChild(productList);
   } else {
     // 상품 X
-    productSec.remove();
+    document.querySelector('.product-sec').remove();
   }
 }
 
