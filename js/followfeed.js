@@ -188,7 +188,7 @@ async function renderFollowPost() {
       const token = localStorage.getItem('Token');
 
       try {
-        const res = await fetch(`${url}/post/${postId}/report`, {
+        const res = await fetch( `${url}/post/${postId}/report`, {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`,
