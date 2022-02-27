@@ -1,6 +1,8 @@
 //5.2팔로우한 사람 피드-------------------------------------------------------------
 const homePostCont = document.querySelector(".container");
 
+let targetPostId = [];
+
 // 팔로우한 게시글 불러오기 
 async function renderFollowPost() {
   const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
@@ -150,6 +152,8 @@ async function renderFollowPost() {
       img22.addEventListener('click', () => {
         location.href = `./profile.html?id=${accountName}`;
       });
+
+      targetPostId.push(postId);
     }//for문 닫는 버튼
     
     // 신고하기 모달(희정님 담당) 
@@ -179,16 +183,13 @@ async function renderFollowPost() {
       pop6.style.display = 'none';
     }
 
-    const postId = new URLSearchParams(location.search).get('postId');
-    console.log('postId', postId);
-
     async function callPost() {
       // 버튼을 누른다 -> 삭제 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
-      const url = 'https://api.mandarin.cf';
+      const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
       const token = localStorage.getItem('Token');
 
       try {
-        const res = await fetch( `${url}/post/${postId}/report`, {
+        const res = await fetch( `${url}/post/${targetPostId[0]}/report`, {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`,
