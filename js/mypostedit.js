@@ -6,9 +6,8 @@ const uploadInput = document.querySelector('.upload-input');
 const uploadImgBtn = document.querySelector('.upload-img');
 const imgContainer = document.querySelector('.img-container');
 const uploadBtn = document.querySelector('.upload-btn');
-const imgFiles = []; 
+let imgFiles = []; 
 
-//이미지 업로드 (지아님코드)
 async function uploadImg(file) {
   const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
   const formData = new FormData();
@@ -23,25 +22,28 @@ async function uploadImg(file) {
 }
 
 function setImg() {
-  const arrImg = hiddenImg.value.split(',');
+  if(hiddenImg.value !== ''){
+    const arrImg = hiddenImg.value.split(',');
 
-  if(arrImg.length >= 1 && arrImg[0] !== '') { 
-    arrImg.map((src) => {
-      const imgItem = document.createElement('div');
-      imgItem.className = 'img-item';
-      imgItem.setAttribute("style", `background-image: url(${src})`);
-      imgContainer.appendChild(imgItem);
+    if(arrImg.length >= 1 && arrImg[0] !== '') { 
+      arrImg.map((src) => {
+        const imgItem = document.createElement('div');
+        imgItem.className = 'img-item';
+        imgItem.setAttribute("style", `background-image: url(${src})`);
+        imgContainer.appendChild(imgItem);
 
-      const closeBtn = document.createElement('button');
-      closeBtn.className = 'close-btn';
-      imgItem.appendChild(closeBtn);
+        const closeBtn = document.createElement('button');
+        closeBtn.className = 'close-btn';
+        imgItem.appendChild(closeBtn);
 
-      closeBtn.addEventListener('click', () => {
-        arrImg.splice([...imgContainer.children].indexOf(imgItem)-1, 1); 
-        imgContainer.removeChild(imgItem);
-        hiddenImg.value = arrImg;
+        closeBtn.addEventListener('click', () => {
+          arrImg.splice([...imgContainer.children].indexOf(imgItem)-1, 1); 
+          imgContainer.removeChild(imgItem);
+          hiddenImg.value = arrImg;
+
+        });
       });
-    });
+    }
   }
 }
 // 수정할 게시물의 내용을 화면에 뿌리기 
@@ -78,6 +80,7 @@ function readInputFile(e){
   const fileArr = [...files];
   const arrImg = hiddenImg.value.split(',');
 
+  fileArr.forEach(file => imgFiles.push(file));
   fileArr.forEach(function(i) {
     if(arrImg.length < 3){
       var reader = new FileReader();
@@ -92,6 +95,7 @@ function readInputFile(e){
         const closeBtn = document.createElement('button');
         closeBtn.className = 'close-btn';
         imgItem.appendChild(closeBtn);
+
         closeBtn.addEventListener('click',function(){
           arrImg.splice([...imgContainer.children].indexOf(imgItem)-1, 1); 
           imgContainer.removeChild(imgItem);
@@ -99,14 +103,11 @@ function readInputFile(e){
         });
       }
       reader.readAsDataURL(i);
-      arrImg.push(reader.readAsDataURL(i));
-      hiddenImg.value = arrImg;
     }else{
       alert('이미지는 3장까지 가능합니다.');
     }
   });
 }
-
 
 renderPost();
 uploadInput.addEventListener('change',readInputFile);
@@ -115,18 +116,14 @@ async function editPost(){
   const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
   const token = localStorage.getItem('Token');
   const postId = new URLSearchParams(location.search).get('postId'); 
-  const files = hiddenImg.value;
-  const imgFiles = hiddenImg.value.split(',');
+  const oldImg = hiddenImg.value;
+  const updateImgArr = (hiddenImg.value === '') ? [] : oldImg.split(',');
 
-  // if(imgFiles.length > 3) {  //이미지 파일 3장이상이면 
-  //   alert('이미지 파일은 최대 3장까지만 가능합니다.');
-  // } else {
-  const imgUrls = [];
   for (const file of imgFiles) {
-    imgUrls.splice(`${url}/${await uploadImg(file)}`);
+    const resultImg = await uploadImg(file);
+    updateImgArr.push(`${url}/${resultImg}`); 
   }
-  console.log('imgUrls', imgUrls);
-  // }
+
   try {
     const res = await fetch(`${url}/post/${postId}`, {
       method: 'PUT',
@@ -137,26 +134,21 @@ async function editPost(){
       body:JSON.stringify({
         "post": {
           "content": postTxt.value,
-          "image": files
+          "image": updateImgArr.join(',')
         }
       })
       
     });
     const json = await res.json();
-    console.log(json);
+    location.href="./myprofile.html";
 
     if(json.type == 'entity.too.large'){
       console.error(json.message);
       alert('이미지 용량이 너무 큽니다.');
     }
-
-    if(json['post'] !== ''){
-      // console.log('error아니다');
-      // location.href = "./myprofile.html"
-    }
-    
-  } catch(err) {
-    console.log(err);
+  }catch(err){
+    location.href="./404.html";
+    console.error(err);
   }
 };
 uploadBtn.addEventListener('click', editPost)
