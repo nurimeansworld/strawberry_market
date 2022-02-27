@@ -1,7 +1,5 @@
 //5.2팔로우한 사람 피드-------------------------------------------------------------
 const homePostCont = document.querySelector(".container");
-// const postId = localStorage.getItem('postId');
-// let postUserId = "";
 
 // 팔로우한 게시글 불러오기 
 async function renderFollowPost() {
@@ -130,17 +128,7 @@ async function renderFollowPost() {
       postItem.appendChild(p5);
 
       // 게시물의 이미지 
-      // console.log(postImg);
-      // (3) ['사진1.jpg', '사진2.jpg', '사진3.jpg']
-      // (1) ['사진1.jpg']
-      // (1) [''] -> postImg[0] = '';
-      // div3를 이미지가 있을 때만 동적으로 생성하기 -> if문 
-      // if문의 조건: postImg.length가 1이상이면서 배열의 첫번째 요소가 빈 문자열이면 안된다
-      // && : and 둘다 truth -> truth를 반환 
-      // || : or 둘 중 하나만 truth -> truth를 반환 
       if(postImg.length >= 1 && postImg[0] !== '') { 
-        // div3와 그 이하의 요소를 여기서 생성 
-        // postImg에 담긴 src를 img태그의 src에 각각 넣어준다 -> map 활용
         postImg.map((url) => {
           const li = document.createElement('li');
           const img = document.createElement('img');            
@@ -166,18 +154,19 @@ async function renderFollowPost() {
     
     // 신고하기 모달(희정님 담당) 
     const open6 = () => {
-      document.querySelector(".modal6").classList.remove("hidden");
+      document.querySelector(".modal6").classList.remove("other-cmt-hidden");
     }
     const close6 = () => {
-      document.querySelector(".modal6").classList.add("hidden");
+      document.querySelector(".modal6").classList.add("other-cmt-hidden");
     }
 
-    document.querySelector(".report-menu").addEventListener("click", close6);
+    document.querySelector(".other-cmt-call-post").addEventListener("click", open6);
+    document.querySelector(".other-cmt-hidden-menu").addEventListener("click", close6);
 
-    const btn6 = document.querySelector('.call-post');
-    const pop6 = document.querySelector('.report-dim');
-    const out6 = document.querySelector('.cancle-btn');
-    const call6 = document.querySelector('.call-btn');
+    const btn6 = document.querySelector('.other-cmt-call-post');
+    const pop6 = document.querySelector('.other-cmt-dimm');
+    const out6 = document.querySelector('.other-cmt-cancle-btn');
+    const call6 = document.querySelector('.other-cmt-call-btn');
 
     btn6.addEventListener('click', viewOption);
     out6.addEventListener('click', cancleOption);
@@ -189,20 +178,34 @@ async function renderFollowPost() {
     function cancleOption() {
       pop6.style.display = 'none';
     }
+
+    const postId = new URLSearchParams(location.search).get('postId');
+    console.log('postId', postId);
+
+    async function callPost() {
+      // 버튼을 누른다 -> 삭제 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
+      const url = 'https://api.mandarin.cf';
+      const token = localStorage.getItem('Token');
+
+      try {
+        const res = await fetch(`${url}/post/${postId}/report`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-type': 'application/json'
+          }
+        });
+        const json = await res.json();
+        console.log(json);
+
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    call6.addEventListener('click', callPost);
     }catch (err) {
       console.log(err); // MEMO: err 내용 그대로 뜬다
     }
   };
 
   renderFollowPost();
-
-
-
-      
-
-    
-
-    
-    
-
-
