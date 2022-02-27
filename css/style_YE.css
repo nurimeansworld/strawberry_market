@@ -333,9 +333,9 @@
 
 /* 3.1.13 채팅방 (chat room) */
 .chat-room {
-  padding: 224px 7px 20px;
-  /* background-color: #F2F2F2; */
   box-sizing: border-box;
+  position: absolute;
+  bottom: 300px;
 }
 
 .chat-cont-sender {
@@ -367,14 +367,12 @@ ul .chat-cont-sender :nth-child(2) {
   position: relative;
 }
 
-
 .chat-cont-me .chat-user-profile {
   position: absolute;
   width: 240px;
   height: 240px;
-  top: 130px;
-  left: 250px;
-  transform: translate(-50%, -50%);
+  top: 0;
+  right: 0;
   border-radius: 10px;
 
 }
@@ -384,10 +382,10 @@ ul .chat-cont-sender :nth-child(2) {
   background-color: var(--enabled-color);
   width: 80%;
   height: 80%;
-  text-align: center;
   line-height: 22px;
   padding: 7px;
   color: white;
+  text-align: justify;
 }
 
 .chat-cont-me .chat-time {
@@ -400,7 +398,7 @@ ul .chat-cont-sender :nth-child(2) {
   color: var(--cancel-color-text);
   position: absolute;
   top: 230px;
-  left: 90px;
+  right: 250px;
   font-size: small;
 }
 
@@ -412,12 +410,14 @@ ul .chat-cont-sender :nth-child(2) {
   padding: 13px 20px 12px 16px;
   margin-top: 260px;
   padding-bottom: 0;
-  /* bottom: 0;
-  position: fixed; */
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 .chat-content {
   display: flex;
+  flex: 1;
   align-items: center;
 }
 
@@ -427,6 +427,9 @@ ul .chat-cont-sender :nth-child(2) {
 
 .chat-input {
   margin-left: 10px;
+  width: 100%;
+  margin-right: 10px;
+  outline: none;
 }
 .chat-btn {
   color: var(--enabled-color);
