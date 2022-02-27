@@ -179,7 +179,7 @@ function setUserProfile(userProfile) {
   document.querySelector('.profile-followings dd a').textContent = userProfile.followingCount;
   document.querySelector('.profile-img').src = user_image;
   document.querySelector('.profile-name').textContent = userProfile.username;
-  document.querySelector('.profile-account').textContent = `@${userProfile.accountname}`;
+  document.querySelector('.profile-account').textContent = `@ ${userProfile.accountname}`;
   document.querySelector('.profile-desc').textContent = userProfile.intro;
 }
 

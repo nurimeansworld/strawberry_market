@@ -88,7 +88,7 @@ async function renderFollowPost() {
       img22.setAttribute('src', profileImg);
       img22.setAttribute('alt', '회원 프로필');
       h4.textContent = userName;
-      p.textContent = accountName;
+      p.textContent = '@ '+accountName;
       button.setAttribute('type', 'button')
       p2.textContent = content;
       button2.setAttribute('type', 'button')
