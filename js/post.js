@@ -39,7 +39,6 @@ async function renderProfile() {
     console.error(err);
   }
 }
-
 renderProfile();
 
 
@@ -126,5 +125,4 @@ function readInputFile(e){
     }
   })
 }
-
 uploadInp.addEventListener('change',readInputFile);

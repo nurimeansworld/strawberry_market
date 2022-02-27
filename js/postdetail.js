@@ -90,7 +90,7 @@ async function renderPost() {
     userProfile.setAttribute('src', profileImg);
     userProfile.setAttribute('alt', '회원 프로필');
     postUserName.textContent = userName;
-    userId.textContent = accountName;
+    userId.textContent = `@ ${accountName}`;
     btnMenu.setAttribute('type', 'button')
     userCont.textContent = content;
     btnHeart.setAttribute('type', 'button')
@@ -140,7 +140,8 @@ async function renderPost() {
     btnMessage.appendChild(messageButton);
     itemCountMessage.appendChild(messageCount);
     li.appendChild(date);
-  } catch(err) { 
+  } catch(err) {
+    location.href="./404.html"; 
     console.error(err); 
   }
 };
@@ -310,6 +311,7 @@ async function sendComment(e) {
     commentInp.value = '';
     checkValue()
   } catch(err) {
+    location.href="./404.html";
     console.error(err);
   }
 };
@@ -346,10 +348,11 @@ async function deletePost() {
       }
     });
     const json = await res.json(); 
-    console.log(json);
+    // console.log(json);
     location.href = `./profile.html?id=${curAccountName}`;    
   } catch(err) {
-    console.log(err);
+    location.href="./404.html";
+    console.error(err); 
   }
 };
 async function reportPost() {
@@ -365,11 +368,12 @@ async function reportPost() {
       }
     });
     const json = await res.json();
-    console.log(json);
+    // console.log(json);
     modalBg.style.display = 'none';
     alertModal.style.display = 'none';
   } catch(err) {
-    console.log(err);
+    location.href="./404.html";
+    console.error(err); 
   }
 };
 
@@ -386,11 +390,12 @@ async function reportComment() {
       }
     });
     const json = await res.json();
-    console.log(json);
+    // console.log(json);
     modalBg.style.display = 'none';
     alertModal.style.display = 'none';
   } catch(err) {
-    console.log(err);
+    location.href="./404.html";
+    console.error(err); 
   }
 };
 async function deleteComment() {
@@ -408,19 +413,19 @@ async function deleteComment() {
       }
     });
     const json = await res.json();
-    console.log(json);
+    // console.log(json);
     modalBg.style.display = 'none';
     alertModal.style.display = 'none';
     commentList.removeChild(curListitem)
   } catch(err) {
-    console.log(err);
+    location.href="./404.html";
+    console.error(err); 
   }
 };
 
 
 function exeCommentModal() {
   if(curAccountName === localStorage.getItem('accountname')) {
-    console.log('내가쓴댓글이야 - 삭제');
     modalBg.style.display = 'block';
     btmModal.style.display = 'block';
     deleteBtn.textContent = '삭제';
@@ -443,7 +448,6 @@ function exeCommentModal() {
     });
     multiBtn.addEventListener('click', deleteComment);
   } else {
-    console.log('내가쓴거아니야 - 신고');
     modalBg.style.display = 'block';
     btmModal.style.display = 'block';
     deleteBtn.textContent = '신고';
@@ -469,7 +473,6 @@ function exeCommentModal() {
 
 function exePostModal() {
   if(curAccountName === localStorage.getItem('accountname')) {
-    console.log('내가쓴게시글이야 - 수정,삭제');
     btmModal.appendChild(EditBtn);
     EditBtn.addEventListener('click', () => {
       location.href = `../pages/mypostedit.html?postId=${postId}`;
@@ -496,7 +499,6 @@ function exePostModal() {
     });
     multiBtn.addEventListener('click', deletePost);
   } else {
-    console.log('내가쓴거아니야 - 신고');
     modalBg.style.display = 'block';
     btmModal.style.display = 'block';
     deleteBtn.textContent = '신고';

@@ -40,7 +40,6 @@ async function searchUser(e) {
     );
   }
 }
-
 searchInp.addEventListener('input', searchUser);
 
 
