@@ -54,57 +54,58 @@ URL : 🔗 https://strawberry-market.vercel.app/
 ```bash
 │  README.md
 │  index.html
-├── assets/
-├── css/
-│    default.css
-│    font.css
-│    reset.css
-│    style.css
-│    style_HJ.css
-│    style_JA.css
-│    style_NR.css
-│    style_YE.css
-├── font/
-├── html/
-├── js/
-│    accountedit.js
-│    chat.js
-│    chatroom.js
-│    edit.js
-│    followers.js
-│    followfeed.js
-│    followings.js
-│    index.js
-│    intro.js
-│    join.js
-│    login.js
-│    myprofile.js
-│    post.js
-│    postdetail.js
-│    product.js
-│    profile.js
-│    script.js
-│    search.js
-│    useredit.js
-└── pages/
-     accountedit.html
-     chat.html
-     chatroom.html
-     edit.html
-     followers.html
-     followfeed.html
-     followings.html
-     home.html
-     intro.html
-     join.html
-     login.html
-     myprofile.html
-     post.html
-     postdetail.html
-     postedit.html
-     product.html
-     profile.html
-     search.html
+├── assets
+├── css
+│    ├── default.css
+│    ├── font.css
+│    ├── reset.css
+│    ├── style.css
+│    ├── style_HJ.css
+│    ├── style_JA.css
+│    ├── style_NR.css
+│    └── style_YE.css
+├── font
+├── html
+├── js
+│    ├── accountedit.js
+│    ├── chat.js
+│    ├── chatroom.js
+│    ├── edit.js
+│    ├── followers.js
+│    ├── followfeed.js
+│    ├── followings.js
+│    ├── index.js
+│    ├── intro.js
+│    ├── join.js
+│    ├── login.js
+│    ├── mypostedit.js
+│    ├── myprofile.js
+│    ├── post.js
+│    ├── postdetail.js
+│    ├── product.js
+│    ├── profile.js
+│    ├── script.js
+│    ├── search.js
+│    └── useredit.js
+└── pages
+     ├── accountedit.html
+     ├── chat.html
+     ├── chatroom.html
+     ├── edit.html
+     ├── followers.html
+     ├── followfeed.html
+     ├── followings.html
+     ├── home.html
+     ├── intro.html
+     ├── join.html
+     ├── login.html
+     ├── mypostedit.html
+     ├── myprofile.html
+     ├── post.html
+     ├── postdetail.html
+     ├── product.html
+     ├── profile.html
+     └── search.html
 ```
 
 <p align="right"><a href="#top">(Top)</a></p>
