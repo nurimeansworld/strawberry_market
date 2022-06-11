@@ -60,7 +60,7 @@ function checkLogout(){
 // followings, followers - 팔로우, 언팔로우 기능 함수
 async function changeFollowList(){
   const btn = this;
-  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
+  const url = (location.protocol === "https:") ? 'https://mandarin.api.weniv.co.kr' : 'http://146.56.183.55:5050';
   const accountName = this.getAttribute('data-id');
   const token = localStorage.getItem('Token');
   const init = {
