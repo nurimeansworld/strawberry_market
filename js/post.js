@@ -44,9 +44,10 @@ renderProfile();
 
 // 이미지 업로드
 async function uploadImg(file) {
+  const url = (location.protocol === "https:") ? 'https://mandarin.api.weniv.co.kr' : 'http://146.56.183.55:5050';
   const formData = new FormData();
   formData.append("image", file);
-  const res = await fetch(`https://mandarin.api.weniv.co.kr/image/uploadfiles`, {
+  const res = await fetch(`${url}/image/uploadfiles`, {
       method: "POST",
       body: formData
   });
