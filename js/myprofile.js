@@ -25,7 +25,7 @@ function cancleOption() {
 }
 // 삭제
 async function deleteItem(){
-  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
+  const url = (location.protocol === "https:") ? 'https://mandarin.api.weniv.co.kr' : 'http://146.56.183.55:5050';
   const token = localStorage.getItem('Token');
   const productId = btn4.getAttribute('data-id');
 
@@ -51,7 +51,7 @@ function editOption(){
   location.href=`./edit.html?productId=${productId}`;
 }
 async function viewItem(){
-  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
+  const url = (location.protocol === "https:") ? 'https://mandarin.api.weniv.co.kr' : 'http://146.56.183.55:5050';
   const token = localStorage.getItem('Token');
   const productId = view4.getAttribute('data-id');
 
@@ -100,7 +100,7 @@ const open5 = () => {
   modalUserPost.classList.add("hidden");   
 }
 async function deletePost(){
-  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
+  const url = (location.protocol === "https:") ? 'https://mandarin.api.weniv.co.kr' : 'http://146.56.183.55:5050';
   const token = localStorage.getItem('Token');
   const postId = modalPostDel.getAttribute('data-id');
 
@@ -376,7 +376,7 @@ function setUserPost(userPost, userProfile) {
 
 // 1. api - 프로필 정보 얻어오기
 async function getUserProfile() {
-  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
+  const url = (location.protocol === "https:") ? 'https://mandarin.api.weniv.co.kr' : 'http://146.56.183.55:5050';
   const accountName = checkAccountName();
   const token = localStorage.getItem('Token');
   const init = {

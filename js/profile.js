@@ -13,7 +13,7 @@ const open5 = () => {
   modalPost.classList.add("hidden");   
 }
 async function reportPost(){
-  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
+  const url = (location.protocol === "https:") ? 'https://mandarin.api.weniv.co.kr' : 'http://146.56.183.55:5050';
   const token = localStorage.getItem('Token');
   const postId = modalPostReport.getAttribute('data-id');
 
@@ -43,7 +43,7 @@ modalReport.querySelector('.cancle-btn').addEventListener('click', () => {
 
 // follow, unfollow 상태 변경
 async function changeFollow(){
-  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
+  const url = (location.protocol === "https:") ? 'https://mandarin.api.weniv.co.kr' : 'http://146.56.183.55:5050';
   const accountName = checkAccountName();
   const token = localStorage.getItem('Token');
   const init = {
@@ -319,7 +319,7 @@ function setOtherPost(otherPost, otherProfile) {
 
 // 1. api - 프로필 정보 얻어오기
 async function getOtherProfile() {
-  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
+  const url = (location.protocol === "https:") ? 'https://mandarin.api.weniv.co.kr' : 'http://146.56.183.55:5050';
 
   // ?id= 값이 있는지 확인
   const accountName = checkAccountName();

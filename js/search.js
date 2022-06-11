@@ -7,7 +7,7 @@ async function searchUser(e) {
   if(searchValue == '') {
     document.querySelector(".container").innerHTML = '';
   } else {
-    const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
+    const url = (location.protocol === "https:") ? 'https://mandarin.api.weniv.co.kr' : 'http://146.56.183.55:5050';
     const token = localStorage.getItem('Token');
     const res = await fetch(`${url}/user/searchuser/?keyword=${searchValue}`, {
       method: "GET",

@@ -9,7 +9,7 @@ const uploadBtn = document.querySelector('.upload-btn');
 let imgFiles = []; 
 
 async function uploadImg(file) {
-  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
+  const url = (location.protocol === "https:") ? 'https://mandarin.api.weniv.co.kr' : 'http://146.56.183.55:5050';
   const formData = new FormData();
   formData.append("image", file);
   const res = await fetch(`${url}/image/uploadfiles`, {
@@ -48,7 +48,7 @@ function setImg() {
 }
 // 수정할 게시물의 내용을 화면에 뿌리기 
 async function renderPost() {
-  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
+  const url = (location.protocol === "https:") ? 'https://mandarin.api.weniv.co.kr' : 'http://146.56.183.55:5050';
   const token = localStorage.getItem('Token');
 
   try {
@@ -113,7 +113,7 @@ renderPost();
 uploadInput.addEventListener('change',readInputFile);
 
 async function editPost(){     
-  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
+  const url = (location.protocol === "https:") ? 'https://mandarin.api.weniv.co.kr' : 'http://146.56.183.55:5050';
   const token = localStorage.getItem('Token');
   const postId = new URLSearchParams(location.search).get('postId'); 
   const oldImg = hiddenImg.value;

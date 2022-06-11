@@ -30,7 +30,7 @@ async function login(e) {
 
   const userEmail = loginEmailInput.value;
   const userPw = loginPwInput.value;
-  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
+  const url = (location.protocol === "https:") ? 'https://mandarin.api.weniv.co.kr' : 'http://146.56.183.55:5050';
   const loginData = {
     "user": {
       "email": userEmail,

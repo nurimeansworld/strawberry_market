@@ -70,7 +70,7 @@ editIntro.addEventListener('input', function (e) {
 
 // 4. 계정 중복 관련 별도의 API
 async function checkAccountnamevalid() {
-  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
+  const url = (location.protocol === "https:") ? 'https://mandarin.api.weniv.co.kr' : 'http://146.56.183.55:5050';
   const userData = {
     'user': {
       'accountname': editId.value,
@@ -102,7 +102,7 @@ editId.addEventListener('input', checkAccountnamevalid);
 
 // 3. 입력된 정보로 프로필 수정 req
 async function reqEditProfile() {
-  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
+  const url = (location.protocol === "https:") ? 'https://mandarin.api.weniv.co.kr' : 'http://146.56.183.55:5050';
   const accountName = checkAccountName();
   const token = localStorage.getItem('Token');
   const userData = {
@@ -148,7 +148,7 @@ function setEditUserProfile(editUserProfile) {
 
 // 1. 로그인한 마이 프로필 정보 받아오기
 async function getEditUserProfile() {
-  const url = (location.protocol === "https:") ? 'https://api.mandarin.cf' : 'http://146.56.183.55:5050';
+  const url = (location.protocol === "https:") ? 'https://mandarin.api.weniv.co.kr' : 'http://146.56.183.55:5050';
   const accountName = checkAccountName();
   const token = localStorage.getItem('Token');
   const init = {
