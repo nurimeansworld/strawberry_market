@@ -184,7 +184,7 @@ async function renderFollowPost() {
 
     async function callPost() {
       // 버튼을 누른다 -> 삭제 (API코드를 짠다(명세보기필요한정보를 받아서 보냄 ) - 요청을 보낸다 - 결과를 확인 )
-      const url = 'https://mandarin.api.weniv.co.kr';
+      const url = (location.protocol === "https:") ? 'https://mandarin.api.weniv.co.kr' : 'http://146.56.183.55:5050';
       const token = localStorage.getItem('Token');
 
       try {
