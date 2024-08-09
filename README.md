@@ -38,7 +38,7 @@
 ### 개발 환경
 - Front : HTML, CSS, Vanilla JS
 - Back : 제공된 API 사용
-- 버전 관리 및 이슈 : 🔗[GitHub](https://github.com/nurimeansworld/strawberry_market), 🔗[GitHub Issues](https://github.com/nurimeansworld/strawberry_market/issues), 🔗[GitHub Project](https://github.com/nurimeansworld/strawberry_market/projects/1)
+- 버전 관리 및 이슈 : 🔗[GitHub](https://github.com/nurimeansworld/strawberry_market), 🔗[GitHub Issues](https://github.com/nurimeansworld/strawberry_market/issues), 🔗[GitHub Project](https://github.com/users/nurimeansworld/projects/19/views/1)
 - 서비스 배포 환경 : [🔗 Vercel](https://vercel.com/)
 ### 배포 URL
 URL : 🔗 https://strawberry-market.vercel.app/
@@ -139,7 +139,7 @@ URL : 🔗 https://strawberry-market.vercel.app/
 - 전체 개발 기간 : 2022-01-03 ~ 2022-02-13
 ### 작업 관리
 - 배포용 HTML과 개발용 HTML을 분리하여 작업하였습니다. ([🔗 개발용 퍼블리싱 리스트](https://nurimeansworld.github.io/strawberry_market/html/index.html))
-- 🔗[GitHub Projects](https://github.com/nurimeansworld/strawberry_market/projects/1)와 🔗[Issues](https://github.com/nurimeansworld/strawberry_market/issues)를 사용하여 진행도와 상황을 꾸준히 공유하였습니다.
+- 🔗[GitHub Projects](https://github.com/users/nurimeansworld/projects/19/views/1)와 🔗[Issues](https://github.com/nurimeansworld/strawberry_market/issues)를 사용하여 진행도와 상황을 꾸준히 공유하였습니다.
 <img src="https://user-images.githubusercontent.com/69141304/153535829-d60fd615-291c-49a2-a52b-86f05893d804.png">
 
 ### 주간회의
